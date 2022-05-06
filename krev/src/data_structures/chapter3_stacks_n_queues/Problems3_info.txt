@@ -1,0 +1,38 @@
+Stack:
+    stores link to top node
+Methods:
+    pop() - remove the top item from the stack (and return this top item!)
+    push(item) - add an item to the top of the stack
+    peek() - return the top of the stack
+    isEmpty() - returns true is the stack is empty
+
+INFO:
+1) Uses LIFO (last-in first-out) ordering
+2) to add/remove top item - runtime O(1)
+
+APPLICABLE:
+1) One case where stacks are often useful is in certain recursive algorithms. Sometimes you need to push
+temporary data onto a stack as you recurse, but then remove them as you backtrack (for example, because
+the recursive check failed). A stack offers an intuitive way to do this.
+
+2) A stack can also be used to implement a recursive algorithm iteratively.
+
+--------------------
+Queue:
+    stores link to first and last nodes
+Methods:
+    add(item) - Add an item to the end of the list.
+    remove() - Remove the first item in the list.
+    peek() - return the top of the queue.
+    isEmpty() - return true if the queue is empty.
+
+INFO:
+1) Uses FIFO ordering
+2) A queue can also be implemented with a linked list. In fact, they are essentially the same thing, as long as
+   items are added and removed from opposite sides.
+
+APPLICABLE:
+1) One place where queues are often used is in breadth-first search or in implementing a cache.
+In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process.
+Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process
+nodes in the order in which they are viewed.
