@@ -75,6 +75,8 @@ public class Problem8_5 {
      * of (a % 2 == 1) then a*b = 2*((int)a/2)*b + b
      * We avoid double call of recursiveMultiplyHelperOrig3 -> we don't need to store result in memo. It stores in callstack of recursion
      *
+     * time ~ O(log(small))
+     *
      */
     public static int recursiveMultiplyOrig3(int a, int b) {
         int min = a > b ? b : a;
