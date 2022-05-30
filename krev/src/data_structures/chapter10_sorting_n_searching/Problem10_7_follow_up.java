@@ -32,7 +32,7 @@ public class Problem10_7_follow_up {
      * What is the rangeSize should be?
      * We have < 1 billion non-negative integers, i.e. < 2^31
      * 10 Mb > 8 Mb = 2^23 bytes = 2^21 integers (since 1 integer requires 4 bytes).
-     * So we can blocks.size() = (2^31)/rangeSize <= 2^21
+     * blocks.size() = (2^31)/rangeSize <= 2^21
      * rangeSize >= 2^10
      *
      * idea 2: apply idea of bit vector to found block with missing integer
@@ -43,6 +43,13 @@ public class Problem10_7_follow_up {
     /**
      * NOTE: boolean type in Java may require 4 bytes of memory (as int).
      * That's why we need to use array of bytes as bit vector!
+     */
+
+    /**
+     * What if, as a follow up question, you are asked to solve the problem with even less memory? In this case, we
+     * can do repeated passes using the approach from the first step. We'd first check to see how many integers
+     * are found within each sequence of a million elements. Then, in the second pass, we'd check how many integers
+     * are found in each sequence of a thousand elements. Finally, in the third pass, we'd apply the bit vector.
      */
     public static final String filename = "krev/src/data_structures/chapter10_sorting_n_searching/Problem10_7.txt";
 
