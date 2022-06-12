@@ -1,7 +1,5 @@
 package data_structures.chapter10_sorting_n_searching;
 
-import java.util.BitSet;
-
 /**
  * p.163
  * 10.8 Find Duplicates:
