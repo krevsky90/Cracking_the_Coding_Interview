@@ -21,11 +21,10 @@ public class Problem2_2 {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        int k = 2;
+        int k = 4;
 
         System.out.println(linkedListToString(n1));
-        getKthToLastElement2(n1, k);
-        LinkedListNode kth = getKthToLastElement3(n1, k);
+        LinkedListNode kth = getKthToLastElement4(n1, k);
         System.out.println(kth == null ? null : kth.value);
     }
 
@@ -82,6 +81,27 @@ public class Problem2_2 {
         }
 
         return p1;
+    }
+
+    public static LinkedListNode getKthToLastElement4(LinkedListNode head, int k) {
+        if (head == null) return null;
+
+        LinkedListNode first = head;
+        LinkedListNode second = head;
+
+        for (int i = 0; i < k; i++) {
+            if (first == null) return null;
+            first = first.next;
+        }
+
+        if (first == null) return null;
+
+        while (first.next != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        return second;
     }
 
 
