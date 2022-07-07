@@ -14,7 +14,7 @@ import java.util.Stack;
 public class Problem3_2_StackWithMin2 extends Stack<Integer> {
     /**
      * SOLUTION (optimization):
-     * There's just one issue with this: if we have a I;uge stack, we waste a lot of space by keeping track of the min
+     * There's just one issue with this: if we have a huge stack, we waste a lot of space by keeping track of the min
      * for every single element. We can (maybe) do a bit better than this by using an additional stack which keeps track of the mins
      */
     //stack of min values
