@@ -73,7 +73,7 @@ public class Problem8_4 {
         return result;
     }
     /**
-     * KREVSKY SOLUTION BASED ON HINTS - start
+     * KREVSKY SOLUTION BASED ON HINTS - end
      */
 
     /**
