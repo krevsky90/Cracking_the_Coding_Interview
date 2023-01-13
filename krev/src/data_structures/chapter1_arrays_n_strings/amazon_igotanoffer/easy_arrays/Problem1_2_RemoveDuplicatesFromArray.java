@@ -1,4 +1,4 @@
-package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy;
+package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy_arrays;
 
 public class Problem1_2_RemoveDuplicatesFromArray {
     public static void main(String[] args) {

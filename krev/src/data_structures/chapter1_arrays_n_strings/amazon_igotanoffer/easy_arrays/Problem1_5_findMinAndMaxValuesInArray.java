@@ -1,4 +1,4 @@
-package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy;
+package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy_arrays;
 
 /**
  * https://igotanoffer.com/blogs/tech/array-interview-questions

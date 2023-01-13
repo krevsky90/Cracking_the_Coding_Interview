@@ -1,4 +1,4 @@
-package data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.easy;
+package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy_strings;
 
 /**
  * https://igotanoffer.com/blogs/tech/string-interview-questions
