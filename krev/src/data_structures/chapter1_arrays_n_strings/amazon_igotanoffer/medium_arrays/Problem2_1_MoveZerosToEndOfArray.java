@@ -22,7 +22,7 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arra
  * <p>
  * Follow up: Could you minimize the total number of operations done?
  */
-public class Problem1_2_MoveZerosToEndOfArray {
+public class Problem2_1_MoveZerosToEndOfArray {
     //time of solution ~ 20 mins
     //beats 99.9%
     public void moveZeroesKREV(int[] nums) {
