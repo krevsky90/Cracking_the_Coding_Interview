@@ -29,7 +29,6 @@ public class Problem1_7_MergeTwoBinaryTrees {
      * time to solve ~ 40 mins
      */
     public TreeNode mergeTreesKREV(TreeNode root1, TreeNode root2) {
-        // TreeNode root = null;
         if (root1 == null) return root2;
         if (root2 == null) return root1;
         TreeNode root = new TreeNode(root1.val + root2.val);
@@ -77,5 +76,17 @@ public class Problem1_7_MergeTwoBinaryTrees {
         t1.left = mergeTrees(t1.left, t2.left);
         t1.right = mergeTrees(t1.right, t2.right);
         return t1;
+    }
+
+    /**
+     * KREVSKY SOLUTION BASED ON ORIGINAL IDEA
+     */
+    public TreeNode mergeTreesKREV2(TreeNode root1, TreeNode root2) {
+        if (root1 == null) return root2;
+        if (root2 == null) return root1;
+        TreeNode root = new TreeNode(root1.val + root2.val);
+        root.left = mergeTreesKREV2(root1.left, root2.left);
+        root.right = mergeTreesKREV2(root1.right, root2.right);
+        return root;
     }
 }
