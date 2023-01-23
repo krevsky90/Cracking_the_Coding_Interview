@@ -18,6 +18,10 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_stri
  *
  * Only the space character ' ' is considered a whitespace character.
  * Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
+ *
+ * Constraints:
+ * 0 <= s.length <= 200
+ * s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
  */
 public class Problem2_3_StringToInteger {
     /**
@@ -64,6 +68,8 @@ public class Problem2_3_StringToInteger {
         }
 
         String strResult = (sign == -1 ? "-" : "") + s.substring(start, end + 1);
+
+        //NOTE: since s.length <= 200, then we can use double, because it is < 1.7*10^308
         double result = new Double(strResult);
         if (result > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
