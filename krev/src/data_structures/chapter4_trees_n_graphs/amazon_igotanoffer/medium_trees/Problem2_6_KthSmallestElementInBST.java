@@ -4,6 +4,13 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 import java.util.*;
 
+/**
+ * https://igotanoffer.com/blogs/tech/tree-interview-questions
+ * https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/
+ *
+ * Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+ */
+
 public class Problem2_6_KthSmallestElementInBST {
     /**
      * KREVSKY SOLUTION:
