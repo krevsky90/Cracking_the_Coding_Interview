@@ -37,7 +37,6 @@ public class Problem1_4_ReverseLinkedList {
 
         ListNode prevNode = null;
         ListNode curNode = head;
-        ListNode nextnextNode = null;
         while (curNode != null) {
             ListNode nextNode = curNode.next;
             curNode.next = prevNode;
@@ -46,5 +45,18 @@ public class Problem1_4_ReverseLinkedList {
         }
 
         return prevNode;
+    }
+
+    /**
+     * idea https://leetcode.com/problems/reverse-linked-list/solutions/3109507/iterative-and-recursive-approach/
+     */
+    public ListNode reverseListRecursively(ListNode head) {
+        if (head == null || head.next == null) return head;
+
+        ListNode curNode = reverseListRecursively(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return curNode;
     }
 }
