@@ -35,8 +35,10 @@ public class Problem1_6_RemoveDuplicatesFromSortedArray {
     /**
      * KREVSKY SOLUTION
      * 1 attempt, optimal, 17 mins
+     * time complexity ~ O(n)
+     * space complexity ~ O(1)
      */
-    public int removeDuplicates(int[] nums) {
+    public int removeDuplicatesKREV(int[] nums) {
         //0,1,2,3,4,2,2,3,3,4
         //k = 4
         //dup = 6
@@ -54,5 +56,26 @@ public class Problem1_6_RemoveDuplicatesFromSortedArray {
         }
 
         return k + 1;
+    }
+
+    /**
+     * https://redquark.org/leetcode/0026-remove-duplicates-from-sorted-array/
+     * time complexity ~ O(n)
+     * space complexity ~ O(1)
+     */
+    public int removeDuplicates(int[] nums) {
+        // Length of the updated array
+        int count = 0;
+        // Loop for all the elements in the array
+        for (int i = 0; i < nums.length; i++) {
+            // If the current element is equal to the next element, we skip
+            if (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+                continue;
+            }
+            // We will update the array in place
+            nums[count] = nums[i];
+            count++;
+        }
+        return count;
     }
 }
