@@ -27,7 +27,8 @@ public class Problem2_5_GenerateParentheses {
      */
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
-        generateParenthesis(result, n, n, "");
+        StringBuilder sb = new StringBuilder();
+        generateParenthesis(result, n, n, sb);
 
         return result;
     }
@@ -46,21 +47,21 @@ public class Problem2_5_GenerateParentheses {
     //      generateParenthesis(1, 2, "(()")
     //   generateParenthesis(2, 2, "()")
     //generateParenthesis(3, 2, ")") -> return
-    private void generateParenthesis(List<String> result, int open, int close, String combination) {
+    private void generateParenthesis(List<String> result, int open, int close, StringBuilder combination) {
         // if (open < 0) return;
         // if (open > close) return;
 
         if (close == 0) {
-            result.add(combination);
+            result.add(combination.toString());
             return;
         }
 
         if (open > 0) {
-            generateParenthesis(result, open - 1, close, combination + "(");
+            generateParenthesis(result, open - 1, close, combination.append("("));
         }
 
         if (open < close) {
-            generateParenthesis(result, open, close - 1, combination + ")");
+            generateParenthesis(result, open, close - 1, combination.append(")"));
         }
     }
 }
