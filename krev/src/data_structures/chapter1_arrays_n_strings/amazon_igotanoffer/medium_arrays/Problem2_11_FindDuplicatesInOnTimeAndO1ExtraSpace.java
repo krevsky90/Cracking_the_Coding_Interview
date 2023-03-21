@@ -1,5 +1,8 @@
 package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * https://igotanoffer.com/blogs/tech/array-interview-questions
  * https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/
@@ -34,10 +37,35 @@ public class Problem2_11_FindDuplicatesInOnTimeAndO1ExtraSpace {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             if (arr[i] / n >= 2) {
-                int valueToPrint = i % n;   //not arr[i]! since i-th element is index in the first loop => it causes addition of length to i-th position
-                sb.append(valueToPrint).append(" ");
+                sb.append(i).append(" ");   //not arr[i]! since i-th element is index in the first loop => it causes addition of length to i-th position
             }
         }
         System.out.println(sb.toString());
     }
+
+    /**
+     * https://leetcode.com/problems/find-all-duplicates-in-an-array/
+     */
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+
+        //ex1: [4,3,2,7,8,2,3,1]
+        //ex2: [1, 1, 2]
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            int idx = nums[i] % len;
+            nums[idx] += len;
+        }
+        //ex1: [12, 11, 18, 23, 16, 2, 3, 9]
+        //ex2: [1, 7, 5]
+
+        for (int i = 0; i < len; i++) {
+            if (nums[i] > 2*len) {
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
 }
