@@ -82,7 +82,8 @@ public class Problem4_12 {
     /**
      * ORIGINAL SOLUTION #1 (brute-force)
      * <p>
-     * time ~ O(N*logN)
+     * time ~ O(N*logN) - for balanced tree
+     * time ~ O(N^2) - for tree ~ straight line
      */
     public static int countPathWithSum(Node root, int targetSum) {
         if (root == null) return 0;
