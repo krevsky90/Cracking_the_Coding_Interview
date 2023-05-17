@@ -91,7 +91,7 @@ public class Problem2_7_GroupAnagrams {
 
     /**
      * ORIGINAL SOLUTION
-     * idea - HashMap + creating of unique key (O(K0, k - number of string symbos)
+     * idea - HashMap + creating of unique key (O(k), where k - number of string symbols)
      */
     class Solution {
         public List<List<String>> groupAnagrams(String[] strs) {
