@@ -23,23 +23,35 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arra
  * -10 <= nums[i] <= 10
  * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
  */
-public class Problem2_6_MaxProductSubArray_DynamicProg {
+public class Problem2_6_MaxProductSubArray_DynP {
+    public static void main(String[] args) {
+        int[] arr1 = new int[]{2, 3, -2, 4};
+        int[] arr2 = new int[]{-2, 0, -1};
+        System.out.println(maxProduct(arr1));
+        System.out.println(maxProduct(arr2));
+    }
+
     /**
-     * BEST EXPLANATION but I solved withour special case 'nums[i] = 0'
+     * BEST EXPLANATION but I solved without special case 'nums[i] = 0'
      * https://www.youtube.com/watch?v=lXVy6YWFcRM
      */
-    public int maxProduct(int[] nums) {
+    public static int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
 
-        int result = nums[0];
-        int minSubProduct = nums[0];
-        int maxSubProduct = nums[0];
 
-        for (int i = 1; i < nums.length; i++) {
+        int result = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            result = Math.max(result, nums[i]);
+        }
+
+        int minSubProduct = 1;
+        int maxSubProduct = 1;
+
+        for (int i = 0; i < nums.length; i++) {
             int tempMin = Math.min(minSubProduct * nums[i], maxSubProduct * nums[i]);
             int tempMax = Math.max(minSubProduct * nums[i], maxSubProduct * nums[i]);
-            minSubProduct = Math.min(nums[i], tempMin);
-            maxSubProduct = Math.max(nums[i], tempMax);
+            minSubProduct = Math.min(nums[i], tempMin); //since we need to get min of three values
+            maxSubProduct = Math.max(nums[i], tempMax); //since we need to get max of three values
 
             result = Math.max(result, maxSubProduct);
         }
