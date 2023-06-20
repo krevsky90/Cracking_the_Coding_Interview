@@ -7,6 +7,30 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class Solutions {
+    public static void main(String[] args) {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        n3.left = n1;
+        n3.right = n4;
+        n1.right = n2;
+
+        printDepthFirstValues(n3);
+        System.out.println("--------");
+        printPreOrderValues(n3);
+    }
+
+    public static void printPreOrderValues(TreeNode root) {
+        if (root == null) return;
+        System.out.println(root.val);
+        printPreOrderValues(root.left);
+        printPreOrderValues(root.right);
+    }
+
+    /**
+     * NOTE! this is the same as printPreOrderValues, BUT iterative implementation
+     */
     public static void printDepthFirstValues(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
