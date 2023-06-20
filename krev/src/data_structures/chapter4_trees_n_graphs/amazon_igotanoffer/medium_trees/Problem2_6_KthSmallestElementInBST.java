@@ -29,6 +29,11 @@ public class Problem2_6_KthSmallestElementInBST {
      * Approach 0 - THE MOST OPTIMIZED
      * Iterative Inorder Traversal
      * info: https://www.youtube.com/watch?v=5LUXSvjmGCw
+     * the idea: if we do k steps during inorder traversal of BST => we will find correct value
+     * 1) go the left and put each current node to stack until find null.
+     * 2) take the top element from the stack and increment counter of taken nodes
+     * 3.1) if counter = k, then return the value of current (i.e. taken) node
+     * 3.2) if counter != k, then go to right node of current node and repeat the step 1 for it
      *
      * This way one could speed up the solution because there is no need to build the entire inorder traversal, and one could stop after the kth element.
      * Time complexity: O(H+k), where H is a tree height
