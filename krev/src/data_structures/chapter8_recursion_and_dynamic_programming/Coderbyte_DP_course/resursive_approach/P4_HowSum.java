@@ -17,8 +17,8 @@ import java.util.Map;
  */
 public class P4_HowSum {
     public static void main(String[] args) {
-//        List<Integer> result = howSum(7, new int[]{3, 2});
-        List<Integer> result = howSumMemo(300, new int[]{7, 14});
+        List<Integer> result = howSum3(7, new int[]{3, 2});
+//        List<Integer> result = howSum3(300, new int[]{7, 14});
         if (result == null) {
             System.out.println("null");
         } else {
@@ -117,6 +117,24 @@ public class P4_HowSum {
         }
 
         memo.put(targetSum, null);
+        return null;
+    }
+
+    /**
+     * the same as original solution in the video
+     */
+    public static List<Integer> howSum3(int targetSum, int[] numbers) {
+        if (targetSum == 0) return new ArrayList<>();
+        if (targetSum < 0) return null;
+
+        for (int n : numbers) {
+            List<Integer> subResult = howSum3(targetSum - n, numbers);
+            if (subResult != null) {
+                subResult.add(n);
+                return subResult;
+            }
+        }
+
         return null;
     }
 }
