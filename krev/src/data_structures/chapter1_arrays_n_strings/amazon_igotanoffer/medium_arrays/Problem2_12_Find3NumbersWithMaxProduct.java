@@ -89,4 +89,19 @@ public class Problem2_12_Find3NumbersWithMaxProduct {
 
         return Math.max(c1, max);
     }
+
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(3);
+        int[] arr = new int[]{3,3,6,9,2,5,7};
+        for (int i : arr) {
+            pq.add(i);
+        }
+
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+
+        new Problem2_12_Find3NumbersWithMaxProduct().maximumProductHeap(arr);
+        System.out.println("");
+    }
 }
