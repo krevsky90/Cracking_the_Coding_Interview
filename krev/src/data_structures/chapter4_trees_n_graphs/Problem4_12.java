@@ -15,29 +15,51 @@ import java.util.*;
  */
 public class Problem4_12 {
     public static void main(String[] args) {
+        //linear tree
+//        Node n1 = new Node(10);
+//        Node n2 = new Node(5);
+//        Node n3 = new Node(1);
+//        Node n4 = new Node(2);
+//        Node n5 = new Node(-1);
+//        Node n6 = new Node(-1);
+//        Node n7 = new Node(7);
+//        Node n8 = new Node(1);
+//        Node n9 = new Node(2);
+//
+//        n1.left = n2;
+//        n2.left = n3;
+//        n3.left = n4;
+//        n4.left = n5;
+//        n5.left = n6;
+//        n6.left = n7;
+//        n7.left = n8;
+//        n8.left = n9;
+
+        //usual tree
         Node n1 = new Node(10);
         Node n2 = new Node(5);
-        Node n3 = new Node(1);
-        Node n4 = new Node(2);
-        Node n5 = new Node(-1);
-        Node n6 = new Node(-1);
-        Node n7 = new Node(7);
-        Node n8 = new Node(1);
+        Node n3 = new Node(-3);
+        Node n4 = new Node(3);
+        Node n5 = new Node(1);
+        Node n6 = new Node(11);
+        Node n7 = new Node(3);
+        Node n8 = new Node(-2);
         Node n9 = new Node(2);
 
         n1.left = n2;
-        n2.left = n3;
-        n3.left = n4;
-        n4.left = n5;
-        n5.left = n6;
-        n6.left = n7;
-        n7.left = n8;
-        n8.left = n9;
+        n1.right = n3;
+        n2.left = n4;
+        n2.right = n5;
+        n3.right = n6;
+        n4.left = n7;
+        n4.right = n8;
+        n5.right = n9;
 
         int targetSum = 8;
         Node root = n1;
 
-        int result = countPathsWithSum(root, targetSum);
+//        int result = countPathsWithSum(root, targetSum);
+        int result = countPathsWithSum21(root, targetSum);
         System.out.println(result);
     }
 
@@ -77,6 +99,38 @@ public class Problem4_12 {
         } else {
             pathCount.put(runningSum, newCount);
         }
+    }
+
+    /**
+     * ORIGINAL SOLUTION #2.1
+     * sightly differs https://youtu.be/uZzvivFkgtM?t=1261
+     * time ~ O(N), space ~ O(N)
+     */
+    public static int countPathsWithSum21(Node root, int targetSum) {
+        HashMap<Integer, Integer> pathCount = new HashMap<>();
+        pathCount.put(0, 1);    //??? why? is it necessary ???
+        return countPathsWithSum21(root, targetSum, 0, pathCount);
+    }
+
+    public static int countPathsWithSum21(Node root, int target, int runningSum, HashMap<Integer, Integer> pathCount) {
+        if (root == null) return 0;
+
+        runningSum += root.value;
+        int totalPaths = pathCount.getOrDefault(runningSum - target, 0);
+
+        //backtracking started
+        pathCount.put(runningSum, pathCount.getOrDefault(runningSum, 0) + 1);
+
+        System.out.println("root.value = " + root.value + ", runningSum = " + runningSum + ", sum = " + (runningSum - target) + ", totalPaths = " + totalPaths);
+        totalPaths += countPathsWithSum21(root.left, target, runningSum, pathCount);
+        totalPaths += countPathsWithSum21(root.right, target, runningSum, pathCount);
+
+        //backtracking finished:
+        //if we finish to check the branches that grow from this root node, we need to exclude the node from considered path
+        //since the idea should be applied to array, i.e. particular sequence of nodes of the tree, not to the whole tree.
+        pathCount.put(runningSum, pathCount.getOrDefault(runningSum, 0) - 1);
+
+        return totalPaths;
     }
 
     /**
