@@ -32,27 +32,108 @@ public class KadaneAlgorithm {
         int[] arr1 = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int[] arr2 = new int[]{1};
         int[] arr3 = new int[]{5, 4, -1, 7, 8};
-
-        int res1 = findMaxSumOfSubarray(arr1);
-        System.out.println(res1);
-        int res2 = findMaxSumOfSubarray(arr2);
-        System.out.println(res2);
-        int res3 = findMaxSumOfSubarray(arr3);
-        System.out.println(res3);
+        int[] arr = new int[]{-2,-1,-3};
+        int resultN3 = getMaxContiguousSubarraySumN3(arr);
+        int resultN2 = getMaxContiguousSubarraySumN2(arr);
+        int resultOnSpace = getMaxContiguousSubarraySumOnSpace(arr);
+        int resultO1Space = getMaxContiguousSubarraySumO1Space(arr);
+        System.out.println(resultN3);
+        System.out.println(resultN2);
+        System.out.println(resultOnSpace);
+        System.out.println(resultO1Space);
     }
 
-    public static int findMaxSumOfSubarray(int[] arr) {
-        if (arr == null || arr.length == 0) return 0;
-
-        int[] sums = new int[arr.length];
-        sums[0] = arr[0];
-        int maxResult = sums[0];
-
-        for (int i = 1; i < arr.length; i++) {
-            sums[i] = Math.max(sums[i-1] + arr[i], arr[i]); //dynamic programming
-            maxResult = Math.max(sums[i], maxResult);   //to avoid double traversing throught 'sums' array
+    /**
+     * brute force O(n^3)
+     * time to solve ~ 30 mins
+     * 2 attempts
+     *
+     * DEBUG:
+     * 					-2	1	-3	4	-1	2	1	-5	4
+     * i1					i1
+     * i2									i2
+     * i3									i3
+     * tempResult  						0
+     * tempTempResult						0
+     * sum									-1
+     */
+    public static int getMaxContiguousSubarraySumN3(int[] arr) {
+        int tempTempResult = Integer.MIN_VALUE;
+        for (int i1 = 0; i1 < arr.length; i1++) {
+            for (int i2 = i1 + 1; i2 < arr.length; i2++) {
+                int sum = 0;
+                for (int i3 = i1; i3 <= i2; i3++) {
+                    sum += arr[i3];
+                    tempTempResult = Math.max(tempTempResult, sum);
+                }
+            }
         }
 
-        return maxResult;
+        return tempTempResult;
+    }
+
+    /**
+     * brute force O(n^2)
+     * time to solve ~ 6 mins
+     * 1 attempt
+     */
+    public static int getMaxContiguousSubarraySumN2(int[] arr) {
+        int tempResult = Integer.MIN_VALUE;
+        for (int i1 = 0; i1 < arr.length; i1++) {
+//            int tempResult = arr[i1];
+            int sum = 0;
+            for (int i2 = i1; i2 < arr.length; i2++) {
+                sum += arr[i2];
+                tempResult = Math.max(tempResult, sum);
+            }
+//            result = Math.max(result, tempResult);
+        }
+
+        return tempResult;
+    }
+
+    /**
+     * info: https://www.youtube.com/watch?v=2MmGzdiKR9Y
+     * Kadana's algorithm (dynamic programming)
+     * time complexity ~ O(n)
+     * space complexity ~ O(n)
+     *
+     */
+    public static int getMaxContiguousSubarraySumOnSpace(int[] arr) {
+        if (arr == null || arr.length == 0) throw new IllegalArgumentException();
+
+        int[] memo = new int[arr.length];       //this is the idea!
+        memo[0] = arr[0];
+        int result = Integer.MIN_VALUE;
+
+        for (int i = 1; i < arr.length; i++) {
+            memo[i] = Math.max(arr[i], memo[i-1] + arr[i]); //this is the idea!
+            result = Math.max(memo[i], result);     //to avoid double traversing throught 'sums' array
+        }
+
+        return result;
+    }
+
+    /**
+     * info: https://www.youtube.com/watch?v=2MmGzdiKR9Y
+     * Kadana's algorithm (dynamic programming)
+     * time complexity ~ O(n)
+     * space complexity ~ O(1)
+     *
+     */
+    public static int getMaxContiguousSubarraySumO1Space(int[] arr) {
+        if (arr == null || arr.length == 0) throw new IllegalArgumentException();
+
+        int prevSum = arr[0];
+        int sum = arr[0];
+        int result = Integer.MIN_VALUE;
+
+        for (int i = 1; i < arr.length; i++) {
+            sum = Math.max(arr[i], prevSum + arr[i]); //this is the idea!
+            prevSum = sum;
+            result = Math.max(sum, result); //to avoid double traversing throught 'sums' array
+        }
+
+        return result;
     }
 }
