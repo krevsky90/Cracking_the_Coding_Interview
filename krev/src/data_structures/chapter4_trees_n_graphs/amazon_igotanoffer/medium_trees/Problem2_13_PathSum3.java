@@ -26,9 +26,15 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
  */
 public class Problem2_13_PathSum3 {
     /**
-     * https://www.youtube.com/watch?v=uZzvivFkgtM
      *
-     * NOT SOLVED!
+     * Solution #1 (not optimal)
+     * https://www.youtube.com/watch?v=uZzvivFkgtM
+     * counter1 will be called for each node (i.e. n times)
+     * time ~ O(N*logN) - for balanced tree
+     * time ~ O(N^2) - for tree ~ straight line
+     *
+     * NOT SOLVED by myself
+     *
      **/
     public int pathSum1(TreeNode root, int targetSum) {
         if (root == null) return 0;
@@ -40,6 +46,7 @@ public class Problem2_13_PathSum3 {
         return result;
     }
 
+    //count all paths with targetSum where start point of this path is root node
     //NOTE: targetSum is long for case when tree contains 10^9 elements and overcome int max/min
     private int counter1(TreeNode root, long targetSum) {
         if (root == null) return 0;
