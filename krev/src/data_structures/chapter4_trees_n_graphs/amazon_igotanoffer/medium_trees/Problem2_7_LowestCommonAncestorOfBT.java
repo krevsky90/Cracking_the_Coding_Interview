@@ -61,6 +61,25 @@ public class Problem2_7_LowestCommonAncestorOfBT {
     }
 
     /**
+     * back to back SWE:
+     * https://youtu.be/py3R23aAPCA?t=909
+     * time ~ O(n)
+     * space ~ O(h)
+     */
+    public static TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (root.val == p.val || root.val == q.val) return root;
+
+        TreeNode leftNode = lca(root.left, p, q);
+        TreeNode rightNode = lca(root.right, p, q);
+
+        if (leftNode == null) return rightNode; //if p,q belongs to right subtree
+        if (rightNode == null) return leftNode; //if p,q belongs to left subtree
+
+        return root;    //if p and q belongs to different subtrees
+    }
+
+    /**
      * OFFICIAL SOLUTION #1: Recursive Approach
      * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/solutions/194159/lowest-common-ancestor-of-a-binary-tree/
      * like my optimized solution
