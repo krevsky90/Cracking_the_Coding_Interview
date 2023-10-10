@@ -30,20 +30,36 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
  *
  */
 public class Problem2_10_FlattenBTtoLinkedList {
+    /**
+     * good explanation: https://www.youtube.com/watch?v=NOKVBiJwkD0
+     *
+     * Idea:
+     * 1) take tempLeft and tempRight to store root's children
+     * 2) set root -> left = null
+     * 3) call recursively flatten method for tempLeft and tempRight
+     * After that we get two lists (from left and right tree parts)
+     * 4) attach root -> right = tempLeft (that is beginning of left list)
+     * 5) find the latest element (le) of left list
+     * 5.2) and le -> right = tempRight
+     */
     public void flatten(TreeNode root) {
         if (root == null) return;
-
+        // 1) take tempLeft and tempRight to store root's children
         TreeNode tempLeft = root.left;
         TreeNode tempRight = root.right;
+        // 2) set root -> left = null
         root.left = null;
+        // 3) call recursively flatten method for tempLeft and tempRight
         flatten(tempLeft);
         flatten(tempRight);
+        // 4) attach root -> right = tempLeft (that is beginning of left list)
         root.right = tempLeft;
+        // 5) find the latest element (le) of left list
         TreeNode temp = root;
         while (temp.right != null) {
             temp = temp.right;
         }
-
+        // 5.2) and le -> right = tempRight
         temp.right = tempRight;
     }
 }
