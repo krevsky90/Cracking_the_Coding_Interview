@@ -39,6 +39,10 @@ public class Problem2_15_ConstructBTFromInOrderAndPostOrderTraversal {
 
     // 15 20 7 - in order
     // 15 7 20 - post order
+    // final tree:
+    //      20
+    //     /  \
+    //    15   7
     private TreeNode buildTreeRecursively(int[] inorder, int inLeft, int inRight, int[] postorder, int postLeft, int postRight) {
         if (inLeft > inRight) {
             return null;
@@ -56,7 +60,8 @@ public class Problem2_15_ConstructBTFromInOrderAndPostOrderTraversal {
             TreeNode leftNode = buildTreeRecursively(inorder, inLeft, rootIndex - 1, postorder, postLeft, postLeft + leftLength - 1);   //(..,0, 0, .., 0, 0)
             root.left = leftNode;
 
-            //как-то надо зачеркнуть leftNode в postorder, к-ый передаем?? пока что передал postLeft (а не postleft+1, например)
+            //надо НЕ взять left-часть из postorder, к-ый передаем => postLeft + leftLength
+            //так же надо НЕ взять последний элемент из postorder (т.к. это уже root) => передал postRight - 1
             TreeNode rightNode = buildTreeRecursively(inorder, rootIndex + 1, inRight, postorder, postLeft + leftLength, postRight - 1);   //..,2,2,..,1,1
             root.right = rightNode;
 
