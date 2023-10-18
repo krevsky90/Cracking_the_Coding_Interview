@@ -1,5 +1,6 @@
 package data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.medium_trees;
 
+import data_structures.chapter4_trees_n_graphs.Problem4_11;
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 /**
@@ -30,6 +31,68 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
  *
  */
 public class Problem2_10_FlattenBTtoLinkedList {
+    public static void main(String[] args) {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n6 = new TreeNode(6);
+
+        n1.left = n2;
+        n1.right = n5;
+        n2.left = n3;
+        n2.right = n4;
+        n5.right = n6;
+
+        new Problem2_10_FlattenBTtoLinkedList().flattenMorris(n1);
+
+        //print results
+        TreeNode curNode = n1;
+        String result = "";
+        while (curNode != null) {
+            result += curNode.val + " -> ";
+            curNode = curNode.right;
+        }
+        System.out.println(result);
+
+    }
+    /**
+     *  PRE-order Morris traversal approach
+     *
+     *  info: https://www.youtube.com/watch?v=R7nYOFtv24M
+     */
+    public void flattenMorris(TreeNode root) {
+        TreeNode current = root;
+
+        while (current != null) {
+            if (current.left == null) {
+                current = current.right;
+                //do nothing or print current element if you want
+            } else {
+                // Find IN-order predecessor
+                TreeNode predecessor = current.left;
+                while (predecessor.right != null) {
+                    predecessor = predecessor.right;
+                }
+
+                if (predecessor.right == null) {
+                    //i.e. if we reach leave - then link it to current node
+                    //NOTE: this is modification of in-order traversal to post-order traversal
+                    predecessor.right = current.right;
+
+                    //since finally we need to get linked list consists of nodes that have right link and doesn't have left link
+                    current.right = current.left;
+                    current.left = null;
+                }
+
+                //and check do the same actions for left (i.e. already right) child of current node
+                current = current.right;
+            }
+        }
+    }
+
+
     /**
      * good explanation: https://www.youtube.com/watch?v=NOKVBiJwkD0
      *
