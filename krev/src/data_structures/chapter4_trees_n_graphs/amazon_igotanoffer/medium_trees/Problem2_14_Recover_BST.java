@@ -16,83 +16,45 @@ import java.util.List;
  * Follow up: A solution using O(n) space is pretty straight-forward. Could you devise a constant O(1) space solution?
  */
 public class Problem2_14_Recover_BST {
+
+    private static final Problem2_14_Recover_BST INSTANCE = new Problem2_14_Recover_BST();
     private TreeNode first;
     private TreeNode second;
     private TreeNode prev;
 
     public static void main(String[] args) {
+        //example 1:
+        //swapped nodes: 2 and 3
+        //errorNodes: 2,3
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
         node1.left = node3;
         node3.right = node2;
 
-        new Problem2_14_Recover_BST().recoverTreeMorris(node1);
+        //example 2:
+        //swapped nodes: 4 and 9
+        //errorNodes: 9,8 and 8,4
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n8 = new TreeNode(8);
+        TreeNode n9 = new TreeNode(9);
+        n8.left = n1;
+        n8.right = n4;
+        n1.right = n9;
+
+
+        INSTANCE.recoverTreeMorris(n8);
+        System.out.println("");
     }
 
     /**
-     * NOT SOLVED
-     * https://leetcode.com/problems/recover-binary-search-tree/solutions/1962981/idea-inorder-traversal-easy-to-understand/
-     * good explanation - https://www.youtube.com/watch?v=LR3K5XAWV5k
-     * time complexity O(n)
-     * space complexity O(n) (on average O(logN))
-     * idea - inOrderTraversal of BST is sorted array!
-     */
-    public void recoverTree(TreeNode root) {
-        if (root == null) return;
-
-        inOrderTraversal(root);
-
-        //swap the values, but not real nodes
-        int tempVal = first.val;
-        first.val = second.val;
-        second.val = tempVal;
-    }
-
-    // 3 2 1
-    //inOrderTraversal(1)
-    //  inOrderTraversal(3)
-    //      inOrderTraversal(null) - skip
-    //      prev = 3
-    //      inOrderTraversal(2)
-    //          inOrderTraversal(null) - skip
-    //          first = 3
-    //          prev = 2
-    //  second = 1
-    //  prev = 1
-    //  inOrderTraversal(null) - skip
-    private void inOrderTraversal(TreeNode root) {
-        if (root == null) return;
-
-        inOrderTraversal(root.left);
-
-        if (prev == null) {
-            prev = root;
-        } else {
-            if (root.val < prev.val) {
-                if (first == null) {
-                    first = prev;
-                }
-                second = root;  //should not write } else { second = root; } since if the tree is 1 -> 2 (right node) then second = null, that is incorrect
-
-                prev = root;
-            } else {
-                prev = root;
-            }
-        }
-
-        inOrderTraversal(root.right);
-    }
-
-    //**************************************
-
-    /**
-     * Morris in order traversal
+     * Morris in order traversal (theory)
      * https://www.youtube.com/watch?v=wGXB9OWhPTg
      * time complexity O(n)
      * space complexity O(1) since we change tree in-place
      */
-    public void morrisInOrderTraversal(TreeNode root) {
+    public void morrisInOrderTraversalCommonAlgorithm(TreeNode root) {
         TreeNode current = root;
         while (current != null) {
             if (current.left == null) {
@@ -197,4 +159,61 @@ public class Problem2_14_Recover_BST {
         secondNode.val = tempVal;
     }
 
+    /**
+     * ================================ naive and NOT optimal solution ================================
+     */
+
+    /**
+     * NOT SOLVED
+     * https://leetcode.com/problems/recover-binary-search-tree/solutions/1962981/idea-inorder-traversal-easy-to-understand/
+     * good explanation - https://www.youtube.com/watch?v=LR3K5XAWV5k
+     * time complexity O(n)
+     * space complexity O(n) (on average O(logN))
+     * idea - inOrderTraversal of BST is sorted array!
+     */
+    public void recoverTree(TreeNode root) {
+        if (root == null) return;
+
+        inOrderTraversal(root);
+
+        //swap the values, but not real nodes
+        int tempVal = first.val;
+        first.val = second.val;
+        second.val = tempVal;
+    }
+
+    // 3 2 1
+    //inOrderTraversal(1)
+    //  inOrderTraversal(3)
+    //      inOrderTraversal(null) - skip
+    //      prev = 3
+    //      inOrderTraversal(2)
+    //          inOrderTraversal(null) - skip
+    //          first = 3
+    //          prev = 2
+    //  second = 1
+    //  prev = 1
+    //  inOrderTraversal(null) - skip
+    private void inOrderTraversal(TreeNode root) {
+        if (root == null) return;
+
+        inOrderTraversal(root.left);
+
+        if (prev == null) {
+            prev = root;
+        } else {
+            if (root.val < prev.val) {
+                if (first == null) {
+                    first = prev;
+                }
+                second = root;  //should not write } else { second = root; } since if the tree is 1 -> 2 (right node) then second = null, that is incorrect
+
+                prev = root;
+            } else {
+                prev = root;
+            }
+        }
+
+        inOrderTraversal(root.right);
+    }
 }
