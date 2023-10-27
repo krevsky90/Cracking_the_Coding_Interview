@@ -15,7 +15,7 @@ TIPS:
 ================
 Question variants:
     Fixed length:
-        - max sum subarray of size K - see solving_techniques/sliding_window/MaxSumSubarray.java
+        - max sum subarray of size K - see solving_techniques/sliding_window/fixedWindowLength/MaxSumSubarray.java
 
     Dynamic length:
         - the smallest sum >= some value S - see solving_techniques/sliding_window/SmallestSubarrayWithGivenSum.java

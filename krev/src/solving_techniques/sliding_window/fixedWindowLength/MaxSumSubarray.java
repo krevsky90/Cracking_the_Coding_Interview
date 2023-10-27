@@ -1,4 +1,4 @@
-package solving_techniques.sliding_window;
+package solving_techniques.sliding_window.fixedWindowLength;
 
 /**
  * https://youtu.be/MK-NZ4hN7rs?t=1138
@@ -16,6 +16,11 @@ public class MaxSumSubarray {
         System.out.println(resultKREV);
     }
 
+    //4,2,1,7,8,1,2,8,1,0
+    //size = 0
+    //i = 3
+    //curSum = 10
+    //maxSum = 10
     public static int findMaxSumSubarrayKREV(int[] arr, int size) {
         int curSum = 0;
         int maxSum = Integer.MIN_VALUE;
@@ -31,6 +36,12 @@ public class MaxSumSubarray {
 
         return maxSum;
     }
+
+    //4,2,1,7,8,1,2,8,1,0
+    //size = 3
+    //i = 3
+    //curSum = 8
+    //maxSum = 10
 
     public static int findMaxSumSubarray(int[] arr, int size) {
         int curSum = 0;
