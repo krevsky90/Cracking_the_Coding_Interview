@@ -1,7 +1,6 @@
 package solving_techniques.twoPointers;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
