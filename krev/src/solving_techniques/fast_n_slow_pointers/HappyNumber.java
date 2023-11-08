@@ -28,7 +28,9 @@ public class HappyNumber {
             fast = sumOfSquaredDigits(sumOfSquaredDigits(fast));
         }
 
-        //if we reach this row of code => we escaped from while loop => a cycle of numbers exists => slow canNOT be = 1 => the number is not a happy numbe
+        //if we reach this row of code => we escaped from while loop. We could do this in 2 cases:
+        // 1) slow = fast = 1 ("happy" loop)
+        // 2) slow = fast != 1 ("bad" loop)
         return slow == 1;
     }
 
