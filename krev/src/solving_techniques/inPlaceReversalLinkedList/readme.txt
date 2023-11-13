@@ -23,7 +23,7 @@ return prev
 
 Sequence of problems:
 1) Reverse a LinkedList (easy) - done
-2) Reverse a Sub-list (medium) - todo
+2) Reverse a Sub-list (medium) - done
 3) Reverse every K-element Sub-list (medium) - todo
 4) Problem Challenge 1: Reverse alternating K-element Sub-list (medium) - todo
 5) Problem Challenge 2: Rotate a LinkedList (medium) - todo
