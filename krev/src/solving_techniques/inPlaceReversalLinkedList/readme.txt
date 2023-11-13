@@ -22,7 +22,7 @@ cur = next;
 return prev
 
 Sequence of problems:
-1) Reverse a LinkedList (easy) - todo
+1) Reverse a LinkedList (easy) - done
 2) Reverse a Sub-list (medium) - todo
 3) Reverse every K-element Sub-list (medium) - todo
 4) Problem Challenge 1: Reverse alternating K-element Sub-list (medium) - todo
