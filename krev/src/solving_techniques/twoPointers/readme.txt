@@ -10,3 +10,7 @@ Sequence of problems:
 3) SquaresInSortedArray
 4) TripletSumCloseToTarget
 5) Triplets with Smaller Sum
+6) SubarraysWithProductLessThanTarget
+7.1) Segregate0and1s
+7.2) DutchNationalFlagProblem
+8) ProblemChallenge1_QuadrupleSumToTarget - todo
