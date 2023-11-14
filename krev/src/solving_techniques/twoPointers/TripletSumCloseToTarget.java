@@ -63,7 +63,7 @@ public class TripletSumCloseToTarget {
                     smallestDifference = targetDiff;
                 }
 
-                //it is 'OR' part or the previous condition (separated it for better understanding)
+                //it is 'OR' part of the previous condition (separated it for better understanding)
                 //this is implementation of the requirement:
                 //"If there are more than one such triplet, return the sum of the triplet with the smallest sum" - see Example 4 from the link above
                 if (Math.abs(targetDiff) == Math.abs(smallestDifference) && targetDiff > smallestDifference) {

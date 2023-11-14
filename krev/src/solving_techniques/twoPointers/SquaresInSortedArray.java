@@ -98,7 +98,7 @@ public class SquaresInSortedArray {
 
         //if all positive numbers are handled, but negative - not handled
         while (negIdx >= 0) {
-            result[resIdx] = result[resIdx] = nums[negIdx]*nums[negIdx];
+            result[resIdx] = nums[negIdx]*nums[negIdx];
             negIdx--;
             resIdx++;
         }

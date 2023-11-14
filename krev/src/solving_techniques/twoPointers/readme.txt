@@ -4,13 +4,16 @@ https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-codin
 Usage: In this technique, we use two pointers to iterate the input data. Generally, both pointers move in the opposite direction at a constant interval.
 
 Sequence of problems:
-1) PairWithTargetSum
-2.1) IdeaProjects\Cracking_the_Coding_Interview\krev\src\data_structures\chapter1_arrays_n_strings\amazon_igotanoffer\easy_arrays\Problem1_6_RemoveDuplicatesFromSortedArray.java
-2.2) RemoveDuplicatesInPlace
-3) SquaresInSortedArray
-4) TripletSumCloseToTarget
-5) Triplets with Smaller Sum
-6) SubarraysWithProductLessThanTarget
-7.1) Segregate0and1s
-7.2) DutchNationalFlagProblem
-8) ProblemChallenge1_QuadrupleSumToTarget - todo
+1) PairWithTargetSum - done
+2.1) IdeaProjects\Cracking_the_Coding_Interview\krev\src\data_structures\chapter1_arrays_n_strings\amazon_igotanoffer\easy_arrays\Problem1_6_RemoveDuplicatesFromSortedArray.java - done
+2.2) RemoveDuplicatesInPlace - done
+3) SquaresInSortedArray - done
+4) TripletSumToZero (medium) - done
+5) TripletSumCloseToTarget - done
+6) Triplets with Smaller Sum - done
+7) SubarraysWithProductLessThanTarget - done
+8.1) Segregate0and1s - done
+8.2) DutchNationalFlagProblem - done
+9) ProblemChallenge1_QuadrupleSumToTarget - todo
+10) Problem Challenge 2: Comparing Strings containing Backspaces (medium) - todo
+11) Problem Challenge 3: Minimum Window Sort (medium) - todo
