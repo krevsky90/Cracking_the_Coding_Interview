@@ -5,11 +5,11 @@ https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394fc8
 Usage: As the name suggests, this technique is used to solve problems involving traversing trees in a breadth-first search manner.
 
 Sequence of problems:
-1) Binary Tree Level Order Traversal (easy) - todo
+1) Binary Tree Level Order Traversal (easy) - done
 2) Reverse Level Order Traversal (easy) - todo
 3) Zigzag Traversal (medium) - todo
 4) Level Averages in a Binary Tree (easy) - todo
-5) Minimum Depth of a Binary Tree (easy) - todo
+5) Minimum Depth of a Binary Tree (easy) - done
 6) Level Order Successor (easy) - todo
 7) Connect Level Order Siblings (medium) - todo
 8) Problem Challenge 1: Connect All Level Order Siblings (medium) - todo
