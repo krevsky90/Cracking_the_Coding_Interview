@@ -5,8 +5,8 @@ https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63989f4
 Usage: As the name suggests, this technique is used to solve problems involving traversing trees in depth-first search manner.
 
 Sequence of problems:
-1) Binary Tree Path Sum (easy)
-2) All Paths for a Sum (medium) - todo
+1) Binary Tree Path Sum (easy) - done
+2) All Paths for a Sum (medium) - done
 3) Sum of Path Numbers (medium) - todo
 4) Path With Given Sequence (medium) - todo
 5) Count Paths for a Sum (medium) - todo
