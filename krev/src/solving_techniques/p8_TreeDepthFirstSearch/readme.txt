@@ -7,7 +7,7 @@ Usage: As the name suggests, this technique is used to solve problems involving 
 Sequence of problems:
 1) Binary Tree Path Sum (easy) - done
 2) All Paths for a Sum (medium) - done
-3) Sum of Path Numbers (medium) - todo
+3) Sum of Path Numbers (medium) - done
 4) Path With Given Sequence (medium) - todo
 5) Count Paths for a Sum (medium) - todo
 6) Problem Challenge 1: Tree Diameter (medium) - todo

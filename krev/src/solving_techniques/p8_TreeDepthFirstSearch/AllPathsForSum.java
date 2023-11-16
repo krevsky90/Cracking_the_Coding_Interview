@@ -65,15 +65,13 @@ public class AllPathsForSum {
         tempPath.add(root.val);
         if (root.val == targetSum && root.left == null && root.right == null) {
             result.add(new ArrayList<>(tempPath));
-            tempPath.pollLast();   //i.e. remove the last inserted value, i.e. root.val
-            return;
         }
 
+        //if root is leaf then both these calls will do nothing => we can omit 'return' in 'if (root.val == targetSum ...' block
         pathSum(root.left, targetSum - root.val, result, tempPath);
         pathSum(root.right, targetSum - root.val, result, tempPath);
 
         tempPath.pollLast();   //i.e. remove the last inserted value, i.e. root.val
-        return;
     }
 
 
