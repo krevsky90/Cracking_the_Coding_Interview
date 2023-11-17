@@ -10,5 +10,5 @@ Sequence of problems:
 3) Sum of Path Numbers (medium) - done
 4) Path With Given Sequence (medium) - todo
 5) Count Paths for a Sum (medium) - todo
-6) Problem Challenge 1: Tree Diameter (medium) - todo
+6) Problem Challenge 1: Tree Diameter (medium) - done
 7) Problem Challenge 2: Path with Maximum Sum (hard) - todo
