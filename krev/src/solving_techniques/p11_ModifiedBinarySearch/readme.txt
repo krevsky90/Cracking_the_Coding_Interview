@@ -7,7 +7,7 @@ and we are asked to find a certain element, the best algorithm we can use is the
 Sequence of problems:
 1) Order-agnostic Binary Search (easy) - todo
 2) Ceiling of a Number (medium) - done
-3) Next Letter (medium) - todo
+3) Next Letter (medium) - done
 4) Number Range (medium) - todo
 5) Search in a Sorted Infinite Array (medium) - todo
 6) Minimum Difference Element (medium) - todo
