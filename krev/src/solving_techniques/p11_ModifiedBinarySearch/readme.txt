@@ -13,5 +13,5 @@ Sequence of problems:
 6) Minimum Difference Element (medium) - todo
 7) Bitonic Array Maximum (easy) - todo
 8) Problem Challenge 1: Search Bitonic Array (medium) - todo
-9) Problem Challenge 2: Search in Rotated Array (medium) - todo
+9) Problem Challenge 2: Search in Rotated Array (medium) - done
 10) Problem Challenge 3: Rotation Count (medium) - todo
