@@ -94,11 +94,9 @@ public class FindMinimumInRotatedSortedArray {
 
             if (nums[mid] >= nums[low]) {
                 //It means that left part is sorted.
-                //And since array is rotated => nums[low] > nums[high] => nums[low] cannot be minimum
-                // => minimum belongs to right (unsorted) part
+                //Let's search in the right (unsorted) part
                 low = mid + 1;
-            } else {//}if (nums[mid] < nums[high]) {
-                //NOTE: mid cannot be equals to high => we do not write such condition
+            } else {
                 high = mid - 1;
             }
         }

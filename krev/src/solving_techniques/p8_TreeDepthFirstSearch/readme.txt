@@ -8,7 +8,7 @@ Sequence of problems:
 1) Binary Tree Path Sum (easy) - done
 2) All Paths for a Sum (medium) - done
 3) Sum of Path Numbers (medium) - done
-4) Path With Given Sequence (medium) - todo
+4) Path With Given Sequence (medium) - done
 5) Count Paths for a Sum (medium) - todo
 6) Problem Challenge 1: Tree Diameter (medium) - done
 7) Problem Challenge 2: Path with Maximum Sum (hard) - todo

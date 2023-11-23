@@ -46,7 +46,7 @@ public class MergeSort {
         }
 
         //copy values from tempArr to arr
-        for (int c = start; c < end; c++) {
+        for (int c = start; c <= end; c++) {
             arr[c] = tempArr[c - start];
         }
     }
