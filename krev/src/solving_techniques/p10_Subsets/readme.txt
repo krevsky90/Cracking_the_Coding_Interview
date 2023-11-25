@@ -4,9 +4,22 @@ https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639ca67
 A huge number of coding interview problems involve dealing with Permutations and Combinations of a given set of elements.
 This pattern describes an efficient Breadth First Search (BFS) approach to handle all these problems.
 
+Theory:
+https://www.youtube.com/watch?v=VKTKKPKX_BU
+
+Combinatorics
+    Permutations (order is significant)
+        with repetitions
+        without repetitions
+    Subsets (combinations) - order is NOT significant
+        with repetitions
+        without repetitions
+
+
+
 Sequence of problems:
-1) Subsets (easy) - todo
-2) Subsets With Duplicates (easy) - todo
+1) Subsets (easy) - done
+2) Subsets With Duplicates (easy/medium) - done
 3) Permutations (medium) - todo
 4) String Permutations by changing case (medium) - todo
 5) Balanced Parentheses (hard) - todo
