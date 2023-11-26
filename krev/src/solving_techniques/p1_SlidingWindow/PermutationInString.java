@@ -35,15 +35,24 @@ public class PermutationInString {
         String s21 = "ab", s22 = "eidboaoo";
         String s31 = "abc", s32 = "dababbac";
 
-        System.out.println(obj.checkInclusionKREV(s11, s12));
+        System.out.println(obj.checkInclusionOptimized(s11, s12));
         System.out.println(obj.checkInclusionKREV(s21, s22));
         System.out.println(obj.checkInclusionKREV(s31, s32));
-
     }
 
     /**
      * https://leetcode.com/problems/permutation-in-string/solutions/3142547/simple-to-understand-java-o-n-time/
      * idea: Compare each window with the matcher string and check if it contains all its elements
+     *
+     * DEBUG:
+     * s1 = "ab"
+     * s2 = "cdba"
+     * data1 = [1 1 0 0 0 .. 0]
+     * data2 = [0 0 1 1 0 .. 0]
+     * width = 2
+     * inside for-loop: moving sliding window through data2:
+     * "cd" = [0 0 1 1 0 .. 0] => "db" = [0 1 0 1 0 .. 0] => "ba" = [1 1 0 0 0 .. 0] <= this array equals to data1 => return true
+     *
      */
     public boolean checkInclusionOptimized(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
