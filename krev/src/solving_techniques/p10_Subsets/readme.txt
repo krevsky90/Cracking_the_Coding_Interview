@@ -22,7 +22,7 @@ Sequence of problems:
 2) Subsets With Duplicates (easy/medium) - done
 3) Permutations (medium) - done
 4) String Permutations by changing case (medium) - done
-5) Balanced Parentheses (hard) - todo
+5) Balanced Parentheses (hard) - done
 6) Unique Generalized Abbreviations (hard) - todo
 7) Problem Challenge 1: Evaluate Expression (hard) - todo
 8) Problem Challenge 2: Structurally Unique Binary Search Trees (hard) - todo

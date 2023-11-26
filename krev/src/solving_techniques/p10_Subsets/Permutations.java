@@ -56,4 +56,9 @@ public class Permutations {
             }
         }
     }
+
+    /**
+     * SOLUTION #2:
+     * see Cracking_the_Coding_Interview\krev\src\data_structures\chapter8_recursion_and_dynamic_programming\Problem8_7 # computeAllPermutations
+     */
 }
