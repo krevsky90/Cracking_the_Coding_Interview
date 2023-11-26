@@ -21,7 +21,7 @@ Sequence of problems:
 1) Subsets (easy) - done
 2) Subsets With Duplicates (easy/medium) - done
 3) Permutations (medium) - done
-4) String Permutations by changing case (medium) - todo
+4) String Permutations by changing case (medium) - done
 5) Balanced Parentheses (hard) - todo
 6) Unique Generalized Abbreviations (hard) - todo
 7) Problem Challenge 1: Evaluate Expression (hard) - todo
