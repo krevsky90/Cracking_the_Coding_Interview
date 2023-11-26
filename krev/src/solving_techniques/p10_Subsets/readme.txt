@@ -20,7 +20,7 @@ Combinatorics
 Sequence of problems:
 1) Subsets (easy) - done
 2) Subsets With Duplicates (easy/medium) - done
-3) Permutations (medium) - todo
+3) Permutations (medium) - done
 4) String Permutations by changing case (medium) - todo
 5) Balanced Parentheses (hard) - todo
 6) Unique Generalized Abbreviations (hard) - todo

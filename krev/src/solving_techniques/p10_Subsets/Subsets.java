@@ -23,7 +23,7 @@ public class Subsets {
     /**
      * KREVSKY SOLUTION:
      * https://www.youtube.com/watch?v=VKTKKPKX_BU
-     * time to solve ! 10 mins
+     * time to solve ~ 10 mins
      * 2 attempts: forget to create new list based on tempList
      */
     public List<List<Integer>> subsets(int[] nums) {
