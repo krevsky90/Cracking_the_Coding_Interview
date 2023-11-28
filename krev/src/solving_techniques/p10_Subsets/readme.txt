@@ -15,7 +15,34 @@ Combinatorics
         with repetitions
         without repetitions
 
+KREVSKY observations:
+1) for SubSets:
+    use 2 methods:
+        List<List<..>> method1(int[] arr) {..}
 
+        void helper(int[] arr, List<List<..>> result, List<..> tempList, int start) {
+            if (tempList.length == arr.length) result.add(new ArrayList<>(tempList));
+
+            for (i = start; ..) {
+                tempList.add(nums[i]);
+                helper(arr, result, tempList, start + 1);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+
+2) for Permutations:
+     use 2 methods:
+        List<List<..>> method1(int[] arr) {..}
+
+        void helper(int[] arr, List<List<..>> result, List<..> tempList) {
+            if (tempList.length = arr.length) result.add(new ArrayList<>(tempList));
+
+            for (i = 0; ..) {
+                tempList.add(nums[i]);
+                helper(arr, result, tempList, start + 1);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
 
 Sequence of problems:
 1) Subsets (easy) - done
