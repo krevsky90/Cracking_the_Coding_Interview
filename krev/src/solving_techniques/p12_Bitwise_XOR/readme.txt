@@ -16,6 +16,6 @@ see https://medium.com/@Harshit_Raj_14/useful-properties-of-xor-in-coding-bitwis
 
 Sequence of problems:
 1) Single Number (easy) - done
-2) Two Single Numbers (medium) - todo
+2) Two Single Numbers (medium) - done
 3) Complement of Base 10 Number (medium) - todo
 4) Problem Challenge 1: Flip and Invert an Image (hard) - todo
