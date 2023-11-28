@@ -6,7 +6,7 @@ Usage: As the name suggests, this technique is used to solve problems involving 
 
 Sequence of problems:
 1) Binary Tree Level Order Traversal (easy) - done
-2) Reverse Level Order Traversal (easy) - todo
+2) Reverse Level Order Traversal (easy) - done
 3) Zigzag Traversal (medium) - todo
 4) Level Averages in a Binary Tree (easy) - todo
 5) Minimum Depth of a Binary Tree (easy) - done
