@@ -1,4 +1,5 @@
 https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
+https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/638c9e2788f1e1c16f41c35c
 
 2. Two Pointers
 Usage: In this technique, we use two pointers to iterate the input data. Generally, both pointers move in the opposite direction at a constant interval.
@@ -14,6 +15,7 @@ Sequence of problems:
 7) SubarraysWithProductLessThanTarget - done
 8.1) Segregate0and1s - done
 8.2) DutchNationalFlagProblem - done
-9) ProblemChallenge1_QuadrupleSumToTarget - todo
+9) ProblemChallenge1_QuadrupleSumToTarget = 4sums - done
+9.2) 4sums_II (i.e. FourSums_II) - todo
 10) Problem Challenge 2: Comparing Strings containing Backspaces (medium) - todo
 11) Problem Challenge 3: Minimum Window Sort (medium) - todo
