@@ -21,7 +21,7 @@ NOTE: PriorityQueue - min heap
 Sequence of problems:
 1) Top 'K' Numbers (easy) - todo
 2) Kth Smallest Number (easy) - todo
-3) 'K' Closest Points to the Origin (easy) - todo
+3) 'K' Closest Points to the Origin (easy/medium) - done
 4) Connect Ropes (easy) - done
 5) Top 'K' Frequent Numbers (medium) - todo
 6) Frequency Sort (medium) - todo
