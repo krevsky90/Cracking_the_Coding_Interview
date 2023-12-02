@@ -10,7 +10,7 @@ Sequence of problems:
 3) Zigzag Traversal (medium) - todo
 4) Level Averages in a Binary Tree (easy) - todo
 5) Minimum Depth of a Binary Tree (easy) - done
-6) Level Order Successor (easy) - todo
+6) Level Order Successor (easy) - done
 7) Connect Level Order Siblings (medium) - todo
 8) Problem Challenge 1: Connect All Level Order Siblings (medium) - todo
 9) Problem Challenge 2: Right View of a Binary Tree (easy) - todo
