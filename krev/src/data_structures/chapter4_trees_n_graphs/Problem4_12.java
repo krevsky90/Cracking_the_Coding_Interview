@@ -36,30 +36,41 @@ public class Problem4_12 {
 //        n8.left = n9;
 
         //usual tree
-        Node n1 = new Node(10);
-        Node n2 = new Node(5);
-        Node n3 = new Node(-3);
-        Node n4 = new Node(3);
-        Node n5 = new Node(1);
-        Node n6 = new Node(11);
-        Node n7 = new Node(3);
-        Node n8 = new Node(-2);
-        Node n9 = new Node(2);
+//        Node n1 = new Node(10);
+//        Node n2 = new Node(5);
+//        Node n3 = new Node(-3);
+//        Node n4 = new Node(3);
+//        Node n5 = new Node(1);
+//        Node n6 = new Node(11);
+//        Node n7 = new Node(3);
+//        Node n8 = new Node(-2);
+//        Node n9 = new Node(2);
+//
+//        n1.left = n2;
+//        n1.right = n3;
+//        n2.left = n4;
+//        n2.right = n5;
+//        n3.right = n6;
+//        n4.left = n7;
+//        n4.right = n8;
+//        n5.right = n9;
 
-        n1.left = n2;
-        n1.right = n3;
-        n2.left = n4;
-        n2.right = n5;
-        n3.right = n6;
-        n4.left = n7;
-        n4.right = n8;
-        n5.right = n9;
+//        int targetSum = 8;
+//        Node root = n1;
 
-        int targetSum = 8;
-        Node root = n1;
+        Node n5_1 = new Node(5);
+        Node n2 = new Node(2);
+        Node n_2 = new Node(-2);
+        Node n5_2 = new Node(5);
+        int targetSum = 5;
 
-//        int result = countPathsWithSum(root, targetSum);
-        int result = countPathsWithSum21(root, targetSum);
+        n5_1.left = n2;
+        n2.left = n_2;
+        n_2.left = n5_2;
+
+
+        int result = countPathsWithSum(n5_1, targetSum);
+//        int result = countPathsWithSum21(n5_1, targetSum);
         System.out.println(result);
     }
 
@@ -70,6 +81,7 @@ public class Problem4_12 {
     public static int countPathsWithSum(Node root, int targetSum) {
         return countPathsWithSum(root, targetSum, 0, new HashMap<>());
     }
+
 
     public static int countPathsWithSum(Node root, int targetSum, int runningSum, HashMap<Integer, Integer> pathCount) {
         if (root == null) return 0;
