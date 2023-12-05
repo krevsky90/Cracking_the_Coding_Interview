@@ -59,8 +59,9 @@ public class Problem2_10_FlattenBTtoLinkedList {
     }
     /**
      *  PRE-order Morris traversal approach
-     *
      *  info: https://www.youtube.com/watch?v=R7nYOFtv24M
+     *
+     *  idea: linked list is root -> someNode_1 -> ... -> someNode_N, where all links are RIGHT pointers!
      */
     public void flattenMorris(TreeNode root) {
         TreeNode current = root;
@@ -76,15 +77,16 @@ public class Problem2_10_FlattenBTtoLinkedList {
                     predecessor = predecessor.right;
                 }
 
-                if (predecessor.right == null) {
-                    //i.e. if we reach leave - then link it to current node
-                    //NOTE: this is modification of in-order traversal to post-order traversal
+                //if is NOT necessary since once while-loop ended => predecessor.right = null
+//                if (predecessor.right == null) {
+                    //i.e. if we reach leaf - then link it to current.right node
+                    //NOTE: this is modification FROM in-order traversal TO pre-order traversal
                     predecessor.right = current.right;
 
                     //since finally we need to get linked list consists of nodes that have right link and doesn't have left link
                     current.right = current.left;
                     current.left = null;
-                }
+//                }
 
                 //and check do the same actions for left (i.e. already right) child of current node
                 current = current.right;
