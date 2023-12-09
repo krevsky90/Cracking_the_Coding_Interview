@@ -30,7 +30,7 @@ How to fill the table:
 
 Sequence of problems:
 1) 0/1 Knapsack (medium) - done
-2) Equal Subset Sum Partition (medium) - todo
+2) Equal Subset Sum Partition (medium) - done
 3) Subset Sum (medium) - todo
 4) Minimum Subset Sum Difference (hard) - todo
 5) Problem Challenge 1: Count of Subset Sum (hard) - todo
