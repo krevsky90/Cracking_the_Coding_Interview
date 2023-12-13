@@ -28,6 +28,11 @@ How to fill the table:
     2) IF Wi <= W THEN V[i,W] = V[i-1,W]
        ELSE V[i,W] = max(V[i-1][W], V[i-1][W-Wi] + Vi
 
+Additional info:
+IF we use bottom-up approach - we have to calculate the results for ALL potential sub-problems!
+IF we use top-down approach -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
+
+
 Sequence of problems:
 1) 0/1 Knapsack (medium) - done
 2) Equal Subset Sum Partition (medium) - done
@@ -35,6 +40,14 @@ Sequence of problems:
 4) Minimum Subset Sum Difference (hard) - todo
 5) Problem Challenge 1: Count of Subset Sum (hard) - todo
 6) Problem Challenge 2: Target Sum (hard) - todo
+
+7) https://leetcode.com/problems/partition-to-k-equal-sum-subsets/ (medium) - todo
+8) https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/ (medium) - todo
+9) https://leetcode.com/problems/find-subarrays-with-equal-sum/ (easy) - todo
+10) https://leetcode.com/problems/split-with-minimum-sum/ (easy) - todo
+11) https://leetcode.com/problems/maximum-rows-covered-by-columns/ (medium) - todo
+12) https://leetcode.com/problems/fair-distribution-of-cookies/ (medium) - todo
+
 
 
 
