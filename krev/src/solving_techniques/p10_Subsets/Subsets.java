@@ -30,7 +30,7 @@ public class Subsets {
         List<List<Integer>> result = new ArrayList<>();
         int start = 0;
 
-        generateSubsets(nums, result, new ArrayList<>(), 0);
+        generateSubsets(nums, result, new ArrayList<>(), start);
         return result;
     }
 

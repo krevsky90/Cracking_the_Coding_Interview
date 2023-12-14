@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class BalancedParentheses {
 
+    //NOTE: this problem is kind of permutation problem
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         generateParenthesis(n, result, "", 0, 0);

@@ -8,14 +8,14 @@ Theory:
 https://www.youtube.com/watch?v=VKTKKPKX_BU
 
 Combinatorics
+    Subsets (combinations) - order is NOT significant
+            with repetitions
+            without repetitions
     Permutations (order is significant)
         with repetitions
         without repetitions
-    Subsets (combinations) - order is NOT significant
-        with repetitions
-        without repetitions
 
-KREVSKY observations:
+KREVSKY's observations:
 1) for SubSets:
     use 2 methods:
         List<List<..>> method1(int[] arr) {..}

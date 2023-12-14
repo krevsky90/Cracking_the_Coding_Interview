@@ -116,7 +116,9 @@ public class Permutations_II {
     /**
      * SOLUTION #2: faster than mine
      * https://leetcode.com/problems/permutations-ii/solutions/4093616/java-very-easy-solution-check-comments-o-n-n/
-     * the idea is similar, BUT we use array and ignore duplicates
+     * the idea is similar, BUT we
+     * 1) fill 'used' array to avoid usage of i-th element of nums more than once
+     * 2) ignore duplicates by while-loop
      *
      * Time complexity: O(N! * N)
      * Space complexity:* O(N)*
