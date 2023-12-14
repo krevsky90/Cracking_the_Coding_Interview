@@ -24,7 +24,7 @@ Sequence of problems:
 3) 'K' Closest Points to the Origin (easy/medium) - done
 4) Connect Ropes (easy) - done
 5) Top 'K' Frequent Numbers (medium) - todo
-6) Frequency Sort (medium) - todo
+6) Frequency Sort (medium) - done
 7) Kth Largest Number in a Stream (medium) - todo
 8) 'K' Closest Numbers (medium) - todo
 9) Maximum Distinct Elements (medium) - todo
