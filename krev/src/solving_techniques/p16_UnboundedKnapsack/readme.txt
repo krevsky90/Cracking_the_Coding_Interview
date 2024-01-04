@@ -90,7 +90,7 @@ We get maximum value with one unit of weight 5 and one unit of weight 3
 
 Sequence of problems:
 1) Unbounded Knapsack - done
-2) Rod Cutting - todo
+2) Rod Cutting - done
 3) Coin Change - todo
 4) Minimum Coin Change - todo
 5) Maximum Ribbon Cut - todo
