@@ -5,6 +5,7 @@ Theory:
 https://leetcode.com/discuss/study-guide/1152328/01-Knapsack-Problem-and-Dynamic-Programming - todo: read it!
 or
 https://www.youtube.com/watch?v=xCbYmUPvc2Q
+AND (only picture) https://www.youtube.com/watch?v=Q2vDTam9qMQ
 
 NOTE: 0/1 means we cannot split the elements: we include some particular element or NOT
 
@@ -15,7 +16,7 @@ It is necessary to find the combination of the elements such as
 1) total weight <= W
 2) total value is maximum
 
-Dynamic programming:
+Dynamic programming (bottom-up approach):
 IF
     i - item, the row we are in
     W - maxWeight, the column we are in
@@ -28,6 +29,9 @@ How to fill the table:
     2) IF Wi <= W THEN V[i,W] = V[i-1,W]
        ELSE V[i,W] = max(V[i-1][W], V[i-1][W-Wi] + Vi
 
+Dynamic programming (top-down approach):
+    see src/solving_techniques/p15_0or1_Knapsack/SubsetSum.java
+
 Additional info:
 IF we use bottom-up approach - we have to calculate the results for ALL potential sub-problems!
 IF we use top-down approach -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
@@ -36,7 +40,7 @@ IF we use top-down approach -  we have to calculate the results only for sub-pro
 Sequence of problems:
 1) 0/1 Knapsack (medium) - done
 2) Equal Subset Sum Partition (medium) - done
-3) Subset Sum (medium) - todo
+3) Subset Sum (medium) - done
 4) Minimum Subset Sum Difference (hard) - todo
 5) Problem Challenge 1: Count of Subset Sum (hard) - todo
 6) Problem Challenge 2: Target Sum (hard) - todo
