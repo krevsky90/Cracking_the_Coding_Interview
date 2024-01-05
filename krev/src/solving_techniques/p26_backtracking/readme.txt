@@ -16,6 +16,6 @@ Dynamic Programming (DP) uses a similar approach where we try out all possible s
 Sequence of problems:
 1) Combination Sum (medium) - todo
 2) Word Search (medium) - done
-3) Sudoku Solver (hard) - todo
+3) Sudoku Solver (hard) - done
 4) Factor Combinations (medium) - todo
 5) Split a String Into the Max Number of Unique Substrings (medium) - todo
