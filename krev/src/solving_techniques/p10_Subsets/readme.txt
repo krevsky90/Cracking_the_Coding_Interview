@@ -54,3 +54,5 @@ Sequence of problems:
 7) Problem Challenge 1: Evaluate Expression (hard) - todo
 8) Problem Challenge 2: Structurally Unique Binary Search Trees (hard) - todo
 9) Problem Challenge 3: Count of Structurally Unique Binary Search Trees (hard) - todo
+
+10) https://leetcode.com/problems/next-permutation (medium) - done
