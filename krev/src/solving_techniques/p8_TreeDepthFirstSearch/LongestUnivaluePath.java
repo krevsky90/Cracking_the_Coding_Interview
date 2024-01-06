@@ -38,7 +38,7 @@ public class LongestUnivaluePath {
      *
      * 3 attempts:
      * 1) typo new int[0] instead of arr[1]
-     * 2) incorrect logic:
+     * 2) incorrect logic that affected case: [1,null,1,1,1,1,1,1]
      *        arr[0] = Math.max(arr[0], result);
      *        return result;
      *     fixed as
