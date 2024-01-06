@@ -12,3 +12,5 @@ Sequence of problems:
 5) Count Paths for a Sum (medium) - done
 6) Problem Challenge 1: Tree Diameter (medium) - done
 7) Problem Challenge 2: Path with Maximum Sum (hard) - todo
+
+8) https://leetcode.com/problems/longest-univalue-path (medium) - done
