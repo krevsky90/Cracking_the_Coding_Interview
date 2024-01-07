@@ -5,7 +5,7 @@ Whenever we are given a sorted Array or LinkedList or Matrix,
 and we are asked to find a certain element, the best algorithm we can use is the Binary Search.
 
 Sequence of problems:
-1) Order-agnostic Binary Search (easy) - todo
+1) Order-agnostic Binary Search (easy) - done
 2) Ceiling of a Number (medium) - done
 3) Next Letter (medium) - done
 4) Number Range (medium) - todo
