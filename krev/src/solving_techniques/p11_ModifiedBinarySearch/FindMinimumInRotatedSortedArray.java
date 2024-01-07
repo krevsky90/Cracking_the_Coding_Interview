@@ -40,7 +40,7 @@ public class FindMinimumInRotatedSortedArray {
      * KREVSKY SOLUTION
      * time to solve ~ 35 mins
      * time ~ O(logN)
-     * space ~ O(1)??
+     * space ~ O(1)
      * 2 attempts
      */
 

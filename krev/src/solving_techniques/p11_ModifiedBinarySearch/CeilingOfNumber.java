@@ -46,9 +46,9 @@ public class CeilingOfNumber {
             }
         }
 
-        if (arr[l] < key) {
+        if (l >= arr.length || arr[l] < key) {
             System.out.println("Ceiling does not exist!");
-            return -100500; //error
+            return Integer.MIN_VALUE; //like error-code
         } else {
             return l;
         }

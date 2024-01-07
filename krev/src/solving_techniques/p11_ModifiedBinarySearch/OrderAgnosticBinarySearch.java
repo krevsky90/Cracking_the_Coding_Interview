@@ -48,6 +48,8 @@ public class OrderAgnosticBinarySearch {
     /**
      * KREVSKY SOLUTION: recursive approach
      * time to solve ~ 18 mins
+     * time ~ O(logN)
+     * space ~ O(1)
      * 1 attempt
      */
     public static int search(int[] nums, int target) {
@@ -84,10 +86,12 @@ public class OrderAgnosticBinarySearch {
         }
     }
 
-    //==================================
-
     /**
-     * Iterative approach
+     * KREVSKY SOLUTION: iterative approach
+     * time to solve ~ 10 mins
+     * time ~ O(logN)
+     * space ~ O(1)
+     * 1 attempt
      */
     public static int search2(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
