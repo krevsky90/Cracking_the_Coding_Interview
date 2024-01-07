@@ -9,9 +9,11 @@ Sequence of problems:
 2) Ceiling of a Number (medium) - done
 3) Next Letter (medium) - done
 4) Number Range (medium) - todo
-5) Search in a Sorted Infinite Array (medium) - todo
+5) Search in a Sorted Infinite Array (medium) - done
 6) Minimum Difference Element (medium) - todo
 7) Bitonic Array Maximum (easy) - todo
 8) Problem Challenge 1: Search Bitonic Array (medium) - todo
 9) Problem Challenge 2: Search in Rotated Array (medium) - done
 10) Problem Challenge 3: Rotation Count (medium) - todo
+
+11) https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ (medium) - done
