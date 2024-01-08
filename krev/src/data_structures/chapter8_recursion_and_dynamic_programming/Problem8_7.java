@@ -14,9 +14,12 @@ public class Problem8_7 {
     public static void main(String[] args) {
         String originalString = "abcd";
         Set<String> allPermutations = computeAllPermutations(originalString);
+        int counter = 0;
         for (String s : allPermutations) {
             System.out.println(s);
+            counter++;
         }
+        System.out.println(counter);
     }
 
     /**

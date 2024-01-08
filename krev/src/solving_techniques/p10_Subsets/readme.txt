@@ -20,9 +20,40 @@ KREVSKY's observations:
     use 2 methods:
         List<List<..>> method1(int[] arr) {..}
 
-        void helper(int[] arr, List<List<..>> result, List<..> tempList, int start) {
-            if (tempList.length == arr.length) result.add(new ArrayList<>(tempList));
+        ============== DEBUG EXAMPLE (START) ==========
+        arr = 1 2 3
+        result ={{},{1},{1,2},{1,2,3},{1,3},{2},{2,3},{3}}
 
+
+        helper(123,res,{},0)
+            i = 0:
+                tempList = {1}
+                helper(123,res,{1},1)
+                    i = 1:
+                        tempList = {1,2}
+                        helper(123,res,{1,2},2)
+                            i = 2:
+                                tempList = {1,2,3}
+                                helper(123,res,{1,2,3},3)
+                    i = 2:
+                        tempList = {1,3}
+                        helper(123,res,{1,3},3)
+
+            i = 1:
+                tempList = {2}
+                helper(123,res,{2},2)
+                    i = 2:
+                        tempList = {2,3}
+                        helper(123,res,{2,3},3)
+
+            i = 2:
+                tempList = {3}
+                helper(123,res,{3},3)
+        ============== DEBUG EXAMPLE (END) ==========
+
+
+        void helper(int[] arr, List<List<..>> result, List<..> tempList, int start) {
+            result.add(new ArrayList(tempList));
             for (i = start; ..) {
                 tempList.add(nums[i]);
                 helper(arr, result, tempList, start + 1);
@@ -35,7 +66,7 @@ KREVSKY's observations:
         List<List<..>> method1(int[] arr) {..}
 
         void helper(int[] arr, List<List<..>> result, List<..> tempList) {
-            if (tempList.length = arr.length) result.add(new ArrayList<>(tempList));
+            if (tempList.length = arr.length) result.add(new ArrayList(tempList));
 
             for (i = 0; ..) {
                 tempList.add(nums[i]);
@@ -56,3 +87,4 @@ Sequence of problems:
 9) Problem Challenge 3: Count of Structurally Unique Binary Search Trees (hard) - todo
 
 10) https://leetcode.com/problems/next-permutation (medium) - done
+11) https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/ (medium) - done
