@@ -25,7 +25,7 @@ Sequence of problems:
 4) Connect Ropes (easy) - done
 5) Top 'K' Frequent Numbers (medium) - done
 6) Frequency Sort (medium) - done
-7) Kth Largest Number in a Stream (medium) - todo
+7) Kth Largest Number in a Stream (medium) - done
 8) 'K' Closest Numbers (medium) - todo
 9) Maximum Distinct Elements (medium) - todo
 10) Sum of Elements (medium) - todo
