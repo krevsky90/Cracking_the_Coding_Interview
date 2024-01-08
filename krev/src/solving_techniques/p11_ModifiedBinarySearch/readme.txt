@@ -8,7 +8,7 @@ Sequence of problems:
 1) Order-agnostic Binary Search (easy) - done
 2) Ceiling of a Number (medium) - done
 3) Next Letter (medium) - done
-4) Number Range (medium) - todo
+4) Number Range (medium) - done
 5) Search in a Sorted Infinite Array (medium) - done
 6) Minimum Difference Element (medium) - todo
 7) Bitonic Array Maximum (easy) - todo
