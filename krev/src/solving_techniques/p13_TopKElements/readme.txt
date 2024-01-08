@@ -23,7 +23,7 @@ Sequence of problems:
 2) Kth Smallest Number (easy) - todo
 3) 'K' Closest Points to the Origin (easy/medium) - done
 4) Connect Ropes (easy) - done
-5) Top 'K' Frequent Numbers (medium) - todo
+5) Top 'K' Frequent Numbers (medium) - done
 6) Frequency Sort (medium) - done
 7) Kth Largest Number in a Stream (medium) - todo
 8) 'K' Closest Numbers (medium) - todo
