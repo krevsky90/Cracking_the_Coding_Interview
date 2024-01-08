@@ -88,3 +88,4 @@ Sequence of problems:
 
 10) https://leetcode.com/problems/next-permutation (medium) - done
 11) https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/ (medium) - done
+12) https://leetcode.com/problems/combinations/description/ (medium) - done
