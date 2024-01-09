@@ -27,4 +27,14 @@ public class LinkedListUtils {
         }
         return StringUtils.join(sb, " -> ");
     }
+
+    public static void printLinkedList(LinkedListNode head) {
+        StringBuilder sb = new StringBuilder();
+        while (head != null) {
+            sb.append(" " + head.value);
+            head = head.next;
+        }
+
+        System.out.println(sb.toString());
+    }
 }

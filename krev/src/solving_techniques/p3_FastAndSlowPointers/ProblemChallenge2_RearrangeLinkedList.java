@@ -2,6 +2,8 @@ package solving_techniques.p3_FastAndSlowPointers;
 
 import data_structures.chapter2_linked_lists.LinkedListNode;
 
+import static data_structures.chapter2_linked_lists.LinkedListUtils.printLinkedList;
+
 /**
  * https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63923313ae2ec690ac22b61d
@@ -16,6 +18,7 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
  * Input: 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> null
  * Output: 2 -> 12 -> 4 -> 10 -> 6 -> 8 -> null
  */
+
 public class ProblemChallenge2_RearrangeLinkedList {
     public static void main(String[] args) {
         LinkedListNode n1 = new LinkedListNode(1);
@@ -30,9 +33,9 @@ public class ProblemChallenge2_RearrangeLinkedList {
         n4.next = n5;
         n5.next = n6;
 
-        printLinkedLst(n1);
+        printLinkedList(n1);
         rearrangeLinkedList(n1);
-        printLinkedLst(n1);
+        printLinkedList(n1);
 
     }
 
@@ -109,15 +112,5 @@ public class ProblemChallenge2_RearrangeLinkedList {
         }
 
         return prev;
-    }
-
-    private static void printLinkedLst(LinkedListNode head) {
-        StringBuilder sb = new StringBuilder();
-        while (head != null) {
-            sb.append(" " + head.value);
-            head = head.next;
-        }
-
-        System.out.println(sb.toString());
     }
 }
