@@ -71,6 +71,44 @@ public class CountPathsForSum {
         return countPathsWithSumHelper(root, targetSum, 0, new HashMap<>());
     }
 
+    /**
+     * 5
+     *  \
+     *   3
+     *    \
+     *     8
+     *  targetSum = 8
+     *  answer = 2
+     * countPathsWithSumHelper(5, 8, 0, {}) = 2
+     *      runningSum = 5
+     *      result = 0
+     *      newCount = 0 + 1 = 1
+     *      sumToCount = {{5,1}}
+     *      result += left part = 0
+     *      result += countPathsWithSumHelper(3, 8, 5, {{5,1}}) = 2
+     *          runningSum = 8
+     *          result = 1
+     *          newCount = 1
+     *          sumToCount = {{5,1},{8,1}}
+     *          result += left part = 0
+     *          result += countPathsWithSumHelper(8, 8, 8, {{5,1},{8,1}}) = 2
+     *              runningSum = 16
+     *              result = 1+1=2
+     *              newCount = 1
+     *              sumToCount = {{5,1},{8,1},{16,1}}
+     *              result += 0
+     *              result += 0
+     *              //backtracking
+     *              newCount = 1- 1 = 0
+     *              sumToCount = {{5,1},{8,1}}
+     *          //backtracking
+     *          newCount = 1 - 1 = 0
+     *          sumToCount = {{5,1}}
+     *      //backtracking
+     *      newCount = 1 - 1 = 0
+     *      sumToCount = {}
+     *
+     */
     private int countPathsWithSumHelper(TreeNode root, long targetSum, long runningSum, Map<Long, Integer> sumToCount) {
         if (root == null) return 0;
 
