@@ -11,7 +11,7 @@ NOTE: the space can be optimized since i-th row depends only on i-1-th
 
 
 Sequence of problems:
-1) Longest Common Substring - in progress
+1) Longest Common Substring - done
 2) Longest Common Subsequence - todo
 3) Minimum Deletions & Insertions to Transform a String into another - todo
 4) Longest Increasing Subsequence - todo

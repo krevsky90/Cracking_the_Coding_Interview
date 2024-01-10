@@ -17,6 +17,10 @@ public class LongestCommonSubstring {
         String s21 = "passport";
         String s22 = "ppsspt";
         System.out.println(longestCommonSubstring(s21, s22)); //expect "ssp"
+
+        int[] nums1 = {1,2,3,2,1};
+        int[] nums2 = {3,2,1,4,7};
+        System.out.println(findLengthSpaceOptimized(nums1, nums2)); //expect: 3 (since the repeated subarray with maximum length is [3,2,1])
     }
     /**
      * from grokking-dynamic-programming
@@ -90,14 +94,15 @@ public class LongestCommonSubstring {
      * 1 <= nums1.length, nums2.length <= 1000
      * 0 <= nums1[i], nums2[i] <= 100
      *
-     * idea is the same
+     * KREVSKY SOLUTION #1.1:
+     * the idea is the same as for longestCommonSubstring() method
      * time to solve ~ 3 mins
      * time ~ O(nums1.length * nums2.length)
      * space ~ O(nums1.length * nums2.length)
      *
      * 1 attempt
      */
-    public int findLength(int[] nums1, int[] nums2) {
+    public static int findLength(int[] nums1, int[] nums2) {
         int result = 0;
 
         int[][] dp = new int[nums1.length + 1][nums2.length + 1];
@@ -111,6 +116,36 @@ public class LongestCommonSubstring {
                 }
 
                 result = Math.max(result, dp[i][j]);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * KREVSKY SOLUTION @1.2:
+     * We can optimize space since we need only n-1-th row to calculate n-th row
+     * NOTE: fill i-th row from right to the left. Otherwise dp[j-1]-th cell (that has been just filled) will affect dp[j]
+     * time to solve ~ 10 mins
+     *
+     * time ~ O(nums1.length * nums2.length)
+     * space ~ O(nums2.length)
+     */
+    public static int findLengthSpaceOptimized(int[] nums1, int[] nums2) {
+        int result = 0;
+
+        int[] dp = new int[nums2.length + 1];
+
+        for (int i = 1; i < nums1.length + 1; i++) {
+            //fill i-th row from right to the left. Otherwise dp[j-1]-th cell that has been just filled will affect dp[j]
+            for (int j = nums2.length; j > 0; j--) {
+                if (nums1[i-1] == nums2[j-1]) {
+                    dp[j] = 1 + dp[j-1];
+                } else {
+                    dp[j] = 0;
+                }
+
+                result = Math.max(result, dp[j]);
             }
         }
 
