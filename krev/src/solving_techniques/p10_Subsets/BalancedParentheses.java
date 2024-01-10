@@ -45,4 +45,27 @@ public class BalancedParentheses {
             generateParenthesis(n, result, temp + ")", open, close + 1);
         }
     }
+
+    public List<String> generateParenthesis2(int n) {
+        List<String> result = new ArrayList<>();
+        generateParenthesis2(n, result, "", n, n);
+        return result;
+    }
+
+    //or the same
+    private void generateParenthesis2(int n, List<String> result, String temp, int open, int close) {
+        if (temp.length() == 2*n) {
+            result.add(temp);
+            return;
+        }
+
+        if (open > 0) {
+            generateParenthesis2(n, result, temp + "(", open - 1, close);
+        }
+
+        //close > open, correct, but not obvious
+        if (close > open && close > 0) {
+            generateParenthesis2(n, result, temp + ")", open, close - 1);
+        }
+    }
 }
