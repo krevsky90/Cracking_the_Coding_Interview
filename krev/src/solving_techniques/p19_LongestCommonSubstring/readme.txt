@@ -12,7 +12,7 @@ NOTE: the space can be optimized since i-th row depends only on i-1-th
 
 Sequence of problems:
 1) Longest Common Substring - done
-2) Longest Common Subsequence - todo
+2) Longest Common Subsequence - done
 3) Minimum Deletions & Insertions to Transform a String into another - todo
 4) Longest Increasing Subsequence - todo
 5) Maximum Sum Increasing Subsequence - todo
