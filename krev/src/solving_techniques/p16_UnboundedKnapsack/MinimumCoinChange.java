@@ -215,6 +215,7 @@ public class MinimumCoinChange {
     public static int coinCountDP(int[] coins, int amount) {
         int[][] dp = new int[coins.length + 1][amount + 1];
 
+        //starting from 0 to fill base cases
         for (int i = 0; i < coins.length + 1; i++) {
             for (int j = 0; j < amount + 1; j++) {
                 if (i == 0) {
