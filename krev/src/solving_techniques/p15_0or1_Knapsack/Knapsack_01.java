@@ -66,7 +66,7 @@ public class Knapsack_01 {
      * Auxiliary Space: O(N), Stack space required for recursion
      */
     // Returns the maximum profit that can be put in a knapsack of capacity
-    // NOTE: n = profits.length
+    // NOTE: n = profits.length, i.e. number of given elements
     public static int maxProfitNaive(int weights[], int profits[], int capacity, int n) {
         // Base Case
         if (n == 0 || capacity == 0) {
