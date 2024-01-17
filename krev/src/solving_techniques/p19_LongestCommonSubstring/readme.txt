@@ -13,7 +13,7 @@ NOTE: the space can be optimized since i-th row depends only on i-1-th
 Sequence of problems:
 1) Longest Common Substring - done
 2) Longest Common Subsequence - done
-3) Minimum Deletions & Insertions to Transform a String into another - todo
+3) Minimum Deletions & Insertions to Transform a String into another - done
     can't find on leetcode
     only https://www.geeksforgeeks.org/minimum-number-deletions-insertions-transform-one-string-another/
     and https://leetcode.com/discuss/general-discussion/1274591/minimum-no-of-deletions-insertions-to-transform-1-string-into-another
