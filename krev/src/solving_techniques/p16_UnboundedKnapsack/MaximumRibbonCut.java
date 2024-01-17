@@ -31,15 +31,18 @@ public class MaximumRibbonCut {
         int totalLength1 = 5;
         System.out.println(maximumRibbonCut(ribbons1, totalLength1));   //2, since 2+3 (but not 5)
         System.out.println(maximumRibbonCutSpaceOptimized(ribbons1, totalLength1));   //2, since 2+3 (but not 5)
+        System.out.println(maximumRibbonCutSimpleLogic(ribbons1, totalLength1));   //2, since 2+3 (but not 5)
 
+        System.out.println("------------");
         int[] ribbons2 = {3, 5, 7};
         int totalLength2 = 14;
         System.out.println(maximumRibbonCut(ribbons2, totalLength2));   //4, since 3+3+3+5 (but not 7+7)
         System.out.println(maximumRibbonCutSpaceOptimized(ribbons2, totalLength2));   //4, since 3+3+3+5 (but not 7+7)
+        System.out.println(maximumRibbonCutSimpleLogic(ribbons2, totalLength2));   //4, since 3+3+3+5 (but not 7+7)
     }
 
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #1.1:
      * idea - similar to MinimumCoinChange problem. But now we search max, but not min.
      * <p>
      * dp = [arr.length + 1][capacity + 1]
@@ -92,7 +95,7 @@ public class MaximumRibbonCut {
     }
 
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #1.2:
      * Optimize space since i-th row is based on i-1-th row
      * time to solve ~ 20 mins!
      * 1 attemps
@@ -116,6 +119,35 @@ public class MaximumRibbonCut {
                     dp[j] = Math.max(include, exclude);
                 }
             }
+        }
+
+        return dp[capacity];
+    }
+
+
+    /**
+     * KREVSKY SOLUTION #2:
+     * the same as maximumRibbonCutSpaceOptimized(..) BUT based on simple logic. not on optimization of standard dp[][] solution:
+     * idea: for each capacity (j) run through the array and find max ribbon cut
+     */
+    public static int  maximumRibbonCutSimpleLogic(int[] arr, int capacity) {
+        int[] dp = new int[capacity + 1];
+        dp[0] = 0;
+
+        for (int j = 1; j < capacity + 1; j++) {
+            //iterate through the array and find maximum of parts which sum equals to j
+            int tempMax = Integer.MIN_VALUE;
+            for (int n : arr) {
+                if (n > j) {
+                    //skip this option since it means max = MIN_VALUE => no reason to change tempMax
+                } else {
+                    int initialValue = dp[j - n];
+                    if (initialValue > Integer.MIN_VALUE) {
+                        tempMax = Math.max(tempMax, 1 + initialValue);
+                    }
+                }
+            }
+            dp[j] = tempMax;
         }
 
         return dp[capacity];
