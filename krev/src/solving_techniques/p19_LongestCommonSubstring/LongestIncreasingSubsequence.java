@@ -34,6 +34,10 @@ import java.util.Set;
  * Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?
  */
 public class LongestIncreasingSubsequence {
+    public static void main(String[] args) {
+        int[] arr1 = {4,1,2,6,10,1,12};
+        System.out.println(lengthOfLI_2(arr1)); //5
+    }
     /**
      * KREVSKY SOLUTION:
      * idea:
@@ -79,7 +83,7 @@ public class LongestIncreasingSubsequence {
      * space ~ O(n)
      * But without sorting
      */
-    public int lengthOfLI_2(int[] nums) {
+    public static int lengthOfLI_2(int[] nums) {
         // Initialize an array dp with the same length as nums and fill it with 1s
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1);
