@@ -16,7 +16,7 @@ Sequence of problems:
 8.1) Segregate0and1s - done
 8.2) DutchNationalFlagProblem - done
 9) ProblemChallenge1_QuadrupleSumToTarget = 4sums - done
-9.2) 4sums_II (i.e. FourSums_II) - todo
+9.2) 4sums_II (i.e. FourSums_II) - done
 10) Problem Challenge 2: Comparing Strings containing Backspaces (medium) - todo
 11) Problem Challenge 3: Minimum Window Sort (medium) - todo
 
