@@ -19,7 +19,7 @@ Sequence of problems:
     and https://leetcode.com/discuss/general-discussion/1274591/minimum-no-of-deletions-insertions-to-transform-1-string-into-another
 4) Longest Increasing Subsequence - done
 5) Maximum Sum Increasing Subsequence - done
-6) Shortest Common Super-sequence - todo
+6) Shortest Common Super-sequence (hard on leetcode) - done
 7) Minimum Deletions to Make a Sequence Sorted - todo
 8) Longest Repeating Subsequence - todo
 9) Subsequence Pattern Matching - todo
