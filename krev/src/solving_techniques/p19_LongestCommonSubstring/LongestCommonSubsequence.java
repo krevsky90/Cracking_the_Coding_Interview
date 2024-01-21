@@ -61,6 +61,27 @@ public class LongestCommonSubsequence {
      * time ~ O(text1.length()*text2.length())
      * space ~ O(text1.length()*text2.length()) - can be optimized to O(text2.length()) - see LongestCommonSubstring
      */
+
+    //just to see the difference
+    //to find largest common subsequence
+    //  *       a c b d a (j)
+    //  *   | 0 0 0 0 0 0
+    //  * a | 0 1 1 1 1 1
+    //  * d | 0 1 1 1 2 2
+    //  * b | 0 1 1 2 2 2
+    //  * c | 0 1 2 2 2 2
+    //  * a | 0 1 2 2 2 3
+    //  *(i)
+
+    ////to find largest common substring
+    //  *       a c b d a (j)
+    //  *   | 0 0 0 0 0 0
+    //  * a | 0 1 0 0 0 1
+    //  * d | 0 0 0 0 1 0
+    //  * b | 0 0 0 1 0 0
+    //  * c | 0 0 1 0 0 0
+    //  * a | 0 1 0 0 0 1
+    //  *(i)
     public static int longestCommonSubsequence(String text1, String text2) {
         int[][] dp = new int[text1.length() + 1][text2.length() + 1];
 

@@ -3,7 +3,7 @@ https://www.designgurus.io/course-play/grokking-dynamic-programming/doc/637f5299
 
 Sequence of problems:
 1) Longest Palindromic Subsequence - done
-2) Longest Palindromic Substring - todo
+2) Longest Palindromic Substring - done
 3) Count of Palindromic Substrings - todo
 4) Minimum Deletions in a String to make it a Palindrome - todo
 5) Palindromic Partitioning - todo

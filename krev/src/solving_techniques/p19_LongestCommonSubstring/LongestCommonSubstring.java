@@ -44,16 +44,26 @@ public class LongestCommonSubstring {
      * (described in src/solving_techniques/p19_LongestCommonSubstring/readme.txt)
      */
 
-    /**
-     *       c b d a (j)
-     *   | 0 0 0 0 0
-     * a | 0 0 0 0 1
-     * b | 0 0 1 0 0
-     * d | 0 0 0 2 0
-     * c | 0 1 0 0 0
-     * a | 0 0 0 0 1
-     *(i)
-     */
+    //just to see the difference
+    //to find largest common subsequence
+    //  *       a c b d a (j)
+    //  *   | 0 0 0 0 0 0
+    //  * a | 0 1 1 1 1 1
+    //  * d | 0 1 1 1 2 2
+    //  * b | 0 1 1 2 2 2
+    //  * c | 0 1 2 2 2 2
+    //  * a | 0 1 2 2 2 3
+    //  *(i)
+
+    ////to find largest common substring
+    //  *       a c b d a (j)
+    //  *   | 0 0 0 0 0 0
+    //  * a | 0 1 0 0 0 1
+    //  * d | 0 0 0 0 1 0
+    //  * b | 0 0 0 1 0 0
+    //  * c | 0 0 1 0 0 0
+    //  * a | 0 1 0 0 0 1
+    //  *(i)
     public static String longestCommonSubstring(String s1, String s2) {
         if (s1 == null || s2 == null) return null;
         if (s1.isEmpty() || s2.isEmpty()) return "";
