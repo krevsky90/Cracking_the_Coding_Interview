@@ -46,7 +46,7 @@ Sequence of problems:
 6) Problem Challenge 2: Target Sum (hard) - todo
 
 7) https://leetcode.com/problems/partition-to-k-equal-sum-subsets/ (medium) - done
-8) https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/ (medium) - todo
+8) https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/ (medium) - done
 9) https://leetcode.com/problems/find-subarrays-with-equal-sum/ (easy) - done
 10) https://leetcode.com/problems/split-with-minimum-sum/ (easy) - todo
 11) https://leetcode.com/problems/maximum-rows-covered-by-columns/ (medium) - todo
