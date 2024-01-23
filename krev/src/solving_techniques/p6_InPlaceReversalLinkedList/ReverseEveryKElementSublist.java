@@ -33,7 +33,7 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
 public class ReverseEveryKElementSublist {
     /**
      * KREVSKY SOLUTION:
-     * todo
+     * <p>
      * time to solve ~ 60 mins
      * time ~ O(n)
      * space ~ O(1)
@@ -136,5 +136,47 @@ public class ReverseEveryKElementSublist {
         }
 
         return end;
+    }
+
+    /**
+     * https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11440/non-recursive-java-solution-and-idea/
+     */
+    public LinkedListNode reverseKGroup(LinkedListNode head, int k) {
+        LinkedListNode begin;
+        if (head == null || head.next == null || k == 1) {
+            return head;
+        }
+
+        LinkedListNode dummyhead = new LinkedListNode(-1);
+        dummyhead.next = head;
+        begin = dummyhead;
+        int i = 0;
+        while (head != null) {
+            i++;
+            if (i % k == 0) {
+                begin = reverse(begin, head.next);
+                head = begin.next;
+            } else {
+                head = head.next;
+            }
+        }
+        return dummyhead.next;
+
+    }
+
+    public LinkedListNode reverse(LinkedListNode begin, LinkedListNode end) {
+        LinkedListNode curr = begin.next;
+        LinkedListNode next, first;
+        LinkedListNode prev = begin;
+        first = curr;
+        while (curr != end) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        begin.next = prev;
+        first.next = curr;
+        return first;
     }
 }
