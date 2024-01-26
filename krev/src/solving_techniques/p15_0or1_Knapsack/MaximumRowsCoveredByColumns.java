@@ -1,5 +1,8 @@
 package solving_techniques.p15_0or1_Knapsack;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 2397. Maximum Rows Covered by Columns
  * https://leetcode.com/problems/maximum-rows-covered-by-columns
@@ -58,12 +61,8 @@ public class MaximumRowsCoveredByColumns {
      * a lot of attempts, because tried to use dp-table. But it works fast without it
      */
     public int maximumRows(int[][] matrix, int numSelect) {
+        return maximumRows(matrix, numSelect, 0);
     }
-        return
-
-    maximumRows(matrix, numSelect, 0,dp);
-
-}
 
 
     // matrix:
@@ -87,7 +86,7 @@ public class MaximumRowsCoveredByColumns {
     //                             exclude = max(1, 3) = 0
     //                 exclude = max(2, 2) = 0
     //
-    public int maximumRows(int[][] matrix, int numSelect, int j, int[] dp) {
+    public int maximumRows(int[][] matrix, int numSelect, int j) {
         if (numSelect == 0) {
             int result = 0;
             //calculate amount of rows that contains only 0s
@@ -116,14 +115,15 @@ public class MaximumRowsCoveredByColumns {
             matrix[i][j] = 0;
         }
         //2) recursive call
-        int include = maximumRows(matrix, numSelect - 1, j + 1, dp);
+        int include = maximumRows(matrix, numSelect - 1, j + 1);
         //3) restore the j-th column of matrix
         for (int i = 0; i < matrix.length; i++) {
             matrix[i][j] = tempCol[i];
         }
 
         //do not choose j-th column:
-        int exclude = maximumRows(matrix, numSelect, j + 1, dp);
+        int exclude = maximumRows(matrix, numSelect, j + 1);
+
         int result = Math.max(include, exclude);
         return result;
     }
@@ -161,7 +161,7 @@ public class MaximumRowsCoveredByColumns {
         return Math.max(pick, notPick);
     }
 
-    public int maximumRows(int[][] mat, int cols) {
+    public int maximumRowsLeetcode(int[][] mat, int cols) {
         Set<Integer> col = new HashSet<>();
         return maximumRows(mat, cols, col, 0, mat[0].length);
     }
