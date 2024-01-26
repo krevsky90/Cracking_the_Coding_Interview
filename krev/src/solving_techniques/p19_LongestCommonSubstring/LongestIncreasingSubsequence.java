@@ -114,4 +114,6 @@ public class LongestIncreasingSubsequence {
      * https://www.youtube.com/watch?v=on2hvxBXJH4 - replace the closest value in temporary array with arr[i] if arr[i] > the latest element of thie temp arrsy.
      * VERY STRANGE SOLUTION
      */
+
+    //looks like smth as MinimumDeletionsToMakeSequenceSorted # minDeletionsGFG, but still do not understand
 }
