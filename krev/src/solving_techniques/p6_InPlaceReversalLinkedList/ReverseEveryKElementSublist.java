@@ -141,7 +141,7 @@ public class ReverseEveryKElementSublist {
     /**
      * https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11440/non-recursive-java-solution-and-idea/
      */
-    public LinkedListNode reverseKGroup(LinkedListNode head, int k) {
+    public LinkedListNode reverseKGroupLeetcode(LinkedListNode head, int k) {
         LinkedListNode begin;
         if (head == null || head.next == null || k == 1) {
             return head;

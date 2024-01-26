@@ -1,5 +1,7 @@
 package solving_techniques.p15_0or1_Knapsack;
 
+import java.util.Arrays;
+
 /**
  * 1981. Minimize the Difference Between Target and Chosen Elements
  * https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/
