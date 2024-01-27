@@ -21,7 +21,7 @@ Sequence of problems:
 5) Maximum Sum Increasing Subsequence - done
 6) Shortest Common Super-sequence (hard on leetcode) - done
 7) Minimum Deletions to Make a Sequence Sorted - done
-8) Longest Repeating Subsequence - todo
+8) Longest Repeating Subsequence - done
 9) Subsequence Pattern Matching - todo
 10) Longest Bitonic Subsequence - todo
 11) Longest Alternating Subsequence - todo
