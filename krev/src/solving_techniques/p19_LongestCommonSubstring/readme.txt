@@ -27,3 +27,5 @@ Sequence of problems:
 11) Longest Alternating Subsequence - todo
 12) Edit Distance - todo
 13) Strings Interleaving - todo
+
+14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - todo
