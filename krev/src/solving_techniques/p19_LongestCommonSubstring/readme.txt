@@ -22,8 +22,8 @@ Sequence of problems:
 6) Shortest Common Super-sequence (hard on leetcode) - done
 7) Minimum Deletions to Make a Sequence Sorted - done
 8) Longest Repeating Subsequence - done
-9) Subsequence Pattern Matching - todo
-10) Longest Bitonic Subsequence - todo
+9) Subsequence Pattern Matching - done
+10) Longest Bitonic Subsequence - done
 11) Longest Alternating Subsequence - todo
 12) Edit Distance - todo
 13) Strings Interleaving - todo
