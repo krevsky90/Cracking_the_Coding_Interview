@@ -24,7 +24,7 @@ Sequence of problems:
 8) Longest Repeating Subsequence - done
 9) Subsequence Pattern Matching - done
 10) Longest Bitonic Subsequence - done
-11) Longest Alternating Subsequence - todo
+11) Longest Alternating Subsequence - done
 12) Edit Distance - todo
 13) Strings Interleaving - todo
 
