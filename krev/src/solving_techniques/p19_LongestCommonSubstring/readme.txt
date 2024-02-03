@@ -28,4 +28,4 @@ Sequence of problems:
 12) Edit Distance - done
 13) Strings Interleaving - done
 
-14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - todo
+14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - done
