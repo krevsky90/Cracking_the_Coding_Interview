@@ -56,7 +56,7 @@ KREVSKY's observations:
             result.add(new ArrayList(tempList));
             for (i = start; ..) {
                 tempList.add(nums[i]);
-                helper(arr, result, tempList, start + 1);
+                helper(arr, result, tempList, i + 1);
                 tempList.remove(tempList.size() - 1);
             }
         }
@@ -89,3 +89,4 @@ Sequence of problems:
 10) https://leetcode.com/problems/next-permutation (medium) - done
 11) https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/ (medium) - done
 12) https://leetcode.com/problems/combinations/description/ (medium) - done
+13) https://leetcode.com/problems/palindrome-partitioning/ (medium) done
