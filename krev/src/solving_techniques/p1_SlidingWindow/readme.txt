@@ -1,3 +1,6 @@
+https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
+https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/636b1d083b22faa3e89b243c
+
 Sliding Window Technique - Algorithmic Mental Models
 https://www.youtube.com/watch?v=MK-NZ4hN7rs
 
@@ -32,17 +35,15 @@ Commonalities (similarities):
 3) extra criteria (> K and so on)
 
 =============================
-https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/636b1d083b22faa3e89b243c
 
-
-Sequence of problems (from https://www.designgurus.io/course-play/grokking-the-coding-interview)
+Sequence of problems:
 1) Maximum Sum Subarray of Size K (easy) = Cracking_the_Coding_Interview\krev\src\solving_techniques\sliding_window\fixedWindowLength\MaxSumSubarray.java
 2) SmallestSubarrayWithGreaterSum
 3) LongestSubstringLengthWithKDistinctChars
 4) FruitIntoBaskets
 5) Longest Substring with Same Letters after Replacement (hard) - todo
 6) Longest Subarray with Ones after Replacement (hard) - todo
-7) Problem Challenge 1: Permutation in a String (hard) = PermutationInString
-8) Problem Challenge 2: String Anagrams (hard) - todo
+7) Problem Challenge 1: Permutation in a String (hard) - done
+8) Problem Challenge 2: String Anagrams (hard) - done
 9) Problem Challenge 3: Smallest Window containing Substring (hard) - todo
 10) Problem Challenge 4: Words Concatenation (hard) - todo

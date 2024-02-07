@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6385d76c4a29c96532f7c16b
+ * OR
  * 567. Permutation in String
  * https://leetcode.com/problems/permutation-in-string/description/
+ *
  * <p>
  * Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
  * <p>
@@ -24,20 +27,16 @@ import java.util.Map;
  *
  */
 
-/**
- * NOTE: this problem is THE SAME AS 438. Find All Anagrams in a String (https://leetcode.com/problems/find-all-anagrams-in-a-string/)
- */
-public class PermutationInString {
-    private static final PermutationInString obj = new PermutationInString();
+public class ProblemChallenge1_PermutationInString {
 
     public static void main(String[] args) {
         String s11 = "ab", s12 = "eidbaooo";
         String s21 = "ab", s22 = "eidboaoo";
         String s31 = "abc", s32 = "dababbac";
 
-        System.out.println(obj.checkInclusionOptimized(s11, s12));
-        System.out.println(obj.checkInclusionKREV(s21, s22));
-        System.out.println(obj.checkInclusionKREV(s31, s32));
+        System.out.println(checkInclusionOptimized(s11, s12));
+        System.out.println(checkInclusionKREV(s21, s22));
+        System.out.println(checkInclusionKREV(s31, s32));
     }
 
     /**
@@ -54,7 +53,7 @@ public class PermutationInString {
      * "cd" = [0 0 1 1 0 .. 0] => "db" = [0 1 0 1 0 .. 0] => "ba" = [1 1 0 0 0 .. 0] <= this array equals to data1 => return true
      *
      */
-    public boolean checkInclusionOptimized(String s1, String s2) {
+    public static boolean checkInclusionOptimized(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
 
         int[] data1 = new int[26];
@@ -80,7 +79,7 @@ public class PermutationInString {
         return compareArrs(data1, data2);   //not false since it will be incorrect for case: s1 = ab, s2 = cab
     }
 
-    private boolean compareArrs(int[] data1, int[] data2) {
+    private static boolean compareArrs(int[] data1, int[] data2) {
         for (int i = 0; i < 26; i++) {
             if (data1[i] != data2[i]) return false;
         }
@@ -95,7 +94,7 @@ public class PermutationInString {
      * 1) I didn't see that it is fixed length window => I tried to solve using dynamic window
      * 2) I didn't read condition that 's1 and s2 consist of lowercase English letters'!
      */
-    public boolean checkInclusionKREV(String s1, String s2) {
+    public static boolean checkInclusionKREV(String s1, String s2) {
         //convert s1 to map
         Map<Character, Integer> map = new HashMap<>();
         for (char c : s1.toCharArray()) {
