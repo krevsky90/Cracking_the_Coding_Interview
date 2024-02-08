@@ -168,8 +168,7 @@ public class PartitionToKEqualSumSubsets {
             //!!! this is key idea !!!
             //https://leetcode.com/problems/partition-to-k-equal-sum-subsets/solutions/1772704/java-solution-with-comments-100-faster-1ms/
             //it really speeds-up the solution!
-            //IF capacity[i] == target THEN we have not taken any elements in this bucket => break
-            //in my understanding it checks if we have element (nums[start]) that is more than maximum capacity
+            //IF capacity[i] == target THEN we could not add n to empty bucket => there is no sense trying to continue, since n can't be added to any bucket
             if (capacity[i] == target) {
                 break;
             }
