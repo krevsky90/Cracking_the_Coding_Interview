@@ -64,10 +64,11 @@ public class OrderAgnosticBinarySearch {
     }
 
     public static int search(int[] nums, int target, int left, int right, boolean acs) {
-        int mid = (left + right) / 2;
         if (left > right) {
             return -1;
         }
+
+        int mid = (left + right) / 2;
 
         if (nums[mid] == target) {
             return mid;

@@ -123,10 +123,10 @@ public class NumberRange {
      * Alternative and beautiful solution:
      * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/solutions/4489136/simple-java-solution-beats-100-users-using-recurrent-binary-searches/
      * Approach
-     * Find an initial occurance of the element in the array.
-     * Find an occurance of the element in the array before the inital occurance. Set corresponding flag to true if not found. Do not search again if flag is true.
-     * Find an occurance of the element in the array after the inital occurance. Set corresponding flag to true if not found. Do not search again if flag is true.
-     * Continue till both flags are not true.
+     * Find an initial occurrence of the element in the array.
+     * Find an occurrence of the element in the array before the inital occurance. Set corresponding flag to true if not found. Do not search again if flag is true.
+     * Find an occurrence of the element in the array after the inital occurance. Set corresponding flag to true if not found. Do not search again if flag is true.
+     * Continue till both flags are not true - it means that we consider the intervals that do not consist target value => the bounds are stored in 'res' array
      */
     public int[] searchRange2(int[] nums, int target) {
         int[] res = {-1, -1};

@@ -10,7 +10,7 @@ Sequence of problems:
 3) Next Letter (medium) - done
 4) Number Range (medium) - done
 5) Search in a Sorted Infinite Array (medium) - done
-6) Minimum Difference Element (medium) - todo
+6) Minimum Difference Element (medium) - done
 7) Bitonic Array Maximum (easy) - todo
 8) Problem Challenge 1: Search Bitonic Array (medium) - todo
 9) Problem Challenge 2: Search in Rotated Array (medium) - done
