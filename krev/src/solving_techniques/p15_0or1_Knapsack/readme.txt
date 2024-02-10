@@ -48,7 +48,7 @@ Sequence of problems:
 7) https://leetcode.com/problems/partition-to-k-equal-sum-subsets/ (medium) - done
 8) https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/ (medium) - done
 9) https://leetcode.com/problems/find-subarrays-with-equal-sum/ (easy) - done
-10) https://leetcode.com/problems/split-with-minimum-sum/ (easy) - todo
+10) https://leetcode.com/problems/split-with-minimum-sum/ (easy) - done
 11) https://leetcode.com/problems/maximum-rows-covered-by-columns/ (medium) - done
 12) https://leetcode.com/problems/fair-distribution-of-cookies/ (medium) - done
 
