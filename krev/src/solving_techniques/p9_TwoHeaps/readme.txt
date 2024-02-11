@@ -9,7 +9,8 @@ This pattern uses two Heaps to solve these problems;
 A Min Heap to find the smallest element and a Max Heap to find the biggest element.
 
 Sequence of problems:
-1) Find the Median of a Number Stream (medium) - todo
+1) Find the Median of a Number Stream (medium) - done
 2) Sliding Window Median (hard) - todo
+    https://leetcode.com/problems/sliding-window-median/
 3) Maximize Capital (hard) - todo
 4) Problem Challenge 1: Next Interval (hard) - todo
