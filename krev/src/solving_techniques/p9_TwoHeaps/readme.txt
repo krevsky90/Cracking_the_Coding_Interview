@@ -10,7 +10,6 @@ A Min Heap to find the smallest element and a Max Heap to find the biggest eleme
 
 Sequence of problems:
 1) Find the Median of a Number Stream (medium) - done
-2) Sliding Window Median (hard) - todo
-    https://leetcode.com/problems/sliding-window-median/
+2) Sliding Window Median (hard) - done
 3) Maximize Capital (hard) - todo
 4) Problem Challenge 1: Next Interval (hard) - todo
