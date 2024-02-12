@@ -14,7 +14,7 @@ Dynamic Programming (DP) uses a similar approach where we try out all possible s
  on the other hand, is mostly used when multiple valid solutions are possible for a problem.
 
 Sequence of problems:
-1) Combination Sum (medium) - todo
+1) Combination Sum (medium) - done
 2) Word Search (medium) - done
 3) Sudoku Solver (hard) - done
 4) Factor Combinations (medium) - todo
