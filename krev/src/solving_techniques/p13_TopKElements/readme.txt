@@ -13,20 +13,20 @@ Short summary:
 min heap - min element on the top
 max heap - max element on the top
 
-K-th smallest element => use max heap. Add element + remove (poll) top of heap. Finally return top of heap
-K-th largest element => use min heap.  Add element + remove (poll) top of heap. Finally return top of heap
+K-th smallest element => use max heap. Add (offer) element + remove (poll) top of heap. Finally return top of heap
+K-th largest element => use min heap.  Add (offer) element + remove (poll) top of heap. Finally return top of heap
 
 NOTE: PriorityQueue - min heap
 
 Sequence of problems:
 1) Top 'K' Numbers (easy) - todo
-2) Kth Smallest Number (easy) - todo
+2) Kth Smallest Number (easy) - done
 3) 'K' Closest Points to the Origin (easy/medium) - done
 4) Connect Ropes (easy) - done
 5) Top 'K' Frequent Numbers (medium) - done
 6) Frequency Sort (medium) - done
 7) Kth Largest Number in a Stream (medium) - done
-8) 'K' Closest Numbers (medium) - todo
+8) 'K' Closest Numbers (medium) - done
 9) Maximum Distinct Elements (medium) - todo
 10) Sum of Elements (medium) - todo
 11) Rearrange String (hard) - todo
