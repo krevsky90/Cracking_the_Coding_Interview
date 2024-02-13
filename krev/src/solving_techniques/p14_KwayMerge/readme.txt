@@ -11,7 +11,7 @@ We can, then, remove the top element from the heap to get the smallest element a
 to which this smallest element belonged, to the heap ...
 
 Sequence of problems:
-1) Merge K Sorted Lists (medium) - todo
+1) Merge K Sorted Lists (medium) - done
 2) Kth Smallest Number in M Sorted Lists (medium) - todo
 3) Kth Smallest Number in a Sorted Matrix (hard) - todo
 4) Smallest Number Range (hard) - todo
