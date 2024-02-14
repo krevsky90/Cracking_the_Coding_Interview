@@ -50,6 +50,7 @@ public class MergeKSortedLists {
      * not optimized: in the end of the algorithm curNodes collection contains only null's => it would be good to cut them,
      * but without usage of  linkedList (I tried it firstly, until came to the idea #2) I do not know how to do this in O(1)
      * <p>
+     *
      * 2 attempts:
      * - missed the idea #2
      */
@@ -86,6 +87,8 @@ public class MergeKSortedLists {
             }
 
             //find the list that contains tempMin as current node
+            //ATTENTION!!! this is NOT needed! we just should get tempMin.next (that is obviously in the same list as tempMin node)
+            //  and add it to the queue (it the next element is not null)
             for (int i = 0; i < curNodes.size(); i++) {
                 //we can compare the objects since we put the object itself to the PriorityQueue
                 LinkedListNode tempCur = curNodes.get(i);
@@ -102,6 +105,52 @@ public class MergeKSortedLists {
 
         return result;
     }
+
+    /**
+     * GFG solution - optimized Krevsky's solution
+     *
+     * NOTE: hack to avoid if-else while storing the link to 'result' node -  create fake head + temp pointer. and finally return head.next
+     * time ~ O(N*K*logK)
+     * space ~ O(K), where k - amount of lists, N - total amount of elements (in all lists)
+     */
+    public static LinkedListNode mergeKListsGFG(LinkedListNode[] lists) {
+        // Priority_queue 'queue' implemented as min heap with the help of 'compare' function
+        Queue<LinkedListNode> pq = new PriorityQueue<>((a, b) -> a.value - b.value); //i.e. min heap
+
+        // Push the head nodes of all the k lists in 'queue'
+        for (LinkedListNode node : lists) {
+            if (node != null) {
+                pq.add(node);
+            }
+        }
+
+        // Handles the case when k = 0 or lists have no elements in them
+        if (pq.isEmpty()) {
+            return null;
+        }
+
+        LinkedListNode fakeHead = new LinkedListNode(-100500);
+        LinkedListNode last = fakeHead;
+
+        while (!pq.isEmpty()) {
+            // Get the top element of 'queue'
+            LinkedListNode tempMin = pq.poll();
+
+            // Add the top element of 'queue' to the resultant merged list
+            last.next = tempMin;
+            last = last.next;
+
+            // Check if there is a node next to the 'top' node in the list of which 'top' node is a member
+            if (tempMin.next != null) {
+                // Push the next node of top node in 'queue'
+                pq.add(tempMin.next);
+            }
+        }
+
+        // Address of head node of the required merged list
+        return fakeHead.next;
+    }
+
 
     /**
      * Alternative solution is MERGE SORT for sublists of lists, until sublist contains only 2 lists. In this case we just use usual mergeSort
