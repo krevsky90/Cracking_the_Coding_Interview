@@ -54,7 +54,7 @@ public class SimplifyPath {
     /**
      * NOT SOLVED
      * idea + explanation: https://leetcode.com/problems/simplify-path/solutions/1847526/best-explanation-ever-possible-not-a-clickbait/
-     * implementation: https://leetcode.com/problems/simplify-path/solutions/4739848/java-easy-stack-solution/
+     * implementation like https://leetcode.com/problems/simplify-path/solutions/4739848/java-easy-stack-solution/
      *
      * NOTE: to avoid duplication of code (when the last word is not saved into stack and wee add this saving after the for-loop),
      * we iterate up to arr.length inclusively!
@@ -71,9 +71,13 @@ public class SimplifyPath {
             if ((i == arr.length || arr[i] == '/') && sb.length() > 0) {
                 String dir = sb.toString();
 
-                if ("..".equals(dir) && !stack.isEmpty()) {
-                    stack.pop();
-                } else if (!"..".equals(dir) && !".".equals(dir)) {
+                if ("..".equals(dir)) {
+                    if (!stack.isEmpty()) {
+                        stack.pop();
+                    }
+                } else if (".".equals(dir)) {
+                    //do nothing
+                } else {
                     stack.push(dir);
                 }
 
