@@ -65,10 +65,6 @@ Since we will have repeating elements, we can store knap(x) result where 0 < x <
 
 ===============================================================================
 
-
-
-
-
 Example #1:
 Input : W = 100
        values[]  = {1, 30}
@@ -94,3 +90,5 @@ Sequence of problems:
 3) Coin Change - done
 4) Minimum Coin Change - done
 5) Maximum Ribbon Cut - done
+
+todo: find more similar problems from leetcode

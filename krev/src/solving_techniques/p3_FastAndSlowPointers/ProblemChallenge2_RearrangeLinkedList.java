@@ -7,6 +7,9 @@ import static data_structures.chapter2_linked_lists.LinkedListUtils.printLinkedL
 /**
  * https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63923313ae2ec690ac22b61d
+ * OR
+ * 143. Reorder List
+ * https://leetcode.com/problems/reorder-list
  *
  * Given the head of a Singly LinkedList, write a method to modify the LinkedList such
  * that the nodes from the second half of the LinkedList are inserted alternately to the nodes from the first half in reverse order.
@@ -17,6 +20,7 @@ import static data_structures.chapter2_linked_lists.LinkedListUtils.printLinkedL
  * Example 1:
  * Input: 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> null
  * Output: 2 -> 12 -> 4 -> 10 -> 6 -> 8 -> null
+ *
  */
 
 public class ProblemChallenge2_RearrangeLinkedList {
