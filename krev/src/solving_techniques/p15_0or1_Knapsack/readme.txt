@@ -51,6 +51,7 @@ Sequence of problems:
 10) https://leetcode.com/problems/split-with-minimum-sum/ (easy) - done
 11) https://leetcode.com/problems/maximum-rows-covered-by-columns/ (medium) - done
 12) https://leetcode.com/problems/fair-distribution-of-cookies/ (medium) - done
+13) https://leetcode.com/problems/minimum-number-of-coins-to-be-added/ - done
 
 
 
