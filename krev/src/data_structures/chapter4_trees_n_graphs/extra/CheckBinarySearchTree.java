@@ -18,6 +18,15 @@ import data_structures.chapter4_trees_n_graphs.Node;
  *
  */
 public class CheckBinarySearchTree {
+    public static void main(String[] args) {
+        Node n1 = new Node(1);
+        Node n2 = new Node(1);
+        n1.left = n2;
+        System.out.println(isBSTByInOrderTraversal(n1));
+    }
+    /**
+     * NOTE: it does not work if nods = Integer.MIN_VALUE / Integer.MAX_VALUE !!!
+     */
     public static boolean isBST(Node n) {
         return isBST(n, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
@@ -25,6 +34,45 @@ public class CheckBinarySearchTree {
         if (n == null) return true;
         if (n.value < min || n.value > max) return false;
         return isBST(n.left, min, n.value) && isBST(n.right, n.value + 1, max);
+    }
+
+    /**
+     * To cope with case when nodes can have value = Integer.MIN_VALUE / Integer.MAX_VALUE
+     * we need to use Morris In-Order Traversal that should give us sorted ascending array (in case if Tree is BST
+     */
+
+    public static boolean isBSTByInOrderTraversal(Node n) {
+        Node prev = null;
+        while (n != null) {
+            if (n.left == null) {
+                //check if previously 'printed' element is less than current element to be 'printed'
+                if (prev != null && prev.value >= n.value) return false;
+                prev = n;
+                n = n.right;
+            } else {
+                //find predecessor
+                Node predecessor = n.left;
+                while (predecessor.right != null && predecessor.right != n) {
+                    predecessor = predecessor.right;
+                }
+
+                if (predecessor.right == null) {
+                    //create loop
+                    predecessor.right = n;
+                    n = n.left;
+                } else {
+                    //check if previously 'printed' element is less than current element to be 'printed'
+                    if (prev != null && prev.value >= n.value) return false;
+
+                    //break loop
+                    predecessor.right = null;
+                    prev = n;
+                    n = n.right;
+                }
+            }
+        }
+
+        return true;
     }
 }
 
