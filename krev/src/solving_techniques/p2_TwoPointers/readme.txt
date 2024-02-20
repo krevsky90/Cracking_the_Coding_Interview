@@ -17,7 +17,8 @@ Sequence of problems:
 8.2) DutchNationalFlagProblem - done
 9) ProblemChallenge1_QuadrupleSumToTarget = 4sums - done
 9.2) 4sums_II (i.e. FourSums_II) - done
-10) Problem Challenge 2: Comparing Strings containing Backspaces (medium) - todo
+10) Problem Challenge 2: Comparing Strings containing Backspaces (medium) - done
+10.2) https://leetcode.com/problems/removing-stars-from-a-string/ - todo
 11) Problem Challenge 3: Minimum Window Sort (medium) - todo
 
 12) src/data_structures/chapter1_arrays_n_strings/amazon_igotanoffer/easy_arrays/Problem1_4_TwoUniqueSums.java - done

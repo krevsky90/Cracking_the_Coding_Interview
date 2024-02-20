@@ -28,6 +28,8 @@ package solving_techniques.p2_TwoPointers;
  *
  * NOTE: the idea is similar to Segregate0and1s problem
  */
+
+
 public class DutchNationalFlagProblem {
     public static void main(String[] args) {
         int[] arr = new int[]{2,0,1};
@@ -36,6 +38,13 @@ public class DutchNationalFlagProblem {
     /**
      * SOLUTION: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
      * Idea: 3 pointers (low, mid, high)
+     * low and mid = 0 and move to the right if they = 0
+     * high = n.len - 1 and moves to the left if it = 2 until it becomes = mid
+     * finally
+     * low will be max_index_of_0 + 1
+     * high will be min_index_of_2 - 1 = mid
+     *
+     *
      * while mid <= high
      * 1) if nums[mid] == 0 then
      *  a) swap nums[low] and nums[mid]
