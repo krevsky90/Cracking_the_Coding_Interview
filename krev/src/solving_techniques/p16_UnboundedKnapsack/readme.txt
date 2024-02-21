@@ -83,6 +83,12 @@ Input : W = 8
 Output : 110
 We get maximum value with one unit of weight 5 and one unit of weight 3
 
+NOTE:
+we need to use memoization, BUT
+1) check if we are out of bound (base case) and return smth appropriate to this situation
+2) only after that check if memo[i] is not empty.If not - return
+3) if memo[i] is not set => calculate it and return
+
 
 Sequence of problems:
 1) Unbounded Knapsack - done
@@ -91,4 +97,7 @@ Sequence of problems:
 4) Minimum Coin Change - done
 5) Maximum Ribbon Cut - done
 
-todo: find more similar problems from leetcode
+7) https://leetcode.com/problems/minimum-cost-for-tickets - done
+8) https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/ - todo
+
+in general https://leetcode.com/tag/dynamic-programming/
