@@ -47,3 +47,4 @@ Sequence of problems:
 8) Problem Challenge 2: String Anagrams (hard) - done
 9) Problem Challenge 3: Smallest Window containing Substring (hard) - todo
 10) Problem Challenge 4: Words Concatenation (hard) - todo
+11) https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/ - done
