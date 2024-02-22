@@ -40,7 +40,7 @@ public class LongestCommonSubstring {
      */
 
     /**
-     * implementation the idea f https://www.youtube.com/watch?v=UZRkpGk943Q
+     * implementation the idea from https://www.youtube.com/watch?v=UZRkpGk943Q
      * (described in src/solving_techniques/p19_LongestCommonSubstring/readme.txt)
      */
 

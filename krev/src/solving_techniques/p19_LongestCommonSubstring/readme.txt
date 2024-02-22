@@ -29,3 +29,13 @@ Sequence of problems:
 13) Strings Interleaving - done
 
 14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - done
+15) https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings (medium) - todo
+16) https://leetcode.com/problems/maximum-length-of-pair-chain (medium) - todo
+17) https://leetcode.com/problems/distinct-subsequences (hard) - todo
+18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - todo
+19) https://leetcode.com/problems/longest-increasing-subsequence-ii (hard) - todo
+20) https://leetcode.com/problems/longest-continuous-increasing-subsequence (easy) - todo
+21) https://leetcode.com/problems/longest-substring-of-one-repeating-character (hard) - todo
+22) https://leetcode.com/problems/delete-operation-for-two-strings (medium) - todo
+23) https://leetcode.com/problems/distinct-subsequences (hard) - todo
+24) https://leetcode.com/problems/longest-palindromic-subsequence (medium) - todo
