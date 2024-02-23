@@ -9,6 +9,8 @@ info: https://www.youtube.com/watch?v=UZRkpGk943Q
 4) maxLength = max(maxLength, dp[i][j])
 NOTE: the space can be optimized since i-th row depends only on i-1-th
 
+OR it is better to check the technique here
+https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns#DP-on-Strings
 
 Sequence of problems:
 1) Longest Common Substring - done
@@ -30,7 +32,7 @@ Sequence of problems:
 
 14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - done
 15) https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings (medium) - todo
-16) https://leetcode.com/problems/maximum-length-of-pair-chain (medium) - todo
+16) https://leetcode.com/problems/maximum-length-of-pair-chain (medium) - done
 17) https://leetcode.com/problems/distinct-subsequences (hard) - todo
 18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - todo
 19) https://leetcode.com/problems/longest-increasing-subsequence-ii (hard) - todo
