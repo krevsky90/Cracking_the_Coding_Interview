@@ -49,13 +49,13 @@ Any vertex with 0 in-degree will be a source.
     Repeat for each source, until the source Queue is empty.
 
 Sequence of problems:
-1) Topological Sort
-2) Tasks Scheduling (similar to https://leetcode.com/problems/course-schedule)
-3) Tasks Scheduling Order (similar to https://leetcode.com/problems/course-schedule-ii/)
-4) All Tasks Scheduling Orders
-5) Alien Dictionary (hard)
-6) Problem Challenge 1: Reconstructing a Sequence (hard)
-7) Problem Challenge 2: Minimum Height Trees (hard)
+1) Topological Sort - done
+2) Tasks Scheduling (similar to https://leetcode.com/problems/course-schedule) - done
+3) Tasks Scheduling Order (similar to https://leetcode.com/problems/course-schedule-ii/) - todo
+4) All Tasks Scheduling Orders (hard) - done
+5) Alien Dictionary (hard) - todo
+6) Problem Challenge 1: Reconstructing a Sequence (hard) - todo
+7) Problem Challenge 2: Minimum Height Trees (hard) - todo
 
 Leetcode:
 https://leetcode.com/tag/topological-sort/
