@@ -1,4 +1,4 @@
-package solving_techniques.p10_Subsets;
+package solving_techniques.p10_SubsetsAndPermutations;
 
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639ddbfd1558f46adcdc699c (hard)

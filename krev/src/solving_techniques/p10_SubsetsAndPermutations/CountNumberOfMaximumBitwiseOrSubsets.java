@@ -1,10 +1,9 @@
-package solving_techniques.p10_Subsets;
+package solving_techniques.p10_SubsetsAndPermutations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * 2044. Count Number of Maximum Bitwise-OR Subsets

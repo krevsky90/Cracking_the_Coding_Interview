@@ -1,4 +1,4 @@
-package solving_techniques.p10_Subsets;
+package solving_techniques.p10_SubsetsAndPermutations;
 
 /**
  * 31. Next Permutation

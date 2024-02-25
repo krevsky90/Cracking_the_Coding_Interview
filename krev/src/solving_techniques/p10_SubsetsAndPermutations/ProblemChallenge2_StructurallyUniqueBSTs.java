@@ -1,4 +1,4 @@
-package solving_techniques.p10_Subsets;
+package solving_techniques.p10_SubsetsAndPermutations;
 
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 import javafx.util.Pair;
