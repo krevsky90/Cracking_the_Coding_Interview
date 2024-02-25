@@ -63,6 +63,8 @@ KREVSKY's observations:
 
 2) for Permutations:
      use 2 methods:
+        NOTE: if we consider the combinations created by this way as numbers, then these numbers will be in increasing sequence!
+
         List<List<..>> method1(int[] arr) {..}
 
         void helper(int[] arr, List<List<..>> result, List<..> tempList) {
@@ -80,6 +82,21 @@ KREVSKY's observations:
     OR
     use logic from solving_techniques/p10_Subsets/Permutations.java # permute3
     (see https://www.geeksforgeeks.org/print-all-possible-permutations-of-an-array-vector-without-duplicates-using-backtracking/)
+    NOTE: it is slower, than the previous solution
+
+    void permute(int[] nums, int left, int right, List<List<Integer>> result) {
+            if (left == right) {
+                result.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+                return;
+            }
+
+            for (int i = left; i < right; i++) {
+                swap(nums, left, i);
+                permute(nums, left + 1, right, result);
+                swap(nums, left, i);
+            }
+        }
+
 
 Sequence of problems:
 1) Subsets (easy) - done
@@ -96,3 +113,4 @@ Sequence of problems:
 11) https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/ (medium) - done
 12) https://leetcode.com/problems/combinations/description/ (medium) - done
 13) https://leetcode.com/problems/palindrome-partitioning/ (medium) done
+14) https://leetcode.com/problems/permutation-sequence/ (hard) - done

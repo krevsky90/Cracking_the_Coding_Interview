@@ -31,10 +31,28 @@ import java.util.stream.Collectors;
  * All the integers of nums are unique.
  */
 public class Permutations {
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,4};
+        List<List<Integer>> result1 = new Permutations().permute(nums);
+        for (List<Integer> list : result1) {
+            list.stream().forEach(x -> System.out.print(x + " "));
+            System.out.println();
+        }
+        System.out.println();
+
+        List<List<Integer>> result3 = new Permutations().permute3(nums);
+        for (List<Integer> list : result3) {
+            list.stream().forEach(x -> System.out.print(x + " "));
+            System.out.println();
+        }
+
+    }
     /**
      * https://leetcode.com/problems/permutations/solutions/18239/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partioning/
      * NOT SOLVED!
      * time to solve ~ 35 mins
+     *
+     * NOTE: if we consider the combinations as numbers, then these numbers will be in increasing sequence!
      *
      * Idea (#1): use backtracking, BUT skip elements that are already exist in tempList
      */
@@ -128,7 +146,7 @@ public class Permutations {
             return;
         }
 
-        for (int i = left; i < right; i++) {
+        for (int i = left; i <= right; i++) {
             swap(nums, left, i);
             permute3(nums, left + 1, right, result);
             swap(nums, left, i);    //backtracking
