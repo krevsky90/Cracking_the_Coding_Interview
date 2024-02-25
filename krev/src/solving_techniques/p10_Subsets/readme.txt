@@ -69,11 +69,17 @@ KREVSKY's observations:
             if (tempList.length = arr.length) result.add(new ArrayList(tempList));
 
             for (i = 0; ..) {
+                if (tempList.contains(nums[i])) continue;   //idea #1: skip since all elements should be unique!
+
                 tempList.add(nums[i]);
                 helper(arr, result, tempList, start + 1);
                 tempList.remove(tempList.size() - 1);
             }
         }
+
+    OR
+    use logic from solving_techniques/p10_Subsets/Permutations.java # permute3
+    (see https://www.geeksforgeeks.org/print-all-possible-permutations-of-an-array-vector-without-duplicates-using-backtracking/)
 
 Sequence of problems:
 1) Subsets (easy) - done

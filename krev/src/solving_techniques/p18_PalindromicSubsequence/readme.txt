@@ -7,4 +7,4 @@ Sequence of problems:
 3) Count of Palindromic Substrings - done
 4) Minimum Deletions in a String to make it a Palindrome - done
 5) Palindromic Partitioning - done
-5.2) https://leetcode.com/problems/palindrome-partitioning/ (medium) - todo
+5.2) https://leetcode.com/problems/palindrome-partitioning (medium) - done

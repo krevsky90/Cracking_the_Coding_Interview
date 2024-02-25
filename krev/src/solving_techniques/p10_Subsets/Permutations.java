@@ -1,7 +1,9 @@
 package solving_techniques.p10_Subsets;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639cae5754a43e1fc3c40cb6
@@ -61,4 +63,82 @@ public class Permutations {
      * SOLUTION #2:
      * see Cracking_the_Coding_Interview\krev\src\data_structures\chapter8_recursion_and_dynamic_programming\Problem8_7 # computeAllPermutations
      */
+
+    /**
+     * SOLUTION #3:
+     * https://www.geeksforgeeks.org/print-all-possible-permutations-of-an-array-vector-without-duplicates-using-backtracking/
+     */
+    public List<List<Integer>> permute3(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        List<List<Integer>> result = new ArrayList<>();
+        //NOTE: we temporary change the initial array 'nums'!
+        permute3(nums, left, right, result);
+
+        return result;
+    }
+
+
+    //permute3(123, 0, 2, [])
+    //	i=0:
+    //		swap: 123
+    //		permute3(123, 1, 2, [..])
+    //			i=1:
+    //				swap: 123
+    //				permute3(123, 2, 2, [..])
+    //					result += [[123]]
+    //				swap: 123
+    //			i=2:
+    //				swap: 132
+    //				permute3(132, 2, 2, [..])
+    //					result += [[132]]
+    //				swap: 123
+    //		swap: 123
+    //	i=1:
+    //		swap: 213
+    //		permute3(213, 1, 2, [..])
+    //			i=1:
+    //				swap: 213
+    //				permute3(213, 2, 2, [..])
+    //					result += [[213]]
+    //				swap: 213
+    //			i=2:
+    //				swap: 231
+    //				permute3(231, 2, 2, [..])
+    //					result += [[231]]
+    //				swap: 213
+    //		swap: 123
+    //	i=2:
+    //		swap: 321
+    //		permute3(321, 1, 2, [..])
+    //			i=1:
+    //				swap: 321
+    //				permute3(321, 2, 2, [..])
+    //					result += [[321]]
+    //				swap: 321
+    //			i=2:
+    //				swap: 312
+    //				permute3(312, 2, 2, [..])
+    //					result += [[312]]
+    //				swap: 321
+    //		swap: 123
+    private void permute3(int[] nums, int left, int right, List<List<Integer>> result) {
+        if (left == right) {
+            result.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+            return;
+        }
+
+        for (int i = left; i < right; i++) {
+            swap(nums, left, i);
+            permute3(nums, left + 1, right, result);
+            swap(nums, left, i);    //backtracking
+        }
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int val = arr[i];
+        arr[i] = arr[j];
+        arr[j] = val;
+    }
+
 }
