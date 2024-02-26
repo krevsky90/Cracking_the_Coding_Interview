@@ -21,6 +21,9 @@ cur = next;
 //
 return prev
 
+Good patterns and solutions:
+https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20%20Pattern%2006:%20In-place%20Reversal%20of%20a%20LinkedList.md
+
 Sequence of problems:
 1) Reverse a LinkedList (easy) - done
 2) Reverse a Sub-list (medium) - done

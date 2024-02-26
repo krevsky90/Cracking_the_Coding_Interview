@@ -6,7 +6,7 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394ddf7a05eca1732753441
  * OR
  * 92. Reverse Linked List II
- * https://leetcode.com/problems/reverse-linked-list-ii/description/
+ * https://leetcode.com/problems/reverse-linked-list-ii
  * <p>
  * Given the head of a singly linked list and two integers left and right where left <= right,
  * reverse the nodes of the list from position left to position right, and return the reversed list.
@@ -27,7 +27,7 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
  */
 public class ReverseSubList {
     /**
-     * KREVSKY solution
+     * KREVSKY solution #1
      * time to solve ~ 29 mins
      * time ~ O(n)
      * space ~ O(1)
@@ -97,5 +97,58 @@ public class ReverseSubList {
         }
 
         return prev;
+    }
+
+    /**
+     * SOLUTION #2
+     * info: https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20%20Pattern%2006:%20In-place%20Reversal%20of%20a%20LinkedList.md
+     * more applicable for other similar problems that are based on this solution
+     *
+     * time to implement ~ 16 mins
+     * 1 attempt
+     */
+    public LinkedListNode reverseBetweenBeauty(LinkedListNode head, int left, int right) {
+        LinkedListNode current = head;
+        //save pointer to the last node of first chunk to connect it to the head of future reversed part of LL
+        LinkedListNode lastOfFirstChunk = null;
+        int i = 0;
+        while (current != null && i < left - 1) {
+            lastOfFirstChunk = current;
+            current = current.next;
+            i++;
+        }
+
+        //we are interested in three parts ofthe LL,
+        //1. the part before index p
+        //2. the part between p and q
+        //3. and the part after index q
+
+        //save pointer to 'current' nod - it will be the latest node of reversed chunk (part of LL)
+        LinkedListNode lastOfReversedChunk = current;
+
+        //reverse!
+        i = 0;
+        LinkedListNode prev = null;
+        LinkedListNode next = null;
+        while (current != null && i < right - left + 1) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+            i++;
+        }
+
+        //join first chunk + reversed chunk
+        if (lastOfFirstChunk != null) {
+            lastOfFirstChunk.next = prev;
+        } else {
+            //this means p = 1 i.e., we are changing the first node(head) of the LL
+            head = prev;
+        }
+
+        //join reversed chunk + last chunk (its head = 'current' right now)
+        lastOfReversedChunk.next = current;
+
+        return head;
     }
 }
