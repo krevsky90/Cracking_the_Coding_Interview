@@ -13,6 +13,8 @@ Once we are done with the sorting,
 we can iterate the array to find all indices that are missing the correct numbers.
 These will be our required numbers.
 
+one more theory:
+https://leetcode.com/discuss/study-guide/2958275/cyclic-sort-important-pattern
 
 
 Sequence of problems:
@@ -21,3 +23,6 @@ Sequence of problems:
 3) Find all Missing Numbers (easy) - done
 4) Find the Duplicate Number (easy/medium) - done
 5) Find all Duplicate Numbers (easy/medium) - done
+
+6) https://leetcode.com/problems/set-mismatch (easy) - todo
+7) https://leetcode.com/problems/first-missing-positive (hard) - todo
