@@ -103,6 +103,17 @@ public class Problem2_5_PopulatingNextRightPointersInEachNode {
         return root;
     }
 
+    //connectDFS(1,null)
+    //	connectDFS(2,3)
+    //		connectDFS(4,5)
+    //			connectDFS(null,null)
+    //			connectDFS(null,null)
+    //		connectDFS(5,6)
+    //	connectDFS(3,null)
+    //		connectDFS(6,7)
+    //		connectDFS(7,null)
+    //			connectDFS(null,null)
+    //			connectDFS(null,null)
     private static void connectDFS(TreeNode node1, TreeNode node2) {
         if (node1 == null) return;
 
