@@ -17,5 +17,10 @@ see https://medium.com/@Harshit_Raj_14/useful-properties-of-xor-in-coding-bitwis
 Sequence of problems:
 1) Single Number (easy) - done
 2) Two Single Numbers (medium) - done
-3) Complement of Base 10 Number (medium) - todo
+3) Complement of Base 10 Number (medium) - done
 4) Problem Challenge 1: Flip and Invert an Image (hard) - todo
+
+5) https://leetcode.com/problems/single-number-ii (medium) - done
+6) https://leetcode.com/problems/find-the-original-array-of-prefix-xor (medium) - todo
+7) https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor (medium) - todo
+8) https://leetcode.com/problems/decode-xored-array (easy) - todo
