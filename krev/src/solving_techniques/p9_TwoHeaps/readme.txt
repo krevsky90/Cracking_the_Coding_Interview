@@ -8,6 +8,18 @@ This pattern is an efficient approach to solve such problems.
 This pattern uses two Heaps to solve these problems;
 A Min Heap to find the smallest element and a Max Heap to find the biggest element.
 
+Key-Idea of 'add' method:
+    private void addElementToHeaps(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap, int n) {
+        if (leftMaxHeap.size() == 0 || leftMaxHeap.peek() >= n) {
+            leftMaxHeap.offer(n);
+        } else {
+            rightMinHeap.offer(n);
+        }
+
+        rebalance(leftMaxHeap, rightMinHeap);
+    }
+
+
 Sequence of problems:
 1) Find the Median of a Number Stream (medium) - done
 2) Sliding Window Median (hard) - done

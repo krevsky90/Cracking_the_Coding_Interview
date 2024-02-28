@@ -5,9 +5,32 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
+/**
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639c8fe6165a22967d308303
+ * OR
+ * 480. Sliding Window Median
+ * https://leetcode.com/problems/sliding-window-median/
+ *
+ * Given an array of numbers and a number ?k?, find the median of all the ?k? sized sub-arrays (or windows) of the array.
+ *
+ * Example 1:
+ * Input: nums=[1, 2, -1, 3, 5], k = 2
+ * Output: [1.5, 0.5, 1.0, 4.0]
+ * Explanation: Let's consider all windows of size ?2?:
+ * [1, 2, -1, 3, 5] -> median is 1.5
+ * [1, 2, -1, 3, 5] -> median is 0.5
+ * [1, 2, -1, 3, 5] -> median is 1.0
+ * [1, 2, -1, 3, 5] -> median is 4.0
+ *
+ * Example 2:
+ * Input: nums=[1, 2, -1, 3, 5], k = 3
+ * Output: [1.0, 2.0, 3.0]
+ * Explanation: Let's consider all windows of size ?3?:
+ */
 public class SlidingWindowMedian {
     public static void main(String[] args) {
-        int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
+        int[] nums = {1,3,-1,-3,5,3,6,7};         //[1.00000,-1.00000,-1.00000,3.00000,5.00000,6.00000]
+//        int[] nums = {2147483647,1,2,3,4,5,6,7,2147483647};
         int k = 3;
         SlidingWindowMedian obj = new SlidingWindowMedian();
         double[] result = obj.medianSlidingWindow(nums, k);
@@ -37,7 +60,6 @@ public class SlidingWindowMedian {
         for (int i = 0; i <= nums.length; i++) {
             if (i < k) {
                 addElementToHeaps(leftMaxHeap, rightMinHeap, nums[i]);
-                rebalance(leftMaxHeap, rightMinHeap);
             } else {
                 //fill result
                 result[start] = findMedian(leftMaxHeap, rightMinHeap);
@@ -52,34 +74,11 @@ public class SlidingWindowMedian {
                 //so now just add i-th element
                 addElementToHeaps(leftMaxHeap, rightMinHeap, nums[i]);
 
-                rebalance(leftMaxHeap, rightMinHeap);
-
                 start++;
             }
         }
 
-//        result[start] = findMedian(leftMaxHeap, rightMinHeap);
-         Arrays.stream(result).forEach(x -> System.out.print(x + " | "));
-
         return result;
-    }
-
-    private void rebalance(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap) {
-        //check that left elements are lower than right elements
-        while (leftMaxHeap.size() > 0 && rightMinHeap.size() > 0 && leftMaxHeap.peek() > rightMinHeap.peek()) {
-            int leftElementToMove = leftMaxHeap.poll();
-            rightMinHeap.offer(leftElementToMove);
-            int rightElementToMove = rightMinHeap.poll();
-            leftMaxHeap.offer(rightElementToMove);
-        }
-
-        if (leftMaxHeap.size() - rightMinHeap.size() > 1) {
-            int elementToMove = leftMaxHeap.poll();
-            rightMinHeap.offer(elementToMove);
-        } else if (rightMinHeap.size() - leftMaxHeap.size() > 1) {
-            int elementToMove = rightMinHeap.poll();
-            leftMaxHeap.offer(elementToMove);
-        }
     }
 
     private void removeElementFromHeaps(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap, int n) {
@@ -88,28 +87,35 @@ public class SlidingWindowMedian {
         } else {
             leftMaxHeap.remove(n);
         }
+
+        rebalance(leftMaxHeap, rightMinHeap);
     }
 
+    //the same as FindMedianOfNumberStream # addNum2
     private void addElementToHeaps(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap, int n) {
-        if (leftMaxHeap.size() == 0) {
+        if (leftMaxHeap.size() == 0 || leftMaxHeap.peek() >= n) {
             leftMaxHeap.offer(n);
-            return;
+        } else {
+            rightMinHeap.offer(n);
         }
 
-        if (leftMaxHeap.peek() < n) {
-            rightMinHeap.offer(n);
-        } else {
-            leftMaxHeap.offer(n);
+        rebalance(leftMaxHeap, rightMinHeap);
+    }
+
+    //re-balance so that rightMinHeap.size() <= leftMaxHeap.size() <= rightMinHeap.size() + 1
+    private void rebalance(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap) {
+        if (leftMaxHeap.size() > rightMinHeap.size() + 1) {
+            rightMinHeap.offer(leftMaxHeap.poll());
+        } else if (rightMinHeap.size() > leftMaxHeap.size()) {
+            leftMaxHeap.offer(rightMinHeap.poll());
         }
     }
 
     private double findMedian(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap) {
         if (leftMaxHeap.size() == rightMinHeap.size()) {
             return ((double) leftMaxHeap.peek() + (double) rightMinHeap.peek()) / 2.0;
-        } else if (leftMaxHeap.size() > rightMinHeap.size()) {
-            return leftMaxHeap.peek();
         } else {
-            return rightMinHeap.peek();
+            return leftMaxHeap.peek();
         }
     }
 

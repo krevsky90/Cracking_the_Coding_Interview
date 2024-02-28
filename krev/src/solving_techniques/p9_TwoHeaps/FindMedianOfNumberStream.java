@@ -111,11 +111,33 @@ public class FindMedianOfNumberStream {
     public double findMedian() {
         if (leftMaxHeap.size() == rightMinHeap.size()) {
             return (leftMaxHeap.peek() + rightMinHeap.peek())/2.0;  //NOTE: divide to double (2.0) to get double not rounded result!
-        } else if (leftMaxHeap.size() < rightMinHeap.size()) {
-            return rightMinHeap.peek();
         } else {
             //leftMaxHeap.size() > rightMinHeap.size()
             return leftMaxHeap.peek();
         }
     }
+
+    /**
+     * SOLUTION for add(..) method
+     * https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20%F0%9F%99%83%20Pattern%2009%3A%20Two%20Heaps.md
+     */
+    public void addNum2(int num) {
+        if (leftMaxHeap.size() == 0 || leftMaxHeap.peek() >= num) {
+            leftMaxHeap.offer(num);
+        } else {
+            rightMinHeap.offer(num);
+        }
+
+        rebalance(leftMaxHeap, rightMinHeap);
+    }
+
+    //re-balance so that rightMinHeap.size() <= leftMaxHeap.size() <= rightMinHeap.size() + 1
+    private void rebalance(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap) {
+        if (leftMaxHeap.size() > rightMinHeap.size() + 1) {
+            rightMinHeap.offer(leftMaxHeap.poll());
+        } else if (rightMinHeap.size() > leftMaxHeap.size()) {
+            leftMaxHeap.offer(rightMinHeap.poll());
+        }
+    }
+
 }
