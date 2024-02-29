@@ -23,5 +23,5 @@ Key-Idea of 'add' method:
 Sequence of problems:
 1) Find the Median of a Number Stream (medium) - done
 2) Sliding Window Median (hard) - done
-3) Maximize Capital (hard) - todo
+3) Maximize Capital (hard) - done
 4) Problem Challenge 1: Next Interval (hard) - todo
