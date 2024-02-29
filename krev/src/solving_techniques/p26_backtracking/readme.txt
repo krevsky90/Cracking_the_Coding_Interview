@@ -18,4 +18,4 @@ Sequence of problems:
 2) Word Search (medium) - done
 3) Sudoku Solver (hard) - done
 4) Factor Combinations (medium) - done
-5) Split a String Into the Max Number of Unique Substrings (medium) - todo
+5) Split a String Into the Max Number of Unique Substrings (medium) - done

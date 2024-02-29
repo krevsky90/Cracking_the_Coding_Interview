@@ -42,15 +42,14 @@ import java.util.*;
  */
 public class CombinationSum {
     /**
-     * KREVSKY SOLUTION is NOT optimal, since there was no correct idea to avoid duplicate combinations
-     * so took these parts from https://leetcode.com/problems/combination-sum/solutions/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning/
+     * https://leetcode.com/problems/combination-sum/solutions/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning
      *
      * common idea: collect combinations as in case of general 'get all permutations' problem
      * idea #1: sort initial array
      * idea #2: use 'start' parameter to consider only the elements that are more right than 'start' element.
      *  otherwise for arr = [2,3] and target = 5 we will have {2,3} and {3,2} combinations - i.e. duplicates
      *
-     *  time to solve (not optimal) ~ 22 mins
+     *  time to solve ~ 22 mins
      *
      *  3 attempts
      */
@@ -60,7 +59,7 @@ public class CombinationSum {
         //idea #1: is to SORT before to avoid duplicate combinations
         Arrays.sort(candidates);
         combinationSumHelper(candidates, target, tempResult, result, 0);
-        return new ArrayList(result);
+        return result;
     }
 
     //'start' is necessary to avoid the situation when you already got [2,3], i-th element is 3 and you start considering 2 (i.e. i-1-th element)
