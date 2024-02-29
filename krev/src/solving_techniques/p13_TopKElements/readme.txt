@@ -27,7 +27,7 @@ Sequence of problems:
 6) Frequency Sort (medium) - done
 7) Kth Largest Number in a Stream (medium) - done
 8) 'K' Closest Numbers (medium) - done
-9) Maximum Distinct Elements (medium) - todo
+9) Maximum Distinct Elements (medium) - done
 10) Sum of Elements (medium) - todo
 11) Rearrange String (hard) - todo
 12) Problem Challenge 1: Rearrange String K Distance Apart (hard) - todo
