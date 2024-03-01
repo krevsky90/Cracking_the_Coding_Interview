@@ -5,8 +5,15 @@ Sequence of problems:
 1) Fibonacci numbers - done
 2) Staircase - done
 3) Number factors - done
-4) Minimum jumps to reach the end - todo
+4) Minimum jumps to reach the end - done
 5) Minimum jumps with fee - todo
 6) House thief
 
-//todo: check similar medium questions from leetcode for 'Staircase', for example
+7) https://leetcode.com/problems/jump-game - todo
+8) https://leetcode.com/problems/jump-game-iii - todo
+9) https://leetcode.com/problems/jump-game-iv (hard) - todo
+10) https://leetcode.com/problems/maximum-number-of-jumps-to-reach-the-last-index - todo
+11) https://leetcode.com/problems/minimum-jumps-to-reach-home - todo
+12) https://leetcode.com/problems/jump-game-v (hard) - todo
+13) https://leetcode.com/problems/jump-game-vi - todo
+14) https://leetcode.com/problems/jump-game-vii - todo
