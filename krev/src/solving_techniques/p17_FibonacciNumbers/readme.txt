@@ -9,8 +9,8 @@ Sequence of problems:
 5) Minimum jumps with fee - todo
 6) House thief
 
-7) https://leetcode.com/problems/jump-game - todo
-8) https://leetcode.com/problems/jump-game-iii - todo
+7) https://leetcode.com/problems/jump-game - done
+8) https://leetcode.com/problems/jump-game-iii - done
 9) https://leetcode.com/problems/jump-game-iv (hard) - todo
 10) https://leetcode.com/problems/maximum-number-of-jumps-to-reach-the-last-index - todo
 11) https://leetcode.com/problems/minimum-jumps-to-reach-home - todo
