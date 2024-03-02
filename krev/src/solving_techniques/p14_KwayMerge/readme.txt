@@ -1,6 +1,8 @@
 https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
 https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a1eda0e79544420e750f36
 
+https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20Pattern%2014%3A%20K-way%20merge.md
+
 This pattern helps us solve problems that involve a list of sorted arrays.
 
 Whenever we are given ?K? sorted arrays,
@@ -24,6 +26,6 @@ NOTE: hack to avoid if-else while storing the link to 'result' node - to create 
 Sequence of problems:
 1) Merge K Sorted Lists (medium) - done
 2) Kth Smallest Number in M Sorted Lists (medium) - done
-3) Kth Smallest Number in a Sorted Matrix (hard) - todo
+3) Kth Smallest Number in a Sorted Matrix (hard) - done
 4) Smallest Number Range (hard) - todo
 5) Problem Challenge 1: K Pairs with Largest Sums (hard) - todo

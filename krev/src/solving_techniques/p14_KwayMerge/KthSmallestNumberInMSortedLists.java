@@ -33,6 +33,7 @@ public class KthSmallestNumberInMSortedLists {
         list1.add(arr13);
         int k1 = 5;
         System.out.println(findKthSmallestElement(list1, k1));  //expected 4
+        System.out.println(findKthSmallestElement2(list1, k1));  //expected 4
 
 
         Integer[] arr21 = {5, 8, 9};
@@ -43,6 +44,7 @@ public class KthSmallestNumberInMSortedLists {
         int k2 = 3;
 
         System.out.println(findKthSmallestElement(list2, k2));  //expected 7
+        System.out.println(findKthSmallestElement2(list2, k2));  //expected 7
     }
 
     /**
@@ -56,6 +58,13 @@ public class KthSmallestNumberInMSortedLists {
      * So we just push pairs to 'pq' in the right order, poll them and push the value into 'pqValues'
      *
      * time to solve ~ 40 mins
+     * time to add/poll element to pq ~ O(T*logL)
+     * time to add/poll element to pqValue ~ O(T*logL)
+     * time complexity ~ O(T*logL)
+     *  where T - total amount of all elements in the lists,
+     *      L - amount of lists
+     *
+     * space ~ space(pq) + space(pqValue) ~ O(L + k)
      *
      * 1 attempt
      */
@@ -63,7 +72,7 @@ public class KthSmallestNumberInMSortedLists {
         Queue<Pair> pq = new PriorityQueue<>((a, b) -> b.value - a.value);	//max heap
         Queue<Integer> pqValues = new PriorityQueue<>();
 
-        int[] curIndexes = new int[list.size()];	//current indexes of the arrays that is in 'lists'
+        int[] idxVector = new int[list.size()];	//current indexes of the arrays that is in 'lists'
         for (int i = 0; i < list.size(); i++) {
             Integer[] tempArr = list.get(i);
             if (tempArr != null && tempArr.length > 0) {
@@ -76,29 +85,70 @@ public class KthSmallestNumberInMSortedLists {
         }
 
         while (!pq.isEmpty()) {
-            Pair tempPair = pq.poll();
-            pqValues.add(tempPair.value);
+            Pair pair = pq.poll();
+            pqValues.add(pair.value);
             if (pqValues.size() > k) {
                 pqValues.poll();
             }
 
-            Integer[] currentArr = list.get(tempPair.arrNumber);
-            int curId = curIndexes[tempPair.arrNumber];
+            Integer[] currentArr = list.get(pair.id);
+            int curId = idxVector[pair.id];
             if (curId + 1 < currentArr.length) {
-                pq.add(new Pair(tempPair.arrNumber, currentArr[curId + 1]));
-                curIndexes[tempPair.arrNumber]++;
+                pq.add(new Pair(pair.id, currentArr[curId + 1]));
+                idxVector[pair.id]++;
             }
         }
 
         return pqValues.peek();
     }
 
+    /**
+     * SOLUTION #2: use only one
+     * @param list
+     * @param k
+     * @return
+     */
+    public static int findKthSmallestElement2(List<Integer[]> list, int k) {
+        Queue<Pair> pq = new PriorityQueue<>((a, b) -> a.value - b.value);	//min heap
+
+        int[] idxVector = new int[list.size()];	//current indexes of the arrays that is in 'lists'
+        for (int i = 0; i < list.size(); i++) {
+            Integer[] tempArr = list.get(i);
+            if (tempArr != null && tempArr.length > 0) {
+                pq.add(new Pair(i, tempArr[0]));
+            }
+        }
+
+        if (pq.isEmpty()) {
+            return Integer.MAX_VALUE;	//like error-message
+        }
+
+        int counter = 0;
+        while (!pq.isEmpty()) {
+            Pair pair = pq.poll();
+            counter++;
+            if (counter == k) {
+                return pair.value;
+            }
+
+            int rowId = pair.id;   //listIdWithMinElement
+            idxVector[rowId]++;
+            if (idxVector[pair.id] < list.get(rowId).length) {
+                //push the next element of this list to the queue
+                pq.add(new Pair(pair.id, list.get(rowId)[idxVector[rowId]]));
+            }
+        }
+
+        return Integer.MIN_VALUE;   //dummy value for case when k > total amount of elements of all lists
+    }
+
+
     static class Pair {
-        int arrNumber;
+        int id;    // array's #
         int value;
 
         public Pair(int arrNumber, int value) {
-            this.arrNumber = arrNumber;
+            this.id = arrNumber;
             this.value = value;
         }
     }
