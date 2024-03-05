@@ -44,7 +44,7 @@ Sequence of problems:
 2) Equal Subset Sum Partition (medium) - done
 3) Subset Sum (medium) - done
 4) Minimum Subset Sum Difference (hard) - done with TLE or OOM
-5) Problem Challenge 1: Count of Subset Sum (hard) - todo
+5) Problem Challenge 1: Count of Subset Sum (hard) - done
 6) Problem Challenge 2: Target Sum (hard) - todo
 
 7) https://leetcode.com/problems/partition-to-k-equal-sum-subsets/ (medium) - done
