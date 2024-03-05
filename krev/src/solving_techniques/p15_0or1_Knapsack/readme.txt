@@ -1,6 +1,8 @@
 https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-coding-interviews-e86d5c9fe4e1
 https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a38826eed2aca55cd622d9
 
+https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20Pattern%2015%3A%200-1%20Knapsack%20(Dynamic%20Programming).md
+
 Theory:
 https://leetcode.com/discuss/study-guide/1152328/01-Knapsack-Problem-and-Dynamic-Programming - todo: read it!
 or
@@ -41,7 +43,7 @@ Sequence of problems:
 1) 0/1 Knapsack (medium) - done
 2) Equal Subset Sum Partition (medium) - done
 3) Subset Sum (medium) - done
-4) Minimum Subset Sum Difference (hard) - todo
+4) Minimum Subset Sum Difference (hard) - done with TLE or OOM
 5) Problem Challenge 1: Count of Subset Sum (hard) - todo
 6) Problem Challenge 2: Target Sum (hard) - todo
 

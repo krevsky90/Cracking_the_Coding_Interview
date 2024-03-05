@@ -30,20 +30,20 @@ public class Knapsack_01 {
      * time complexity ~ O(2^items.length)
      * space complexity ~ O(items.length)
      */
-    public static int maxProfitNaiveBinaryVector(String[] items, int[] weights, int[] profits, int capacity) {
-        int amountOfCombinations = 1 << items.length;
+    public static int maxProfitNaiveBinaryVector(int[] weights, int[] profits, int capacity) {
+        int amountOfCombinations = 1 << weights.length;
         int maxProfit = 0;
         for (int i = 0; i < amountOfCombinations; i++) {
-            maxProfit = Math.max(maxProfit, maxProfitNaiveBinaryVectorHelper(items, weights, profits, capacity, i));
+            maxProfit = Math.max(maxProfit, maxProfitNaiveBinaryVectorHelper(weights, profits, capacity, i));
         }
 
         return maxProfit;
     }
 
-    public static int maxProfitNaiveBinaryVectorHelper(String[] items, int[] weights, int[] profits, int capacity, int combination) {
+    public static int maxProfitNaiveBinaryVectorHelper(int[] weights, int[] profits, int capacity, int combination) {
         int totalProfit = 0;
         int totalWeight = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < weights.length; i++) {
             if (((combination >> i) & 1) == 1) {
                 totalWeight += weights[i];
                 if (totalWeight > capacity) {
@@ -93,6 +93,9 @@ public class Knapsack_01 {
      * the same as https://leetcode.com/discuss/study-guide/1152328/01-Knapsack-Problem-and-Dynamic-Programming
      * time complexity ~ O(profits.length*capacity)
      * space complexity ~ O(profits.length*capacity)
+     * i - iterates through the items (their weights)
+     * w - iterates through capacity
+     * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      */
     public static int maxProfitOptimizedNP(int[] weights, int[] profits, int capacity) {
         int n = profits.length;
@@ -122,6 +125,10 @@ public class Knapsack_01 {
      *
      * time complexity ~ O(profits.length*capacity)
      * space complexity ~ O(profits.length*capacity)
+     *
+     * i - iterates through the items (their weights)
+     * w - iterates through capacity
+     * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      *
      * NOTE: this is the same as SOLUTION 1.1, BUT different approach to indexes!
      */
@@ -159,6 +166,10 @@ public class Knapsack_01 {
      * + Space optimization. Idea:
      * For calculating the current row of the dp[] array we require only previous row,
      * but if we start traversing the rows from right to left then it can be done with a single row only
+     *
+     * i - iterates through the items (their weights)
+     * w - iterates through capacity
+     * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      *
      * time complexity ~ O(profits.length*capacity)
      * space complexity ~ O(capacity)
@@ -231,6 +242,7 @@ public class Knapsack_01 {
         }
 
         if (currentItem == weights.length) {
+            //it means we already put all given items to knapsack
             return 0;
         } else {
             if (dp[currentItem][capacity] != 0) return dp[currentItem][capacity];
