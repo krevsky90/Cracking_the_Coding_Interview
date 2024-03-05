@@ -17,3 +17,5 @@ Sequence of problems:
 5) Problem 4: Next Greater Element - todo
 6) Problem 5: Sorting a Stack - todo
 7) Problem 6: Simplify Path - todo
+
+8) https://leetcode.com/problems/evaluate-reverse-polish-notation (medium) - done
