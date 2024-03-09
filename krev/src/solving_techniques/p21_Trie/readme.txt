@@ -11,7 +11,7 @@ https://www.youtube.com/watch?v=AcFHT2l1b3E
 
 Sequence of problems:
 1) Implement Trie (Prefix Tree) (medium) - done
-2) Index Pairs of a String (easy) - todo
+2) Index Pairs of a String (easy) - done
 3) Design Add and Search Words Data Structure (medium) - todo
 4) Extra Characters in a String (medium) - todo
 5) Search Suggestions System (medium) - todo
