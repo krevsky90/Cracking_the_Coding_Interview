@@ -22,5 +22,5 @@ Sequence of problems:
 1) MergeIntervals https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63923e6de4cb724ea719007a - done
 2) InsertIntervals https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639245dffed07e597e96219f - done
 3) IntervalsIntersection https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639249470cddc1617da1b889 - done
-4) ConflictingAppointments https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639363de4599b3e5714ab022 - todo
+4) ConflictingAppointments https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639363de4599b3e5714ab022 - done
 5) Problem Challenge 1: Minimum Meeting Rooms (hard) https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639366c54599b3e5714ab178 - todo?
