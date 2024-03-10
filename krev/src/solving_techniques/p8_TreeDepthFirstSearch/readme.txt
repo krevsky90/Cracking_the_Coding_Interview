@@ -35,7 +35,7 @@ MUST know
 
 2) Pre-Order Morris Traversal:
 see video: https://youtu.be/BuI-EULsz0Y?t=506
-THE SAME as In-Order, BUT the row
+THE SAME as In-Order, BUT the row "System.out.println(current.val);"
 moves to case "predecessor.right == null"
 (i.e. we print at the same time when we create loop rather than return to the node from its left child that it already printed
 
@@ -80,4 +80,7 @@ Sequence of problems:
 8) https://leetcode.com/problems/longest-univalue-path (medium) - done
 9) https://leetcode.com/problems/symmetric-tree (easy) - done
 
+List of problems from leetcode: https://leetcode.com/tag/depth-first-search/
+
 10) Convert Binary Tree To Doubly Linked List By Morris Traversal - done
+11) 235. Lowest Common Ancestor of a Binary Search Tree - done
