@@ -34,6 +34,16 @@ How to fill the table:
 Dynamic programming (top-down approach):
     see src/solving_techniques/p15_0or1_Knapsack/SubsetSum.java
 
+COMMON ALGORITHM:
+1) memo[arr.length + 1][target + 1]
+2) recursive helper method:
+    base cases:
+    target = 0
+    target < 0 => Infinity or error or smth like that
+    (target > 0) && curIdx = arr.length => Infinity or error or smth like that, since we reached the end of the array, but still did not reach the target
+
+3) if the target is not reached at all, then out helper returns Infinity or Infinity + 1 => we just check it result < 0 => return, for example, -1
+
 Additional info:
 IF we use bottom-up approach - we have to calculate the results for ALL potential sub-problems!
 IF we use top-down approach -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
@@ -54,6 +64,7 @@ Sequence of problems:
 11) https://leetcode.com/problems/maximum-rows-covered-by-columns/ (medium) - done
 12) https://leetcode.com/problems/fair-distribution-of-cookies/ (medium) - done
 13) https://leetcode.com/problems/minimum-number-of-coins-to-be-added/ - done
+14) https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target - done
 
 
 
