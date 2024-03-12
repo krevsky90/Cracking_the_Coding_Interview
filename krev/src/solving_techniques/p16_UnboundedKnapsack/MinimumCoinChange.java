@@ -1,6 +1,8 @@
 package solving_techniques.p16_UnboundedKnapsack;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * https://www.designgurus.io/course-play/grokking-dynamic-programming/doc/637f41c73a01f75ebb45677a
@@ -37,9 +39,16 @@ public class MinimumCoinChange {
     public static void main(String[] args) {
         int[] coins1 = {1, 2, 5};
         int amount1 = 11;
-        System.out.println("coinChange = " + coinChange(coins1, amount1));   //3
-        System.out.println("coinCount = " + coinCount(coins1, amount1));    //3
-        System.out.println("coinCountDP = " + coinCountDP(coins1, amount1));    //3
+        MinimumCoinChange obj = new MinimumCoinChange();
+        System.out.println("coins1 = ");
+        System.out.println("coinChange1 = " + obj.coinChange1(coins1, amount1));   //3
+        System.out.println("coinChange2 = " + obj.coinChange2(coins1, amount1));    //3
+        System.out.println("coinChange3 = " + obj.coinChange3(coins1, amount1));    //3
+        System.out.println("coinChange4 = " + obj.coinChange4(coins1, amount1));    //3
+        System.out.println("coinChange5 = " + obj.coinChange5(coins1, amount1));    //3
+        System.out.println("coinChange52 = " + obj.coinChange52(coins1, amount1));    //3
+        System.out.println("coinChange6 = " + obj.coinChange6(coins1, amount1));    //3
+
 
         int[] coins2 = {2};
         int amount2 = 3;
@@ -52,8 +61,9 @@ public class MinimumCoinChange {
         //Time Limit Exceeded
         int[] coins4 = {186, 419, 83, 408};
         int amount4 = 6249;
-        System.out.println(coinChange2(coins4, amount4));   //???
-//        System.out.println(coinChangeLeetcode(coins4, amount4));
+//        System.out.println("coinChange5 = " + obj.coinChange5(coins4, amount4));    //20
+//        System.out.println("coinChange52 = " + obj.coinChange52(coins4, amount4));    //TLE
+        System.out.println("coinChange6 = " + obj.coinChange6(coins4, amount4));    //TLE
     }
 
     /**
@@ -63,8 +73,8 @@ public class MinimumCoinChange {
      * time ~ O(coins.length^amount)
      * space ~ O(1)
      */
-    public static int coinChange(int[] coins, int amount) {
-        int result = coinChangeHelper(coins, amount);
+    public int coinChange1(int[] coins, int amount) {
+        int result = coinChangeHelper1(coins, amount);
         return result == Integer.MAX_VALUE ? -1 : result;
     }
 
@@ -91,7 +101,7 @@ public class MinimumCoinChange {
     //                         coinChange(0, 3)
     //                             result[0] = min(max, 3) = 3
 
-    private static int coinChangeHelper(int[] coins, int amount) {
+    private int coinChangeHelper1(int[] coins, int amount) {
         if (amount == 0) {
             return 0;
         }
@@ -99,7 +109,7 @@ public class MinimumCoinChange {
         int tempMin = Integer.MAX_VALUE;
         for (int c : coins) {
             if (c <= amount) {
-                int subResult = coinChangeHelper(coins, amount - c);
+                int subResult = coinChangeHelper1(coins, amount - c);
                 if (subResult != Integer.MAX_VALUE) {
                     tempMin = Math.min(tempMin, 1 + subResult);
                 }
@@ -110,7 +120,7 @@ public class MinimumCoinChange {
     }
 
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #2:
      * the top down + memoization (may be it would be simpler to use bottom-up since it is more visual)
      * time to solve ~ 50 mins
      * time ~ O(coins.length*amount)
@@ -125,12 +135,12 @@ public class MinimumCoinChange {
      * - need to add condition "if (tempMin != Integer.MAX_VALUE)"
      * - need to add condition "if (subResult != -1)"
      */
-    public static int coinChange2(int[] coins, int amount) {
+    public int coinChange2(int[] coins, int amount) {
         int[] memo = new int[amount + 1];
         Arrays.fill(memo, -1);
         memo[0] = 0;
 
-        int result = coinChange2(coins, amount, memo);
+        int result = coinChangeHelper2(coins, amount, memo);
         return result == Integer.MAX_VALUE ? -1 : result;
     }
 
@@ -148,7 +158,7 @@ public class MinimumCoinChange {
     // amount = 3
     // m = 0 m m m
     // c(3)
-    private static int coinChange2(int[] coins, int amount, int[] memo) {
+    private int coinChangeHelper2(int[] coins, int amount, int[] memo) {
         if (memo[amount] != -1) {
             return memo[amount];
         }
@@ -156,7 +166,7 @@ public class MinimumCoinChange {
         int tempMin = Integer.MAX_VALUE;
         for (int c : coins) {
             if (c <= amount) {
-                int subResult = coinChange2(coins, amount - c, memo);
+                int subResult = coinChangeHelper2(coins, amount - c, memo);
                 if (subResult != Integer.MAX_VALUE) {
                     tempMin = Math.min(tempMin, 1 + subResult);
                 }
@@ -168,15 +178,16 @@ public class MinimumCoinChange {
     }
 
     /**
-     * SOLUTION using APPROACH #1 - i.e. the logic "include or exclude" the element https://www.youtube.com/watch?v=ZI17bgz07EE
+     * SOLUTION #3
+     * using APPROACH #1 - i.e. the logic "include or exclude" the element https://www.youtube.com/watch?v=ZI17bgz07EE
      * idea:
      * result = min(1 + count(coins, amount - coins[i], i), count(coins, amount, i + 1))
      */
-    public static int coinCount(int[] coins, int amount) {
-        return coinCount(coins, amount, 0);
+    public int coinChange3(int[] coins, int amount) {
+        return coinChangeHelper3(coins, amount, 0);
     }
 
-    private static int coinCount(int[] coins, int amount, int startIdx) {
+    private int coinChangeHelper3(int[] coins, int amount, int startIdx) {
         if (amount == 0) {
             return 0;
         }
@@ -188,16 +199,16 @@ public class MinimumCoinChange {
 
         if (coins[startIdx] > amount) {
             //we can't use 'include' option => result = notTake option
-            return coinCount(coins, amount, startIdx + 1);
+            return coinChangeHelper3(coins, amount, startIdx + 1);
         } else {
-            int takeCoin = 1 + coinCount(coins, amount - coins[startIdx], startIdx);
-            int notTakeCoin = coinCount(coins, amount, startIdx + 1);
+            int takeCoin = 1 + coinChangeHelper3(coins, amount - coins[startIdx], startIdx);
+            int notTakeCoin = coinChangeHelper3(coins, amount, startIdx + 1);
             return Math.min(takeCoin, notTakeCoin);
         }
     }
 
     /**
-     * SOLUTION #3:
+     * SOLUTION #4:
      * https://youtu.be/ZI17bgz07EE?t=932
      * the same idea as for SOLUTION #2, BUT using dp table
      * dp = [coins.len + 1][amount + 1]
@@ -205,14 +216,14 @@ public class MinimumCoinChange {
      *      to exclude: dp[i][j] = dp[i-1][j]
      *      to include: dp[i][j] = 1 + dp[i][j - coins[i-1]] - NOTE! be careful with case when coins[i-1] > j! then we cannot include the element!
      * dp[i][j] = min(exclude, include)
-     * bound cases:
+     * base cases:
      *      all dp[i][0] = MAX_VALUE
      *      dp[0][j] = 0
      *
      * time ~ O(coins.length*amount)
      * space ~ O(coins.length*amount)
      */
-    public static int coinCountDP(int[] coins, int amount) {
+    public int coinChange4(int[] coins, int amount) {
         int[][] dp = new int[coins.length + 1][amount + 1];
 
         //starting from 0 to fill base cases
@@ -233,5 +244,91 @@ public class MinimumCoinChange {
 
         return dp[coins.length][amount] != Integer.MAX_VALUE ? dp[coins.length][amount] : -1;
     }
+
+    /**
+     * SOLUTION #5:
+     * based on src/data_structures/chapter8_recursion_and_dynamic_programming/Coderbyte_DP_course/resursive_approach/P5_BestSum# bestSumMemo
+     * time to solve ~ 11 mins
+     * 1 attempt
+     */
+    public int coinChange5(int[] coins, int amount) {
+        Map<Integer, Integer> memo = new HashMap<>();
+        int result = coinChangeHelper5(coins, amount, memo);
+        //since max amount = 10000 and min potential coin = 1 => max amount of different coins that form total amount = 10000,
+        //so let's take the number > 10000, for example, 100000
+        return result >= 100000 ? -1 : result;
+    }
+
+    private int coinChangeHelper5(int[] coins, int amount, Map<Integer, Integer> memo) {
+        if (amount < 0) return 100000;
+        if (amount == 0) return 0;
+        if (memo.containsKey(amount)) return memo.get(amount);
+
+        int shortest = 100000;
+        for (int c : coins) {
+            int subRes = 1 + coinChangeHelper5(coins, amount - c, memo);
+            shortest = Math.min(shortest, subRes);
+        }
+
+        memo.put(amount, shortest);
+        return memo.get(amount);
+    }
+
+    /**
+     * SOLUTION #5.2
+     * the same as SOLUTION #5
+     * BUT array instead of Map - NOTE: gives Time Limit Exception!
+     * todo: why?? this is the same as solution with Map!
+     */
+    public int coinChange52(int[] coins, int amount) {
+        int[] memo = new int[amount + 1];
+        //since max amount = 10000 and min potential coin = 1 => max amount of different coins that form total amount = 10000,
+        //so let's take the number > 10000, for example, 100000
+        Arrays.fill(memo, 100000);
+        int result = coinChangeHelper52(coins, amount, memo);
+        return result >= 100000 ? -1 : result;
+    }
+
+    private int coinChangeHelper52(int[] coins, int amount, int[] memo) {
+        if (amount < 0) return 100000;
+        if (amount == 0) return 0;
+        if (memo[amount] < 100000) {
+            return memo[amount];
+        }
+
+        for (int c : coins) {
+            int subRes = 1 + coinChangeHelper52(coins, amount - c, memo);
+            memo[amount] = Math.min(memo[amount], subRes);
+        }
+
+        return memo[amount];
+    }
+
+    /**
+     * SOLUTION #6:
+     * copy of idea: src/solving_techniques/p16_UnboundedKnapsack/MaximumRibbonCut # maximumRibbonCutSimpleLogic
+     * idea: for each amount (i) run through the coins and find min sequence of coins
+     */
+    public int coinChange6(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+
+        for (int i = 1; i < amount + 1; i++) {
+            int tempMin = Integer.MAX_VALUE;
+            for (int c : coins) {
+                if (c <= i) {
+                    if (dp[i - c] < Integer.MAX_VALUE) {
+                        tempMin = Math.min(tempMin, 1 + dp[i - c]);
+                    }
+                }
+            }
+
+            dp[i] = tempMin;
+        }
+
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+    }
+
 
 }
