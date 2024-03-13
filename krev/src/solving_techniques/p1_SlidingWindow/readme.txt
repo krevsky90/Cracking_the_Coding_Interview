@@ -29,6 +29,28 @@ Question variants:
                 (distinct => hashMap/Set to track the existence of characters)
             example #2: string permutation: does string#2 exist as a permutation of string#1?
 
+================
+Algorithm:
+
+int start = 0;
+for (int end = 0; end < nums.length; end++) {
+    //do iterative action
+    p *= nums[end];
+
+    //check whether we need to cut the beginning to the window in 'while'-loop
+    //if yes - revert the changes that was brought by 'start' element and increment start
+    while (start < end && p >= k) {
+        p /= nums[start];
+        start++;
+    }
+
+    //(re-)calculate the result basing on "end - start + 1"
+    if (p < k) {
+        result += (end - start) + 1;
+    }
+}
+
+
 Commonalities (similarities):
 1) everything grouped sequentially
 2) longest/smallest/contains/max/min/
@@ -48,3 +70,5 @@ Sequence of problems:
 9) Problem Challenge 3: Smallest Window containing Substring (hard) - todo
 10) Problem Challenge 4: Words Concatenation (hard) - todo
 11) https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/ - done
+12) https://leetcode.com/problems/minimum-window-substring - todo
+13) https://leetcode.com/problems/take-k-of-each-character-from-left-and-right - done
