@@ -8,3 +8,4 @@ Sequence of problems:
 4) Minimum Deletions in a String to make it a Palindrome - done
 5) Palindromic Partitioning - done
 5.2) https://leetcode.com/problems/palindrome-partitioning (medium) - done
+6) https://leetcode.com/problems/palindrome-partitioning-ii/ (hard) - done
