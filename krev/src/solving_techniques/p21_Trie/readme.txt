@@ -35,4 +35,4 @@ Sequence of problems:
 2) Index Pairs of a String (easy) - done
 3) Design Add and Search Words Data Structure (medium) - done
 4) Extra Characters in a String (medium) - done
-5) Search Suggestions System (medium) - todo
+5) Search Suggestions System (medium) - done
