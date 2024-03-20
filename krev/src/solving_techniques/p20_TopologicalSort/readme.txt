@@ -51,7 +51,7 @@ Any vertex with 0 in-degree will be a source.
 Sequence of problems:
 1) Topological Sort - done
 2) Tasks Scheduling (similar to https://leetcode.com/problems/course-schedule) - done
-3) Tasks Scheduling Order (similar to https://leetcode.com/problems/course-schedule-ii/) - todo
+3) Tasks Scheduling Order (similar to https://leetcode.com/problems/course-schedule-ii/) - done
 4) All Tasks Scheduling Orders (hard) - done
 5) Alien Dictionary (hard) - todo
 6) Problem Challenge 1: Reconstructing a Sequence (hard) - todo
