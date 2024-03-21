@@ -104,7 +104,7 @@ Sequence of problems:
 3) Permutations (medium) - done
 4) String Permutations by changing case (medium) - done
 5) Balanced Parentheses (hard) - done
-6) Unique Generalized Abbreviations (hard) - todo
+6) Unique Generalized Abbreviations (hard) - done
 7) Problem Challenge 1: Evaluate Expression (hard) - todo
 8) Problem Challenge 2: Structurally Unique Binary Search Trees (hard) - done
 9) Problem Challenge 3: Count of Structurally Unique Binary Search Trees (hard) - done
