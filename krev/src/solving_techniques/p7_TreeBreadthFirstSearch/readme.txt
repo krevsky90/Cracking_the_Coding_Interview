@@ -29,9 +29,7 @@ Sequence of problems:
 6) Level Order Successor (easy) - done
 7) Connect Level Order Siblings (medium) - done
 8) Problem Challenge 1: Connect All Level Order Siblings (medium) - done
-9) Problem Challenge 2: Right View of a Binary Tree (easy) - todo
-    i.e. https://leetcode.com/problems/binary-tree-right-side-view
-
+9) Problem Challenge 2: Right View of a Binary Tree (easy) - done
 10) https://leetcode.com/problems/n-ary-tree-level-order-traversal - done
 11) https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/ - todo
 12) https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii - todo (done), but not committed
