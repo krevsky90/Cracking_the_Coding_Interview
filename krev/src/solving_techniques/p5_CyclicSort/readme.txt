@@ -15,6 +15,10 @@ These will be our required numbers.
 
 one more theory:
 https://leetcode.com/discuss/study-guide/2958275/cyclic-sort-important-pattern
++video to it https://www.youtube.com/watch?v=JfinxytTYFQ
+
+time ~ (n-1 swapping is worst case) + (n steps traversing through sorted elements) ~ n-1 + n ~ 2n - 1 => O(n)
+space ~ O(1)
 
 
 Sequence of problems:
@@ -24,5 +28,6 @@ Sequence of problems:
 4) Find the Duplicate Number (easy/medium) - done
 5) Find all Duplicate Numbers (easy/medium) - done
 
-6) https://leetcode.com/problems/set-mismatch (easy) - todo
-7) https://leetcode.com/problems/first-missing-positive (hard) - todo
+6) https://leetcode.com/problems/set-mismatch (easy) - done
+7) https://leetcode.com/problems/first-missing-positive (hard) - done
+8) Problem Challenge 3: Find the First K Missing Positive Numbers (hard) - todo

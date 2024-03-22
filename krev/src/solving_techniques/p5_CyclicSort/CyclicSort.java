@@ -45,17 +45,20 @@ public class CyclicSort {
         }
     }
 
+    //it is BETTER 'if' validation!
     public void cyclicSortNotMine(int[] arr) {
         int start = 0;
 
         while (start < arr.length) {
-            int j = arr[start] - 1;
-            if (arr[start] == arr[j]) {
+            int correctIdx = arr[start] - 1;
+            if (arr[start] == arr[correctIdx]) {
                 start++;
             } else {
+                // if the current element is not equal to the element present at the current index
+                // put the element in the correct index by swapping
                 int temp = arr[start];
-                arr[start] = arr[j];
-                arr[j] = temp;
+                arr[start] = arr[correctIdx];
+                arr[correctIdx] = temp;
             }
         }
     }
