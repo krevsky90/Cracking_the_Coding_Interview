@@ -53,8 +53,8 @@ public class FindPeakElement {
 
         while (left <= right) {
             int mid = (left + right) / 2;
-            Long beforeVal = mid - 1 >= 0 ? nums[mid - 1] : Long.MIN_VALUE;
-            Long afterVal = mid + 1 <= nums.length - 1 ? nums[mid + 1] : Long.MIN_VALUE;
+            Long beforeVal = mid == 0 ? Long.MIN_VALUE : nums[mid - 1];
+            Long afterVal = mid == nums.length - 1 ? Long.MIN_VALUE : nums[mid + 1];
 
             //there can be 4 cases
             if (beforeVal < nums[mid] && nums[mid] > afterVal) {
