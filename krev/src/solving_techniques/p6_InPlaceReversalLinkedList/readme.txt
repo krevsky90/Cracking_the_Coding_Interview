@@ -25,7 +25,13 @@ store:
 - current (initially = head)
 - previous (initially = null)
 - lastNodeOfPreviousPart (initially = null). To link previous part and just reversed
-- headOfSubList (initially = current, then it will become end node of reversed sublist). To link just reversed part to the following part (i.e. 'current' node)
+- headOfSubList ( = current, then it will become end node of reversed sublist). To link just reversed part to the following part (i.e. 'current' node)
+idea:
+1) reverse sublist => 'previous' is new head of this sublist
+2) connect 'lastNodeOfPreviousPart' and 'previous'
+3) connect 'headOfSubList' (former head of sublist, after reversing - tail of sublist) to 'current' (i.e. the next part of list)
+4) move 'lastNodeOfPreviousPart' (to the last element of reversed part, if we reverse many sublists one-by-one)
+5) set headOfSubList = current (usually in the beginning of while loop)
 
 
 Sequence of problems:
