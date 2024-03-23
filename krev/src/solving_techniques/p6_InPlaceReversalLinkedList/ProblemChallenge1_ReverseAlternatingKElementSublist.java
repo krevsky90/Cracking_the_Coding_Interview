@@ -37,28 +37,32 @@ public class ProblemChallenge1_ReverseAlternatingKElementSublist {
     /**
      * KREVSKY SOLUTION:
      * idea: is the same as https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20%20Pattern%2006:%20In-place%20Reversal%20of%20a%20LinkedList.md
-     * time to solve ~ 75 mins
+     * globally we store:
+     *     resultNode - to set once and return as result
+     *     current (initially = head)
+     *     previous (initially = null)
+     * inside the loop we store:
+     *     headOfSubList (initially = current, then it will become end node of reversed sublist). To link just reversed part to the following part (i.e. current)
+     *     lastNodeOfPreviousPart (initially = null). To link PreviousPart and just reversed
      *
+     * time to solve ~ 75 mins
      * time ~ O(n)
      * space ~ O(1)
-     *
      * 1 attempt
      */
     public static LinkedListNode reverseAlternateKElements(LinkedListNode head, int k) {
         if (k <= 1 || head == null) return head;
 
         LinkedListNode resultNode = null;   //don't want to change head pointer => introduce resultNode
-
         LinkedListNode current = head;
         LinkedListNode previous = null;
         while (current != null) {
-            LinkedListNode next = null;
-            int i = 0;
-            LinkedListNode lastNodeOfSubList = current;
+            LinkedListNode headOfSubList = current;
             LinkedListNode lastNodeOfPreviousPart = previous;
-
+            //reverse group of K elements
+            int i = 0;
             while (i < k && current != null) {
-                next = current.next;
+                LinkedListNode next = current.next;
                 current.next = previous;
                 previous = current;
                 current = next;
@@ -72,10 +76,8 @@ public class ProblemChallenge1_ReverseAlternatingKElementSublist {
                 resultNode = previous;
             }
 
-            //connect reversed sublist to the further part of LL
-            lastNodeOfSubList.next = current;
-
-            previous = lastNodeOfSubList;
+            //link reversed sublist to the rest (still NOT reversed) part of the list
+            headOfSubList.next = current;
 
             //skip k elements
             i = 0;
