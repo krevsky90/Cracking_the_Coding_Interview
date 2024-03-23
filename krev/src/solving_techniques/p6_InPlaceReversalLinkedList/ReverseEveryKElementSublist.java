@@ -32,7 +32,7 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
  */
 public class ReverseEveryKElementSublist {
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #1:
      * <p>
      * time to solve ~ 60 mins
      * time ~ O(n)
@@ -52,7 +52,7 @@ public class ReverseEveryKElementSublist {
     //                                                                                             nextHead
 
 
-    public LinkedListNode reverseKGroup(LinkedListNode head, int k) {
+    public LinkedListNode reverseKGroup1(LinkedListNode head, int k) {
         int it = 0;
         LinkedListNode curHead = head;
         LinkedListNode curEnd = null;
@@ -139,7 +139,121 @@ public class ReverseEveryKElementSublist {
     }
 
     /**
+     * KREVSKY SOLUTION #2.1:
+     * NOTE: this solution is for the problem with ending
+     * "If, in the end, you are left with a sub-list with less than ?k? elements, reverse it too."
+     *
+     * idea: the same as src/solving_techniques/p6_InPlaceReversalLinkedList/ProblemChallenge1_ReverseAlternatingKElementSublist.java
+     * globally we store:
+     *     resultNode - to set once and return as result
+     *     current (initially = head)
+     *     previous (initially = null)
+     *     lastNodeOfPreviousPart (initially = null). To link PreviousPart and just reversed
+     * inside the loop we store:
+     *     headOfSubList (initially = current, then it will become end node of reversed sublist). To link just reversed part to the following part (i.e. current)
+     *
+     * time to solve ~ 80 mins
+     *
+     * time ~ O(n)
+     * space ~ O(1)
+     * 3 attempts:
+     * - typos
+     * - forgot to return resultNode
+     *
+     */
+    public LinkedListNode reverseKGroup21(LinkedListNode head, int k) {
+        LinkedListNode resultNode = null;   //don't want to change head pointer => introduce resultNode
+        LinkedListNode current = head;
+        LinkedListNode previous = null;
+        LinkedListNode lastNodeOfPreviousPart = null;
+        while (current != null) {
+            LinkedListNode headOfSubList = current;
+            //reverse group of K elements
+            int i = 0;
+            while (i < k && current != null) {
+                LinkedListNode next = current.next;
+                current.next = previous;
+                previous = current;
+                current = next;
+                i++;
+            }
+
+            //connect already handled part of LL to the reversed part
+            if (lastNodeOfPreviousPart != null) {
+                lastNodeOfPreviousPart.next = previous;
+            } else {
+                resultNode = previous;  //set new head of the list. it will be returned as result of the method
+            }
+
+            //link reversed sublist to the rest (still NOT reversed) part of the list
+            headOfSubList.next = current;
+
+            //NOTE:
+            //this is distinction from ProblemChallenge1_ReverseAlternatingKElementSublist
+            //since here we don't move previous => we don't move the end of just reversed part
+            lastNodeOfPreviousPart = headOfSubList;
+        }
+
+        return resultNode;
+    }
+
+    /**
+     * KREVSKY SOLUTION #2.2:
+     * NOTE: this solution is for leetcode's description
+     * (i.e. "If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.")
+     * = KREVSKY SOLUTION #2.2: + bootleg with checking the amount of the rest elements of the list
+     */
+    public LinkedListNode reverseKGroup22(LinkedListNode head, int k) {
+        LinkedListNode resultNode = null;   //don't want to change head pointer => introduce resultNode
+        LinkedListNode current = head;
+        LinkedListNode previous = null;
+        LinkedListNode lastNodeOfPreviousPart = null;
+        while (current != null) {
+            LinkedListNode headOfSubList = current;
+
+            //ATTENTION!
+            //bootleg to find whether the current sublist has k elements
+            //if not - don't reverse and return the resultNode
+            LinkedListNode tempNode = current;
+            for (int j = 0; j < k; j++) {
+                if (tempNode == null) return resultNode;
+                tempNode = tempNode.next;
+            }
+
+            //reverse group of K elements
+            int i = 0;
+            while (i < k && current != null) {
+                LinkedListNode next = current.next;
+                current.next = previous;
+                previous = current;
+                current = next;
+                i++;
+            }
+
+            //connect already handled part of LL to the reversed part
+            if (lastNodeOfPreviousPart != null) {
+                lastNodeOfPreviousPart.next = previous;
+            } else {
+                resultNode = previous;  //set new head of the list. it will be returned as result of the method
+            }
+
+            //link reversed sublist to the rest (still NOT reversed) part of the list
+            headOfSubList.next = current;
+
+            //NOTE:
+            //this is distinction from ProblemChallenge1_ReverseAlternatingKElementSublist
+            //since here we don't move previous => we don't move the end of just reversed part
+            lastNodeOfPreviousPart = headOfSubList;
+        }
+
+        return resultNode;
+    }
+
+    /**
      * https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11440/non-recursive-java-solution-and-idea/
+     * idea: set prev and next nodes to 'reverse' method to have ability to link reversed part with prev and next parts of the list
+     * if i % k == 0 then we reverse sublist
+     * else we just move forward to find end.next node and set it into 'reverse' method in 'if' block
      */
     public LinkedListNode reverseKGroupLeetcode(LinkedListNode head, int k) {
         LinkedListNode begin;
