@@ -36,13 +36,41 @@ public class SetMismatch {
     // missed = 2
 
     /**
-     * KREVSKY SOLUITON:
+     * KREVSKY SOLUTION #1: unified
+     */
+    public int[] findErrorNums(int[] nums) {
+        //1. cyclic sort (as is)
+        int start = 0;
+        while (start < nums.length) {
+            int correctIdx = nums[start] - 1;
+            if (nums[start] == nums[correctIdx]) {
+                start++;
+            } else {
+                //swap
+                int temp = nums[start];
+                nums[start] = nums[correctIdx];
+                nums[correctIdx] = temp;
+            }
+        }
+
+        //2. find the answer
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                return new int[]{nums[i], i + 1};
+            }
+        }
+
+        return new int[]{-1, -1};   //stub
+    }
+
+    /**
+     * KREVSKY SOLUITON #2:
      * idea = src/solving_techniques/p5_CyclicSort/FindDuplicateNumber.java
      *      + cycle with validation i+1 = nums[i] to find missed value in already sorted array
      * time to solve ~ 10 mins
      * 1 attempt
      */
-    public int[] findErrorNums(int[] nums) {
+    public int[] findErrorNums2(int[] nums) {
         int start = 0;
         int duplicate = -1;
         int missed = -1;

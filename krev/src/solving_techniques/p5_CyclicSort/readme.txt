@@ -62,6 +62,6 @@ todo: refactor the solutions of the problems below using Algorithm and condition
 4) Find the Duplicate Number (easy/medium) - done
 5) Find all Duplicate Numbers (easy/medium) - done
 
-6) https://leetcode.com/problems/set-mismatch (easy) - done
-7) https://leetcode.com/problems/first-missing-positive (hard) - done
+6) https://leetcode.com/problems/set-mismatch (easy) - done (unified)
+7) https://leetcode.com/problems/first-missing-positive (hard) - done (unified)
 8) Problem Challenge 3: Find the First K Missing Positive Numbers (hard) - todo
