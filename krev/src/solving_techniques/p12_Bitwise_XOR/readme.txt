@@ -21,6 +21,6 @@ Sequence of problems:
 4) Problem Challenge 1: Flip and Invert an Image (hard) - todo
 
 5) https://leetcode.com/problems/single-number-ii (medium) - done
-6) https://leetcode.com/problems/find-the-original-array-of-prefix-xor (medium) - todo
+6) https://leetcode.com/problems/find-the-original-array-of-prefix-xor (medium) - done
 7) https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor (medium) - todo
 8) https://leetcode.com/problems/decode-xored-array (easy) - todo
