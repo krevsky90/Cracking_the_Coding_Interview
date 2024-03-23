@@ -30,3 +30,6 @@ Sequence of problems:
 3) Reverse every K-element Sub-list (medium) = https://leetcode.com/problems/reverse-nodes-in-k-group/ (hard) - done
 4) Problem Challenge 1: Reverse alternating K-element Sub-list (medium) - done
 5) Problem Challenge 2: Rotate a LinkedList (medium) - done
+
+6) https://leetcode.com/problems/swap-nodes-in-pairs (medium) - done
+7) https://leetcode.com/problems/reverse-nodes-in-even-length-groups (medium) - todo
