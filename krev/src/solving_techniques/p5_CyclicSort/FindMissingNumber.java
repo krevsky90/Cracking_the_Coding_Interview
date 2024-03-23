@@ -23,7 +23,7 @@ public class FindMissingNumber {
         System.out.println(findMissingNumber(arr1));
 
         int[] arr2 = {8, 3, 5, 2, 4, 6, 0, 1};
-        System.out.println(findMissingNumber(arr2));
+        System.out.println(findMissingNumber(arr2));;
 
         int[] arr3 = {0, 1};
         System.out.println(findMissingNumber(arr3));    //should return 2
@@ -36,29 +36,22 @@ public class FindMissingNumber {
      * 2 attempts
      */
     public static int findMissingNumber(int[] arr) {
-        //1. sort the array by cyclic sorting
+        //1. sort the array using cyclic sort
         int start = 0;
         while (start < arr.length) {
-            if (arr[start] == start) {
+            int correctIdx = arr[start];    //it should be i = arr[i],, since min element is 0 (see description)
+            if (correctIdx >= arr.length || arr[start] == arr[correctIdx]) {
                 start++;
             } else {
-                int j = arr[start];
-                if (j == arr.length) {
-                    //the idea!!! ignore this number
-                    start++;
-                } else {
-                    int temp = arr[j];
-                    arr[j] = arr[start];
-                    arr[start] = temp;
-                }
+                //swap
+                int temp = arr[start];
+                arr[start] = arr[correctIdx];
+                arr[correctIdx] = temp;
             }
         }
-
-        //2. now find the position where i != arr[i] and return i
+        //2. find missing number: where arr[i] != i
         for (int i = 0; i < arr.length; i++) {
-            if (i != arr[i]) {
-                return i;
-            }
+            if (arr[i] != i) return i;
         }
 
         //all numbers exist => sorted => missing number in the range = n, since it does not appear in nums.
