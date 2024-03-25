@@ -5,11 +5,14 @@ The Island pattern describes all the efficient ways to traverse a matrix.
 This pattern will go through many problems to explain matrix traversal
 using Depth First Search (DFS) and Breadth First Search (BFS) approaches and their variants.
 
-
-
+Theory:
+see 3 solutions of NumberOfIslands:
+1) DFS + mark visited cells by changing the original matrix
+2) BFS (queue that store unvisited cells) + mark visited cells by changing the original matrix
+3) BFS (...) + keep separate matrix to mark a cell visited
 
 Sequence of problems:
-1) Number of Islands (easy) - todo
+1) Number of Islands (easy) - done
 2) Biggest Island (easy) - todo
 3) Flood Fill (easy) - todo
 4) Number of Closed Islands (easy) - todo
