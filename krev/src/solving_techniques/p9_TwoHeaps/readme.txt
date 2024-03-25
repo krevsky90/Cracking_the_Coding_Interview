@@ -8,7 +8,12 @@ This pattern is an efficient approach to solve such problems.
 This pattern uses two Heaps to solve these problems;
 A Min Heap to find the smallest element and a Max Heap to find the biggest element.
 
-Key-Idea of 'add' method:
+
+Key-Idea of 'add' and 'rebalance' methods:
+
+    PriorityQueue<Integer> leftMaxHeap = new PriorityQueue<>(Collections.reverseOrder());
+    PriorityQueue<Integer> rightMinHeap = new PriorityQueue<>();
+
     private void addElementToHeaps(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap, int n) {
         if (leftMaxHeap.size() == 0 || leftMaxHeap.peek() >= n) {
             leftMaxHeap.offer(n);
@@ -19,9 +24,17 @@ Key-Idea of 'add' method:
         rebalance(leftMaxHeap, rightMinHeap);
     }
 
+    private void rebalance(PriorityQueue<Integer> leftMaxHeap, PriorityQueue<Integer> rightMinHeap) {
+        if (leftMaxHeap.size() > rightMinHeap.size() + 1) {
+            rightMinHeap.offer(leftMaxHeap.poll());
+        } else if (rightMinHeap.size() > leftMaxHeap.size()) {
+            leftMaxHeap.offer(rightMinHeap.poll());
+        }
+    }
+
 
 Sequence of problems:
 1) Find the Median of a Number Stream (medium) - done
 2) Sliding Window Median (hard) - done
 3) Maximize Capital (hard) - done
-4) Problem Challenge 1: Next Interval (hard) - todo
+4) Problem Challenge 1: Next Interval (hard) - done
