@@ -44,14 +44,14 @@ public class NumberOfIslands {
 
         //NOTE: call of the method affects matrix itself => to test other methods we need to comment the previous ones
 
-//        System.out.println(obj.countIslandsDFS(matrix1));
-//        System.out.println(obj.countIslandsDFS(matrix2));
+        System.out.println(obj.countIslandsDFS(matrix1));
+        System.out.println(obj.countIslandsDFS(matrix2));
 //
 //        System.out.println(obj.countIslandsBFS(matrix1));
 //        System.out.println(obj.countIslandsBFS(matrix2));
 
-        System.out.println(obj.countIslandsBFSWithVisitedMatrix(matrix1));
-        System.out.println(obj.countIslandsBFSWithVisitedMatrix(matrix2));
+//        System.out.println(obj.countIslandsBFSWithVisitedMatrix(matrix1));
+//        System.out.println(obj.countIslandsBFSWithVisitedMatrix(matrix2));
     }
 
     /**
@@ -84,9 +84,9 @@ public class NumberOfIslands {
     }
 
     private void markIslandDFS(int[][] matrix, int i, int j, int n, int m) {
-        if (i < 0 || i >= n || j < 0 || j >= m) return; //not valid cell
+        if (i < 0 || i >= n || j < 0 || j >= m) return; //ignore not valid cell
 
-        if (matrix[i][j] == 0) return;  //double-check
+        if (matrix[i][j] == 0) return;  //current cell is NOT piece of island OR it is already visited
 
         matrix[i][j] = 0;   //mark as visited
 
@@ -128,32 +128,24 @@ public class NumberOfIslands {
     }
 
     private void markIslandBFS(int[][] matrix, int i, int j, int n, int m) {
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(i, j));
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{i, j});
 
         while (!q.isEmpty()) {
-            Pair pair = q.poll();
-            if (pair.row < 0 || pair.row >= n || pair.col < 0 || pair.col >= m) continue; //not valid cell
+            int[] pair = q.poll();
+            int row = pair[0];
+            int col = pair[1];
+            if (row < 0 || row >= n || col < 0 || col >= m) continue;   //ignore not valid cell
 
-            if (matrix[pair.row][pair.col] == 0) continue;  //double-check
+            if (matrix[row][col] == 0) continue;  //current cell is NOT piece of island OR it is already visited
 
-            matrix[pair.row][pair.col] = 0;   //mark as visited
+            matrix[row][col] = 0;   //mark as visited
 
             //BFS
-            q.add(new Pair(pair.row + 1, pair.col));
-            q.add(new Pair(pair.row - 1, pair.col));
-            q.add(new Pair(pair.row, pair.col + 1));
-            q.add(new Pair(pair.row, pair.col - 1));
-        }
-    }
-
-    class Pair {
-        int row;
-        int col;
-
-        Pair(int row, int col) {
-            this.row = row;
-            this.col = col;
+            q.add(new int[]{row+1,col});
+            q.add(new int[]{row-1,col});
+            q.add(new int[]{row,col+1});
+            q.add(new int[]{row,col-1});
         }
     }
 
@@ -189,24 +181,24 @@ public class NumberOfIslands {
     }
 
     private void markIslandBFSWithVisitedMatrix(int[][] matrix, int i, int j, int n, int m, boolean[][] visited) {
-        Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(i, j));
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{i, j});
 
         while (!q.isEmpty()) {
-            Pair pair = q.poll();
-            if (pair.row < 0 || pair.row >= n || pair.col < 0 || pair.col >= m) continue; //not valid cell
+            int[] pair = q.poll();
+            int row = pair[0];
+            int col = pair[1];
+            if (row < 0 || row >= n || col < 0 || col >= m) continue;   //ignore not valid cell
 
-            if (matrix[pair.row][pair.col] == 0 || visited[pair.row][pair.col] == true) continue;  //double-check
+            if (matrix[row][col] == 0 || visited[row][col] == true) continue;   //current cell is NOT piece of island OR it is already visited
 
-            visited[pair.row][pair.col] = true;   //mark as visited
+            visited[row][col] = true;   //mark as visited
 
             //BFS
-            q.add(new Pair(pair.row + 1, pair.col));
-            q.add(new Pair(pair.row - 1, pair.col));
-            q.add(new Pair(pair.row, pair.col + 1));
-            q.add(new Pair(pair.row, pair.col - 1));
+            q.add(new int[]{row+1,col});
+            q.add(new int[]{row-1,col});
+            q.add(new int[]{row,col+1});
+            q.add(new int[]{row,col-1});
         }
     }
-
-
 }
