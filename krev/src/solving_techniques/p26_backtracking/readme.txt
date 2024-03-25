@@ -19,3 +19,8 @@ Sequence of problems:
 3) Sudoku Solver (hard) - done
 4) Factor Combinations (medium) - done
 5) Split a String Into the Max Number of Unique Substrings (medium) - done
+
+6) https://leetcode.com/problems/combination-sum-ii (medium) - done
+7) https://leetcode.com/problems/combination-sum-iii (medium) - todo
+
+Common list of problems is here: https://leetcode.com/tag/backtracking
