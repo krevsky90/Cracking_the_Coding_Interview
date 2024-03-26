@@ -21,6 +21,6 @@ Sequence of problems:
 5) Split a String Into the Max Number of Unique Substrings (medium) - done
 
 6) https://leetcode.com/problems/combination-sum-ii (medium) - done
-7) https://leetcode.com/problems/combination-sum-iii (medium) - todo
+7) https://leetcode.com/problems/combination-sum-iii (medium) - done
 
 Common list of problems is here: https://leetcode.com/tag/backtracking
