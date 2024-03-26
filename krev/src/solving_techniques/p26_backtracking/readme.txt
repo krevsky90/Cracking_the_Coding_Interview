@@ -13,6 +13,26 @@ Dynamic Programming (DP) uses a similar approach where we try out all possible s
  to pick up the most optimized solution. DP is used to solve optimization problems; backtracking,
  on the other hand, is mostly used when multiple valid solutions are possible for a problem.
 
+Template for problem like 'find all combinations':
+    private void helper(int[] candidates, int target, List<Integer> tempResult, List<List<Integer>> result, int startIdx) {
+        if (target == 0) {
+            result.add(new ArrayList<>(tempResult));
+        } else if (target < 0) {
+            return; //no solution
+        } else {
+             for (int i = startIdx; i < candidates.length; i++) {
+                 //<here might be some code specific to the problem (like duplicate validation etc)>
+                 tempResult.add(candidates[i]);
+                 //where XXX = i in case if the elements (of candidates) can be used multiple times
+                 //XXX = i + 1 in case if  the elements (of candidates) can be used only once
+                 helper(candidates, target - candidates[i], tempResult, result, XXX);
+                 tempResult.remove(tempResult.size() - 1);
+             }
+        }
+    }
+    //NOTE: validation "startIdx >= candidates.length" is NOT necessary since in case if startIdx >= candidates.length
+    //we will execute 'else' block and for-loop will not be executed at all since the condition "i < candidates.length" is false
+
 Sequence of problems:
 1) Combination Sum (medium) - done
 2) Word Search (medium) - done
