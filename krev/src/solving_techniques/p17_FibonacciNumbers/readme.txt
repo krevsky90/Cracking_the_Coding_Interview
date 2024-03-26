@@ -6,8 +6,8 @@ Sequence of problems:
 2) Staircase - done
 3) Number factors - done
 4) Minimum jumps to reach the end - done
-5) Minimum jumps with fee - todo
-6) House thief
+5) Minimum jumps with fee - done
+6) House thief - todo
 
 7) https://leetcode.com/problems/jump-game - done
 8) https://leetcode.com/problems/jump-game-iii - done
