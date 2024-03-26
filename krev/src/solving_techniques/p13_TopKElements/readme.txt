@@ -28,7 +28,7 @@ Sequence of problems:
 7) Kth Largest Number in a Stream (medium) - done
 8) 'K' Closest Numbers (medium) - done
 9) Maximum Distinct Elements (medium) - done
-10) Sum of Elements (medium) - todo
+10) Sum of Elements (medium) - done
 11) Rearrange String (hard) - todo
 12) Problem Challenge 1: Rearrange String K Distance Apart (hard) - todo
 13) Problem Challenge 2: Scheduling Tasks (hard) - todo
