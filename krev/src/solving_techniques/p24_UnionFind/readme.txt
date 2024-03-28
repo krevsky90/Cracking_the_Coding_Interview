@@ -10,7 +10,36 @@ It provides two primary operations:
 This pattern is particularly useful for problems where we need to find whether 2 elements belong to the same group
 or need to solve connectivity-related problems in a graph or tree.
 
+Theory:
+/**
+ * info:
+ * https://www.geeksforgeeks.org/introduction-to-disjoint-set-data-structure-or-union-find-algorithm
+ *
+ * For each set/group we can select representative element of this group. This can be each element of the group,
+ * but usually we select element with the biggest index.
+ *
+ * Problem #1: to define if x and y belongs to the same group
+ * Solution: we can use the fact that all elements of the same group have the SAME representative
+ *
+ * Problem #2: to join(union) the groups
+ * Solution: we can join their representative elements
+ *
+ * Data Structures:
+ * parent[] array
+ * its size = amount of given elements
+ * parent[i] contains the representative element for i-th element of given array.
+ *
+ * Initial condition:
+ * before applying relations, each element is separate group/set and is representative element of this group
+ *
+ */
 
+ Examples and main method's implementations:
+ see
+ src/solving_techniques/p24_UnionFind/UnionFind.java
+ and optimized
+ src/solving_techniques/p24_UnionFind/UnionFindByRank.java
+ src/solving_techniques/p24_UnionFind/UnionFindBySize.java
 
 Sequence of problems:
 1) Redundant Connection (medium) - todo
