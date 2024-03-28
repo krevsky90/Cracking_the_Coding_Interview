@@ -15,7 +15,7 @@ Sequence of problems:
 1) Number of Islands (easy) - done
 2) Biggest Island (easy) - done
 3) Flood Fill (easy) - done
-4) Number of Closed Islands (easy) - todo
+4) Number of Closed Islands (easy) - done
 5) Problem Challenge 1 (easy) - todo
 6) Problem Challenge 2 (medium) - todo
 7) Problem Challenge 3 (medium) - todo
