@@ -42,7 +42,7 @@ Theory:
  src/solving_techniques/p24_UnionFind/UnionFindBySize.java
 
 Sequence of problems:
-1) Redundant Connection (medium) - todo
+1) Redundant Connection (medium) - done
 2) Number of Provinces (medium) - todo
 3) Is Graph Bipartite? (medium) - todo
 4) Path With Minimum Effort (medium) - todo
