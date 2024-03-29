@@ -27,5 +27,5 @@ Sequence of problems:
 1) Merge K Sorted Lists (medium) - done
 2) Kth Smallest Number in M Sorted Lists (medium) - done
 3) Kth Smallest Number in a Sorted Matrix (hard) - done
-4) Smallest Number Range (hard) - todo
+4) Smallest Number Range (hard) - done
 5) Problem Challenge 1: K Pairs with Largest Sums (hard) - todo

@@ -133,9 +133,9 @@ public class KthSmallestNumberInMSortedLists {
 
             int rowId = pair.id;   //listIdWithMinElement
             idxVector[rowId]++;
-            if (idxVector[pair.id] < list.get(rowId).length) {
+            if (idxVector[rowId] < list.get(rowId).length) {
                 //push the next element of this list to the queue
-                pq.add(new Pair(pair.id, list.get(rowId)[idxVector[rowId]]));
+                pq.add(new Pair(rowId, list.get(rowId)[idxVector[rowId]]));
             }
         }
 
