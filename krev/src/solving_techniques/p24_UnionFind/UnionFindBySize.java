@@ -36,8 +36,8 @@ public class UnionFindBySize {
 
         if (xrep == yrep) return;
 
-        int xrank = sizeArr[x];
-        int yrank = sizeArr[y];
+        int xrank = sizeArr[xrep];
+        int yrank = sizeArr[yrep];
 
         if (xrank < yrank) {
             parent[xrep] = yrep;

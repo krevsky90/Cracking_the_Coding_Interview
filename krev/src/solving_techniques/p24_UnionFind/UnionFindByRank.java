@@ -98,8 +98,8 @@ public class UnionFindByRank {
 
         if (xrep == yrep) return;
 
-        int xrank = rank[x];
-        int yrank = rank[y];
+        int xrank = rank[xrep];
+        int yrank = rank[yrep];
 
         if (xrank < yrank) {
             parent[xrep] = yrep;

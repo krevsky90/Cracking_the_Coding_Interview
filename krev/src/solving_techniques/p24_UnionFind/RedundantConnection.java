@@ -91,8 +91,8 @@ public class RedundantConnection {
         }
 
         //union
-        int xrank = rank[x];
-        int yrank = rank[y];
+        int xrank = rank[xrep];
+        int yrank = rank[yrep];
         if (xrank < yrank) {
             parent[xrep] = yrep;
         } else if (xrank > yrank) {
