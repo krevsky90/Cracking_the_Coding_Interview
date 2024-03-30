@@ -44,5 +44,5 @@ Theory:
 Sequence of problems:
 1) Redundant Connection (medium) - done
 2) Number of Provinces (medium) - done
-3) Is Graph Bipartite? (medium) - todo
+3) Is Graph Bipartite? (medium) - done
 4) Path With Minimum Effort (medium) - todo
