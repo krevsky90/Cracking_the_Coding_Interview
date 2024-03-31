@@ -19,7 +19,7 @@ Sequence of problems:
 3) Problem 2: Reverse a String - done
 4) Problem 3: Decimal to Binary Conversion - todo
 5) Problem 4: Next Greater Element - done
-6) Problem 5: Sorting a Stack - todo
+6) Problem 5: Sorting a Stack - done
 7) Problem 6: Simplify Path - todo
 
 8) https://leetcode.com/problems/evaluate-reverse-polish-notation (medium) - done
