@@ -9,12 +9,16 @@ When you're ready to start reading, you take a book from the top of the pile.
 The last book you added to the pile is the first one you read.
 That's LIFO - the principle that stack data structures operate on.
 
+Techniques:
+1) Monotonic stack: https://www.youtube.com/watch?v=Dq_ObZwTY_Q
+    applicable to 'Find next greater element' (use decreasing stack)
+
 Sequence of problems:
 1) Implementing Stack Data Structure - todo
-2) Problem 1: Balanced Parentheses - todo
-3) Problem 2: Reverse a String - todo
+2) Problem 1: Balanced Parentheses - see src/data_structures/chapter1_arrays_n_strings/amazon_igotanoffer/easy_strings/Problem1_16_ValidParentheses.java # isValid
+3) Problem 2: Reverse a String - done
 4) Problem 3: Decimal to Binary Conversion - todo
-5) Problem 4: Next Greater Element - todo
+5) Problem 4: Next Greater Element - done
 6) Problem 5: Sorting a Stack - todo
 7) Problem 6: Simplify Path - todo
 
