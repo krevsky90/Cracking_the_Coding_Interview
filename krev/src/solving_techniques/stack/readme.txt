@@ -20,7 +20,7 @@ Sequence of problems:
 4) Problem 3: Decimal to Binary Conversion - todo
 5) Problem 4: Next Greater Element - done
 6) Problem 5: Sorting a Stack - done
-7) Problem 6: Simplify Path - todo
+7) Problem 6: Simplify Path - done
 
 8) https://leetcode.com/problems/evaluate-reverse-polish-notation (medium) - done
 9) https://leetcode.com/problems/next-greater-element-i (easy/medium) - done

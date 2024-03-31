@@ -47,9 +47,9 @@ public class SortingStack {
      * NOT SOLVED by myself
      * info: https://www.youtube.com/watch?v=K0XXVSL4wUo
      * but I inverted the solution since I need max value on top of stack
-     *
+     * <p>
      * time to implement ~ 8 mins
-     *
+     * <p>
      * 1 attempt
      */
     public void sortStack(Stack<Integer> srcStack) {
@@ -67,5 +67,33 @@ public class SortingStack {
         while (!tempStack.isEmpty()) {
             srcStack.add(tempStack.pop());
         }
+    }
+
+    /**
+     * SOLUTION #2: recursive
+     * info:
+     * https://leetcode.com/discuss/interview-question/algorithms/125398/given-a-stack-sort-it-in-non-decreasing-order
+     */
+    public void sortStack2(Stack<Integer> s) {
+        // base case
+        if (s.size() == 0 || s.size() == 1) {
+            return;
+        }
+        int temp = s.peek();
+        s.pop();
+        sortStack2(s);
+        insert(s, temp);
+    }
+
+    private void insert(Stack<Integer> s, int temp) {
+        if (s.empty() || s.peek() < temp) {
+            s.push(temp);
+            return;
+        }
+
+        int val = s.peek();
+        s.pop();
+        insert(s, temp);
+        s.push(val);
     }
 }
