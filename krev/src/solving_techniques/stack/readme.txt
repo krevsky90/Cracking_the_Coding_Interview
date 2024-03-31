@@ -23,3 +23,4 @@ Sequence of problems:
 7) Problem 6: Simplify Path - todo
 
 8) https://leetcode.com/problems/evaluate-reverse-polish-notation (medium) - done
+9) https://leetcode.com/problems/next-greater-element-i (easy/medium) - done
