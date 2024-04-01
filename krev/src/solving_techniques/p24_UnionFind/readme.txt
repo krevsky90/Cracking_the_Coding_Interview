@@ -45,4 +45,4 @@ Sequence of problems:
 1) Redundant Connection (medium) - done
 2) Number of Provinces (medium) - done
 3) Is Graph Bipartite? (medium) - done
-4) Path With Minimum Effort (medium) - todo
+4) Path With Minimum Effort (medium) - done
