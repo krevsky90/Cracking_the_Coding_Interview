@@ -1,4 +1,4 @@
-package solving_techniques.stack;
+package solving_techniques.p27_Stacks;
 
 import java.util.Stack;
 
