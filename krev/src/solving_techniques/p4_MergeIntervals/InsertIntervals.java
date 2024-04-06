@@ -155,7 +155,7 @@ public class InsertIntervals {
                 result.add(intervals[i]);
             } else {
                 //overlapping
-                //idea: CHANGE the bounds of newInterval itself!
+                //idea: CHANGE the bounds of newInterval itself EACH time until current extended newInterval has NO overlapping!
                 newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
                 newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
             }

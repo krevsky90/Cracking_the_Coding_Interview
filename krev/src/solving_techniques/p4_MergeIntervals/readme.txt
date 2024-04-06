@@ -24,3 +24,5 @@ Sequence of problems:
 3) IntervalsIntersection https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639249470cddc1617da1b889 - done
 4) ConflictingAppointments https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639363de4599b3e5714ab022 - done
 5) Problem Challenge 1: Minimum Meeting Rooms (hard) https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639366c54599b3e5714ab178 - todo?
+
+6) https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups (medium) - done
