@@ -1,4 +1,4 @@
-package solving_techniques.stack;
+package solving_techniques.p28_MonotonicStack;
 
 import java.util.HashMap;
 import java.util.Map;
