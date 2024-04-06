@@ -17,8 +17,8 @@ Sequence of problems:
 1) Implementing Stack Data Structure - todo
 2) Problem 1: Balanced Parentheses - see src/data_structures/chapter1_arrays_n_strings/amazon_igotanoffer/easy_strings/Problem1_16_ValidParentheses.java # isValid
 3) Problem 2: Reverse a String - done
-4) Problem 3: Decimal to Binary Conversion - todo
-5) Problem 4: Next Greater Element - done
+4) Problem 3: Decimal to Binary Conversion - done
+5) Problem 4: Next Greater Element - done (in fact, the problem belongs to 'p28_MonotonicStack' chapter)
 6) Problem 5: Sorting a Stack - done
 7) Problem 6: Simplify Path - done
 
