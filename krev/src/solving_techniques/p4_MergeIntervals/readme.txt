@@ -26,3 +26,8 @@ Sequence of problems:
 5) Problem Challenge 1: Minimum Meeting Rooms (hard) https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639366c54599b3e5714ab178 - todo?
 
 6) https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups (medium) - done
+7) https://leetcode.com/problems/non-overlapping-intervals (medium) - todo
+8) https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons (medium) - todo
+9) https://leetcode.com/problems/meeting-rooms (easy) (locked) - todo
+9) https://leetcode.com/problems/meeting-rooms-ii (medium) (locked) - todo
+10) https://leetcode.com/problems/minimum-interval-to-include-each-query (hard) - todo
