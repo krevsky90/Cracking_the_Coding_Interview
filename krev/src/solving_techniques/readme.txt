@@ -4,3 +4,6 @@ and links from https://www.designgurus.io/course-play/grokking-the-coding-interv
 
 Implementation:
 https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews
+
+Dynamic Programming patterns:
+https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns - todo!
