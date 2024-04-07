@@ -62,7 +62,7 @@ As a result, the time complexity remains linear - O(N), where N = arr.length
 Sequence of problems:
 1) Next Greater Element (1) - done
 2) Daily Temperatures (easy/medium) - done
-3) Remove Nodes From Linked List (easy) - todo
+3) Remove Nodes From Linked List (easy/medium) - done
 4) Remove All Adjacent Duplicates In String (easy) - todo
 5) Remove All Adjacent Duplicates in String II (medium) - todo
 6) Remove K Digits (hard) - todo
