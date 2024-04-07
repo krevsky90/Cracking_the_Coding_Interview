@@ -33,3 +33,5 @@ Sequence of problems:
 12) Problem Challenge 1: Rearrange String K Distance Apart (hard) - todo
 13) Problem Challenge 2: Scheduling Tasks (hard) - todo
 14) Problem Challenge 3: Frequency Stack (hard) - todo
+
+15) https://leetcode.com/problems/last-stone-weight (easy) - done
