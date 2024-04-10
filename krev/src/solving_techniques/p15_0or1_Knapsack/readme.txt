@@ -45,9 +45,21 @@ COMMON ALGORITHM:
 3) if the target is not reached at all, then out helper returns Infinity or Infinity + 1 => we just check it result < 0 => return, for example, -1
 
 Additional info:
-IF we use bottom-up approach - we have to calculate the results for ALL potential sub-problems!
-IF we use top-down approach -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
+IF we use bottom-up approach (iterative) => tabulation - we have to calculate the results for ALL potential sub-problems!
+IF we use top-down approach (recursive) => memoization -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
 
+https://www.geeksforgeeks.org/tabulation-vs-memoization/
+    Memoization (recursive) - is used when the subproblems have overlapping subproblems
+        we use a dictionary object called cache to store the results of function calls, and we use recursion to compute the results.
+
+        Let?s describe a state for our DP problem to be dp[x] with dp[0] as base state and dp[n] as our destination state. So,  we need to find the value of destination state i.e dp[n].
+        If we start our transition from our base state i.e dp[0] and follow our state transition relation to reach our destination state dp[n], we call it the Bottom-Up approach
+
+    Tabulation (iterative) - is when the subproblems DO NOT overlap!
+        we use an array called table to store the results of subproblems, and we use iteration to compute the results.
+
+        If we need to find the value for some state say dp[n] and instead of starting from the base state that i.e dp[0]
+        we ask our answer from the states that can reach the destination state dp[n] following the state transition relatio
 
 Sequence of problems:
 1) 0/1 Knapsack (medium) - done
@@ -55,7 +67,7 @@ Sequence of problems:
 3) Subset Sum (medium) - done
 4) Minimum Subset Sum Difference (hard) - done with TLE or OOM
 5) Problem Challenge 1: Count of Subset Sum (hard) - done
-6) Problem Challenge 2: Target Sum (hard) - todo
+6) Problem Challenge 2: Target Sum (hard) - done
 
 7) https://leetcode.com/problems/partition-to-k-equal-sum-subsets/ (medium) - done
 8) https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements/ (medium) - done
