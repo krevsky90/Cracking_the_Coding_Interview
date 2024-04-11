@@ -6,7 +6,7 @@ Theory:
 todo - add
 
 Sequence of problems:
-1) https://leetcode.com/problems/unique-paths - todo
+1) https://leetcode.com/problems/unique-paths - done
 2) https://leetcode.com/problems/unique-paths-ii - todo
 3) https://leetcode.com/problems/minimum-path-sum - done (see src/solving_techniques/DP_MinOrMaxPathToReachTarget/MinimumPathSum.java)
 4) https://leetcode.com/problems/dungeon-game (hard) - todo
