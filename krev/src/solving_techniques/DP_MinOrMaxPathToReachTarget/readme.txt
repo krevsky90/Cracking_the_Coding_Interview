@@ -35,7 +35,7 @@ Problem list: https://leetcode.com/list/55ac4kuc
 2) 120. Triangle https://leetcode.com/problems/triangle - done
 3) 174. Dungeon Game https://leetcode.com/problems/dungeon-game (hard) - todo
 4) 221. Maximal Square https://leetcode.com/problems/maximal-square - done
-5) 279. Perfect Squares https://leetcode.com/problems/perfect-squares - todo
+5) 279. Perfect Squares https://leetcode.com/problems/perfect-squares - done
 6) Coin change - done
 7) 474. Ones and Zeroes https://leetcode.com/problems/ones-and-zeroes
 8) 650. 2 Keys Keyboard https://leetcode.com/problems/2-keys-keyboard - done
