@@ -1,5 +1,7 @@
 package solving_techniques.p17_FibonacciNumbers;
 
+import java.util.Arrays;
+
 /**
  * https://www.designgurus.io/course-play/grokking-dynamic-programming/doc/637f4de6273008407d8d141e
  * OR
@@ -89,5 +91,24 @@ public class MinimumJumpsWithFee {
             prev = res;
         }
         return res;
+    }
+
+    /**
+     * KREVSKY SOLUTION #2:
+     * common DP top down approach
+     */
+    public int minCostClimbingStairsTopDown(int[] cost) {
+        int[] res = new int[cost.length + 1];
+        Arrays.fill(res, -1);
+        return minCostClimbingStairs(cost, res, cost.length);
+    }
+
+    public int minCostClimbingStairs(int[] cost, int[] res, int i) {
+        if (i <= 1) return 0;
+
+        if (res[i] != -1) return res[i];
+
+        res[i] = Math.min(minCostClimbingStairs(cost, res, i - 1) + cost[i - 1], minCostClimbingStairs(cost, res, i - 2) + cost[i - 2]);
+        return res[i];
     }
 }
