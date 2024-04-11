@@ -48,7 +48,7 @@ public class CoinChange {
      * space ~ O(coins.length * amount)
      *
      * 3 attempts:
-     * - wrote 'coins[i-1]' instead of 'coins[i-1]' in if condition
+     * - wrote 'coins[i]' instead of 'coins[i-1]' in if condition
      * - wrote 'j < amount' instead of 'j < amount + 1'
      */
     public int change(int amount, int[] coins) {
