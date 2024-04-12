@@ -85,3 +85,4 @@ List of problems from leetcode: https://leetcode.com/tag/depth-first-search/
 10) Convert Binary Tree To Doubly Linked List By Morris Traversal - done
 11) 235. Lowest Common Ancestor of a Binary Search Tree - done
 12) https://leetcode.com/problems/balanced-binary-tree (easy) - done
+13) https://leetcode.com/problems/binary-tree-inorder-traversal (easy) (Morris In-order traversal) - done
