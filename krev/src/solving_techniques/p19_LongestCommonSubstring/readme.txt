@@ -31,7 +31,7 @@ Sequence of problems:
 13) Strings Interleaving - done
 
 14) https://leetcode.com/problems/number-of-matching-subsequences (medium) - done
-15) https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings (medium) - todo
+15) https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings (medium) - done
 16) https://leetcode.com/problems/maximum-length-of-pair-chain (medium) - done
 17) https://leetcode.com/problems/distinct-subsequences (hard) - todo
 18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - todo
