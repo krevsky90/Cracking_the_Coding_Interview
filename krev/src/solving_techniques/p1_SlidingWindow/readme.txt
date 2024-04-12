@@ -69,6 +69,6 @@ Sequence of problems:
 8) Problem Challenge 2: String Anagrams (hard) - done
 9) Problem Challenge 3: Smallest Window containing Substring (hard) - todo
 10) Problem Challenge 4: Words Concatenation (hard) - todo
-11) https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/ - done
-12) https://leetcode.com/problems/minimum-window-substring - todo
+11) https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero - done
+12) https://leetcode.com/problems/minimum-window-substring (hard) - done
 13) https://leetcode.com/problems/take-k-of-each-character-from-left-and-right - done
