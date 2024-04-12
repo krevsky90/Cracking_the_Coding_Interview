@@ -25,6 +25,12 @@ package solving_techniques.p18_PalindromicSubsequence;
  * s consists of lowercase English letters.
  */
 public class CountOfPalindromicSubstrings {
+    public static void main(String[] args) {
+        String s1 = "aaa";
+        CountOfPalindromicSubstrings obj = new CountOfPalindromicSubstrings();
+        System.out.println(obj.countSubstrings(s1));
+        System.out.println(obj.countSubstringsKrev(s1));
+    }
     /**
      * NOT SOLVED by myself
      * tried to use dp table
@@ -60,5 +66,78 @@ public class CountOfPalindromicSubstrings {
         }
 
         return result;
+    }
+
+    /**
+     * KREVSKY SOLUTION:
+     * HINT: do NOT consider dp as table! think in terms of two pointers (i,j) and string s!
+     *
+     * idea: fill dp: [i][j] = 1 if s.substring(i,j) is palindrome, = 0 - otherwise
+     * i.e. we do not store amount of palindromes that can be fetched from (i,j)-substring! just fact!
+     * to count amount of palindromes, we use separate counter, that is incremented each time when we set dp[i][j] = 1
+     *
+     * BEATS = 34%
+     */
+    public int countSubstringsKrev(String s) {
+        int n = s.length();
+        int[][] dp = new int[n][n];
+
+        int counter = 0;
+        for (int i = 0; i < n - 1; i++) {
+            dp[i][i] = 1;
+            counter++;
+            if (s.charAt(i) == s.charAt(i+1)) {
+                dp[i][i+1] = 1;
+                counter++;
+            }
+        }
+        dp[n-1][n-1] = 1;
+        counter++;
+
+        for (int k = 2; k < n; ++k) {
+            for (int i = 0; i < n - k; ++i) {
+                int j = i + k;
+                if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1] == 1) {
+                    dp[i][j] = 1;
+                    counter++;
+                } else {
+                    dp[i][j] = 0;
+                }
+            }
+        }
+        return counter;
+    }
+
+    /**
+     * info:
+     * https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
+     * see code for '647. Palindromic Substrings Medium' problem
+     * idea is to store length of palindrome in substring(i,j).
+     * but in fact we need to count the amount of non-zero cells as in my solution above
+     *
+     * HINT: in this solution we do not fill [i][i+1] cells separately
+     * because of condition "&& dp[i + 1][j - 1] == j - i - 1" and statement"dp[i][j] = dp[i + 1][j - 1] + 2;"
+     */
+    public int countSubstrings2(String s) {
+        int n = s.length();
+        int[][] dp = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = 1;
+        }
+        int counter = n;
+
+        for (int k = 1; k < n; ++k) {
+            for (int i = 0; i < n - k; ++i) {
+                int j = i + k;
+                if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1] == j - i - 1) {
+                    dp[i][j] = dp[i + 1][j - 1] + 2;
+                    counter++;
+                } else {
+                    dp[i][j] = 0;
+                }
+            }
+        }
+        return counter;
     }
 }
