@@ -36,7 +36,7 @@ Sequence of problems:
 17) https://leetcode.com/problems/distinct-subsequences (hard) - todo
 18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - done
 19) https://leetcode.com/problems/longest-increasing-subsequence-ii (hard) - todo
-20) https://leetcode.com/problems/longest-continuous-increasing-subsequence (easy) - todo
+20) https://leetcode.com/problems/longest-continuous-increasing-subsequence (easy) - done
 21) https://leetcode.com/problems/longest-substring-of-one-repeating-character (hard) - todo
 22) https://leetcode.com/problems/delete-operation-for-two-strings (medium) - todo
 23) https://leetcode.com/problems/distinct-subsequences (hard) - todo
