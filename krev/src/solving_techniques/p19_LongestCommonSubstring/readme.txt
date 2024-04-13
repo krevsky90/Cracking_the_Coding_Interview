@@ -34,7 +34,7 @@ Sequence of problems:
 15) https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings (medium) - done
 16) https://leetcode.com/problems/maximum-length-of-pair-chain (medium) - done
 17) https://leetcode.com/problems/distinct-subsequences (hard) - todo
-18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - todo
+18) https://leetcode.com/problems/number-of-longest-increasing-subsequence - done
 19) https://leetcode.com/problems/longest-increasing-subsequence-ii (hard) - todo
 20) https://leetcode.com/problems/longest-continuous-increasing-subsequence (easy) - todo
 21) https://leetcode.com/problems/longest-substring-of-one-repeating-character (hard) - todo
