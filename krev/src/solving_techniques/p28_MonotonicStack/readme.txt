@@ -63,6 +63,6 @@ Sequence of problems:
 1) Next Greater Element (1) - done
 2) Daily Temperatures (easy/medium) - done
 3) Remove Nodes From Linked List (easy/medium) - done
-4) Remove All Adjacent Duplicates In String (easy) - todo
+4) Remove All Adjacent Duplicates In String (easy) - done
 5) Remove All Adjacent Duplicates in String II (medium) - todo
 6) Remove K Digits (hard) - todo
