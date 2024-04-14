@@ -48,8 +48,9 @@ public class ExtraCharactersInString {
 
     /**
      * SOLUTION #1:
-     * ONLY DP + memoization. NO Trie
-     * idea: leetcode (can't find original solution)
+     * NO Trie! just DP!
+     * use bottom-up (tabulation)
+     * idea: bottomleetcode (can't find original solution)
      * time to implement ~ 30 mins
      *
      * a lot of attempts
@@ -107,6 +108,9 @@ public class ExtraCharactersInString {
         current.isWord = true;
     }
 
+    /**
+     * Top-Down (memoization) + Trie
+     */
     public int minExtraChar(String s, String[] dictionary) {
         for (String w : dictionary) {
             add(w);

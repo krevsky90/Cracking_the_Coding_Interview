@@ -36,3 +36,6 @@ Sequence of problems:
 3) Design Add and Search Words Data Structure (medium) - done
 4) Extra Characters in a String (medium) - done
 5) Search Suggestions System (medium) - done
+
+additional problems see here: https://leetcode.com/tag/trie
+6) https://leetcode.com/problems/word-break - done
