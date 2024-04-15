@@ -24,7 +24,7 @@ Sequence of problems:
 1) Binary Tree Level Order Traversal (easy) - done
 2) Reverse Level Order Traversal (easy) - done
 3) Zigzag Traversal (medium) - done
-4) Level Averages in a Binary Tree (easy) - todo
+4) Level Averages in a Binary Tree (easy) - done
 5) Minimum Depth of a Binary Tree (easy) - done
 6) Level Order Successor (easy) - done
 7) Connect Level Order Siblings (medium) - done

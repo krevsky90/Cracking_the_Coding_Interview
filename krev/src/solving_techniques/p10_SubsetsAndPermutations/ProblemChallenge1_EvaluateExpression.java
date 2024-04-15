@@ -66,6 +66,8 @@ public class ProblemChallenge1_EvaluateExpression {
      * - incorrect for-loop: "int i = 0;" - wrong. "int i = start;" - correct
      * - incorrect "rightResult = calculate(i + 1, arr.size() - 1,...". correct is "rightResult = calculate(i + 1, end,..."
      * to sum up, I lost 20 mins due to incorrect bounds
+     *
+     * BEATS = 76%
      */
     public List<Integer> diffWaysToCompute(String expression) {
         List<Integer> arr = new ArrayList<>();
