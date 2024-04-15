@@ -105,12 +105,12 @@ Sequence of problems:
 4) String Permutations by changing case (medium) - done
 5) Balanced Parentheses (hard) - done
 6) Unique Generalized Abbreviations (hard) - done
-7) Problem Challenge 1: Evaluate Expression (hard) - todo
+7) Problem Challenge 1: Evaluate Expression (hard) - done
 8) Problem Challenge 2: Structurally Unique Binary Search Trees (hard) - done
 9) Problem Challenge 3: Count of Structurally Unique Binary Search Trees (hard) - done
 
 10) https://leetcode.com/problems/next-permutation (medium) - done
 11) https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/ (medium) - done
-12) https://leetcode.com/problems/combinations/description/ (medium) - done
-13) https://leetcode.com/problems/palindrome-partitioning/ (medium) done
-14) https://leetcode.com/problems/permutation-sequence/ (hard) - done
+12) https://leetcode.com/problems/combinations (medium) - done
+13) https://leetcode.com/problems/palindrome-partitioning (medium) done
+14) https://leetcode.com/problems/permutation-sequence (hard) - done
