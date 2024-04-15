@@ -55,7 +55,7 @@ Sequence of problems:
 4) All Tasks Scheduling Orders (hard) - done
 5) Alien Dictionary (hard) - todo
 6) Problem Challenge 1: Reconstructing a Sequence (hard) - todo
-7) Problem Challenge 2: Minimum Height Trees (hard) - todo
+7) Problem Challenge 2: Minimum Height Trees (hard) - done
 
 Leetcode:
 https://leetcode.com/tag/topological-sort/
