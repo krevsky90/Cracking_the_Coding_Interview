@@ -38,6 +38,26 @@ public class FindAllMissingNumbers {
     }
 
     /**
+     * Input: [2, 4, 1, 2]
+     * Output: 3
+     *
+     * 2, 4, 1, 2
+     * start = 0
+     * arr[start] = arr[0] = 2
+     * correctIdx = arr[0] - 1 = 2 - 1 = 1
+     * arr[correctIdx] = arr[1] = 4
+     * //swap 2 and 4
+     * 4 2 1 2
+     * 2 2 1 4
+     * start++ => start = 1
+     * start++ => start = 2
+     * //swap 1 and 2
+     * 1 2 2 4
+     * start++ => start = 3
+     * start++ => start = 4
+     */
+
+    /**
      * time to solve ~ 5-10 mins
      * time ~ O(n)
      * space ~ O(1)
