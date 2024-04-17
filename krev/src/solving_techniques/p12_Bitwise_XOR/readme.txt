@@ -22,5 +22,5 @@ Sequence of problems:
 
 5) https://leetcode.com/problems/single-number-ii (medium) - done
 6) https://leetcode.com/problems/find-the-original-array-of-prefix-xor (medium) - done
-7) https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor (medium) - todo
+7) https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor (medium) - done
 8) https://leetcode.com/problems/decode-xored-array (easy) - todo
