@@ -42,4 +42,4 @@ Sequence of problems:
 5) Problem Challenge 2: Rotate a LinkedList (medium) - done
 
 6) https://leetcode.com/problems/swap-nodes-in-pairs (medium) - done
-7) https://leetcode.com/problems/reverse-nodes-in-even-length-groups (medium) - todo
+7) https://leetcode.com/problems/reverse-nodes-in-even-length-groups (medium) - done
