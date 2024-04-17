@@ -17,7 +17,7 @@ Sequence of problems:
 7) Bitonic Array Maximum (easy) - done
 8) Problem Challenge 1: Search Bitonic Array (medium) - done
 9) Problem Challenge 2: Search in Rotated Array (medium) - done
-10) Problem Challenge 3: Rotation Count (medium) - todo
+10) Problem Challenge 3: Rotation Count (medium) - done
 
 11) https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ (medium) - done
 12) https://leetcode.com/problems/find-peak-element (medium) - done
