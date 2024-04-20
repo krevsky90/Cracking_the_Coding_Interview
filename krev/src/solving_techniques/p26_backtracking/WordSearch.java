@@ -26,49 +26,112 @@ public class WordSearch {
                 { 'A', 'D', 'E', 'E' }
         };
 
-        boolean res1 = check(board, wordTrue);   //true
-        System.out.println(res1);
+        System.out.println(new WordSearch().exist(board, wordTrue));   //true
+        System.out.println(new WordSearch().exist(board, wordFalse));   //false
 
-        boolean res2 = check(board, wordFalse);   //false
-        System.out.println(res2);
+        char[][] board2 = {{'A','B'}};
+        System.out.println(new WordSearch().exist(board2, "AB"));   //true
     }
 
-    /**
-     * KREVSKY SOLUTION
-     * time to solve ~ 15 mins
-     * 1 attempt
-     * time ~ O(4^word.length)
-     */
-    public static boolean check(char[][] arr, String s) {
-        int rowNum = arr.length;
-        int columnNum = arr[0].length;
-        for (int i = 0; i < rowNum; i++) {
-            for (int j = 0; j < columnNum; j++) {
-                if (check(arr, rowNum, columnNum, i, j, s, 0)) {
+    public boolean exist(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+
+        boolean[][] visit = new boolean[m][n];  //to prevent returning to the symbol of the board where we have already been
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (validation(board, i, j, word, 0, visit)) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
-    public static boolean check(char[][] arr, int rowNum, int columnNum, int i, int j, String s, int idx) {
-        if (idx == s.length()) return true;
 
-        if (arr[i][j] != s.charAt(idx)) return false;
 
-        boolean way1 = false;
-        if (i > 0) way1 = check(arr, rowNum, columnNum,i-1, j, s, idx+1);
+    /**
+     * SOLUTION #1
+     * info:
+     * https://leetcode.com/problems/word-search/solutions/4965080/100-beats-fully-explained-code-with-comments-2-approaches/
+     *
+     * BEATS = 70%
+     */
+    private boolean validation(char[][] board, int i, int j, String word, int idx, boolean[][] visit) {
+        //base case:
+        if (word.length() == idx) return true;
 
-        boolean way2 = false;
-        if (j > 0) way2 = check(arr, rowNum, columnNum,i, j-1, s, idx+1);
+        //stop conditions:
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || word.charAt(idx) != board[i][j]) return false;
 
-        boolean way3 = false;
-        if (i < rowNum - 1) way3 = check(arr, rowNum, columnNum,i+1, j, s, idx+1);
+        if (visit[i][j]) return false;
 
-        boolean way4 = false;
-        if (j < columnNum - 1) way4 = check(arr, rowNum, columnNum,i, j+1, s, idx+1);
+        visit[i][j] = true;
 
-        return way1 || way2 || way3 || way4;
+        //TIPS: do NOT use conditions in the middle of the logic. like i > 0. because it complicates the solution and we can not reach base condition if it is idx == word.length() !
+//        boolean way1 = i > 0 ? validation(board, i - 1, j, word, idx + 1, visit) : false;
+        boolean way1 = validation(board, i - 1, j, word, idx + 1, visit);
+        if (way1) return true;
+
+//      idea! we do not need to check another ways if we have already found any way!
+
+        boolean way2 = validation(board, i, j - 1, word, idx + 1, visit);
+        if (way2) return true;
+
+        boolean way3 = validation(board, i + 1, j, word, idx + 1, visit);
+        if (way3) return true;
+
+        boolean way4 = validation(board, i, j + 1, word, idx + 1, visit);
+        if (way4) return true;
+
+        visit[i][j] = false;
+
+        return false;
     }
+
+    /**
+     * KREVSKY SOLUTION
+     * time to solve ~ 40 mins
+     *
+     * time ~ O(m*n * 4^word.length)
+     * space ~ O(n*m + word.length)
+     *
+     * many attempts:
+     * - did not use visit array
+     * - incorrectly set base condition
+     * - incorrectly set the sequence of stop and base conditions
+     *
+     * BEATS = 90%, BUT inconvenience with base case and stop conditions
+     */
+    private boolean validation2(char[][] board, int i, int j, String word, int idx, boolean[][] visit) {
+        //stop conditions:
+        if (visit[i][j]) return false;
+        if (idx < word.length() && word.charAt(idx) != board[i][j]) return false;
+
+        //base case:
+        //NOTE: we can't write word.length() == idx. since it will not work in case of {{'a'}}, for example
+        //also it affect case when we return to the cell where we have already been. and check if idx = word.length. it returns true, but in fact it should be false
+        if (word.length() - 1 == idx) return true;
+
+        visit[i][j] = true;
+        boolean way1 = i > 0 ? validation2(board, i - 1, j, word, idx + 1, visit) : false;
+        if (way1) return true;
+
+        boolean way2 = j > 0 ? validation2(board, i, j - 1, word, idx + 1, visit) : false;
+        if (way2) return true;
+
+        boolean way3 = i < board.length - 1 ? validation2(board, i + 1, j, word, idx + 1, visit) : false;
+        if (way3) return true;
+
+        boolean way4 = j < board[0].length - 1 ? validation2(board, i, j + 1, word, idx + 1, visit) : false;
+        if (way4) return true;
+
+        visit[i][j] = false;    //we can do it even if result = true. in this case no matter what value is in visit[][]
+
+        return false;
+    }
+
+
 }
