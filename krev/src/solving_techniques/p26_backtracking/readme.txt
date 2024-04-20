@@ -43,6 +43,6 @@ Sequence of problems:
 6) https://leetcode.com/problems/combination-sum-ii (medium) - done
 7) https://leetcode.com/problems/combination-sum-iii (medium) - done
 8) https://leetcode.com/problems/additive-number (medium) - done
-9)
+9) https://leetcode.com/problems/gray-code (medium) - done
 
 Common list of problems is here: https://leetcode.com/tag/backtracking
