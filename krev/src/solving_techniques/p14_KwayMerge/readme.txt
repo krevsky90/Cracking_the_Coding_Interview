@@ -12,6 +12,21 @@ While inserting elements to the Min Heap we keep track of which array the elemen
 We can, then, remove the top element from the heap to get the smallest element and push the next element from the same array,
 to which this smallest element belonged, to the heap
 
+NOTE: to track value, array(list) where we took this value, index of this value in this collection, we can store this data in
+class Data {
+    int listId;  //number # of list
+    int pos;    //index of value in the list with number = listId
+    int value;
+
+    Data(int listId, int pos, int value) {
+        this.listId = listId;
+        this.pos = pos;
+        this.value = value;
+    }
+}
+
+and add Data elements to the heap (see src/solving_techniques/p14_KwayMerge/SmallestNumberRange.java)
+
 Theory:
 from https://www.geeksforgeeks.org/merge-k-sorted-linked-lists-set-2-using-min-heap/
 1) Create a min-heap and insert the first element of all the ?k? linked lists.
@@ -20,7 +35,7 @@ from https://www.geeksforgeeks.org/merge-k-sorted-linked-lists-set-2-using-min-h
 3.1) If there exists an element (in the same linked list) next to the element that popped out in the previous step, then insert it into the min-heap.
 4) Return the head node address of the merged list.
 
-NOTE: hack to avoid if-else while storing the link to 'result' node - to create fake head + temp pointer that will link all nodes during the algorithm. and finally return head.next
+HINT: hack to avoid if-else while storing the link to 'result' node - to create fake head + temp pointer that will link all nodes during the algorithm. and finally return head.next
     see MergeKSortedLists # mergeKListsGFG()
 
 Sequence of problems:
@@ -28,4 +43,4 @@ Sequence of problems:
 2) Kth Smallest Number in M Sorted Lists (medium) - done
 3) Kth Smallest Number in a Sorted Matrix (hard) - done
 4) Smallest Number Range (hard) - done
-5) Problem Challenge 1: K Pairs with Largest Sums (hard) - todo
+5) Problem Challenge 1: K Pairs with Largest Sums (hard) - done
