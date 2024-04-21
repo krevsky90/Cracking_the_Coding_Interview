@@ -23,5 +23,5 @@ Sequence of problems:
 
 8) https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list - done
 9) https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list - done
-10) https://leetcode.com/problems/remove-nth-node-from-end-of-list - todo
+10) https://leetcode.com/problems/remove-nth-node-from-end-of-list (medium)- done
 11) https://leetcode.com/problems/swapping-nodes-in-a-linked-list - todo
