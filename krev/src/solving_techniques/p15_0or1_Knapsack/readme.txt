@@ -78,6 +78,7 @@ Sequence of problems:
 13) https://leetcode.com/problems/minimum-number-of-coins-to-be-added/ - done
 14) https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target - done
 15) https://leetcode.com/problems/ones-and-zeroes (medium) - done
+16) https://leetcode.com/problems/last-stone-weight-ii (medium) - done
 
 
 

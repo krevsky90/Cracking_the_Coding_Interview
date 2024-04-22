@@ -43,5 +43,5 @@ Problem list: https://leetcode.com/list/55ac4kuc
 10) 871. Minimum Number of Refueling Stops https://leetcode.com/problems/minimum-number-of-refueling-stops (hard) - todo
 11) 931. Minimum Falling Path Sum https://leetcode.com/problems/minimum-falling-path-sum - done
 12) 983. Minimum Cost For Tickets https://leetcode.com/problems/minimum-cost-for-tickets - done (src/solving_techniques/p16_UnboundedKnapsack/MinimumCostForTickets.java)
-13) 1049. Last Stone Weight II https://leetcode.com/problems/last-stone-weight-ii - todo
+13) 1049. Last Stone Weight II https://leetcode.com/problems/last-stone-weight-ii (medium) - done (src/solving_techniques/p15_0or1_Knapsack/LastStoneWeight2.java)
 14) 1240. Tiling a Rectangle with the Fewest Squares https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares (hard) - todo
