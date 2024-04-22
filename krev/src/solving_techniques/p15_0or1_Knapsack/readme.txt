@@ -77,6 +77,7 @@ Sequence of problems:
 12) https://leetcode.com/problems/fair-distribution-of-cookies/ (medium) - done
 13) https://leetcode.com/problems/minimum-number-of-coins-to-be-added/ - done
 14) https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target - done
+15) https://leetcode.com/problems/ones-and-zeroes (medium) - done
 
 
 
