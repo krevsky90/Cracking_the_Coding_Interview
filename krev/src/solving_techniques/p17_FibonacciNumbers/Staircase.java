@@ -68,7 +68,7 @@ public class Staircase {
         } else if (memo[n] != 0) {  //note! case "n < 0" should be already handled before we take n-th element!
             return memo[n];
         } else {
-            memo[n] = countWays(n - 1) + countWays(n - 2) + countWays(n - 3);
+            memo[n] = countWaysMemo(n - 1, memo) + countWaysMemo(n - 2, memo) + countWaysMemo(n - 3, memo);
             return memo[n];
         }
     }
