@@ -22,5 +22,8 @@ Sequence of problems:
 6) Problem 5: Sorting a Stack - done
 7) Problem 6: Simplify Path - done
 
+list of problems: https://leetcode.com/tag/stack/
+
 8) https://leetcode.com/problems/evaluate-reverse-polish-notation (medium) - done
-9) https://leetcode.com/problems/car-fleet/ (medium) - done
+9) https://leetcode.com/problems/car-fleet (medium) - done
+10) https://leetcode.com/problems/min-stack (medium) - done
