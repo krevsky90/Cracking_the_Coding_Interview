@@ -43,7 +43,9 @@ import java.util.List;
  */
 public class PathWithMinimumEffort {
     /**
+     * SOLUTION #1:
      * NOT SOLVED by myself:
+     * see Approach #2 here https://leetcode.com/problems/path-with-minimum-effort/solutions/1036518/java-3-clean-codes-dijkstra-s-algo-union-find-binary-search/
      * time to implement ~ 50 mins
      * ideas:
      * 1) transform heights[][] to list of edges, where each edge = int[3]
@@ -136,4 +138,15 @@ public class PathWithMinimumEffort {
             return edges.get(i-1)[2];
         }
     }
+
+    /**
+     * SOLUTION #2:
+     * Dijkstra's algorithm
+     * https://www.youtube.com/watch?v=XQlxCCx2vI4
+     *
+     */
+
+    ///
+
+    //todo: https://www.youtube.com/watch?v=XQlxCCx2vI4
 }
