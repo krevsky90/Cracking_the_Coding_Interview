@@ -6,6 +6,9 @@ A Greedy algorithm is used to solve problems in which the best choice is made at
 This approach assumes that choosing a local optimum at each stage will lead to the determination of a global optimum.
 It's like making the most beneficial decision at every crossroad, hoping it leads to the ultimate destination efficiently.
 
+todo:
+check if it is helpful https://www.geeksforgeeks.org/greedy-algorithms
+
 Sequence of problems:
 1) Valid Palindrome II (easy) - todo
 2) Maximum Length of Pair Chain (medium) - todo
