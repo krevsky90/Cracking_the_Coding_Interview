@@ -11,7 +11,14 @@ We primarily represent graphs using two ways:
         and if the edge is directed from u to v, mark a[u][v] as the 1.
         (Cells are filled with edge weight if the graph is weighted)
 
-2) Adjacency list
+2) Adjacency list - is a data structure used to represent a graph where each node in the graph stores a list of its neighboring vertices.
+    https://www.geeksforgeeks.org/adjacency-list-meaning-definition-in-dsa/
+    How to build an Adjacency List?
+    1) Create an array of linked lists of size N, where N is the number of vertices in the graph.
+    2) Create a linked list of adjacent vertices for each vertex in the graph.
+    3) For each edge (u, v) in the graph, add v to the linked list of u, and add u to the linked list of v if the graph is undirected
+        otherwise add v to the list of u if it is directed from u to v. (In case of weighted graphs store the weight along with the connections).
+
 
 3) Graph Traversal:
     A graph consists of vertices (nodes) connected by edges (lines).
@@ -28,9 +35,9 @@ We primarily represent graphs using two ways:
 
 
 todo:
-1) read https://www.geeksforgeeks.org/adjacency-matrix-meaning-and-definition-in-dsa/ and related articles
-2) write examples of transforming matrix picture to Adjacency matrix
-3) write examples of transforming matrix picture to Adjacency list
+1) read https://www.geeksforgeeks.org/adjacency-matrix-meaning-and-definition-in-dsa/ and related articles - done
+2) write examples of transforming matrix picture to Adjacency matrix - done
+3) write examples of transforming matrix picture to Adjacency list - done
 3) Dikstra'a algorithm
     https://www.youtube.com/watch?v=K_1urzWrzLs
     implement by yourself
