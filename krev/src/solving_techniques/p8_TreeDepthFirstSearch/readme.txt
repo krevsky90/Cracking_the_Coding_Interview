@@ -75,7 +75,7 @@ Sequence of problems:
 4) Path With Given Sequence (medium) - done
 5) Count Paths for a Sum (medium) - done
 6) Problem Challenge 1: Tree Diameter (medium) - done
-7) Problem Challenge 2: Path with Maximum Sum (hard) - todo
+7) Problem Challenge 2: Path with Maximum Sum (hard) - done
 
 8) https://leetcode.com/problems/longest-univalue-path (medium) - done
 9) https://leetcode.com/problems/symmetric-tree (easy) - done
