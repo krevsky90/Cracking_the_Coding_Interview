@@ -16,3 +16,4 @@ Sequence of problems:
 8) https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k (hard) - todo
 9) https://leetcode.com/problems/count-square-submatrices-with-all-ones - todo
 etc
+10) https://leetcode.com/problems/out-of-boundary-paths - done

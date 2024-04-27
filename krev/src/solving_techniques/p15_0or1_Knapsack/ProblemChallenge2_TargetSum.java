@@ -188,6 +188,13 @@ public class ProblemChallenge2_TargetSum {
     /**
      * SOLUTION #3: bottom-up
      * https://leetcode.com/problems/target-sum/solutions/4933869/subset-extension-dp-java-5ms-intuitive/
+     *
+     * idea:
+     * As you have two subsets, denote the one with positive impact as S1 and negative impact as S2.
+     * S1-S2 = target ---------------(1)
+     * S1+S2 = totalSum(arr) ------(2)
+     *
+     * Now you just have to find the subset whose sum is equal to (totalSum+target)/2 by adding eq 1&2.
      */
     public int findTargetSumWays(int[] nums, int target) {
         int sum = findSum(nums);

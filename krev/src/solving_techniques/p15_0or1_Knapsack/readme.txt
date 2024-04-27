@@ -44,6 +44,10 @@ COMMON ALGORITHM:
 
 3) if the target is not reached at all, then out helper returns Infinity or Infinity + 1 => we just check it result < 0 => return, for example, -1
 
+HINTS:
+1) always fill memo[] by -1 or smth that can't be considered as calculated value.
+    or use memo of objects like Integer => default value would be null (rather than 0)
+
 Additional info:
 IF we use bottom-up approach (iterative) => tabulation - we have to calculate the results for ALL potential sub-problems!
 IF we use top-down approach (recursive) => memoization -  we have to calculate the results only for sub-problems that are part of the target solution => it is more efficient!
