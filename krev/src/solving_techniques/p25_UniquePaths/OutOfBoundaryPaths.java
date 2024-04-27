@@ -1,4 +1,4 @@
-package solving_techniques.p24_UnionFind;
+package solving_techniques.p25_UniquePaths;
 
 /**
  * 576. Out of Boundary Paths
