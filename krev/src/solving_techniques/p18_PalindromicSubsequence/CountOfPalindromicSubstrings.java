@@ -143,7 +143,3 @@ public class CountOfPalindromicSubstrings {
         return counter;
     }
 }
-i=1
-j=2
-dp[2][1] = 0 = 2 - 1 - 1
-abba
