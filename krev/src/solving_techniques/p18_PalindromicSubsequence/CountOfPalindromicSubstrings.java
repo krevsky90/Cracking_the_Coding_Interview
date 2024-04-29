@@ -127,9 +127,11 @@ public class CountOfPalindromicSubstrings {
         }
         int counter = n;
 
+        //k - length of substring from i to j
         for (int k = 1; k < n; ++k) {
             for (int i = 0; i < n - k; ++i) {
                 int j = i + k;
+                //note: for case j = i + 1: dp[i+1][j-1] = dp[j][i] = 0 = j - i - 1 = 0 => dp[i][j] = 0 + 2 = 2
                 if (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1] == j - i - 1) {
                     dp[i][j] = dp[i + 1][j - 1] + 2;
                     counter++;
@@ -141,3 +143,7 @@ public class CountOfPalindromicSubstrings {
         return counter;
     }
 }
+i=1
+j=2
+dp[2][1] = 0 = 2 - 1 - 1
+abba

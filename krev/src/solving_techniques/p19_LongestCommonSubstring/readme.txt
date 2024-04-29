@@ -38,6 +38,5 @@ Sequence of problems:
 19) https://leetcode.com/problems/longest-increasing-subsequence-ii (hard) - todo
 20) https://leetcode.com/problems/longest-continuous-increasing-subsequence (easy) - done
 21) https://leetcode.com/problems/longest-substring-of-one-repeating-character (hard) - todo
-22) https://leetcode.com/problems/delete-operation-for-two-strings (medium) - todo
+22) https://leetcode.com/problems/delete-operation-for-two-strings (medium) - done
 23) https://leetcode.com/problems/distinct-subsequences (hard) - todo
-24) https://leetcode.com/problems/longest-palindromic-subsequence (medium) - todo
