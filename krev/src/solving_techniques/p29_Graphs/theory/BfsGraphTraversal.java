@@ -48,6 +48,7 @@ public class BfsGraphTraversal {
      * Auxiliary Space: O(V)
      */
     public static void bfsGraphTraversal_1(int v, List<List<Integer>> adjList) {
+        System.out.println("BFS: iterative (queue) + adjacency list");
         // Create a queue for BFS
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[adjList.size()];
@@ -82,6 +83,7 @@ public class BfsGraphTraversal {
      * Auxiliary Space: O(N)
      */
     public static void bfsGraphTraversal_2(int v, int[][] adjMatrix) {
+        System.out.println("BFS: iterative (queue) + adjacency matrix");
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[adjMatrix.length];
 
