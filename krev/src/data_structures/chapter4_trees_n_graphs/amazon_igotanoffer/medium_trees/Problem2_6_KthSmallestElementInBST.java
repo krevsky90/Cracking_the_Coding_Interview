@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * https://igotanoffer.com/blogs/tech/tree-interview-questions
  * https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/
- *
+ * <p>
  * Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
  */
 
@@ -34,13 +34,13 @@ public class Problem2_6_KthSmallestElementInBST {
      * 2) take the top element from the stack and increment counter of taken nodes
      * 3.1) if counter = k, then return the value of current (i.e. taken) node
      * 3.2) if counter != k, then go to right node of current node and repeat the step 1 for it
-     *
+     * <p>
      * This way one could speed up the solution because there is no need to build the entire inorder traversal, and one could stop after the kth element.
      * Time complexity: O(H+k), where H is a tree height
      * Space complexity: O(H), where average H = logN, worst H = N
      */
     public static int getKthSmallestElementOfBST(TreeNode root, int k) {
-        if (root == null) return Integer.MIN_VALUE;	//corner case or error
+        if (root == null) return Integer.MIN_VALUE;    //corner case or error
 
         int counter = 0;
         Stack<TreeNode> stack = new Stack<>();  //or LinkedList
@@ -60,7 +60,7 @@ public class Problem2_6_KthSmallestElementInBST {
             current = current.right;
         }
 
-        return Integer.MIN_VALUE;	//means we didn't find the result
+        return Integer.MIN_VALUE;    //means we didn't find the result
     }
 
     /**
@@ -96,7 +96,7 @@ public class Problem2_6_KthSmallestElementInBST {
      * idea - use stack to store ALL the elements of the tree (first of all we need to pop the largest elements).
      * This should take O(n) time
      * After that we need poll the elements from this stack k times to find the result
-     *
+     * <p>
      * time to solve = 6 mins, 1 attempt
      * <p>
      * NOTE: in my case it is sufficient to use simple ArrayList! see kthSmallestUsingArrayList method
@@ -130,21 +130,21 @@ public class Problem2_6_KthSmallestElementInBST {
      * space ~ O(k)
      */
     public static int kthSmallestListStorageOptimized(TreeNode root, int k) {
-        return preOrder2(root, new ArrayList<>(), k);
+        return recursive(root, new ArrayList<>(), k);
     }
 
-    private static int preOrder2(TreeNode root, List<Integer> list, int k) {
+    private static int recursive(TreeNode root, List<Integer> list, int k) {
         if (root == null) return Integer.MIN_VALUE;
-        int left = preOrder2(root.left, list, k);
+        int left = recursive(root.left, list, k);
         if (left != Integer.MIN_VALUE) return left;
 
         list.add(root.val);
         if (list.size() == k) return root.val;
 
-        int right = preOrder2(root.right, list, k);
+        int right = recursive(root.right, list, k);
         if (right != Integer.MIN_VALUE) return right;
 
-        return Integer.MIN_VALUE;	//instead of nothing
+        return Integer.MIN_VALUE;    //instead of nothing
     }
 
     /**
@@ -165,5 +165,40 @@ public class Problem2_6_KthSmallestElementInBST {
         arr.add(root.val);
         inorder(root.right, arr);
         return arr;
+    }
+
+    /**
+     * SOLUTION #4: Morris in-order traversal
+     */
+    public int kthSmallest(TreeNode root, int k) {
+        int count = 0;
+        TreeNode current = root;
+        while (current != null) {
+            if (current.left == null) {
+                //"print" element
+                count++;
+                if (count == k) return current.val;
+
+                current = current.right;
+            } else {
+                TreeNode predecessor = current.left;
+                while (predecessor.right != null && predecessor.right != current) {
+                    predecessor = predecessor.right;
+                }
+
+                if (predecessor.right == null) {
+                    predecessor.right = current;
+                    current = current.left;
+                } else {
+                    predecessor.right = null;
+                    //"print" element
+                    count++;
+                    if (count == k) return current.val;
+
+                    current = current.right;
+                }
+            }
+        }
+        return Integer.MIN_VALUE;    //should not happen
     }
 }
