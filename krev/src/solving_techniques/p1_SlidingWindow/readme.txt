@@ -72,3 +72,4 @@ Sequence of problems:
 11) https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero - done
 12) https://leetcode.com/problems/minimum-window-substring (hard) - done
 13) https://leetcode.com/problems/take-k-of-each-character-from-left-and-right - done
+14) https://leetcode.com/problems/longest-repeating-character-replacement (medium) - done
