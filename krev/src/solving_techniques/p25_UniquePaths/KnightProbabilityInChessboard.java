@@ -43,6 +43,9 @@ public class KnightProbabilityInChessboard {
      * otherwise we will need to divide to 8^30 => use BigDecimal etc
      * 2) constraint block should be BEFORE base case in this problem
      * 3) using memoization, we need to ADD counted result, but not set it as is!
+     *      BECAUSE: example: way1 (i,j,k) -> (i+1,j+2,k-1) -> (i,j,k-2)
+     *                    and way2 (i,j,k) -> (i-1,j-2,k-1) -> (i,j,k-2).
+     *
      *
      * time to spend ~ 50 mins
      *
