@@ -18,3 +18,4 @@ Sequence of problems:
 etc
 10) https://leetcode.com/problems/out-of-boundary-paths - done
 11) https://leetcode.com/problems/guess-number-higher-or-lower-ii - done
+12) https://leetcode.com/problems/knight-probability-in-chessboard - done
