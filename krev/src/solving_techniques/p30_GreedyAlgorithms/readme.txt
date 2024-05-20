@@ -16,3 +16,5 @@ Sequence of problems:
 4) Remove Duplicate Letters (medium) - todo
 5) Largest Palindromic Number (Medium) - todo
 6) Removing Minimum and Maximum From Array (medium) - todo
+
+7) https://leetcode.com/problems/gas-station (medium) - done
