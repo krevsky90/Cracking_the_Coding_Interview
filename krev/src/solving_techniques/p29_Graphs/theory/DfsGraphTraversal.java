@@ -123,11 +123,12 @@ public class DfsGraphTraversal {
      * SOLUTION #2.2:
      *
      * DFS: iterative (stack) + adjacency matrix
+     *
+     * similar is here https://techsauce.medium.com/graph-traversal-depth-first-search-algorithm-1db741a10ffb
      */
     public static void dfsGraphTraversal_22(int v, int[][] adjMatrix) {
         System.out.println("DFS: iterative (stack) + adjacency matrix");
 
-        //todo: check with internet
         Stack<Integer> stack = new Stack<>();
         boolean[] visited = new boolean[adjMatrix.length];
 
