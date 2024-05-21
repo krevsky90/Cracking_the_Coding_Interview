@@ -94,7 +94,7 @@ public class NumberOfProvinces {
     }
 
     private void unionBySize(int x, int y, int[] parent, int[] arrSize) {
-        int xrep = find(x, parent); //i.e. xpreresentative of the group whicn contains x
+        int xrep = find(x, parent); //i.e. x-representative of the group which contains x
         int yrep = find(y, parent);
 
         if (xrep == yrep) return;//do nothing since x and y belongs to the same group => already connected somehow

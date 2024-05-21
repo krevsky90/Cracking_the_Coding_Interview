@@ -58,15 +58,15 @@ public class UnionFindByRank {
      * <p>
      * Let the subset {0, 1, .. 9} be represented as below and find() is called
      * for element 3.
-     *            9
-     *         /  |   \
-     *        4   5    6
-     *      /         /  \
-     *     0         7    8
-     *   /
-     *  3
-     * / \
-     * 1   2
+     *             9
+     *          /  |  \
+     *         4   5   6
+     *       /        / \
+     *      0        7   8
+     *     /
+     *    3
+     *  /  \
+     * 1    2
      * When find() is called for 3, we traverse up and find 9 as representative
      * of this subset. With path compression, we also make 3 and 0 as the child of 9 so
      * that when find() is called next time for 0, 1, 2 or 3, the path to root is reduced.
@@ -74,8 +74,8 @@ public class UnionFindByRank {
      *      --------9-------
      *    /   /    /  \      \
      *   0   4    5    6       3
-     *  /  \    /  \
-     * 7    8   1   2
+     *               /  \    /  \
+     *              7    8  1    2
      */
     public int findWithCompression(int x, int[] parent) {
         if (parent[x] == x) {
