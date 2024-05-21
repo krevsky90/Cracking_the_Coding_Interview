@@ -19,35 +19,43 @@ We primarily represent graphs using two ways:
     3) For each edge (u, v) in the graph, add v to the linked list of u, and add u to the linked list of v if the graph is undirected
         otherwise add v to the list of u if it is directed from u to v. (In case of weighted graphs store the weight along with the connections).
 
-
 3) Graph Traversal:
     A graph consists of vertices (nodes) connected by edges (lines).
     Graph traversal involves visiting all the graph nodes following a specific strategy or order.
     During traversal, each node is typically marked as visited to avoid revisiting the same node multiple times
         and to prevent infinite loops in cyclic graphs.
 
-    Depth First Search(DFS) - todo
-        uses recursion
-    Breadth First Search (BFS)  - todo
-        uses Queue of unvisited vertices
+    Depth First Search(DFS):
+        - recursive approach
+        - iterative approach (stack)
+    Breadth First Search (BFS):
+        - iterative approach (queue of unvisited vertices)
         Use case: for finding the shortest path in unweighted graphs and for systematically exploring graphs
 
+1) read https://www.geeksforgeeks.org/adjacency-matrix-meaning-and-definition-in-dsa/ and related articles
+2) write examples of transforming matrix picture to Adjacency matrix
+3) write examples of transforming matrix picture to Adjacency list
+3) Dikstra'a algorithm:
+    conditions: algorithm works with directed weighted (only allow non-negative weights) graph
+    target: to find shortest lowest cost path from starting vertex to destination vertex
 
+    theory (from vertex to neighbours): https://www.youtube.com/watch?v=K_1urzWrzLs
+    theory (from the nearest vertex) + implementation O(V^2): https://www.geeksforgeeks.org/java-program-for-dijkstras-shortest-path-algorithm-greedy-algo-7/
+    theory (from the nearest vertex) + implementation O(V + E*logV): https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-in-java-using-priorityqueue/
+    implementation: src/solving_techniques/p29_Graphs/theory/DijkstrasShortestPathAlgorithm.java
 
-todo:
-1) read https://www.geeksforgeeks.org/adjacency-matrix-meaning-and-definition-in-dsa/ and related articles - done
-2) write examples of transforming matrix picture to Adjacency matrix - done
-3) write examples of transforming matrix picture to Adjacency list - done
-3) Dikstra'a algorithm
-    https://www.youtube.com/watch?v=K_1urzWrzLs
-    implement by yourself
-    then https://www.youtube.com/watch?v=EaphyqKU4PQ
+    practice: src/solving_techniques/p29_Graphs/NetworkDelayTime.java - see https://www.youtube.com/watch?v=EaphyqKU4PQ
 4) Kruskal algorithm
 5) Prim algorithm
     https://www.youtube.com/watch?v=K_1urzWrzLs (starting from ~ 12 min)
     + some other video
     implement by yourself
     + find fit problem
+
+Common ideas:
+0) if we use adjacent matrix, then set matrix[u][v] = INFINITY if u and v are not connected directly
+1) convert input data to appropriate data structure (adj matrix, adj list, or ATTENTION !! some map: vertex -> list of pairs "vertex -> length_of_edge")
+2) apply the algorithm
 
 Sequence of problems:
 1) Problem 1: Find if Path Exists in Graph(easy) - todo
