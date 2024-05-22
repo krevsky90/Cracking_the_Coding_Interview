@@ -51,7 +51,7 @@ public class KruskalAlgorithm {
      * The value of E can be at most O(V2), so O(logV) and O(logE) are the same. Therefore, the overall time complexity is O(E * logE) or O(E*logV)
      * Auxiliary Space: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
      */
-    private List<int[]> kruskals(int n, List<int[]> edges) {
+    public List<int[]> kruskals(int n, List<int[]> edges) {
         List<int[]> result = new ArrayList<>();
 
         //for union find:

@@ -50,10 +50,10 @@ We primarily represent graphs using two ways:
     theory https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2
     implementation: src/solving_techniques/p29_Graphs/theory/KruskalAlgorithm.java
 5) Prim algorithm
-    https://www.youtube.com/watch?v=K_1urzWrzLs (starting from ~ 12 min)
-    + some other video
-    implement by yourself
-    + find fit problem
+    theory https://www.youtube.com/watch?v=mJcZjjKzeqk
+    theory https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+    theory https://www.youtube.com/watch?v=K_1urzWrzLs (starting from ~ 12 min)
+    implementation: src/solving_techniques/p29_Graphs/theory/PrimAlgorithm.java
 
 Common ideas:
 0) if we use adjacent matrix, then set matrix[u][v] = INFINITY if u and v are not connected directly
