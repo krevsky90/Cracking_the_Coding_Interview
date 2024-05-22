@@ -45,7 +45,10 @@ We primarily represent graphs using two ways:
     implementation: src/solving_techniques/p29_Graphs/theory/DijkstrasShortestPathAlgorithm.java
 
     practice: src/solving_techniques/p29_Graphs/NetworkDelayTime.java - see https://www.youtube.com/watch?v=EaphyqKU4PQ
-4) Kruskal algorithm
+4) Kruskal algorithm:
+    theory https://www.youtube.com/watch?v=qOv8K-AJ7o0
+    theory https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2
+    implementation: src/solving_techniques/p29_Graphs/theory/KruskalAlgorithm.java
 5) Prim algorithm
     https://www.youtube.com/watch?v=K_1urzWrzLs (starting from ~ 12 min)
     + some other video

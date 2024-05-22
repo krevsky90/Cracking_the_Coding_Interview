@@ -2,6 +2,10 @@ package solving_techniques.p29_Graphs.theory;
 
 import java.util.*;
 
+/**
+ * conditions: algorithm works with directed weighted (only allow non-negative weights) graph
+ * target: to find shortest lowest cost path from starting vertex to destination vertex
+ */
 public class DijkstrasShortestPathAlgorithm {
     public static void main(String[] args) {
         /* Let us create the example graph discussed above */
