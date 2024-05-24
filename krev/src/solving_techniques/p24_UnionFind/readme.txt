@@ -7,6 +7,9 @@ It provides two primary operations:
 - find, which determines which subset a particular element is in,
 - and union, which merges two subsets into a single subset.
 
+NOTE: condition:
+    Union-Find cycle detection is only applicable for Graphs that are UNdirected!
+
 This pattern is particularly useful for problems where we need to find whether 2 elements belong to the same group
 or need to solve connectivity-related problems in a graph or tree.
 

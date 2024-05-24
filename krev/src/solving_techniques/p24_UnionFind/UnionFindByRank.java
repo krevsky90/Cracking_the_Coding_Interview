@@ -16,6 +16,9 @@ package solving_techniques.p24_UnionFind;
  * Also, the size (in place of height) of trees can also be used as rank.
  * <p>
  * time ~ O(LogN)
+ *
+ * NOTE: condition:
+ *     Union-Find cycle detection is only applicable for Graphs that are UNdirected!
  */
 public class UnionFindByRank {
     public static void main(String[] args) {

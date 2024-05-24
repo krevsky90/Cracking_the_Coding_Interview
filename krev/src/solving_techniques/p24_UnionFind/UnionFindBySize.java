@@ -12,6 +12,9 @@ package solving_techniques.p24_UnionFind;
  * The logic of joining is similar to 'union by rank':
  * set with less size is joined to the set with bigger size, total size of bigger set += size of less set
  * if sets have the same size, no matter who is attached, but size of parent should be increased by the size of attached set
+ *
+ * NOTE: condition:
+ *     Union-Find cycle detection is only applicable for Graphs that are UNdirected!
  */
 public class UnionFindBySize {
     public int[] sizeArr;

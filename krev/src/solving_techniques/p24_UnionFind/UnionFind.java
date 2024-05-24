@@ -20,6 +20,9 @@ package solving_techniques.p24_UnionFind;
  * <p>
  * Initial condition:
  * before applying relations, each element is separate group/set and is representative element of this group
+ *
+ * NOTE: condition:
+ *     Union-Find cycle detection is only applicable for Graphs that are UNdirected!
  */
 public class UnionFind {
     public static void main(String[] args) {
