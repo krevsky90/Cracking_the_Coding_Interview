@@ -73,6 +73,11 @@ public class BfsGraphTraversal {
     }
 
     /**
+     * SOLUTION #1.2: see src/solving_techniques/p29_Graphs/Problem1_FindIfPathExistsInGraph.java # validPath2
+     * i.e. add not visited vertex to queue. and mark vertex as visited only after polling from the queue
+     */
+
+    /**
      * SOLUTION #2:
      * info:
      * https://www.geeksforgeeks.org/implementation-of-bfs-using-adjacency-matrix/

@@ -125,6 +125,7 @@ public class DijkstrasShortestPathAlgorithm {
 
             int[] tempMin = pq.poll();
             int v = tempMin[1];
+            //since the same vertex can be added to pq several times (with different distance value)
             if (settle.contains(v)) {
                 continue;
             }
