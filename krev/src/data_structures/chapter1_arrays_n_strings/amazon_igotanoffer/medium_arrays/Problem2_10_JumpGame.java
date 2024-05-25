@@ -25,7 +25,7 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arra
 public class Problem2_10_JumpGame {
     /**
      * KREVSKY SOLUTION 1:
-     * idea ~ dynamic programming
+     * idea ~ greedy
      * 1 attempt
      * not optimal (too much time)
      * time to solve ~ 5 mins
@@ -46,7 +46,7 @@ public class Problem2_10_JumpGame {
 
     /**
      * KREVSKY SOLUTION 2:
-     * idea ~ dynamic programming
+     * idea ~ greedy
      * 2 attempts
      * almost not optimal (too much time), but ACCEPTED
      * time to solve ~ 15 mins

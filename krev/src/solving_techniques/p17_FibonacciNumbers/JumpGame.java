@@ -1,5 +1,7 @@
 package solving_techniques.p17_FibonacciNumbers;
 
+import java.util.Arrays;
+
 /**
  * 55. Jump Game
  * https://leetcode.com/problems/jump-game/
@@ -26,10 +28,13 @@ public class JumpGame {
     public static void main(String[] args) {
         int[] nums1 = {3,2,1,0,4};
         System.out.println(canJump1(nums1));
+        System.out.println(canJump2(nums1));
 
     }
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #1:
+     * greedy approach
+     *
      * idea: the same as src/data_structures/chapter1_arrays_n_strings/amazon_igotanoffer/medium_arrays/Problem2_10_JumpGame # canJump1
      * time to solve ~ 10 mins
      * time ~ O(n)
@@ -54,4 +59,42 @@ public class JumpGame {
 
         return false;
     }
+
+    /**
+     * KREVSKY SOLUTION #2:
+     * DP approach (top-down + memoization)
+     * like https://leetcode.com/problems/jump-game/solutions/2952246/2-solutions-dp-greedy-java/
+     */
+    public static boolean canJump2(int[] nums) {
+        //-1 - not visited
+        //0 - not reachable
+        //1 - reachable
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp, -1);
+
+        boolean result = helper(nums, dp, 0);
+        return result;
+    }
+
+    private static boolean helper(int[] nums, int[] dp, int i) {
+        if (i >= nums.length - 1) {
+            return true;
+        }
+
+        if (dp[i] != -1) return dp[i] == 1;
+
+        int max = nums[i] + i;
+
+        for (int j = i + 1; j <= max; j++) {
+            boolean subResult = helper(nums, dp, j);
+            if (subResult) {
+                dp[i] = 1;
+                return true;
+            }
+        }
+
+        dp[i] = 0;
+        return false;
+    }
+
 }
