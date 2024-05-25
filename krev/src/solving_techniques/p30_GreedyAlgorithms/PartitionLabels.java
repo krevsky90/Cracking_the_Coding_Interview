@@ -42,19 +42,19 @@ public class PartitionLabels {
 
     /**
      * KREVSKY SOLUTION:
-     *
+     * <p>
      * time to solve ~ 30 mins
-     *
+     * <p>
      * idea:
      * 1) transform string to Map: char -> {start, end}
      * 2) sort list of {start, end} by start
      * 3) apply greedy algorithm with case "if (intervals.get(i)[0] > finish"
-     *
+     * <p>
      * 3 attempts:
      * - incorrect sort by finish
      * - forgot "result.add(finish - start + 1)" in the end of the method
-     *
-     * BEATS = 37%
+     * <p>
+     * BEATS = 46%
      */
     public List<Integer> partitionLabels(String s) {
         //0. convert string to map of intervals
@@ -63,7 +63,7 @@ public class PartitionLabels {
             char c = s.charAt(i);
             if (map.containsKey(c)) {
                 int[] interval = map.get(c);
-                interval[1] = Math.max(interval[1], i);
+                interval[1] = i;
             } else {
                 int[] interval = new int[]{i, i};
                 map.put(c, interval);
@@ -96,5 +96,37 @@ public class PartitionLabels {
         result.add(finish - start + 1);
 
         return result;
+    }
+
+    /**
+     * SOLUTION #2:
+     * info:
+     * https://leetcode.com/problems/partition-labels/solutions/1868842/java-c-visually-explaineddddd/
+     * <p>
+     * time ~ O(n)
+     * space ~ O(n)
+     */
+    public List<Integer> partitionLabels2(String s) {
+        Map<Character, Integer> map = new HashMap<>();  //NOTE: can be replaced by int[26] array
+        // filling impact of character's
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            map.put(ch, i);
+        }
+        // making of result
+        List<Integer> res = new ArrayList<>();
+        int prev = -1;
+        int max = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            max = Math.max(max, map.get(ch));
+            if (max == i) {
+                // partition time
+                res.add(max - prev);
+                prev = max;
+            }
+        }
+        return res;
     }
 }
