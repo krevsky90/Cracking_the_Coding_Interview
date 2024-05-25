@@ -6,8 +6,11 @@ A Greedy algorithm is used to solve problems in which the best choice is made at
 This approach assumes that choosing a local optimum at each stage will lead to the determination of a global optimum.
 It's like making the most beneficial decision at every crossroad, hoping it leads to the ultimate destination efficiently.
 
-todo:
-check if it is helpful https://www.geeksforgeeks.org/greedy-algorithms
+theory (entry point):
+https://www.geeksforgeeks.org/greedy-algorithms
+
+examples:
+see 'Standard Greedy Algorithms' from https://www.geeksforgeeks.org/greedy-algorithms/?ref=header_search
 
 Sequence of problems:
 1) Valid Palindrome II (easy) - todo
@@ -18,3 +21,4 @@ Sequence of problems:
 6) Removing Minimum and Maximum From Array (medium) - todo
 
 7) https://leetcode.com/problems/gas-station (medium) - done
+8) https://leetcode.com/problems/partition-labels (medium) - done
