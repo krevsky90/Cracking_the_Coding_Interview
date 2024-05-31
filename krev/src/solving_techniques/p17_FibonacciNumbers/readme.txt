@@ -19,3 +19,4 @@ Sequence of problems:
 14) https://leetcode.com/problems/jump-game-vii - todo
 
 15) https://leetcode.com/problems/combination-sum-iv - done
+16) https://leetcode.com/problems/house-robber (medium) - done
