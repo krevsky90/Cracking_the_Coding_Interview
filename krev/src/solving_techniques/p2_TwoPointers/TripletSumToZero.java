@@ -88,12 +88,12 @@ public class TripletSumToZero {
                     int lastLowOccurrence = nums[low];
                     int lastHighOccurrence = nums[high];
 
-                    //to exclude duplicates
+                    //to exclude duplicates (this cycle moves low at least one time, as in my solution)
                     while (low < high && nums[low] == lastLowOccurrence) {
                         low++;
                     }
 
-                    //to exclude duplicates
+                    //to exclude duplicates (this cycle moves high at least one time, as in my solution)
                     while (low < high && nums[high] == lastHighOccurrence) {
                         high--;
                     }

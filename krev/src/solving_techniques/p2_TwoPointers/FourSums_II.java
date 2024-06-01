@@ -54,7 +54,7 @@ public class FourSums_II {
         for (int i = 0; i < nums1.length; i++) {
             for (int j = 0; j < nums2.length; j++) {
                 int tempSum12 = nums1[i] + nums2[j];
-                //store how many time the sum = tempSum12 occures
+                //store how many times the sum = tempSum12 occurs
                 sums12.put(tempSum12, sums12.getOrDefault(tempSum12, 0) + 1);
             }
         }
