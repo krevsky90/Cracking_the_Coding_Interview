@@ -53,6 +53,8 @@ public class ProblemChallenge2_RotateLinkedList {
 
     /**
      * KREVSKY SOLUTION:
+     *
+     * NOT optimal, since we traverse the whole list by for-loop and while-loop => time ~ O(n^2)
      * time to solve ~ 20 mins
      * time to debug ~ 4 mins
      * 1 attempt
@@ -95,5 +97,49 @@ public class ProblemChallenge2_RotateLinkedList {
         }
 
         return end;
+    }
+
+    /**
+     * KREVSKY SOLUTION: optimal
+     * idea:
+     * 0) count length of the list
+     * 1) count real number of rotations = k % length
+     * 2) find the node that will be new head, remove 'next' pointer, that points to this node, join the last node of the list to the initial head
+     *
+     * time to solve ~ 20 mins
+     *
+     * time ~ O(n)
+     *
+     * 2 attempts:
+     * - incorrect linked the nodes (had to write "lastNode.next = head;")
+     *
+     * BEATS = 100%
+     */
+    public LinkedListNode rotateRight2(LinkedListNode head, int k) {
+        if (head == null || head.next == null) return head;
+
+        int length = 0;
+        LinkedListNode cur = head;
+        LinkedListNode lastNode = null;
+        while (cur != null) {
+            lastNode = cur;
+            cur = cur.next;
+            length++;
+        }
+
+        int rotates = k % length;
+        if (rotates == 0) return head;
+
+        int i = 1;
+        cur = head;
+        while (length - rotates > i) {
+            cur = cur.next;
+            i++;
+        }
+        LinkedListNode newHead = cur.next;
+        cur.next = null;
+        lastNode.next = head;
+
+        return newHead;
     }
 }
