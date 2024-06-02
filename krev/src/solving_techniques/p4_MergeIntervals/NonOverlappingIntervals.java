@@ -33,7 +33,8 @@ import java.util.Arrays;
 public class NonOverlappingIntervals {
     /**
      * NOT SOLVED by myself
-     * idea #1: sort by end (NOT start!)
+     * idea #1: sort by end
+     * (NOT start! because consider the example: [[1,100],[11,22],[1,11],[2,12]] => [1,100] covers all intervals and gives the answer 3, but in fact the ans = 2)
      * idea #2: save the 'prev' number of interval that does not have overlappings. otherwise - increment counter
      *
      * time to spend ~ 60 mins

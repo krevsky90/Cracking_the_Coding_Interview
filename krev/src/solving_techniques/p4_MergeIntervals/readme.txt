@@ -28,7 +28,7 @@ Sequence of problems:
 6) https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups (medium) - done
 7) https://leetcode.com/problems/non-overlapping-intervals (medium) - done
 8) https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons (medium) - todo
-9) https://leetcode.com/problems/meeting-rooms (easy) (locked) - todo
-9) https://leetcode.com/problems/meeting-rooms-ii (medium) (locked) - todo
+9) https://leetcode.com/problems/meeting-rooms (easy) (locked) - done
+9) https://leetcode.com/problems/meeting-rooms-ii (medium) (locked) - done
 10) https://leetcode.com/problems/minimum-interval-to-include-each-query (hard) - todo
 11) https://leetcode.com/problems/count-ways-to-group-overlapping-ranges (medium) - todo
