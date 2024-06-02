@@ -50,18 +50,17 @@ Additional ideas:
 1.2) we check if correctIdx is in the range of array's indexes BEFORE checking "arr[start] == arr[correctIdx]"
     to avoid IndexOutOfBoundException
 2)
-    if given array contains 0...n-1 => we check "correctIdx = arr[start]"
-    if given array contains 1...n => we check "correctIdx = arr[start] - 1"
+    if given array contains 0...n-1 => correctIdx = arr[start]
+    if given array contains 1...n => correctIdx = arr[start] - 1
 
 
 Sequence of problems:
 1) Cyclic Sort (easy) - done
 2) Find the Missing Number (easy) - done
-3) Find all Missing Numbers (easy) - done (unified)
-todo: refactor the solutions of the problems below using Algorithm and condition with correctIdx above
+3) Find all Missing Numbers (easy) - done
 4) Find the Duplicate Number (easy/medium) - done
 5) Find all Duplicate Numbers (easy/medium) - done
 
-6) https://leetcode.com/problems/set-mismatch (easy) - done (unified)
-7) https://leetcode.com/problems/first-missing-positive (hard) - done (unified)
+6) https://leetcode.com/problems/set-mismatch (easy) - done
+7) https://leetcode.com/problems/first-missing-positive (hard) - done
 8) Problem Challenge 3: Find the First K Missing Positive Numbers (hard) - todo
