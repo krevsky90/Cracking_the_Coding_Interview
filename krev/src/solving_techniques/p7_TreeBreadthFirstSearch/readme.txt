@@ -31,6 +31,6 @@ Sequence of problems:
 8) Problem Challenge 1: Connect All Level Order Siblings (medium) - done
 9) Problem Challenge 2: Right View of a Binary Tree (easy) - done
 10) https://leetcode.com/problems/n-ary-tree-level-order-traversal - done
-11) https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/ - todo
-12) https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii - todo (done), but not committed
+11) https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level - done
+12) https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii - done
 13) https://leetcode.com/problems/check-completeness-of-a-binary-tree - done
