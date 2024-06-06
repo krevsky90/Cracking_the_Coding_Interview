@@ -9,7 +9,10 @@ making it a versatile choice for many applications.
 todo: find more theory
 
 Sequence of problems:
-1) Merge Similar Items (easy) - todo
-2) 132 Pattern (medium) - todo
-3) My Calendar I (medium) - todo
-4) Longest Continuous Subarray (medium) - todo
+1) Merge Similar Items (easy) - https://leetcode.com/problems/merge-similar-items - todo
+2) 132 Pattern (medium) - https://leetcode.com/problems/132-pattern - done
+3) My Calendar I (medium) - https://leetcode.com/problems/my-calendar-i - todo
+4) Longest Continuous Subarray (medium) - ?? https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit ?? - todo
+
+more problems are here:
+https://leetcode.com/tag/ordered-set

@@ -66,3 +66,5 @@ Sequence of problems:
 4) Remove All Adjacent Duplicates In String (easy) - done
 5) Remove All Adjacent Duplicates in String II (medium) - done
 6) Remove K Digits (hard) - todo
+
+7) https://leetcode.com/problems/132-pattern/ (medium) - done
