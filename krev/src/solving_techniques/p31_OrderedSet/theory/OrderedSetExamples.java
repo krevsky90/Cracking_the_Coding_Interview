@@ -18,8 +18,8 @@ public class OrderedSetExamples {
         System.out.println(treeMap.lowerKey(7));    //4
         System.out.println(treeMap.higherEntry(7)); //9
         System.out.println(treeMap.higherKey(7));   //9
-        System.out.println(treeMap.ceilingKey(6));  //7 - closest key that is greater
-        System.out.println(treeMap.floorKey(6));  //4 - closest key that is less
+        System.out.println(treeMap.ceilingKey(6));  //7 - return this key or (if not exist) - the closest key that is greater
+        System.out.println(treeMap.floorKey(6));  //4 - return this key or (if not exist) - the closest key that is less
         System.out.println(treeMap.firstKey());  //1
         System.out.println(treeMap.lastKey());  //9
 
