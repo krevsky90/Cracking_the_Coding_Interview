@@ -47,31 +47,24 @@ public class MyCalendarI {
      * time ~ O(logn)
      *
      * 2 attempts:
-     * - forgot to check map.containsKey(start
+     * - forgot to check map.containsKey(start). BUT further covered it by floorEntry method
      *
-     * BEATS = 48%
+     * BEATS = 78%
      */
-    private TreeMap<Integer, int[]> map;
+    private TreeMap<Integer, Integer> map;
 
     public MyCalendarI() {
-        map = new TreeMap<Integer, int[]>();
+        map = new TreeMap<Integer, Integer>();
     }
 
     public boolean book(int start, int end) {
-        //O(1)
-        if (map.containsKey(start)) return false;
+        Map.Entry<Integer, Integer> prev = map.floorEntry(start);
+        if (prev != null && prev.getValue() > start) return false;
 
-        //O(logn)
-        Map.Entry<Integer, int[]> prev = map.lowerEntry(start);
-        if (prev != null && prev.getValue()[1] > start) return false;
+        Map.Entry<Integer, Integer> next = map.higherEntry(start);
+        if (next != null && next.getKey() < end) return false;
 
-        //O(logn)
-        Map.Entry<Integer, int[]> next = map.higherEntry(start);
-        if (next != null && next.getValue()[0] < end) return false;
-
-        //O(logn)
-        map.put(start, new int[]{start, end});
+        map.put(start, end);
         return true;
     }
-
 }
