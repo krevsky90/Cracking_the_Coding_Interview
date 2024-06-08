@@ -24,3 +24,5 @@ Sequence of problems:
 8) https://leetcode.com/problems/partition-labels (medium) - done
 9) https://leetcode.com/problems/minimize-product-sum-of-two-arrays (blocked) - done
 10) https://leetcode.com/problems/hand-of-straights (medium) - done
+11) https://leetcode.com/problems/maximum-subarray (medium) - done
+12) https://leetcode.com/problems/merge-triplets-to-form-target-triplet (medium) - done
