@@ -16,6 +16,9 @@ Combinatorics
         without repetitions
 
 KREVSKY's observations:
+
+!!! READ: https://leetcode.com/problems/permutations/solutions/18239/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partioning/
+
 1) for SubSets:
     use 2 methods:
         List<List<..>> method1(int[] arr) {..}
@@ -61,18 +64,19 @@ KREVSKY's observations:
             }
         }
 
-2) for Permutations:
+2) for Permutations of unique elements:
      use 2 methods:
         NOTE: if we consider the combinations created by this way as numbers, then these numbers will be in increasing sequence!
 
-        List<List<..>> method1(int[] arr) {..}
+        List<List<..>> method1(int[] arr) {
+            Arrays.sort(arr)
+            helper(..)
+        }
 
         void helper(int[] arr, List<List<..>> result, List<..> tempList) {
             if (tempList.length = arr.length) result.add(new ArrayList(tempList));
 
             for (i = 0; ..) {
-                if (tempList.contains(nums[i])) continue;   //idea #1: skip since all elements should be unique!
-
                 tempList.add(nums[i]);
                 helper(arr, result, tempList, start + 1);
                 tempList.remove(tempList.size() - 1);
@@ -97,6 +101,32 @@ KREVSKY's observations:
             }
         }
 
+2.2) for Permutations with Duplicates:
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        Arrays.sort(nums);
+        backtrack(list, new ArrayList<>(), nums, new boolean[nums.length]);
+        return list;
+    }
+
+    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, boolean [] used){
+        if(tempList.size() == nums.length){
+            list.add(new ArrayList<>(tempList));
+        } else{
+            for(int i = 0; i < nums.length; i++){
+                //NOTE: looks like "&& !used[i - 1]" is also ok, but I prefer used[i-1]
+                if(used[i] || i > 0 && nums[i] == nums[i-1] && used[i - 1]) continue;
+
+                used[i] = true;
+                tempList.add(nums[i]);
+                backtrack(list, tempList, nums, used);
+                used[i] = false;
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+
+
 
 Sequence of problems:
 1) Subsets (easy) - done
@@ -114,3 +144,4 @@ Sequence of problems:
 12) https://leetcode.com/problems/combinations (medium) - done
 13) https://leetcode.com/problems/palindrome-partitioning (medium) done
 14) https://leetcode.com/problems/permutation-sequence (hard) - done
+15) https://leetcode.com/problems/number-of-squareful-arrays (hard) - done
