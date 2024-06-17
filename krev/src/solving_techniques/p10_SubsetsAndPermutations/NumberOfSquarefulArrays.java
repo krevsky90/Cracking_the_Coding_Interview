@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * 996. Number of Squareful Arrays
  * https://leetcode.com/problems/number-of-squareful-arrays (hard)
+ * #Company: Apple
  * <p>
  * An array is squareful if the sum of every pair of adjacent elements is a perfect square.
  * <p>

@@ -7,6 +7,20 @@ and we are asked to find a certain element, the best algorithm we can use is the
 NOTE: be careful with left = mid OR mid + 1!
     Consider the case for sub-array that has (right - left) = 1, because mid = left in this case => we need to add +1
 
+Usually the algorithm:
+int low = 0;
+int high = nums.length - 1;
+while (low <= high) {
+    int mid = (low + high)/2;
+    if (nums[mid] == target) return mid;
+
+    if (nums[mid] > target) {
+        high = mid - 1; //NOTE: not always, but often -1
+    } else {
+        low = mid + 1;  //NOTE: always +1
+    }
+}
+
 Sequence of problems:
 1) Order-agnostic Binary Search (easy) - done
 2) Ceiling of a Number (medium) - done

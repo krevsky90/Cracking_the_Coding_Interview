@@ -16,7 +16,25 @@ max heap - max element on the top
 K-th smallest element => use max heap. Add (offer) element + remove (poll) top of heap. Finally return top of heap
 K-th largest element => use min heap.  Add (offer) element + remove (poll) top of heap. Finally return top of heap
 
-NOTE: PriorityQueue - min heap
+NOTE:
+PriorityQueue - min heap
+PriorityQueue<>(Collections.reverseOrder()) - max heap
+
+Common algorithm:
+    PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((o1, o2) -> o1.getValue() - o2.getValue());
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        pq.add(entry);
+        if (pq.size() > k) {
+            pq.poll();
+        }
+    }
+    ...
+    while (!pq.isEmpty()) {
+        XXX = pq.poll()...
+    }
+
+    return ...
+
 
 Sequence of problems:
 1) Top 'K' Numbers (easy) - todo

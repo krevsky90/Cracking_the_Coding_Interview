@@ -14,6 +14,10 @@ see https://medium.com/@Harshit_Raj_14/useful-properties-of-xor-in-coding-bitwis
 2) IF a1^a2^..^an = a AND a1^a2^..^an-1 = b THEN b^an = a
 3) a^1s = ~a
 
+Useful expressions:
+1) check if i-th bit of num equals 1
+    if (((num >> i) & 1) == 1)
+
 Sequence of problems:
 1) Single Number (easy) - done
 2) Two Single Numbers (medium) - done
