@@ -69,17 +69,20 @@ KREVSKY's observations:
         NOTE: if we consider the combinations created by this way as numbers, then these numbers will be in increasing sequence!
 
         List<List<..>> method1(int[] arr) {
-            Arrays.sort(arr)
             helper(..)
         }
 
-        void helper(int[] arr, List<List<..>> result, List<..> tempList) {
-            if (tempList.length = arr.length) result.add(new ArrayList(tempList));
+        private void permute(int[] nums, List<List<Integer>> result, List<Integer> tempList) {
+            if (tempList.size() == nums.length) {
+                result.add(new ArrayList<>(tempList));
+            } else {
+                for (int i = 0; i < nums.length; i++) {
+                    if (tempList.contains(nums[i])) continue;   //idea #1: skip since all elements should be unique!
 
-            for (i = 0; ..) {
-                tempList.add(nums[i]);
-                helper(arr, result, tempList, start + 1);
-                tempList.remove(tempList.size() - 1);
+                    tempList.add(nums[i]);
+                    permute(nums, result, tempList);
+                    tempList.remove(tempList.size() - 1);
+                }
             }
         }
 
@@ -104,7 +107,7 @@ KREVSKY's observations:
 2.2) for Permutations with Duplicates:
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
+        Arrays.sort(nums);  //idea #1: sort!
         backtrack(list, new ArrayList<>(), nums, new boolean[nums.length]);
         return list;
     }
@@ -114,8 +117,10 @@ KREVSKY's observations:
             list.add(new ArrayList<>(tempList));
         } else{
             for(int i = 0; i < nums.length; i++){
+                //idea #2: skip according to the logic below
+                if(used[i]) continue;
                 //NOTE: looks like "&& !used[i - 1]" is also ok, but I prefer used[i-1]
-                if(used[i] || i > 0 && nums[i] == nums[i-1] && used[i - 1]) continue;
+                if(i > 0 && nums[i] == nums[i-1] && used[i - 1]) continue;
 
                 used[i] = true;
                 tempList.add(nums[i]);
