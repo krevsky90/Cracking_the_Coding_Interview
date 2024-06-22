@@ -5,12 +5,51 @@ https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structu
 
 This pattern helps us solve problems that involve a list of sorted arrays.
 
-Whenever we are given ?K? sorted arrays,
+Algorithm:
+Whenever we are given 'K' sorted arrays,
 we can use a Heap to efficiently perform a sorted traversal of all the elements of all arrays.
 We can push the smallest (first) element of each sorted array in a Min Heap to get the overall minimum.
 While inserting elements to the Min Heap we keep track of which array the element came from.
 We can, then, remove the top element from the heap to get the smallest element and push the next element from the same array,
 to which this smallest element belonged, to the heap
+
+i.e.
+======================
+Queue<LinkedListNode> pq = new PriorityQueue<>(.. some comparator if necessary..)
+
+// Push the head nodes of all the k lists in 'queue'
+for (LinkedListNode node : lists) {
+    if (node != null) {
+        pq.add(node);
+        }
+    }
+
+// Handles the case when k = 0 or lists have no elements in them
+if (pq.isEmpty()) {
+    return null;
+}
+
+LinkedListNode fakeHead = new LinkedListNode(-100500);
+LinkedListNode last = fakeHead;
+
+while (!pq.isEmpty()) {
+    // Get the top element of 'queue'
+    LinkedListNode tempMin = pq.poll();
+
+    // Add the top element of 'queue' to the final (result) merged list
+    last.next = tempMin;
+    last = last.next;
+
+    // Check if there is a node next to the 'top' node in the list of which 'top' node is a member
+    if (tempMin.next != null) {
+        // Push the next node of top node in 'queue'
+        pq.add(tempMin.next);
+    }
+}
+
+return fakeHead.next;
+
+======================
 
 NOTE: to track value, array(list) where we took this value, index of this value in this collection, we can store this data in
 class Data {

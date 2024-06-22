@@ -38,6 +38,12 @@ public class ProblemChallenge1_KPairsWithLargestSums {
      * problem: did not get what should be added to Heap. and how to work with it
      * info:
      * https://leetcode.com/problems/find-k-pairs-with-smallest-sums/solutions/4052443/java-max-heap-easy-solution/
+     * idea:
+     * 1) starting to create all possible pairs (which will take len1*len2 in naive approach)
+     * 2) use maxHeap to store pairs sorted by their sum. pushing the pairs from p.1
+     * 3) each time check if maxheap.size() > k:
+     * 3.2) HINT: both arrays are sorted. => if our current pair is more than maxHeap.peek(),
+     *      then there is no sense to continue forming pairs, they will be bigger and bigger => break the process from p.1
      *
      * time to implement ~ 12 mins
      *
@@ -53,6 +59,7 @@ public class ProblemChallenge1_KPairsWithLargestSums {
                     int currentSum = nums1[i] + nums2[j];
                     Integer[] top = maxHeap.peek();
                     if (currentSum >= top[0] + top[1]) {
+                        //#idea 3.2
                         break;
                     } else {
                         maxHeap.add(new Integer[]{nums1[i], nums2[j]});

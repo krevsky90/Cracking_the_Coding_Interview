@@ -40,6 +40,51 @@ public class MergeKSortedLists {
     }
 
     /**
+     * GFG solution - optimized Krevsky's solution
+     *
+     * NOTE: hack to avoid if-else while storing the link to 'result' node -  create fake head + temp pointer. and finally return head.next
+     * time ~ O(N*K*logK)
+     * space ~ O(K), where k - amount of lists, N - total amount of elements (in all lists)
+     */
+    public static LinkedListNode mergeKListsGFG(LinkedListNode[] lists) {
+        // Priority_queue 'queue' implemented as min heap with the help of 'compare' function
+        Queue<LinkedListNode> pq = new PriorityQueue<>((a, b) -> a.value - b.value); //i.e. min heap
+
+        // Push the head nodes of all the k lists in 'queue'
+        for (LinkedListNode node : lists) {
+            if (node != null) {
+                pq.add(node);
+            }
+        }
+
+        // Handles the case when k = 0 or lists have no elements in them
+        if (pq.isEmpty()) {
+            return null;
+        }
+
+        LinkedListNode fakeHead = new LinkedListNode(-100500);
+        LinkedListNode last = fakeHead;
+
+        while (!pq.isEmpty()) {
+            // Get the top element of 'queue'
+            LinkedListNode tempMin = pq.poll();
+
+            // Add the top element of 'queue' to the resultant merged list
+            last.next = tempMin;
+            last = last.next;
+
+            // Check if there is a node next to the 'top' node in the list of which 'top' node is a member
+            if (tempMin.next != null) {
+                // Push the next node of top node in 'queue'
+                pq.add(tempMin.next);
+            }
+        }
+
+        // Address of head node of the required merged list
+        return fakeHead.next;
+    }
+
+    /**
      * KREVSKY SOLUTION:
      * idea: described in readme
      * +idea #1: stop condition = queue is Empty
@@ -105,52 +150,6 @@ public class MergeKSortedLists {
 
         return result;
     }
-
-    /**
-     * GFG solution - optimized Krevsky's solution
-     *
-     * NOTE: hack to avoid if-else while storing the link to 'result' node -  create fake head + temp pointer. and finally return head.next
-     * time ~ O(N*K*logK)
-     * space ~ O(K), where k - amount of lists, N - total amount of elements (in all lists)
-     */
-    public static LinkedListNode mergeKListsGFG(LinkedListNode[] lists) {
-        // Priority_queue 'queue' implemented as min heap with the help of 'compare' function
-        Queue<LinkedListNode> pq = new PriorityQueue<>((a, b) -> a.value - b.value); //i.e. min heap
-
-        // Push the head nodes of all the k lists in 'queue'
-        for (LinkedListNode node : lists) {
-            if (node != null) {
-                pq.add(node);
-            }
-        }
-
-        // Handles the case when k = 0 or lists have no elements in them
-        if (pq.isEmpty()) {
-            return null;
-        }
-
-        LinkedListNode fakeHead = new LinkedListNode(-100500);
-        LinkedListNode last = fakeHead;
-
-        while (!pq.isEmpty()) {
-            // Get the top element of 'queue'
-            LinkedListNode tempMin = pq.poll();
-
-            // Add the top element of 'queue' to the resultant merged list
-            last.next = tempMin;
-            last = last.next;
-
-            // Check if there is a node next to the 'top' node in the list of which 'top' node is a member
-            if (tempMin.next != null) {
-                // Push the next node of top node in 'queue'
-                pq.add(tempMin.next);
-            }
-        }
-
-        // Address of head node of the required merged list
-        return fakeHead.next;
-    }
-
 
     /**
      * Alternative solution is MERGE SORT for sublists of lists, until sublist contains only 2 lists. In this case we just use usual mergeSort
