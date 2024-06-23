@@ -93,7 +93,7 @@ public class ProblemChallenge1 {
         int perimeter = 4;
         visit[i][j] = true;
 
-        //subtract common bounds
+        //idea #3: subtract common bounds right HERE! without going to any other cells, call functions etc
         int subtract = 0;
         if (i >= 1 && grid[i - 1][j] == 1) subtract++;
         if (i <= n - 2 && grid[i + 1][j] == 1) subtract++;
