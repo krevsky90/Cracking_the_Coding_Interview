@@ -5,6 +5,11 @@ import data_structures.chapter4_trees_n_graphs.Node;
 /**
  * https://www.youtube.com/watch?v=dB9aikwZttY&list=PLNmW52ef0uwtUY4OFRF0eV1mlT5lKhe_j
  * Byte by Byte: Interview Question: Binary Search Tree
+ * OR
+ * src/data_structures/chapter4_trees_n_graphs/Problem4_5.java
+ * OR
+ * 98. Validate Binary Search Tree
+ * https://leetcode.com/problems/validate-binary-search-tree (medium)
  * <p>
  * Given a binary tree, write a function to test if the tree is a binary search tree (BST)
  *

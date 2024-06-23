@@ -93,7 +93,7 @@ public class Knapsack_01 {
      * the same as https://leetcode.com/discuss/study-guide/1152328/01-Knapsack-Problem-and-Dynamic-Programming
      * time complexity ~ O(profits.length*capacity)
      * space complexity ~ O(profits.length*capacity)
-     * i - iterates through the items (their weights)
+     * i - iterates through the items
      * w - iterates through capacity
      * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      */
@@ -126,7 +126,7 @@ public class Knapsack_01 {
      * time complexity ~ O(profits.length*capacity)
      * space complexity ~ O(profits.length*capacity)
      *
-     * i - iterates through the items (their weights)
+     * i - iterates through the items
      * w - iterates through capacity
      * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      *
@@ -167,7 +167,7 @@ public class Knapsack_01 {
      * For calculating the current row of the dp[] array we require only previous row,
      * but if we start traversing the rows from right to left then it can be done with a single row only
      *
-     * i - iterates through the items (their weights)
+     * i - iterates through the items
      * w - iterates through capacity
      * dp[i][w] - contains maximum PROFIT value that can be obtained by set o given items if capacity = w
      *
@@ -242,7 +242,7 @@ public class Knapsack_01 {
         }
 
         if (currentItem == weights.length) {
-            //it means we already put all given items to knapsack
+            //it means we have already considered all items and put (or not) to knapsack. there is not items to be considered
             return 0;
         } else {
             if (dp[currentItem][capacity] != 0) return dp[currentItem][capacity];
