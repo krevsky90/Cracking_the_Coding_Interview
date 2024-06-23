@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * https://igotanoffer.com/blogs/tech/string-interview-questions
- * https://leetcode.com/problems/group-anagrams/description/
+ * https://leetcode.com/problems/group-anagrams (medium)
  * <p>
  * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
  * <p>
