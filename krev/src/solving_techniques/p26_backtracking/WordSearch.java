@@ -2,6 +2,8 @@ package solving_techniques.p26_backtracking;
 
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63d4f8d230ea8276b79362b9
+ * OR
+ * https://leetcode.com/problems/word-search
  *
  * Given an m x n grid of characters board and a string word, return true if the word exists in the grid.
  *
@@ -49,8 +51,6 @@ public class WordSearch {
 
         return false;
     }
-
-
 
     /**
      * SOLUTION #1
@@ -133,5 +133,32 @@ public class WordSearch {
         return false;
     }
 
+    /**
+     * SOLUTION #3:
+     * info: https://www.youtube.com/watch?v=z8pSRwYJxyk&list=PLUPSMCjQ-7ocAELVU7c5tMaFMo2bUQRF4&index=15
+     * additional idea: do not store visited[][], but temporary set some special value (not letter)
+     *
+     * BEATS = 14%
+     */
+    private boolean validation3(char[][] board, int i, int j, String word, int idx) {
+        if (idx == word.length()) return true;
 
+        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word.charAt(idx)) return false;
+
+        //save initial value of cell
+        char realValue = board[i][j];
+        //temporary set cell value as stub to mark it as visited
+        board[i][j] = '0';
+
+        int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+        for (int[] dir : dirs) {
+            if (validation3(board, i + dir[0], j + dir[1], word, idx + 1)) {
+                return true;
+            }
+        }
+
+        board[i][j] = realValue;
+
+        return false;
+    }
 }
