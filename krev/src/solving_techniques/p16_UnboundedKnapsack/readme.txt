@@ -21,7 +21,7 @@ Example:
 values: [20,30,15,25,10]
 weights: [6,13,5,10,3]
 k = 20 - capacity
---------------------------------- APPROACH #1 ---------------------------------
+--------------------------------- TOP-DOWN APPROACH #1 ---------------------------------
 time complexity ~ O(2^N)
 space complexity ~ O(N)
                                knapsack(i, k) =
@@ -45,7 +45,7 @@ NOTE: when we take i-th item, we DO NOT increment i, since we can i-th element A
        knap(0, 8)            knap(1, 14)
         ..                       ..
 
---------------------------------- APPROACH #2 ---------------------------------
+--------------------------------- TOP-DOWN APPROACH #2 ---------------------------------
 IF we have N items, then we can draw tree, where each node has N children
 Let's draw horizontal tree, it is more convenient
 time complexity ~ O(N^C)
@@ -60,10 +60,13 @@ knap(20)--- we take item2 --- knap(15) ...
        \--- we take item3 --- knap(10) ...
         \-- we take item4 --- knap(17) ...
 
---------------------------------- APPROACH #2 Optimization ---------------------------------
+--------------------------------- TOP-DOWN APPROACH #2 Optimization ---------------------------------
 Since we will have repeating elements, we can store knap(x) result where 0 < x <= capacity
 
 ===============================================================================
+
+Example of BOTTOM-UP APPROACH for Unbounded knapsack:
+    src/solving_techniques/p16_UnboundedKnapsack/CoinChange.java
 
 Example #1:
 Input : W = 100
@@ -85,9 +88,10 @@ We get maximum value with one unit of weight 5 and one unit of weight 3
 
 NOTE:
 we need to use memoization, BUT
-1) check if we are out of bound (base case) and return smth appropriate to this situation
-2) only after that check if memo[i] is not empty.If not - return
-3) if memo[i] is not set => calculate it and return
+1) check if we are out of bound and return smth appropriate to this situation
+2) check if we come to one of the solution (smth like "capacity == 0"). if yes - return appropriate value
+3) only after that check if memo[i] is not empty.If not - return memo[i]
+4) if memo[i] is not set => calculate and set it to memo[i] and return memo[i]
 
 
 Sequence of problems:

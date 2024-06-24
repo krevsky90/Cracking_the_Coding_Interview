@@ -178,7 +178,36 @@ public class MinimumCoinChange {
     }
 
     /**
-     * SOLUTION #3
+     * !!!!!! BEST !!!!!!
+     * SOLUTION #2.2 top-down, approach #2 from readme.txt
+     * the same, BUT
+     * MAX = just integer number more than 10^4
+     * if really simplifies the solution => you do not need to handle corner cases reg Integer.MAX_VALUE and +1
+     */
+    public int coinChange22(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, -1);
+        int result = coinChangeHelper22(coins, amount, dp);
+        return result == 100000 ? -1 : result;
+    }
+
+    private int coinChangeHelper22(int[] coins, int amount, int[] dp) {
+        if (amount < 0) return 100000;  //NOTE: we add it here and commented if (coins[i] <= amount) condition
+        if (amount == 0) return 0;
+        if (dp[amount] != -1) return dp[amount];
+
+        int result = 100000;    //it is maximum value instead of Integer.MAX_VALUE
+        for (int i = 0; i < coins.length; i++) {
+            // if (coins[i] <= amount) {
+            result = Math.min(result, 1 + coinChangeHelper22(coins, amount - coins[i], dp));
+            // }
+        }
+        return dp[amount] = result;
+    }
+
+
+    /**
+     * SOLUTION #3 top-down
      * using APPROACH #1 - i.e. the logic "include or exclude" the element https://www.youtube.com/watch?v=ZI17bgz07EE
      * idea:
      * result = min(1 + count(coins, amount - coins[i], i), count(coins, amount, i + 1))
@@ -208,18 +237,18 @@ public class MinimumCoinChange {
     }
 
     /**
-     * SOLUTION #4:
+     * SOLUTION #4: bottom-up
      * https://youtu.be/ZI17bgz07EE?t=932
      * the same idea as for SOLUTION #2, BUT using dp table
      * dp = [coins.len + 1][amount + 1]
      * dp[i][j] - min number of coins needed to form amount = j, using first i coins
-     *      to exclude: dp[i][j] = dp[i-1][j]
-     *      to include: dp[i][j] = 1 + dp[i][j - coins[i-1]] - NOTE! be careful with case when coins[i-1] > j! then we cannot include the element!
+     * to exclude: dp[i][j] = dp[i-1][j]
+     * to include: dp[i][j] = 1 + dp[i][j - coins[i-1]] - NOTE! be careful with case when coins[i-1] > j! then we cannot include the element!
      * dp[i][j] = min(exclude, include)
      * base cases:
-     *      all dp[i][0] = MAX_VALUE
-     *      dp[0][j] = 0
-     *
+     * all dp[i][0] = MAX_VALUE
+     * dp[0][j] = 0
+     * <p>
      * time ~ O(coins.length*amount)
      * space ~ O(coins.length*amount)
      */
@@ -233,11 +262,11 @@ public class MinimumCoinChange {
                     dp[i][j] = Integer.MAX_VALUE;
                 } else if (j == 0) {
                     dp[i][j] = 0;
-                } else if (coins[i-1] > j) {
+                } else if (coins[i - 1] > j) {
                     //we can not include i-1-th coin. we can only use 'exclude' option
-                    dp[i][j] = dp[i-1][j];
+                    dp[i][j] = dp[i - 1][j];
                 } else {
-                    dp[i][j] = Math.min(1 + dp[i][j - coins[i-1]], dp[i-1][j]);
+                    dp[i][j] = Math.min(1 + dp[i][j - coins[i - 1]], dp[i - 1][j]);
                 }
             }
         }
