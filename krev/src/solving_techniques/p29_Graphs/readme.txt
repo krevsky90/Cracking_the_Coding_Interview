@@ -69,3 +69,4 @@ todo: take problems from here https://neetcode.io/roadmap
 4) https://leetcode.com/problems/clone-graph (medium) - done
 5) https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph (medium) - done
 6) https://leetcode.com/problems/find-number-of-coins-to-place-in-tree-nodes (hard) - done
+7) https://leetcode.com/problems/find-distance-in-a-binary-tree (medium) - done
