@@ -2,6 +2,9 @@ https://interviewnoodle.com/grokking-leetcode-a-smarter-way-to-prepare-for-codin
 https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/638c9e2788f1e1c16f41c35c
 
 2. Two Pointers
+Special condition:
+    input array should be SORTED!
+
 Usage: In this technique, we use two pointers to iterate the input data. Generally, both pointers move in the opposite direction at a constant interval.
 
 Sequence of problems:

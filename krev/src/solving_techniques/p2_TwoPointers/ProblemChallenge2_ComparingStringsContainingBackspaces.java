@@ -66,19 +66,19 @@ public class ProblemChallenge2_ComparingStringsContainingBackspaces {
 
         //if i1 = -1 and i2 > -1, then we should check that t.substring(0,i2+1) is efficiently empty
         if (i1 == -1 && getNonBackspacePosition(i2, t) > -1) return false;
-        //the same for simmetric situation
+        //the same for symmetric situation
         if (i2 == -1 && getNonBackspacePosition(i1, s) > -1) return false;
 
         return true;
     }
 
     private int getNonBackspacePosition(int idx, String str) {
-        int backslashCounter = 0;
-        while (idx >= 0 && str.charAt(idx) == '#' || backslashCounter > 0) {
+        int backspaceCounter = 0;
+        while (idx >= 0 && str.charAt(idx) == '#' || backspaceCounter > 0) {
             if (idx >= 0 && str.charAt(idx) == '#') {
-                backslashCounter++;
+                backspaceCounter++;
             } else {
-                backslashCounter--;
+                backspaceCounter--;
             }
 
             idx--;

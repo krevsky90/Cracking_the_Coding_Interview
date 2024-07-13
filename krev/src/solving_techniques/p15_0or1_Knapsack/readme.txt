@@ -28,8 +28,8 @@ THEN
 How to fill the table:
     1) IF i = 0 OR W = 0 THEN V(i,W)
 
-    2) IF Wi <= W THEN V[i,W] = V[i-1,W]
-       ELSE V[i,W] = max(V[i-1][W], V[i-1][W-Wi] + Vi
+    2) IF Wi > W THEN V[i,W] = V[i-1,W]
+       ELSE V[i,W] = max(V[i-1][W], V[i-1][W-Wi] + Vi)
 
 Dynamic programming (top-down approach):
     see src/solving_techniques/p15_0or1_Knapsack/SubsetSum.java
@@ -42,7 +42,7 @@ COMMON ALGORITHM:
     target < 0 => Infinity or error or smth like that
     (target > 0) && curIdx = arr.length => Infinity or error or smth like that, since we reached the end of the array, but still did not reach the target
 
-3) if the target is not reached at all, then out helper returns Infinity or Infinity + 1 => we just check it result < 0 => return, for example, -1
+3) if the target is not reached at all, then our helper returns Infinity or Infinity + 1 => we just check it result < 0 => return, for example, -1
 
 HINTS:
 1) always fill memo[] by -1 or smth that can't be considered as calculated value.
@@ -56,14 +56,11 @@ https://www.geeksforgeeks.org/tabulation-vs-memoization/
     Memoization (recursive) - is used when the subproblems have overlapping subproblems
         we use a dictionary object called cache to store the results of function calls, and we use recursion to compute the results.
 
-        Let?s describe a state for our DP problem to be dp[x] with dp[0] as base state and dp[n] as our destination state. So,  we need to find the value of destination state i.e dp[n].
-        If we start our transition from our base state i.e dp[0] and follow our state transition relation to reach our destination state dp[n], we call it the Bottom-Up approach
-
     Tabulation (iterative) - is when the subproblems DO NOT overlap!
         we use an array called table to store the results of subproblems, and we use iteration to compute the results.
 
         If we need to find the value for some state say dp[n] and instead of starting from the base state that i.e dp[0]
-        we ask our answer from the states that can reach the destination state dp[n] following the state transition relatio
+        we ask our answer from the states that can reach the destination state dp[n] following the state transition relation
 
 Sequence of problems:
 1) 0/1 Knapsack (medium) - done
