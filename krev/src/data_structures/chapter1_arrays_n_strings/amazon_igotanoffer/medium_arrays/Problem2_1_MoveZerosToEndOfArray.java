@@ -2,7 +2,10 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arra
 
 /**
  * https://igotanoffer.com/blogs/tech/array-interview-questions
- * https://leetcode.com/problems/move-zeroes/description/
+ * https://leetcode.com/problems/move-zeroes (easy)
+ *
+ * #Company: Yandex
+ *
  * <p>
  * Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
  * <p>
@@ -17,8 +20,8 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.medium_arra
  * Output: [0]
  * <p>
  * Constraints:
- * 1 <= nums.length <= 104
- * -231 <= nums[i] <= 231 - 1
+ * 1 <= nums.length <= 10^4
+ * -2^31 <= nums[i] <= 2^31 - 1
  * <p>
  * Follow up: Could you minimize the total number of operations done?
  */
@@ -55,6 +58,29 @@ public class Problem2_1_MoveZerosToEndOfArray {
         // We just need to fill remaining array with 0's.
         for (int i = lastNonZeroFoundAt; i < nums.length; i++) {
             nums[i] = 0;
+        }
+    }
+
+    /**
+     * KREVSKY SOLUTION #2: 20/07/2024
+     * time to solve ~ 12 mins
+     * 1 attempt
+     */
+    public void moveZeroesKrev2(int[] nums) {
+        int vacantId = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                if (vacantId == -1) {
+                    vacantId = i;
+                }
+            } else {
+                if (vacantId >= 0) {
+                    //swap
+                    nums[vacantId] = nums[i];
+                    nums[i] = 0;
+                    vacantId++;
+                }
+            }
         }
     }
 }
