@@ -73,3 +73,4 @@ Sequence of problems:
 12) https://leetcode.com/problems/minimum-window-substring (hard) - done
 13) https://leetcode.com/problems/take-k-of-each-character-from-left-and-right - done
 14) https://leetcode.com/problems/longest-repeating-character-replacement (medium) - done
+15) https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element (medium) - done
