@@ -3,6 +3,9 @@ package solving_techniques.different;
 /**
  * 443. String Compression (medium)
  * https://leetcode.com/problems/string-compression/
+ *
+ * #Company: Yandex
+ *
  * <p>
  * Given an array of characters chars, compress it using the following algorithm:
  * <p>

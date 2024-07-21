@@ -62,11 +62,36 @@ public class Problem2_1_MoveZerosToEndOfArray {
     }
 
     /**
-     * KREVSKY SOLUTION #2: 20/07/2024
+     * KREVSKY SOLUTION #2: 22/11/2023 - yandex interview
+     * BEATS ~ 82%
+     */
+    public void moveZerosKrev2(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+
+        int counter0 = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                counter0++;
+            } else {
+                if (counter0 > 0) {
+                    nums[i - counter0] = nums[i];
+                }
+            }
+        }
+
+        for (int j = nums.length - counter0; j < nums.length; j++) {
+            nums[j] = 0;
+        }
+    }
+
+    /**
+     * KREVSKY SOLUTION #3: 20/07/2024
      * time to solve ~ 12 mins
      * 1 attempt
+     * BEATS ~ 82%
      */
-    public void moveZeroesKrev2(int[] nums) {
+    public void moveZeroesKrev3(int[] nums) {
         int vacantId = -1;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) {
