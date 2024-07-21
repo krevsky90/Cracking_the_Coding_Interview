@@ -10,6 +10,9 @@ import data_structures.chapter4_trees_n_graphs.Node;
  * OR
  * 98. Validate Binary Search Tree
  * https://leetcode.com/problems/validate-binary-search-tree (medium)
+ *
+ * #Company: Yandex
+ *
  * <p>
  * Given a binary tree, write a function to test if the tree is a binary search tree (BST)
  *
@@ -29,19 +32,24 @@ public class CheckBinarySearchTree {
         n1.left = n2;
         System.out.println(isBSTByInOrderTraversal(n1));
     }
-    /**
-     * NOTE: it does not work if nods = Integer.MIN_VALUE / Integer.MAX_VALUE !!!
-     */
-    public static boolean isBST(Node n) {
-        return isBST(n, Integer.MIN_VALUE, Integer.MAX_VALUE);
-    }
-    private static boolean isBST(Node n, int min, int max) {
-        if (n == null) return true;
-        if (n.value < min || n.value > max) return false;
-        return isBST(n.left, min, n.value) && isBST(n.right, n.value + 1, max);
-    }
 
     /**
+     * SOLUTION #1
+     */
+    public boolean isValidBST(Node root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean isValidBST(Node root, long min, long max) {
+        if (root == null) return true;
+        if (!(min < root.value && root.value < max)) return false;
+
+        return isValidBST(root.left, min, root.value) && isValidBST(root.right, root.value, max);
+    }
+
+
+    /**
+     * SOLUTION #2:
      * To cope with case when nodes can have value = Integer.MIN_VALUE / Integer.MAX_VALUE
      * we need to use Morris In-Order Traversal that should give us sorted ascending array (in case if Tree is BST
      */
