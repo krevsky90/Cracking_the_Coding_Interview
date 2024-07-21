@@ -7,7 +7,11 @@ import java.util.List;
 
 /**
  * https://igotanoffer.com/blogs/tech/string-interview-questions
+ * OR
+ * 49. Group Anagrams
  * https://leetcode.com/problems/group-anagrams (medium)
+ * <p>
+ * #Company: Yandex
  * <p>
  * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
  * <p>

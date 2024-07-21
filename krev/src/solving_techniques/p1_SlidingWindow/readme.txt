@@ -8,13 +8,15 @@ https://www.youtube.com/watch?v=MK-NZ4hN7rs
 2) Dynamically resizable window - growing (move end point) and shrink (move start point)
     Brute force - iterating with each width of window => duplicate work => O(N*k), where k - width of window
 
+CONDITIONS:
+    Sliding window ONLY works if the range of nums is > 0. i.e. POSITIVE values!
+
 TIPS:
     a) things we iterate over sequentially:
         - CONTIGUOUS sequence of elements
         - strings, arrays, linked lists
     b) min, max, longest, shortest, contained
-        - may be we need to calculate smth like running average
-
+        - maybe we need to calculate smth like running average
 ================
 Question variants:
     Fixed length:

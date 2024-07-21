@@ -1,4 +1,4 @@
-package neetcode.roadmap.arraysNhashing;
+package solving_techniques.prefixSum;
 
 import java.util.Arrays;
 
