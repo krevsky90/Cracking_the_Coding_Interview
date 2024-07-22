@@ -6,8 +6,10 @@ import java.util.Map;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6385d76c4a29c96532f7c16b
  * OR
- * 567. Permutation in String
+ * 567. Permutation in String (medium)
  * https://leetcode.com/problems/permutation-in-string/description/
+ *
+ * #Company: Yandex
  *
  * <p>
  * Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
