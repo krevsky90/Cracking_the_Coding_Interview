@@ -5,8 +5,10 @@ import data_structures.chapter2_linked_lists.LinkedListNode;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394905626086d487e96e724
  * OR
- * 206. Reverse Linked List
- * https://leetcode.com/problems/reverse-linked-list/submissions/
+ * 206. Reverse Linked List (easy)
+ * https://leetcode.com/problems/reverse-linked-list
+ *
+ * #Company: Yandex
  *
  * Given the head of a Singly LinkedList, reverse the LinkedList.
  * Write a function to return the new head of the reversed LinkedList.
