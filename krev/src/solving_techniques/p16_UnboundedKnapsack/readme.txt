@@ -102,5 +102,6 @@ Sequence of problems:
 5) Maximum Ribbon Cut - done
 
 7) https://leetcode.com/problems/minimum-cost-for-tickets - done
+8) https://leetcode.com/problems/perfect-squares (medium) - done
 
 in general https://leetcode.com/tag/dynamic-programming/
