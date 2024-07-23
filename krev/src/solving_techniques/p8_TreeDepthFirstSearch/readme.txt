@@ -90,3 +90,4 @@ List of problems from leetcode: https://leetcode.com/tag/depth-first-search/
 15) https://leetcode.com/problems/most-frequent-subtree-sum (medium) - done
 16) https://leetcode.com/problems/binary-tree-pruning (medium) - done
 17) https://leetcode.com/problems/find-distance-in-a-binary-tree (medium) - done
+18) https://leetcode.com/problems/range-sum-of-bst (easy) - done
