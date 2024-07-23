@@ -3,8 +3,10 @@ package solving_techniques.p8_TreeDepthFirstSearch;
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 /**
- * 101. Symmetric Tree
+ * 101. Symmetric Tree (easy)
  * https://leetcode.com/problems/symmetric-tree/
+ *
+ * #Company: Yandex
  *
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
  */

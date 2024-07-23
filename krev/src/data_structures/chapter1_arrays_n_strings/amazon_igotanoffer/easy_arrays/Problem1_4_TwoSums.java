@@ -6,6 +6,12 @@ import java.util.Map;
 /**
  * https://igotanoffer.com/blogs/tech/array-interview-questions
  * https://codeburst.io/understanding-the-two-sum-problem-9a6428083a7f
+ * OR
+ * 1. Two Sum (easy)
+ * https://leetcode.com/problems/two-sum
+ *
+ * #Company: Yandex
+ *
  * <p>
  * Problem Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * <p>
