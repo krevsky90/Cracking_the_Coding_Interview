@@ -76,3 +76,4 @@ Sequence of problems:
 13) https://leetcode.com/problems/take-k-of-each-character-from-left-and-right - done
 14) https://leetcode.com/problems/longest-repeating-character-replacement (medium) - done
 15) https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element (medium) - done
+16) https://leetcode.com/problems/max-consecutive-ones-ii (medium) - done
