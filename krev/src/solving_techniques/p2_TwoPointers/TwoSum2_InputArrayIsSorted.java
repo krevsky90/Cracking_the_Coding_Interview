@@ -1,8 +1,10 @@
 package solving_techniques.p2_TwoPointers;
 
 /**
- * 167. Two Sum II - Input Array Is Sorted
+ * 167. Two Sum II - Input Array Is Sorted (medium)
  * https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
+ * <p>
+ * #Company: Yandex
  * <p>
  * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order,
  * find two numbers such that they add up to a specific target number.
@@ -38,12 +40,12 @@ public class TwoSum2_InputArrayIsSorted {
      * KREVSKY SOLUTION:
      * idea: two pointers
      * time to solve ~ 5 mins
-     *
+     * <p>
      * time ~ O(n)
      * space ~ O(1)
-     *
+     * <p>
      * 1 attempt
-     *
+     * <p>
      * BEATS = 92%
      */
     public int[] twoSum(int[] numbers, int target) {
