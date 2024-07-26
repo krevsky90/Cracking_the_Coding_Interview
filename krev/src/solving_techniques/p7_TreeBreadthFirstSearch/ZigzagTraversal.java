@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63979996c8fbc9fe77f1feb0
  * OR
- * 103. Binary Tree Zigzag Level Order Traversal
+ * 103. Binary Tree Zigzag Level Order Traversal (medium)
  * https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
  *
  * Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.
