@@ -64,6 +64,7 @@ public class Application {
         executorService.submit(() -> {
             while (!Thread.currentThread().isInterrupted()) {
                 requestProcessor.handle();
+                //todo: why does this cause smth like lock?
 //                System.out.println("isEmpty = " + userBucketRepo.getMap().get(1).isEmpty());
 
                 try {
