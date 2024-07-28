@@ -84,8 +84,10 @@ public class Application {
             Thread.currentThread().interrupt();
         }
 
-//        for (Map.Entry<Integer, Request> entry : requestsMap.entrySet()) {
-//            System.out.println(entry.getKey() + " -> " + entry.getValue().getContent());
-//        }
+//        LeakyBucket bucket0 = userBucketRepo.getMap().get(0);
+//        if (bucket0.isEmpty()) System.out.println("bucket0 is empty");
+//        LeakyBucket bucket1 = userBucketRepo.getMap().get(1);
+//        if (bucket1.isEmpty()) System.out.println("bucket1 is empty");
+        System.out.println("Total handled requests = " + requestProcessor.getHandledRequestsCounter());
     }
 }

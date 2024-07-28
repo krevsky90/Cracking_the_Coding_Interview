@@ -27,6 +27,9 @@ Request 12 is handled for user = 0: Content: r12
 
 где r13, r14, r15 ???
 
+ОТВЕТ: в классе RequestProcessor надо передавать размер usersWithTasks.size()!
+int r = new Random().nextInt(usersWithTasks.size());
+
 попытался выводить состояние очереди из треда с процессором - появилась проблема №2
 
 =========

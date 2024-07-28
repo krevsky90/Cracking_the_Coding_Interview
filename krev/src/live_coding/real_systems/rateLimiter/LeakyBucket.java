@@ -32,7 +32,11 @@ public class LeakyBucket implements IRateLimiter {
 
     @Override
     public void addRequest(int requestId) {
-        this.queue.add(requestId);
+        try {
+            this.queue.offer(requestId, 1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean isEmpty() {
