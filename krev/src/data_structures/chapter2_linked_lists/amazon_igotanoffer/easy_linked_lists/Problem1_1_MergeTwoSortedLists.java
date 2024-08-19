@@ -3,8 +3,12 @@ package data_structures.chapter2_linked_lists.amazon_igotanoffer.easy_linked_lis
 import data_structures.chapter2_linked_lists.amazon_igotanoffer.ListNode;
 
 /**
+ * 21. Merge Two Sorted Lists (easy)
  * https://igotanoffer.com/blogs/tech/linked-list-interview-questions#basics
- * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * OR
+ * https://leetcode.com/problems/merge-two-sorted-lists
+ *
+ * #Company: Adobe Airbnb Alibaba Amazon Apple Arista Networks Atlassian Bloomberg ByteDance Cisco Facebook Google Huawei Indeed Intel LinkedIn Lyft Microsoft Oracle Tencent Uber Visa VMware Walmart Labs Yahoo Yandex
  * <p>
  * You are given the heads of two sorted linked lists list1 and list2.
  * <p>
@@ -32,55 +36,49 @@ import data_structures.chapter2_linked_lists.amazon_igotanoffer.ListNode;
  */
 public class Problem1_1_MergeTwoSortedLists {
     /**
-     * KREVSKY SOLUTION
-     * not-optimal
-     * time to solve ~ 10-15 mins
+     * KREVSKY SOLUTION #1
+     * time to solve ~ 18 mins
+     * time ~ O(n)
+     * space ~ O(1)
+     *
+     * 2 attempts:
+     * - wrote "list1 != null && list2 != null" but wanted to write "list1 != null || list2 != null"
+     *
+     * BEATS ~ 100%
      */
-    public ListNode mergeTwoListsKREV(ListNode list1, ListNode list2) {
-        if (list2 == null) return list1;
-        if (list1 == null) return list2;
-
-        ListNode head = null;
-        ListNode tempLastNode = null;
-
-        ListNode node1 = list1;
-        ListNode node2 = list2;
-
-        while (node1 != null || node2 != null) {
-            ListNode tempNode = null;
-            if (node1 == null) {    //yes, it is not optimal. it would be better to break the loop and attach the rest of list2 (i.e. node2) to tempLastNode
-                tempNode = node2;
-                node2 = node2.next;
-            } else if (node2 == null) {    //yes, it is not optimal. it would be better to break the loop and attach the rest of list1 (i.e. node1) to tempLastNode
-                tempNode = node1;
-                node1 = node1.next;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode prev = new ListNode(); //fake node
+        ListNode head = prev;
+        ListNode temp = null;
+        while (list1 != null || list2 != null) {
+            if (list1 == null) {
+                temp = list2;
+                list2 = list2.next;
+            } else if (list2 == null) {
+                temp = list1;
+                list1 = list1.next;
             } else {
-                if (node1.val >= node2.val) {
-                    tempNode = node2;
-                    node2 = node2.next;
+                if (list1.val < list2.val) {
+                    temp = list1;
+                    list1 = list1.next;
                 } else {
-                    tempNode = node1;
-                    node1 = node1.next;
+                    temp = list2;
+                    list2 = list2.next;
                 }
             }
 
-            if (head == null) {
-                head = tempNode;
-                tempLastNode = tempNode;
-            } else {
-                tempLastNode.next = tempNode;
-                tempLastNode = tempLastNode.next;
-            }
+            prev.next = temp;
+            prev = prev.next;
         }
 
-        return head;
+        return head.next;
     }
 
     /**
-     * Optimal solution
-     * https://leetcode.com/problems/merge-two-sorted-lists/solutions/3124870/java-easy-clean-0ms-100-beats/
+     * SOLUTION #2:
+     * info: https://leetcode.com/problems/merge-two-sorted-lists/solutions/3124870/java-easy-clean-0ms-100-beats/
      */
-    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+    public ListNode mergeTwoLists2(ListNode a, ListNode b) {
         if (a == null) return b;
         if (b == null) return a;
 
