@@ -32,3 +32,5 @@ Sequence of problems:
 9) https://leetcode.com/problems/meeting-rooms-ii (medium) (locked) - done
 10) https://leetcode.com/problems/minimum-interval-to-include-each-query (hard) - todo
 11) https://leetcode.com/problems/count-ways-to-group-overlapping-ranges (medium) - todo
+
+12) https://leetcode.com/problems/interval-list-intersections (medium) - done (i suppose it is more related more to 'merge intervals' rather than 'two pointers'
