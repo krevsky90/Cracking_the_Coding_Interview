@@ -3,8 +3,10 @@ package solving_techniques.p5_CyclicSort;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6393ab5cd8a93f4bff961bc7
  * OR
- * 268. Missing Number
+ * 268. Missing Number (easy)
  * https://leetcode.com/problems/missing-number/
+ *
+ * #Company: Adobe Amazon Apple Arista Networks Bloomberg Facebook Goldman Sachs Google IBM Microsoft Oracle ServiceNow VMware Zillow Yandex
  *
  * We are given an array containing n distinct numbers taken from the range 0 to n.
  * Since the array has only n numbers out of the total n+1 numbers, find the missing number.
@@ -34,12 +36,14 @@ public class FindMissingNumber {
      * time ~ O(N)
      * space ~ O(1)
      * 2 attempts
+     *
+     * BEATS ~ 38%
      */
     public static int findMissingNumber(int[] arr) {
         //1. sort the array using cyclic sort
         int start = 0;
         while (start < arr.length) {
-            int correctIdx = arr[start];    //it should be i = arr[i],, since min element is 0 (see description)
+            int correctIdx = arr[start];    //it should be i = arr[i], since min element is 0 (see description)
             if (correctIdx >= arr.length || arr[start] == arr[correctIdx]) {
                 start++;
             } else {
