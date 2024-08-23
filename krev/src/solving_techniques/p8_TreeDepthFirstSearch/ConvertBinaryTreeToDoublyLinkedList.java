@@ -74,8 +74,8 @@ public class ConvertBinaryTreeToDoublyLinkedList {
      * KREVSKY SOLUTION #2:
      * idea: simple in-order traversal + store prev node and head node
      * time to solve ~ 10 mins
-     * time ~ O(n)
-     * space ~ O(1)
+     * time ~ O(N)
+     * space ~ O(N) - due to used memory for recursive stack
      * 1 attempt
      */
     TreeNode prev = null;
