@@ -13,6 +13,11 @@ Techniques:
 1) Monotonic stack: https://www.youtube.com/watch?v=Dq_ObZwTY_Q
     applicable to 'Find next greater element' (use decreasing stack)
 
+TIPS:
+1) the condition "while (i < arr.length && Character.isDigit(arr[i])"
+    helps to avoid code duplication when the same code should be executed in case if arr[i] is not digit OR we reach the end of string
+    Example: BasicCalculator2
+
 Sequence of problems:
 1) Implementing Stack Data Structure - todo
 2) Problem 1: Balanced Parentheses - see src/data_structures/chapter1_arrays_n_strings/amazon_igotanoffer/easy_strings/Problem1_16_ValidParentheses.java # isValid
@@ -31,3 +36,4 @@ list of problems: https://leetcode.com/tag/stack/
 12) https://leetcode.com/problems/max-stack/ (easy) - done
 13) https://leetcode.com/problems/implement-queue-using-stacks (easy) - done
 14) https://leetcode.com/problems/basic-calculator (hard) - done
+15) https://leetcode.com/problems/basic-calculator-ii (medium) - done

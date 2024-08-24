@@ -56,11 +56,11 @@ public class EvaluateReversePolishNotation {
     /**
      * KREVSKY SOLUTION: NOT optimal
      * idea: put each element to stack, BUT from right to left.
-     * and count amount of numbers that put one after the other. if 2 numbers are put =>
+     * and count of amount of numbers that put one after the other. if 2 numbers are put =>
      * pop them
      * pop operator from stack
-     * execute apply the operator to these numbers
-     * out the result back to the stack
+     * apply the operator to these numbers
+     * put the result back to the stack
      * IF the 2 top elements are numbers (again) - repeat the algorithm.
      * otherwise set counter of numbers = 1
      * <p>
