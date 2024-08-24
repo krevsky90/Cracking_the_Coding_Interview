@@ -30,3 +30,4 @@ list of problems: https://leetcode.com/tag/stack/
 11) https://leetcode.com/problems/remove-duplicate-letters (medium) - done
 12) https://leetcode.com/problems/max-stack/ (easy) - done
 13) https://leetcode.com/problems/implement-queue-using-stacks (easy) - done
+14) https://leetcode.com/problems/basic-calculator (hard) - done
