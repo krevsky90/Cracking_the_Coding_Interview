@@ -72,3 +72,5 @@ todo: take problems from here https://neetcode.io/roadmap
 7) https://leetcode.com/problems/find-distance-in-a-binary-tree (medium) - done
 
 8) https://leetcode.com/problems/shortest-path-in-binary-matrix (medium) - done
+
+9) https://leetcode.com/problems/accounts-merge (medium) - done
