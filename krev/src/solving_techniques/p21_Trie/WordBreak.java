@@ -1,7 +1,6 @@
 package solving_techniques.p21_Trie;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * 139. Word Break
@@ -46,7 +45,52 @@ public class WordBreak {
         String s4 = "carcad";
         List<String> wordDict4 = Arrays.asList("car", "carca", "d");
 
-        System.out.println(new WordBreak().wordBreakTopDownAndTrieKrev(s3, wordDict3));
+        WordBreak obj = new WordBreak();
+
+        System.out.println(obj.wordBreakCrackingFaang(s2, wordDict2));
+        System.out.println(obj.wordBreakTopDownAndTrieKrev(s3, wordDict3));
+    }
+
+    /**
+     * info:
+     * https://www.youtube.com/watch?v=CUMRilS83fE&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=9
+     * idea:
+     * 1) use BFS and queue of not handled (sub)words
+     * 2) if the word was already considered - skip it (it is like memo in DP approach)
+     * time to implement ~ 10 mins + 10 mins to debug
+     * time ~ O(n*n*n) ~ O(n^2)
+     * space ~ O(n), where n = s.length();
+     *
+     * 2 attempt:
+     * - put extra "visited.add(s)" before while loop
+     *
+     * BEATS ~ 70%
+     */
+    public boolean wordBreakCrackingFaang(String s, List<String> wordDict) {
+        Set<String> visited = new HashSet<>();
+        Queue<String> q = new LinkedList<>();
+
+        q.add(s);
+        while (!q.isEmpty()) {
+            String temp = q.poll();
+
+            if ("".equals(temp)) {
+                return true;
+            }
+
+            if (visited.contains(temp)) {
+                //do nothing
+            } else {
+                visited.add(temp);
+                for (String w : wordDict) {
+                    if (temp.startsWith(w)) {
+                        q.add(temp.substring(w.length()));
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     /**

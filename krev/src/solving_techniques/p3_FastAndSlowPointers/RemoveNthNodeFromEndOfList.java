@@ -3,8 +3,10 @@ package solving_techniques.p3_FastAndSlowPointers;
 import data_structures.chapter2_linked_lists.LinkedListNode;
 
 /**
- * 19. Remove Nth Node From End of List
- * https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+ * 19. Remove Nth Node From End of List (medium)
+ * https://leetcode.com/problems/remove-nth-node-from-end-of-list
+ *
+ * #Company: Adobe Amazon Apple Bloomberg Cisco Facebook Goldman Sachs Google Microsoft Oracle Yandex
  *
  * Given the head of a linked list, remove the nth node from the end of the list and return its head.
  *
