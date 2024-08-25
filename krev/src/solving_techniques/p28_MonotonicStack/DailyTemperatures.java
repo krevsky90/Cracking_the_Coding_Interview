@@ -10,6 +10,8 @@ import java.util.Stack;
  * 739. Daily Temperatures
  * https://leetcode.com/problems/daily-temperatures (medium)
  *
+ * #Company: Adobe Amazon Apple Bloomberg Expedia Facebook Google LinkedIn Microsoft Nvidia Uber Zillow
+ *
  * Given an array of integers temperatures represents the daily temperatures,
  * return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.
  * If there is no future day for which this is possible, keep answer[i] == 0 instead.
@@ -71,6 +73,8 @@ public class DailyTemperatures {
 
     /**
      * Optimization: use Monotonically Decreasing Stack that stores indexes, but not values!
+     * IF we store values and count the number of pop()'s - it is incorrect! since we remove from stack
+     * => it affects the further calculations
      */
     public int[] dailyTemperaturesOptimized(int[] temperatures) {
         int[] result = new int[temperatures.length];    //0..0

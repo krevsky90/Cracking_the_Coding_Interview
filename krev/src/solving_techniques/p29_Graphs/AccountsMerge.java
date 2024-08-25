@@ -63,7 +63,7 @@ public class AccountsMerge {
         accounts.add(Arrays.asList("John","johnnybravo@mail.com"));
 
         AccountsMerge obj = new AccountsMerge();
-        List<List<String>> result = obj.accountsMerge(accounts);
+        List<List<String>> result = obj.accountsMergeBFS(accounts);
         System.out.println("");
     }
 
@@ -88,7 +88,7 @@ public class AccountsMerge {
      *  BEATS ~ 28%
      *
      */
-    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+    public List<List<String>> accountsMergeBFS(List<List<String>> accounts) {
         Map<String, String> emailToName = new HashMap<>();
         //idea #1: consider the problem as graph problem!
         Map<String, Set<String>> graph = new HashMap<>();
@@ -134,6 +134,73 @@ public class AccountsMerge {
                     if (visited.containsKey(edge) && visited.get(edge)) continue;
 
                     q.add(edge);
+                    visited.put(edge, true);
+                }
+            }
+
+            String name = emailToName.get(email);
+            Collections.sort(subResult);
+            subResult.add(0, name);
+            result.add(subResult);
+        }
+
+        return result;
+    }
+
+    /**
+     * SOLUTION #2:
+     * the same, but using DFS
+     *
+     * BEATS ~ 23%
+     */
+    public List<List<String>> accountsMergeDFS(List<List<String>> accounts) {
+        Map<String, String> emailToName = new HashMap<>();
+        //idea #1: consider the problem as graph problem!
+        Map<String, Set<String>> graph = new HashMap<>();
+
+        //step #1: build graph
+        for (List<String> account : accounts) {
+            String name = account.get(0);
+
+            for (int i = 1; i < account.size(); i++) {
+                String email = account.get(i);
+                //idea #2:
+                // NOTE: we will link all email of the account to ONLY 1st email (i.e. account.get(1))!
+                //i.e. NOT all to all
+                if (!graph.containsKey(email)) {
+                    graph.put(email, new HashSet<>());
+                }
+                graph.get(email).add(account.get(1));    //forcase "email = account.get(1)" it is linking of email to itself
+                graph.get(account.get(1)).add(email);
+
+                emailToName.put(email, name);
+            }
+        }
+
+        //step #2: traverse graph and form the result
+        //we will use iterative DFS approach
+        Map<String, Boolean> visited = new HashMap<>(); //email to isVisited
+
+        List<List<String>> result = new ArrayList<>();
+        for (String email : graph.keySet()) {
+            if (visited.containsKey(email) && visited.get(email)) continue;
+
+            List<String> subResult = new ArrayList<>();
+
+            Stack<String> stack = new Stack<>();
+
+            stack.add(email);
+            visited.put(email, true);
+
+            while (!stack.isEmpty()) {
+                String tempEmail = stack.pop();
+                subResult.add(tempEmail);
+                // visited.put(tempEmail, true);
+
+                for (String edge : graph.get(tempEmail)) {
+                    if (visited.containsKey(edge) && visited.get(edge)) continue;
+
+                    stack.add(edge);
                     visited.put(edge, true);
                 }
             }
