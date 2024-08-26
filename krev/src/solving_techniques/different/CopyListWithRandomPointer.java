@@ -78,16 +78,15 @@ public class CopyListWithRandomPointer {
      * BEATS ~ 100%
      */
     public Node copyRandomList(Node head) {
+        if (head == null) return null;
+
         Node current = head;
         Map<Node, Node> oldToNew = new HashMap<>();
-        while (current != null) {
-            Node currentClone = null;
-            if (!oldToNew.containsKey(current)) {
-                currentClone = new Node(current.val);
-                oldToNew.put(current, currentClone);
-            }
-            currentClone = oldToNew.get(current);
 
+        Node currentClone = new Node(current.val);
+        oldToNew.put(current, currentClone);
+
+        while (current != null) {
             if (current.next != null) {
                 Node currentNextClone = null;
                 if (!oldToNew.containsKey(current.next)) {
@@ -96,7 +95,7 @@ public class CopyListWithRandomPointer {
                 }
                 currentNextClone = oldToNew.get(current.next);
 
-                currentClone.next = currentNextClone;
+                oldToNew.get(current).next = currentNextClone;
             }
 
             if (current.random != null) {
@@ -107,7 +106,7 @@ public class CopyListWithRandomPointer {
                 }
                 currentRandomClone = oldToNew.get(current.random);
 
-                currentClone.random = currentRandomClone;
+                oldToNew.get(current).random = currentRandomClone;
             }
 
             current = current.next;
