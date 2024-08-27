@@ -3,8 +3,10 @@ package solving_techniques.p8_TreeDepthFirstSearch;
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 /**
- * 236. Lowest Common Ancestor of a Binary Tree
+ * 236. Lowest Common Ancestor of a Binary Tree (medium)
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+ *
+ * #Company: Adobe Airbnb Amazon Apple Bloomberg ByteDance eBay Facebook Google Intuit LinkedIn Microsoft Oracle Paypal Pinterest Salesforce Snapchat Splunk Tencent Uber Visa Walmart Labs Yahoo Zillow
  *
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  *

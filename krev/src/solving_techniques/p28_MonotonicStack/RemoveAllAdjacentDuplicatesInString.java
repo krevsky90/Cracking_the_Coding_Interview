@@ -5,6 +5,8 @@ import java.util.Stack;
 /**
  * 1047. Remove All Adjacent Duplicates In String (easy)
  * https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+ *
+ * #Company: Amazon Bloomberg Google Oracle PayTM
  * <p>
  * You are given a string s consisting of lowercase English letters.
  * A duplicate removal consists of choosing two adjacent and equal letters and removing them.

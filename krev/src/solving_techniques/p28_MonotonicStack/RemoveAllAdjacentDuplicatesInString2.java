@@ -5,8 +5,10 @@ import java.util.Stack;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/64c14baaee20248bcc6d1d4c
  * OR
- * 1209. Remove All Adjacent Duplicates in String II
+ * 1209. Remove All Adjacent Duplicates in String II (medium)
  * https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
+ *
+ * #Company: Bloomberg FactSet Google VMware
  * <p>
  * You are given a string s and an integer k,
  * a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them,
