@@ -3,8 +3,10 @@ package data_structures.chapter3_stacks_n_queues.extra;
 import java.util.Stack;
 
 /**
- * 71. Simplify Path
+ * 71. Simplify Path (medium)
  * https://leetcode.com/problems/simplify-path
+ *
+ * #Company: Amazon Bloomberg ByteDance Docusign Facebook Microsoft Oracle Salesforce Yandex
  *
  * Given a string path, which is an absolute path (starting with a slash '/')
  * to a file or directory in a Unix-style file system, convert it to the simplified canonical path.
@@ -48,7 +50,11 @@ import java.util.Stack;
 public class SimplifyPath {
     public static void main(String[] args) {
         String s1 = "/home/";
+        String s2 = "/a/./b/../../c/";
         System.out.println(simplifyPath(s1));
+        System.out.println(simplifyPath2(s1));
+        System.out.println(simplifyPath(s2));
+        System.out.println(simplifyPath2(s2));
     }
 
     /**
@@ -84,6 +90,45 @@ public class SimplifyPath {
                 sb.setLength(0);    //clean buffer
             } else if (i < arr.length && arr[i] != '/') {
                 sb.append(arr[i]);
+            }
+        }
+
+        String result = "";
+        while (!stack.isEmpty()) {
+            //note: add 'result' in the end since stack contains reversed sequence of the folders
+            result = "/" + stack.pop() + result;
+        }
+
+        return result.length() == 0 ? "/" : result;
+    }
+
+    /**
+     * info:
+     * https://www.youtube.com/watch?v=4e1gVeQ0AEs&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=20
+     *
+     * using split method
+     * time to implement ~ 10 mins
+     * time ~ O(n)
+     * space ~ O(n)
+     *
+     * 2 attempts:
+     * - forgot case "".equals(dir)
+     *
+     * BEATS ~ 27%
+     */
+    public static String simplifyPath2(String path) {
+        Stack<String> stack = new Stack<>();    //to store directories
+        String[] dirs = path.split("/");
+        for (String dir : dirs) {
+            if ("..".equals(dir)) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else if (".".equals(dir) || "".equals(dir)) {
+                //do nothing
+            } else {
+                //usual name of dire => add to stacl
+                stack.add(dir);
             }
         }
 
