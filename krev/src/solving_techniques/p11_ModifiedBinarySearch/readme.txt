@@ -36,3 +36,4 @@ Sequence of problems:
 11) https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ (medium) - done
 12) https://leetcode.com/problems/find-peak-element (medium) - done
 13) https://leetcode.com/problems/number-of-recent-calls (easy) - done
+14) https://leetcode.com/problems/koko-eating-bananas (medium) - done
