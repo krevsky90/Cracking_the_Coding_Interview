@@ -37,3 +37,4 @@ Sequence of problems:
 12) https://leetcode.com/problems/find-peak-element (medium) - done
 13) https://leetcode.com/problems/number-of-recent-calls (easy) - done
 14) https://leetcode.com/problems/koko-eating-bananas (medium) - done
+15) https://leetcode.com/problems/cutting-ribbons (medium) - done

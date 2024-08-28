@@ -7,6 +7,8 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
  * OR
  * 124. Binary Tree Maximum Path Sum (hard)
  * https://leetcode.com/problems/binary-tree-maximum-path-sum
+ *
+ * #Company: Adobe Amazon AppDynamics Apple Baidu Bloomberg ByteDance Facebook Google Intuit Microsoft Twitter Uber Walmart Labs
  * <p>
  * A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them.
  * A node can only appear in the sequence at most once.
