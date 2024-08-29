@@ -143,9 +143,7 @@ public class BinaryTreeVerticalOrderTraversal {
             Pair pair = q.poll();
 
             //1
-            if (!map.containsKey(pair.level)) {
-                map.put(pair.level, new ArrayList<>());
-            }
+            map.putIfAbsent(pair.level, new ArrayList<>());
             map.get(pair.level).add(pair.node.val);
 
             //2

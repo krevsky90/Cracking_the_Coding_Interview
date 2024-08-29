@@ -8,10 +8,10 @@ import java.util.List;
 /**
  * https://igotanoffer.com/blogs/tech/string-interview-questions
  * OR
- * 49. Group Anagrams
- * https://leetcode.com/problems/group-anagrams (medium)
+ * 49. Group Anagrams (medium)
+ * https://leetcode.com/problems/group-anagrams
  * <p>
- * #Company: Yandex
+ * #Company: Adobe Affirm Alibaba Amazon Apple Bloomberg Booking.com Docusign eBay Facebook Goldman Sachs Google Hulu Intuit Mathworks Microsoft Nutanix Oracle Qualtrics Salesforce Snapchat Tesla Twilio Uber Visa VMware Walmart Labs Wish Yahoo Yandex Yelp Zulily
  * <p>
  * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
  * <p>
@@ -96,6 +96,8 @@ public class Problem2_7_GroupAnagrams {
     /**
      * ORIGINAL SOLUTION
      * idea - HashMap + creating of unique key (O(k), where k - number of string symbols)
+     * time ~ O(N)*O(K) - where N = strs.length(), K - max length of the string from strs
+     * space ~ O(N*K)
      */
     class Solution {
         public List<List<String>> groupAnagrams(String[] strs) {
