@@ -57,6 +57,12 @@ public class CuttingRibbons {
         int[] arr2 = {7,5,9};
         int k2 = 4;
         System.out.println(obj.countRibbonsByLength(arr2, k2));
+
+        StringBuilder sb1 = new StringBuilder("111");
+        StringBuilder sb2 = new StringBuilder("222");
+        sb1.append(sb2);
+        System.out.println(sb1);
+
     }
 
     /**

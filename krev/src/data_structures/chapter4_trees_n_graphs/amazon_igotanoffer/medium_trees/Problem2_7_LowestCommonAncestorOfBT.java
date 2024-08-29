@@ -84,7 +84,40 @@ public class Problem2_7_LowestCommonAncestorOfBT {
      * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/solutions/194159/lowest-common-ancestor-of-a-binary-tree/
      * like my optimized solution
      */
-    private TreeNode result1 = null;
+
+    private static TreeNode result1 = null;
+
+    public static void main(String[] args) {
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n0 = new TreeNode(0);
+        TreeNode n8 = new TreeNode(8);
+        TreeNode n7 = new TreeNode(7);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n10 = new TreeNode(10);    //not in the tree!
+        n3.left = n5;
+        n3.right = n1;
+        n5.left = n6;
+        n5.right = n2;
+        n1.left = n0;
+        n1.right = n8;
+        n2.left = n7;
+        n2.right = n4;
+
+        Problem2_7_LowestCommonAncestorOfBT obj = new Problem2_7_LowestCommonAncestorOfBT();
+        result1 = null;
+        TreeNode res = obj.lowestCommonAncestor1(n3, n5, n1);
+        System.out.println(res == null ? "null" : res.val);
+        result1 = null;
+        res = obj.lowestCommonAncestor1(n3, n5, n4);
+        System.out.println(res == null ? "null" : res.val);
+        result1 = null;
+        res = obj.lowestCommonAncestor1(n3, n5, n10);
+        System.out.println(res == null ? "null" : res.val);
+    }
 
     private boolean recurseTree(TreeNode currentNode, TreeNode p, TreeNode q) {
         // If reached the end of a branch, return false.
