@@ -3,10 +3,10 @@ package solving_techniques.different;
 import java.util.*;
 
 /**
- * 380. Insert Delete GetRandom O(1)
- * https://leetcode.com/problems/insert-delete-getrandom-o1 (medium)
+ * 380. Insert Delete GetRandom O(1) (medium)
+ * https://leetcode.com/problems/insert-delete-getrandom-o1
  * <p>
- * #Company: Yandex
+ * #Company: Adobe Affirm Amazon Apple Bloomberg Databricks Facebook Flipkart Goldman Sachs Google Indeed LinkedIn Microsoft Oracle Pinterest Pocket Gems Quora Salesforce Twitter Two Sigma Uber VMware Walmart Labs Yandex Yelp
  * <p>
  * Implement the RandomizedSet class:
  * <p>

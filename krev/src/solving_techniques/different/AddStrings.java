@@ -4,7 +4,7 @@ package solving_techniques.different;
  * 415. Add Strings (easy)
  * https://leetcode.com/problems/add-strings
  * <p>
- * #Company: Yandex
+ * #Company: Adobe Airbnb Alibaba Amazon Apple Bloomberg ByteDance Facebook Google Microsoft Nvidia Oracle Snapchat Square Yandex
  * <p>
  * Given two non-negative integers, num1 and num2 represented as string,
  * return the sum of num1 and num2 as a string.

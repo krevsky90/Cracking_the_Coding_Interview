@@ -6,7 +6,7 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
  * 938. Range Sum of BST (easy)
  * https://leetcode.com/problems/range-sum-of-bst
  * <p>
- * #Company: Yandex
+ * #Company: Amazon Apple Facebook Google Microsoft Oracle Yandex
  * <p>
  * Given the root node of a binary search tree and two integers low and high,
  * return the sum of values of all nodes with a value in the inclusive range [low, high].

@@ -6,8 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 17. Letter Combinations of a Phone Number (medium)
+ * https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+ * OR
  * https://igotanoffer.com/blogs/tech/string-interview-questions
- * https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+ *
+ * #Company: Airbnb Amazon Apple Atlassian Bloomberg Dropbox eBay Facebook Google caMorgan Lyft Microsoft Morgan Stanley Nutanix Oracle Pinterest Quip (Salesforce) Roblox Salesforce Uber VMware Walmart Labs Yahoo
+ *
  * <p>
  * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
  * <p>
@@ -33,8 +38,20 @@ public class Problem2_4_LetterCombinationsOfPhoneNumber {
     /**
      * KREVSKY SOLUTION
      * idea ~ recursion
+     * OR
+     * we can use backtracking and StringBuilder instead of 'prefix' string as described here
+     *      https://www.youtube.com/watch?v=HEFawmFMuIY&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=25
+     *
      * time to solve ~ 20 mins of thinking + 18 with debugging
+     *
+     * time ~ O(N * 4^N). where N - number of different digits (i.e. 2,3,..9 => 8)
+     * we have 'N*' since we build prefix for each combination adding N digits to it
+     *
+     * space ~ O(N) if we don't count stack space. otherwise - N*4^N
+     *
      * 3 attempts (typos)
+     *
+     * BEATS ~ 37%
      */
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();

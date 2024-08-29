@@ -34,3 +34,4 @@ Sequence of problems:
 11) https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level - done
 12) https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii - done
 13) https://leetcode.com/problems/check-completeness-of-a-binary-tree - done
+14) https://leetcode.com/problems/binary-tree-vertical-order-traversal - done

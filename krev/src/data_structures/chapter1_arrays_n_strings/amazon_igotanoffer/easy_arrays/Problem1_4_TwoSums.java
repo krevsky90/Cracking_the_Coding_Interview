@@ -10,7 +10,7 @@ import java.util.Map;
  * 1. Two Sum (easy)
  * https://leetcode.com/problems/two-sum
  *
- * #Company: Yandex
+ * #Company: Adobe Aetion Affirm Airbnb Alibaba Amazon Apple Audible Baidu BlackRock Bloomberg Booking.com Box ByteDance Cisco Citadel Citrix Deutsche Bank DiDi Drawbridge Dropbox eBay EMC Expedia Facebook FactSet GE Digital GoDaddy Goldman Sachs Google Groupon Huawei IBM Indeed Intel Intuit caMorgan LinkedIn Lyft MAQ Software Mathworks Microsoft Morgan Stanley NetEase Nvidia Oracle Paypal Qualcomm Quora Radius Roblox Salesforce Samsung SAP ServiceNow Snapchat Splunk Spotify Tableau Tencent Twilio Twitter Two Sigma Uber Valve Visa VMware Walmart Labs Wayfair Wish Works Applications Yahoo Yandex Yelp Zillow Zoho
  *
  * <p>
  * Problem Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target.
