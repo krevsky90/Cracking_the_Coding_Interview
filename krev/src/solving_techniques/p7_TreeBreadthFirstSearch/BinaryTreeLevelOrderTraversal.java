@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394fcd622692a384ae7dbdd
- * OR
- * 102. Binary Tree Level Order Traversal
+ * 102. Binary Tree Level Order Traversal (medium)
  * https://leetcode.com/problems/binary-tree-level-order-traversal/
+ * OR
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394fcd622692a384ae7dbdd
+ *
+ * #Company: Adobe Alibaba Amazon Apple Bloomberg Cisco Citadel eBay Expedia Facebook Google LinkedIn Mathworks Microsoft Oracle Paypal SAP Uber VMware Walmart Labs Yahoo
  *
  * Problem Statement
  * Given a binary tree, populate an array to represent its level-by-level traversal.
