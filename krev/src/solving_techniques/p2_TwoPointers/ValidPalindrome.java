@@ -4,7 +4,7 @@ package solving_techniques.p2_TwoPointers;
  * 125. Valid Palindrome (easy)
  * https://leetcode.com/problems/valid-palindrome
  *
- * #Company: Yandex
+ * #Company: Adobe Amazon Apple Bloomberg Cisco eBay Facebook Google LinkedIn Microsoft Oracle Uber Wayfair Wish Yandex Zenefits
  *
  * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters
  *      and removing all non-alphanumeric characters, it reads the same forward and backward.
@@ -43,6 +43,11 @@ public class ValidPalindrome {
     /**
      * info:
      * https://leetcode.com/problems/valid-palindrome/solutions/3165353/beats-96-9-well-explained-code-in-java/
+     * time ~ O(n)
+     * space ~ O(1) if we don't count space of sArr
+     *
+     * extra idea:
+     * OR use Character.isLetterOrDigit instead of custom isAlphanumeric method => BEATS ~ 99%
      */
     public static boolean isPalindrome(String s) {
         if (s == null) return false;
@@ -57,7 +62,6 @@ public class ValidPalindrome {
             } else if (!isAlphanumeric(sArr[end])) {
                 end--;
             } else {
-//                if (!("" + sArr[start]).equalsIgnoreCase(("" + sArr[end]))) {
                 if (Character.toLowerCase(sArr[start]) != Character.toLowerCase(sArr[end])) {
                     return false;
                 }

@@ -5,10 +5,12 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a1cc3eccf84a14e3c8ec6f
- * OR (similar, but largest element)
- * 215. Kth Largest Element in an Array
+ * 215. Kth Largest Element in an Array (medium)
  * https://leetcode.com/problems/kth-largest-element-in-an-array/
+ * OR
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a1cc3eccf84a14e3c8ec6f
+ *
+ * #Company: Adobe Airbnb Alibaba Amazon Apple Atlassian Baidu Bloomberg ByteDance Expedia Facebook Goldman Sachs Google caMorgan LinkedIn Microsoft Oracle Pocket Gems Salesforce Snapchat Uber VMware Yahoo
  * <p>
  * let's solve 'smallest' problem
  * Given an unsorted array of numbers, find Kth smallest number in it.
