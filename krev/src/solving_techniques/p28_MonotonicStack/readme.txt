@@ -68,3 +68,4 @@ Sequence of problems:
 6) Remove K Digits (hard) - todo
 
 7) https://leetcode.com/problems/132-pattern/ (medium) - done
+8) https://leetcode.com/problems/buildings-with-an-ocean-view (medium) - done

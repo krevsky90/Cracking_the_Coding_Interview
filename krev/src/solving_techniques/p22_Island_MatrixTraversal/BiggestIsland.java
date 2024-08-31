@@ -4,10 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6388d8940cc1849dcbc27fe3
+ * 695. Max Area of Island (medium)
+ * https://leetcode.com/problems/max-area-of-island
  * OR
- * 695. Max Area of Island
- * https://leetcode.com/problems/max-area-of-island (medium)
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6388d8940cc1849dcbc27fe3
+ *
+ * #Company: Adobe Affirm Alibaba Amazon Bloomberg ByteDance DoorDash Facebook Google Groupon Intuit LinkedIn Mathworks Microsoft Oracle Palantir Technologies Qualtrics Twitch Uber Walmart Labs Wish Zillow
  *
  * You are given an m x n binary matrix grid. An island is a group of 1's (representing land)
  * connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
@@ -47,7 +49,7 @@ public class BiggestIsland {
      * idea: is the same as solving_techniques/p22_Island_MatrixTraversal/NumberOfIslands.java # markIslandBFS, but added 'area' variable
      *
      * time ~ O(n*m)
-     * space O(min(n*m)) - the worst case, when the matrix is completely filled with land cells, the size of the queue can grow up to min(n*m)
+     * space O(n*m) - the worst case, when the matrix is completely filled with land cells, the size of the queue can grow up to min(n*m)
      *
      * 2 attempts:
      * - had to change 'return ' to 'continue'
