@@ -5,10 +5,32 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 import java.util.*;
 
 /**
+ * 230. Kth Smallest Element in a BST (medium)
+ * https://leetcode.com/problems/kth-smallest-element-in-a-bst
+ * OR
  * https://igotanoffer.com/blogs/tech/tree-interview-questions
- * https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/
- * <p>
- * Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+ *
+ * #Company: Affirm Amazon Apple Bloomberg Facebook Google Hulu Microsoft Oracle TripleByte Uber
+ *
+ * Given the root of a binary search tree, and an integer k,
+ *      return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+ *
+ * Example 1:
+ * Input: root = [3,1,4,null,2], k = 1
+ * Output: 1
+ *
+ * Example 2:
+ * Input: root = [5,3,6,2,4,null,null,1], k = 3
+ * Output: 3
+ *
+ * Constraints:
+ * The number of nodes in the tree is n.
+ * 1 <= k <= n <= 10^4
+ * 0 <= Node.val <= 10^4
+ *
+ * Follow up: If the BST is modified often
+ * (i.e., we can do insert and delete operations)
+ * and you need to find the kth smallest frequently, how would you optimize?
  */
 
 public class Problem2_6_KthSmallestElementInBST {
@@ -38,6 +60,8 @@ public class Problem2_6_KthSmallestElementInBST {
      * This way one could speed up the solution because there is no need to build the entire inorder traversal, and one could stop after the kth element.
      * Time complexity: O(H+k), where H is a tree height
      * Space complexity: O(H), where average H = logN, worst H = N
+     *
+     * BEATS ~ 35%
      */
     public static int getKthSmallestElementOfBST(TreeNode root, int k) {
         if (root == null) return Integer.MIN_VALUE;    //corner case or error
@@ -68,7 +92,9 @@ public class Problem2_6_KthSmallestElementInBST {
      * KREVSKY SOLUTION:
      * idea - use priority queue
      * time to solve = 14 mins, 1 attempt
+     *
      * time complexity ~ (N*logN), because each insertion to priorityQueue takes O(logN). total amount of insertions is N
+     * space ~ O(N)
      */
     public static int kthSmallestKREVPriorityQueue(TreeNode root, int k) {
         PriorityQueue<Integer> q = new PriorityQueue<>();
@@ -127,24 +153,33 @@ public class Problem2_6_KthSmallestElementInBST {
      * KREVSKY SOLUTION
      * idea - the same as initial (to fill array by inOrder traversal), BUT optimized - once we get k-th value - return it
      * time ~ O(k)
-     * space ~ O(k)
+     * space ~ O(1) - if we don't take into account the memory of stack of recursion
+     *
+     * 1 attempt
+     *
+     * BEATS ~ 100%
      */
-    public static int kthSmallestListStorageOptimized(TreeNode root, int k) {
-        return recursive(root, new ArrayList<>(), k);
+    private int tempK;
+
+    public int kthSmallest22(TreeNode root, int k) {
+        tempK = k;
+        int result = inOrderTraversal(root);
+        return result;
     }
 
-    private static int recursive(TreeNode root, List<Integer> list, int k) {
+    private int inOrderTraversal(TreeNode root) {
         if (root == null) return Integer.MIN_VALUE;
-        int left = recursive(root.left, list, k);
-        if (left != Integer.MIN_VALUE) return left;
 
-        list.add(root.val);
-        if (list.size() == k) return root.val;
+        int leftRes = inOrderTraversal(root.left);
+        if (leftRes != Integer.MIN_VALUE) return leftRes;
 
-        int right = recursive(root.right, list, k);
-        if (right != Integer.MIN_VALUE) return right;
+        tempK--;
+        if (tempK == 0) return root.val;
 
-        return Integer.MIN_VALUE;    //instead of nothing
+        int rightRes = inOrderTraversal(root.right);
+        if (rightRes != Integer.MIN_VALUE) return rightRes;
+
+        return Integer.MIN_VALUE;
     }
 
     /**
@@ -169,6 +204,9 @@ public class Problem2_6_KthSmallestElementInBST {
 
     /**
      * SOLUTION #4: Morris in-order traversal
+     *
+     * time ~ O(N)
+     * space ~ O(1)
      */
     public int kthSmallest(TreeNode root, int k) {
         int count = 0;

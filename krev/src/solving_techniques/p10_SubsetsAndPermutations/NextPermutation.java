@@ -1,8 +1,10 @@
 package solving_techniques.p10_SubsetsAndPermutations;
 
 /**
- * 31. Next Permutation
- * https://leetcode.com/problems/next-permutation/description/
+ * 31. Next Permutation (medium)
+ * https://leetcode.com/problems/next-permutation
+ *
+ * #Company: Adobe Amazon Apple Bloomberg ByteDance eBay Facebook Google Houzz caMorgan Microsoft Quora Rubrik Sumologic Uber
  *
  * A permutation of an array of integers is an arrangement of its members into a sequence or linear order.
  *

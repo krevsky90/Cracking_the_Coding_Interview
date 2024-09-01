@@ -3,15 +3,12 @@ package data_structures.chapter4_trees_n_graphs.extra;
 import data_structures.chapter4_trees_n_graphs.Node;
 
 /**
- * https://www.youtube.com/watch?v=dB9aikwZttY&list=PLNmW52ef0uwtUY4OFRF0eV1mlT5lKhe_j
- * Byte by Byte: Interview Question: Binary Search Tree
- * OR
- * src/data_structures/chapter4_trees_n_graphs/Problem4_5.java
- * OR
- * 98. Validate Binary Search Tree
- * https://leetcode.com/problems/validate-binary-search-tree (medium)
+ * 98. Validate Binary Search Tree (medium)
+ * https://leetcode.com/problems/validate-binary-search-tree
  *
- * #Company: Yandex
+ * NOTE: the same as src/data_structures/chapter4_trees_n_graphs/Problem4_5.java
+ *
+ * #Company: Adobe Amazon Apple Asana Bloomberg Capital One Facebook Goldman Sachs Google LinkedIn Mathworks Microsoft Oracle Salesforce TripAdvisor Uber Visa VMware Walmart Labs Yandex
  *
  * <p>
  * Given a binary tree, write a function to test if the tree is a binary search tree (BST)
@@ -22,7 +19,6 @@ import data_structures.chapter4_trees_n_graphs.Node;
  *   2  |  7
  *  / \ | /|\
  * 1   3|4 | 8
- *
  *
  */
 public class CheckBinarySearchTree {
@@ -35,6 +31,9 @@ public class CheckBinarySearchTree {
 
     /**
      * SOLUTION #1
+     * info:
+     * https://www.youtube.com/watch?v=dB9aikwZttY&list=PLNmW52ef0uwtUY4OFRF0eV1mlT5lKhe_j
+     *
      */
     public boolean isValidBST(Node root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);

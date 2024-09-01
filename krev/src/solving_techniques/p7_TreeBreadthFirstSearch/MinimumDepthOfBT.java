@@ -6,10 +6,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6397ac3f197fbea348eb0f04
- * OR
- * 111. Minimum Depth of Binary Tree
+ * 111. Minimum Depth of Binary Tree (easy)
  * https://leetcode.com/problems/minimum-depth-of-binary-tree/
+ * OR
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6397ac3f197fbea348eb0f04
+ *
+ * #Company: Amazon Facebook Microsoft
  *
  * Problem Statement
  * Find the minimum depth of a binary tree.
