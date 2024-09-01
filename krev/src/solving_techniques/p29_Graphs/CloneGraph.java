@@ -3,8 +3,10 @@ package solving_techniques.p29_Graphs;
 import java.util.*;
 
 /**
- * 133. Clone Graph
+ * 133. Clone Graph (medium)
  * https://leetcode.com/problems/clone-graph
+ *
+ * #Company: Amazon Apple Facebook Google LinkedIn Mathworks Microsoft Pocket Gems Splunk Twitter Uber Walmart Labs
  * <p>
  * Given a reference of a node in a connected undirected graph.
  * <p>
@@ -74,9 +76,9 @@ public class CloneGraph {
      * - using DFS, forgot !visited validation
      * - incorrectly used newParentNode, but then replaced it with oldToNewMap
      * <p>
-     * BEATS = 59%
+     * BEATS = 77%
      */
-    public Node cloneGraph(Node node) {
+    public Node cloneGraphDFS(Node node) {
         if (node == null) return null;
         Map<Node, Node> oldToNewMap = new HashMap<>();
 
@@ -84,10 +86,8 @@ public class CloneGraph {
     }
 
     private Node dfsCopy(Node oldNode, Map<Node, Node> oldToNewMap) {
-        Node newNode = new Node();
-        newNode.val = oldNode.val;
-        List<Node> newList = new ArrayList<>();
-        newNode.neighbors = newList;
+        ArrayList<Node> newList = new ArrayList<>();
+        Node newNode = new Node(oldNode.val, newList);
 
         oldToNewMap.put(oldNode, newNode);
 
@@ -102,6 +102,75 @@ public class CloneGraph {
         return newNode;
     }
 
+    public static void main(String[] args) {
+        CloneGraph obj = new CloneGraph();
+        obj.testBFSSolution();
+
+
+    }
+
+    public void testBFSSolution() {
+        Node n1 = new Node(1);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+        Node n4 = new Node(4);
+        n1.neighbors = Arrays.asList(n2, n4);
+        n2.neighbors = Arrays.asList(n1, n3);
+        n3.neighbors = Arrays.asList(n2, n4);
+        n4.neighbors = Arrays.asList(n1, n3);
+
+        Node cloned1 = cloneGraphBFS(n1);
+        System.out.println("");
+    }
+
+    /**
+     * SOLUTION #1: BFS:
+     * info:
+     * https://www.youtube.com/watch?v=vXkT2nYSde0&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=51
+     * same idea as KREVSKY SOLUTION, but using BFS
+     * 1) clone 'node'
+     * 2) put orig 'node' and cloned node to map 'oldToNewMap'
+     * 3) create Queue and put orig node to it
+     * 4) use BFS:
+     *      poll current nod, for its neighbours:
+     *          if the neighbour is cloned (=> it exists in the map) - do nothing
+     *          else
+     *          a) clone it
+     *          b) put them to map
+     *          c) put cloned neighbour to adjList of cloned current
+     *          NOTE: when we poll neighbour from the queue, if append current node to adjList of this neighbour => will get undirected graph!
+     *
+     * BEATS ~ 93%
+     */
+    public Node cloneGraphBFS(Node node) {
+        if (node == null) return null;
+
+        Map<Node, Node> oldToNewMap = new HashMap<>();
+        //create clone + add to map
+        Node clonedNode = new Node(node.val);
+        oldToNewMap.put(node, clonedNode);
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(node);
+        while (!q.isEmpty()) {
+            Node current = q.poll();
+
+            for (Node neighbour : current.neighbors) {
+                if (!oldToNewMap.containsKey(neighbour)) {
+                    //create clone + add to map
+                    Node clonedNeighbour = new Node(neighbour.val);
+                    oldToNewMap.put(neighbour, clonedNeighbour);
+
+                    q.add(neighbour);
+                }
+                //anyway we put cloned neighbour to adjList of cloned current node
+                // (does not matter if cloned neighbour is created now or earlier)!
+                oldToNewMap.get(current).neighbors.add(oldToNewMap.get(neighbour));
+            }
+        }
+
+        return clonedNode;
+    }
 
     class Node {
         public int val;
