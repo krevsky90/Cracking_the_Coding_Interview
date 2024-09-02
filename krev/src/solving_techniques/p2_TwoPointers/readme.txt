@@ -30,3 +30,4 @@ Sequence of problems:
 15) https://leetcode.com/problems/intersection-of-two-arrays-ii (easy) - done
 16) https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii (medium) - done
 17) https://leetcode.com/problems/valid-palindrome-ii (easy) - done
+18) https://leetcode.com/problems/valid-word-abbreviation (easy) - done
