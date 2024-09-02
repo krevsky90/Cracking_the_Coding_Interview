@@ -35,3 +35,4 @@ Sequence of problems:
 12) https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii - done
 13) https://leetcode.com/problems/check-completeness-of-a-binary-tree - done
 14) https://leetcode.com/problems/binary-tree-vertical-order-traversal - done
+15) https://leetcode.com/problems/nested-list-weight-sum (easy) - done
