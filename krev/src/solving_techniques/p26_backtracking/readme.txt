@@ -45,4 +45,6 @@ Sequence of problems:
 8) https://leetcode.com/problems/additive-number (medium) - done
 9) https://leetcode.com/problems/gray-code (medium) - done
 
+10) https://leetcode.com/problems/robot-room-cleaner (hard) - done
+
 Common list of problems is here: https://leetcode.com/tag/backtracking
