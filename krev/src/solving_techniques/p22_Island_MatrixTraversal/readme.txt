@@ -33,3 +33,4 @@ Sequence of problems:
 5) Problem Challenge 1 (easy) - done
 6) Problem Challenge 2 Count Distinct Islands (medium) - done
 7) Problem Challenge 3 (medium) - todo
+8) https://leetcode.com/problems/making-a-large-island (hard) - done
