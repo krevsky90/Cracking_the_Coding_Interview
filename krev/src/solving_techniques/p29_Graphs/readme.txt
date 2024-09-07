@@ -76,3 +76,4 @@ todo: take problems from here https://neetcode.io/roadmap
 9) https://leetcode.com/problems/accounts-merge (medium) - done
 10) https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree (medium) - done
 11) https://leetcode.com/problems/find-all-people-with-secret (hard) - done
+12) https://leetcode.com/problems/word-ladder (hard) - done
