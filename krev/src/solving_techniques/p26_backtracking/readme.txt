@@ -46,5 +46,6 @@ Sequence of problems:
 9) https://leetcode.com/problems/gray-code (medium) - done
 
 10) https://leetcode.com/problems/robot-room-cleaner (hard) - done
+11) https://leetcode.com/problems/expression-add-operators (hard) - done
 
 Common list of problems is here: https://leetcode.com/tag/backtracking
