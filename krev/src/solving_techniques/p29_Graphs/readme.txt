@@ -78,3 +78,4 @@ todo: take problems from here https://neetcode.io/roadmap
 11) https://leetcode.com/problems/find-all-people-with-secret (hard) - done
 12) https://leetcode.com/problems/word-ladder (hard) - done
 13) https://leetcode.com/problems/find-the-celebrity (medium) - done
+14) https://leetcode.com/problems/shortest-distance-from-all-buildings (hard) - done
