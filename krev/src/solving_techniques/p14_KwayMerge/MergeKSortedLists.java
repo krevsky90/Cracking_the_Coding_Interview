@@ -11,7 +11,7 @@ import java.util.*;
  * 23. Merge k Sorted Lists (hard)
  * https://leetcode.com/problems/merge-k-sorted-lists
  *
- * #Company: Yandex
+ * #Company: Adobe Airbnb Alibaba Amazon Apple Atlassian Audible Bloomberg Box ByteDance Cisco Cohesity Cruise Automation Dropbox eBay Facebook Google Indeed IXL LinkedIn Lyft Mathworks Microsoft Oracle Paypal Salesforce SAP Tableau Tencent Twitter Uber VMware Walmart Labs Wish Yahoo Yandex Zillow
  *
  * You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
  * Merge all the linked-lists into one sorted linked-list and return it.
@@ -78,6 +78,16 @@ public class MergeKSortedLists {
      * NOTE: hack to avoid if-else while storing the link to 'result' node -  create fake head + temp pointer. and finally return head.next
      * time ~ O(N*K*logK)
      * space ~ O(K), where k - amount of lists, N - total amount of elements (in all lists)
+     *
+     * idea:
+     * 1) use PriorityQueue
+     * 2) add only not null elements to the queue
+     * 3) condition: while queue is not empty
+     * 4) find the next element from the list which has the element that has just been polled from the queue as polled.next
+     * since we are working with LinkedLists
+     * 5) use fakeHead and return fakeHead.next
+     *
+     * BEATS ~ 75%
      */
     public static LinkedListNode mergeKListsGFG(LinkedListNode[] lists) {
         // Priority_queue 'queue' implemented as min heap with the help of 'compare' function
