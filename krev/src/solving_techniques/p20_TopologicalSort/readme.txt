@@ -57,5 +57,7 @@ Sequence of problems:
 6) Problem Challenge 1: Reconstructing a Sequence (hard) - todo
 7) Problem Challenge 2: Minimum Height Trees (hard) - done
 
+8) https://leetcode.com/problems/parallel-courses (hard) - done
+
 Leetcode:
 https://leetcode.com/tag/topological-sort/
