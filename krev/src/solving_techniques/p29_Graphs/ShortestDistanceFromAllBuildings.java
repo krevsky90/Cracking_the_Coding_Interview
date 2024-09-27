@@ -68,6 +68,12 @@ public class ShortestDistanceFromAllBuildings {
      * - used dist instead of arr[2]
      * - forgot to set Inf for non-0 cells of resultGrid
      * - did not mark visited = true all cells which meet the conditions "if (newI >= 0 && newI < m && newJ >= 0 && newJ < n && !visited[newI][newJ])"
+     *
+     * NOTE: similar but slightly different solution is here https://www.youtube.com/watch?v=yjHXS2w_IvY&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=90
+     * diffs:
+     * - decrement 0s each time - instead of keep 'visited' grid. after that consider decremented value as empty cell
+     * - to avoid additional checking 'tempBuilderCounter != totalBuildingsCounter' we can find result after every bfs
+     * and if result = Integer.MAX_VALUE => we can't reach all buildings (not obvious to me)
      */
     public int shortestDistance(int[][] grid) {
         int m = grid.length;
