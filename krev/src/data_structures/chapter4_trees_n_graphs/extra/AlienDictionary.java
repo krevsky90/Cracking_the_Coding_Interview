@@ -3,7 +3,13 @@ package data_structures.chapter4_trees_n_graphs.extra;
 import java.util.*;
 
 /**
- * https://www.youtube.com/watch?v=AOoZsQFdwm8&list=PLNmW52ef0uwupxKyYvhvF7yG4nQGvO15b&index=4
+ * 269. Alien Dictionary (hard) (locked)
+ * https://leetcode.com/problems/alien-dictionary
+ * OR
+ * https://leetcode.ca/all/269.html
+ *
+ * #Company: Airbnb Amazon Apple Bloomberg Cohesity Facebook Flipkart Google Microsoft Oracle Pinterest Pocket Gems Snapchat Square Twitter Uber VMware
+ *
  * Byte by Byte: How to Solve Ordering Problems Using Topological Sort
  * <p>
  * You are given a list of strings WORDS from the alien language's dictionary,
@@ -28,13 +34,24 @@ import java.util.*;
 public class AlienDictionary {
     public static void main(String[] args) {
         List<String> words = Arrays.asList("wrt", "wrf", "er", "ett", "rftt");
-        String alienDictionary = alienDictionary(words);
-        System.out.println(alienDictionary);
+        System.out.println(alienDictionary(words));
     }
 
     /**
      * We use topological sort
      * the same thing is applied to data_structures/chapter4_trees_n_graphs/Problem4_7.java
+     *
+     * info: https://www.youtube.com/watch?v=AOoZsQFdwm8&list=PLNmW52ef0uwupxKyYvhvF7yG4nQGvO15b&index=4
+     *
+     * idea:
+     * 1) build graph based on:
+     * since the words are in lexicographical order, then we compare i-th word with i+1-th and the first difference gives us relation between the letters
+     * 1.2) store graph: letter -> list of previous letters
+     *
+     * 2) add letters which don't have previous letters to the Queue, poll them, add to the result
+     * 2.2) remove such letters from the Sets of the other letters in the graph and check if updated Set is empty. If yes - add its letter to the queue
+     *
+     * 3) if the initial graph.size() != result.size() => we have loop => return ""
      */
     public static String alienDictionary(List<String> words) {
         Map<Character, Set<Character>> graph = buildGraph(words);
