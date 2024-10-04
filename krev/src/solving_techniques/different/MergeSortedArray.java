@@ -4,7 +4,7 @@ package solving_techniques.different;
  * 88. Merge Sorted Array (easy)
  * https://leetcode.com/problems/merge-sorted-array/
  * <p>
- * #Company:
+ * #Company: Adobe Amazon Apple Baidu Bloomberg Cisco eBay Expedia Facebook Goldman Sachs Google IBM Indeed Intel LinkedIn Microsoft Oracle Quip (Salesforce) Tableau Uber VMware Yahoo Yandex
  * <p>
  * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order,
  * and two integers m and n, representing the number of elements in nums1 and nums2 respectively.

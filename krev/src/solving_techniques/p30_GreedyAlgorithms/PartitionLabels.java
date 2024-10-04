@@ -3,8 +3,10 @@ package solving_techniques.p30_GreedyAlgorithms;
 import java.util.*;
 
 /**
- * 763. Partition Labels
+ * 763. Partition Labels (medium)
  * https://leetcode.com/problems/partition-labels
+ * <p>
+ * #Company: Amazon Yandex
  * <p>
  * You are given a string s.
  * We want to partition the string into as many parts as possible so that each letter appears in at most one part.
@@ -38,10 +40,14 @@ public class PartitionLabels {
         List<Integer> res2 = new PartitionLabels().partitionLabels(s2);
 
         System.out.println("");
+
+        Map<Character, Integer> map1 = new HashMap<>();
+        System.out.println(map1.get('1'));
+        System.out.println();
     }
 
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION 25.05.2024:
      * <p>
      * time to solve ~ 30 mins
      * <p>
@@ -99,34 +105,39 @@ public class PartitionLabels {
     }
 
     /**
-     * SOLUTION #2:
-     * info:
-     * https://leetcode.com/problems/partition-labels/solutions/1868842/java-c-visually-explaineddddd/
-     * <p>
+     * KREVSKY #2: 04.10.2024
+     * the same as https://leetcode.com/problems/partition-labels/solutions/1868842/java-c-visually-explaineddddd/
+     * time to solve ~ 15 mins
      * time ~ O(n)
      * space ~ O(n)
+     * <p>
+     * 1 attempt
+     * <p>
+     * BEATS ~ 51%
      */
     public List<Integer> partitionLabels2(String s) {
-        Map<Character, Integer> map = new HashMap<>();  //NOTE: can be replaced by int[26] array
-        // filling impact of character's
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            map.put(ch, i);
+        //0. convert string to map: Character -> index of the last occurence
+        Map<Character, Integer> map = new HashMap<>();
+        char[] arrS = s.toCharArray();
+        for (int i = 0; i < arrS.length; i++) {
+            char c = arrS[i];
+            map.put(c, i);  //we don't calculate max element since each i is greates than the previous index of any letter
         }
-        // making of result
-        List<Integer> res = new ArrayList<>();
-        int prev = -1;
-        int max = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            max = Math.max(max, map.get(ch));
-            if (max == i) {
-                // partition time
-                res.add(max - prev);
-                prev = max;
+        List<Integer> result = new ArrayList<>();
+        int start = 0;
+        int end = 0;
+        for (int i = 0; i < arrS.length; i++) {
+            char c = arrS[i];
+            int tempEnd = map.get(c);
+            end = Math.max(end, tempEnd);
+            if (i == end) {
+                result.add(end - start + 1);
+                start = i + 1;
+                end = i + 1;
             }
         }
-        return res;
+
+        return result;
     }
 }
