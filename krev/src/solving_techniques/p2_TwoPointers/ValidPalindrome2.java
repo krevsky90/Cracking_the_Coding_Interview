@@ -4,7 +4,7 @@ package solving_techniques.p2_TwoPointers;
  * 680. Valid Palindrome II (easy)
  * https://leetcode.com/problems/valid-palindrome-ii
  *
- * #Company: Atlassian Facebook Google Microsoft Yahoo
+ * #Company: Atlassian Facebook Google Microsoft Yahoo Yandex
  *
  * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
  *
