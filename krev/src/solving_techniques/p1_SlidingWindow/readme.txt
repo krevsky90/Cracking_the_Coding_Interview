@@ -78,3 +78,4 @@ Sequence of problems:
 15) https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element (medium) - done
 16) https://leetcode.com/problems/max-consecutive-ones-ii (medium) - done
 17) https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters (medium) - done
+18) https://leetcode.com/problems/max-consecutive-ones-iii (medium) - done
