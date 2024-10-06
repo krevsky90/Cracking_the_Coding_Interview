@@ -9,7 +9,7 @@ import java.util.Set;
  * OR
  * https://leetcode.ca/all/1650.html
  * <p>
- * #Company: Facebook LinkedIn Microsoft
+ * #Company: Facebook LinkedIn Microsoft Yandex
  * <p>
  * Given two nodes of a binary tree p and q, return their lowest common ancestor (LCA).
  * <p>
@@ -102,8 +102,8 @@ public class LowestCommonAncestor3 {
      * KREVSKY SOLUTION:
      * idea:
      * 1) save path nodes from, for example, p to root in Set
-     * 2) traverse from q to root anc each time check if current node is in Set
-     * if yes - iti s LCA
+     * 2) traverse from q to root and each time check if current node is in Set
+     * if yes - it is LCA
      * time to solve ~ 5 mins
      * time ~ O(n) - worst case: depth of tree = n and p is leaf
      * space ~ O(n) - worst case: depth of tree = n and p is leaf
