@@ -3,8 +3,10 @@ package solving_techniques.p2_TwoPointers;
 import java.util.Arrays;
 
 /**
- * 977. Squares of a Sorted Array
+ * 977. Squares of a Sorted Array (easy)
  * https://leetcode.com/problems/squares-of-a-sorted-array/
+ *
+ * #Company: Adobe Amazon Apple eBay Electronic Arts Facebook Google Microsoft Nutanix Twitch Uber VMware Walmart Labs Yandex
  *
  * Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
  *
