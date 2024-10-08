@@ -70,3 +70,4 @@ Sequence of problems:
 7) https://leetcode.com/problems/132-pattern/ (medium) - done
 8) https://leetcode.com/problems/buildings-with-an-ocean-view (medium) - done
 9) https://leetcode.com/problems/number-of-visible-people-in-a-queue (hard) - done
+10) https://leetcode.com/problems/largest-rectangle-in-histogram (hard) - done
