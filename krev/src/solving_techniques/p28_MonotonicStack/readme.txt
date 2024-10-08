@@ -71,3 +71,4 @@ Sequence of problems:
 8) https://leetcode.com/problems/buildings-with-an-ocean-view (medium) - done
 9) https://leetcode.com/problems/number-of-visible-people-in-a-queue (hard) - done
 10) https://leetcode.com/problems/largest-rectangle-in-histogram (hard) - done
+11) https://leetcode.com/problems/maximal-rectangle (hard) - done
