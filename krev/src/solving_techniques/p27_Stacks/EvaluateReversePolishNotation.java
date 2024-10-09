@@ -3,8 +3,10 @@ package solving_techniques.p27_Stacks;
 import java.util.Stack;
 
 /**
- * 150. Evaluate Reverse Polish Notation
- * https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
+ * 150. Evaluate Reverse Polish Notation (medium)
+ * https://leetcode.com/problems/evaluate-reverse-polish-notation/
+ *
+ * #Company: Amazon Google LinkedIn Microsoft Opendoor Pure Storage Uber Zillow Yandex
  * <p>
  * You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
  * <p>
