@@ -3,8 +3,10 @@ package solving_techniques.p11_ModifiedBinarySearch;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639f9a0cd239f7cde26dde2b
  * OR
- * 33. Search in Rotated Sorted Array
+ * 33. Search in Rotated Sorted Array (medium)
  * https://leetcode.com/problems/search-in-rotated-sorted-array/
+ * <p>
+ * #Company: Adobe Alibaba Amazon Apple Baidu Bloomberg ByteDance Cisco eBay Expedia Facebook Goldman Sachs Google caMorgan LinkedIn Microsoft NetEase Nutanix Nvidia Oracle Samsung Snapchat Tencent Tesla TripAdvisor Twitch Uber Visa VMware Walmart Labs Yahoo Zillow Zulily Yandex
  * <p>
  * There is an integer array nums sorted in ascending order (with distinct values).
  * Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length)
@@ -54,7 +56,7 @@ public class ProblemChallenge2_SearchInRotatedArray {
      * similar to KREVSKY SOLUTION, BUT:
      * 1) remove part for usual binary search, since it is covered by our algorithm
      * 2) simplified else-part doing it symmetric as if-part
-     *
+     * <p>
      * BEATS ~ 100%
      */
     public static int search1(int[] nums, int target) {
@@ -86,6 +88,36 @@ public class ProblemChallenge2_SearchInRotatedArray {
         }
 
         //target is not found
+        return -1;
+    }
+
+    /**
+     * the same as https://www.youtube.com/watch?v=WJesTo72lFY&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=77
+     * BUT set "<=" everywhere => it simplifies understanding
+     */
+    public int search(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] == target) return mid;
+
+            if (nums[left] <= nums[mid]) {
+                if (nums[left] <= target && target <= nums[mid]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                if (nums[mid] <= target && target <= nums[right]) {
+                    left = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+
         return -1;
     }
 
