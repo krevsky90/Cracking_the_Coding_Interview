@@ -3,10 +3,10 @@ package solving_techniques.prefixSum;
 import java.util.Arrays;
 
 /**
- * 238. Product of Array Except Self
+ * 238. Product of Array Except Self (medium)
  * https://leetcode.com/problems/product-of-array-except-self
  *
- * #Company: Apple
+ * #Company: Adobe Amazon Apple Asana BlackRock Bloomberg eBay Evernote Facebook Goldman Sachs Google Grab Groupon Hulu Intel LinkedIn Lyft Microsoft Nutanix Oracle Paypal Qualtrics Salesforce Snapchat Splunk Tableau Visa VMware Walmart Labs Yahoo Yelp Zenefits Yandex
  *
  * Given an integer array nums, return an array answer
  * such that answer[i] is equal to the product of all the elements of nums except nums[i].
