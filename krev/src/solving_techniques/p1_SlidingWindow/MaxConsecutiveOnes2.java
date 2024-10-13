@@ -1,5 +1,9 @@
 package solving_techniques.p1_SlidingWindow;
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 487. Max Consecutive Ones II (meduim) (blocked)
  * https://leetcode.com/problems/max-consecutive-ones-ii
@@ -39,6 +43,11 @@ public class MaxConsecutiveOnes2 {
         int[] arr1 = {1, 0, 1, 1, 1, 0};
         MaxConsecutiveOnes2 obj = new MaxConsecutiveOnes2();
         System.out.println(obj.findMaxConsecutiveOnes(arr1));
+
+        int[] arr2 = {1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1};
+        int k = 2;
+
+        System.out.println(obj.findMaxConsecutiveOnesFollowUp(arr2, k));
     }
 
     /**
@@ -73,5 +82,37 @@ public class MaxConsecutiveOnes2 {
         return res;
     }
 
+    /**
+     * Follow-up:
+     * What if the input numbers come in one by one as an infinite stream?
+     * In other words, you can't store all numbers coming from the stream as it's too large to hold in memory. Could you solve it efficiently?
+     * <p>
+     * idea: https://leetcode.ca/2017-03-31-487-Max-Consecutive-Ones-II/
+     * Zeroes Position Queue:
+     * Maintain a queue to record the positions of encountered zeroes.
+     * This queue becomes instrumental in precisely determining the next position to which the left boundary should shift
+     * when the window needs to exclude a zero to adhere to the k flips constraint.
+     * <p>
+     * Example: 1 0 0 1 1 1 1 0 1 1 1, k = 2
+     */
+    public int findMaxConsecutiveOnesFollowUp(int[] nums, int k) {
+        int start = 0;
+        int result = 0;
+        Queue<Integer> zeroIndexes = new LinkedList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                zeroIndexes.add(i);
+                if (zeroIndexes.size() > k) {
+                    start = zeroIndexes.peek() + 1; //draw and understand
+                }
+            }
 
+            result = Math.max(result, i - start + 1);
+        }
+
+        return result;
+    }
 }
+
+
+
