@@ -51,7 +51,7 @@ public class ZigzagIterator {
 
         System.out.println("--------------");
 
-        ZigZagIterator3 z2 = new ZigZagIterator3(v1, v2);
+        ZigZagIterator1 z2 = new ZigZagIterator1(v2, v1);
         while (z2.hasNext()) {
             System.out.println(z2.next());
         }
@@ -91,6 +91,7 @@ public class ZigzagIterator {
             k = k % lists.size();
             while (lists.get(k).size() <= curPositions[k]) {
                 k++;
+                k = k % lists.size();   //otherwise k might be = lists.size(). example: v1 = 1,2,3,4, v2=5,6
             }
 
             int res = lists.get(k).get(curPositions[k]);

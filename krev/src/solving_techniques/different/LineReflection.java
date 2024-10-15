@@ -3,10 +3,14 @@ package solving_techniques.different;
 import java.util.*;
 
 /**
- *  https://leetcode.com/problems/line-reflection/ (medium) (blocked)
- *  took source from here https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0356.Line%20Reflection/README_EN.md
+ * 356. Line Reflection (medium) (blocked)
  *
- *  #Company: Yandex
+ *  https://leetcode.com/problems/line-reflection/
+ *  took source from here https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0356.Line%20Reflection/README_EN.md
+ *  OR
+ *  https://leetcode.ca/all/356.html
+ *
+ *  #Company: Amazon Google Yandex
  *
  *  Given n points on a 2D plane, find if there is such a line parallel to the y-axis that reflects the given points symmetrically.
  *  In other words, answer whether or not if there exists a line that after reflecting all points over the given line,
@@ -36,7 +40,6 @@ public class LineReflection {
         int[][] points1 = {{0,1},{-1,1},{1,1},{2,1}};
         System.out.println(obj.check(points1));
         System.out.println(obj.checkKrev(points1));
-
     }
 
     /**
@@ -72,7 +75,7 @@ public class LineReflection {
     /**
      * KREVSKY SOLUTION:
      * time to solve ~ 25 mins
-     * time ~ O(n) + O(nlogn) ! O(nLogn)
+     * time ~ O(n) + O(nlogn) ~ O(nLogn)
      *
      * 2 attempts:
      * - forgot left++, right--
