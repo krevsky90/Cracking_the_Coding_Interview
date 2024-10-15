@@ -4,7 +4,7 @@ package data_structures.chapter1_arrays_n_strings.extra;
  * 849. Maximize Distance to Closest Person (medium)
  * https://leetcode.com/problems/maximize-distance-to-closest-person
  * <p>
- * #Company: Yandex
+ * #Company: Amazon Google Yandex
  * <p>
  * You are given an array representing a row of seats where seats[i] = 1 represents a person sitting in the ith seat,
  * and seats[i] = 0 represents that the ith seat is empty (0-indexed).
@@ -43,15 +43,15 @@ public class MaximizeDistanceToClosestPerson {
      * idea:
      * calc max Distance = max(maxLeftDistance, maxRightDistance, maxMiddleDistance),
      * where:
-     *      maxLeftDistance - distance from left side of array to the most left '1' element
-     *      maxRightDistance - distance from right side of array to the most right '1' element
-     *      maxMiddleDistance - max distance between two neighbour '1' (if arr has more than one '1'), BUT divided by 2
-     *
+     * maxLeftDistance - distance from left side of array to the most left '1' element
+     * maxRightDistance - distance from right side of array to the most right '1' element
+     * maxMiddleDistance - max distance between two neighbour '1' (if arr has more than one '1'), BUT divided by 2
+     * <p>
      * time ~ O(n)
      * time to solve ~ 15 mins + 3 mins (check)
-     *
+     * <p>
      * 1 attempt:
-     *
+     * <p>
      * BEATS ~ 98%
      */
     public int maxDistToClosest(int[] seats) {
@@ -84,5 +84,32 @@ public class MaximizeDistanceToClosestPerson {
 
         int result = Math.max(maxLeftDistance, Math.max(maxMiddleDistance / 2, maxRightDistance));
         return result;
+    }
+
+    /**
+     * KREVSKY #2: 15.10.2024
+     * BEATS ~ 36%
+     */
+    public int maxDistToClosest2(int[] seats) {
+        int leftMost = -1;
+        int rightMost = -1;
+        int start = -1;
+        int maxMiddleDistance = 0;
+
+        for (int i = 0; i < seats.length; i++) {
+            if (seats[i] == 1) {
+                if (leftMost == -1) leftMost = i;
+                rightMost = Math.max(rightMost, i);
+
+                if (start != -1) {
+                    maxMiddleDistance = Math.max(maxMiddleDistance, (i - start) / 2);
+                }
+                start = i;
+            }
+        }
+
+        int leftDist = leftMost;
+        int rightDist = seats.length - 1 - rightMost;
+        return Math.max(maxMiddleDistance, Math.max(leftDist, rightDist));
     }
 }

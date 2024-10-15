@@ -7,6 +7,27 @@ import java.util.*;
  * https://leetcode.com/problems/find-k-closest-elements
  *
  * #Company: Amazon Apple Bloomberg Meta Google Microsoft Snapchat Uber Yandex
+ *
+ * Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array.
+ * The result should also be sorted in ascending order.
+ *
+ * An integer a is closer to x than an integer b if:
+ * |a - x| < |b - x|, or
+ * |a - x| == |b - x| and a < b
+ *
+ * Example 1:
+ * Input: arr = [1,2,3,4,5], k = 4, x = 3
+ * Output: [1,2,3,4]
+ *
+ * Example 2:
+ * Input: arr = [1,1,2,3,4,5], k = 4, x = -1
+ * Output: [1,1,2,3]
+ *
+ * Constraints:
+ * 1 <= k <= arr.length
+ * 1 <= arr.length <= 10^4
+ * arr is sorted in ascending order.
+ * -10^4 <= arr[i], x <= 10^4
  */
 public class FindKClosestNumbers {
     public static void main(String[] args) {
@@ -14,7 +35,11 @@ public class FindKClosestNumbers {
         int[] arr1 = {0, 1, 1, 1, 2, 3, 6, 7, 8, 9};
         int x1 = 4;
         int k1 = 9;
-        System.out.println(Arrays.toString(obj.findClosestElements2(arr1, k1, x1).toArray()));
+
+        int[] arr2 = {1,2,4,5};
+        int x2 = 6;
+        int k2 = 2;
+        System.out.println(Arrays.toString(obj.findClosestElements2(arr2, k2, x2).toArray()));
         System.out.println(Arrays.toString(obj.findClosestElements(arr1, k1, x1).toArray()));
     }
 
@@ -62,6 +87,7 @@ public class FindKClosestNumbers {
             }
         }
 
+        //NOTE: if x > arr[length - 1] then idx = left = arr.length and it is OK! since start = idxX - k = length - k in this case
         idxX = left;
         // x = 6
         // k = 3
@@ -69,10 +95,11 @@ public class FindKClosestNumbers {
         //idx = 6 (element = 7)
         //
 
-
         int start = Math.max(0, idxX - k);
-        int end = Math.min(arr.length - 1, idxX + (k - 1));
+        int end = Math.min(arr.length - 1, idxX + k);
         while (end - start + 1 > k) {
+            //NOTE: An integer a is closer to x than an integer b if:
+            // |a - x| == |b - x| and a < b
             if (Math.abs(x - arr[start]) <= Math.abs(x - arr[end])) {
                 end--;
             } else {

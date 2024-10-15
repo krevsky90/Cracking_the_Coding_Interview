@@ -55,6 +55,30 @@ public class Problem2_5_ProductOfArrayExceptSelf {
         return answer;
     }
 
+    /**
+     * Neetcode:
+     * https://www.youtube.com/watch?v=bNvIQI2wAjk
+     */
+    public int[] productExceptSelf2(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        result[0] = 1;
+
+        int prefix = 1;
+        for (int i = 0; i < n; i++) {
+            result[i] = prefix;
+            prefix *= nums[i];
+        }
+
+        int postfix = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= postfix;
+            postfix *= nums[i];
+        }
+
+        return result;
+    }
+
     //time ~ O(n)
     //space ~ 0(1)
     //seems like magic..

@@ -124,4 +124,31 @@ public class NumberOfRecentCalls {
             return end - start; // Returning the answer including the element added just now.
         }
     }
+
+    public static void main(String[] args) {
+        RecentCounter3 recentCounter3 = new RecentCounter3();
+        System.out.println(recentCounter3.ping(1178));
+        System.out.println(recentCounter3.ping(1483));
+        System.out.println(recentCounter3.ping(1563));
+        System.out.println(recentCounter3.ping(4054));
+        System.out.println(recentCounter3.ping(4152));
+    }
+
+    private static final int[] records = new int[3001];
+
+    static class RecentCounter3 {
+        public int ping(int t) {
+            int idx = t % 3001;
+            records[idx] = t;
+
+            int result = 0;
+            for (int i = 0; i < 3001; i++) {
+                if (records[i] > 0 && (t - records[i] <= 3000)) {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+    }
 }

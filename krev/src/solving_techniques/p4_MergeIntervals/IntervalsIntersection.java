@@ -6,35 +6,36 @@ import java.util.List;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639249470cddc1617da1b889
  * OR
- * 986. Interval List Intersections
+ * 986. Interval List Intersections (medium)
  * https://leetcode.com/problems/interval-list-intersections
  *
- * You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi]
- * represent the start and the end of the ith interval and intervals is sorted in ascending order by starti.
- * You are also given an interval newInterval = [start, end] that represents the start and end of another interval.
+ * #Company:
  *
- * Insert newInterval into intervals such that intervals is still sorted in ascending order by starti
- * and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+ * You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj].
+ * Each list of intervals is pairwise disjoint and in sorted order.
  *
- * Return intervals after the insertion.
+ * Return the intersection of these two interval lists.
+ *
+ * A closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.
+ *
+ * The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval.
+ * For example, the intersection of [1, 3] and [2, 4] is [2, 3].
  *
  * Example 1:
- * Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
- * Output: [[1,5],[6,9]]
+ * Input: firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]]
+ * Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
  *
  * Example 2:
- * Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
- * Output: [[1,2],[3,10],[12,16]]
- * Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+ * Input: firstList = [[1,3],[5,9]], secondList = []
+ * Output: []
  *
  * Constraints:
- * 0 <= intervals.length <= 10^4
- * intervals[i].length == 2
- * 0 <= starti <= endi <= 10^5
- * intervals is sorted by starti in ascending order.
- * newInterval.length == 2
- * 0 <= start <= end <= 10^5
- *
+ * 0 <= firstList.length, secondList.length <= 1000
+ * firstList.length + secondList.length >= 1
+ * 0 <= starti < endi <= 109
+ * endi < starti+1
+ * 0 <= startj < endj <= 109
+ * endj < startj+1
  */
 public class IntervalsIntersection {
     /**
@@ -74,6 +75,38 @@ public class IntervalsIntersection {
             } else if (secondList[j][1] < firstList[i][0]) {
                 //no overlapping
                 j++;
+            }
+        }
+
+        return result.toArray(new int[0][]);
+    }
+
+    public int[][] intervalIntersectionKrev2(int[][] firstList, int[][] secondList) {
+        int i = 0;
+        int j = 0;
+        List<int[]> result = new ArrayList<>();
+        while (i < firstList.length && j < secondList.length) {
+            if (firstList[i][1] < secondList[j][0]) {
+                //no intersection, Ai before Bj
+                i++;
+            } else if (firstList[i][0] > secondList[j][1]) {
+                //no intersection, Bj before Ai
+                j++;
+            } else {
+                //intersection
+                int tempStart = Math.max(firstList[i][0], secondList[j][0]);
+                int tempEnd = Math.min(firstList[i][1], secondList[j][1]);
+                result.add(new int[]{tempStart, tempEnd});
+
+                if (firstList[i][1] < secondList[j][1]) {
+                    i++;
+                } else if (firstList[i][1] > secondList[j][1]) {
+                    j++;
+                } else {
+                    //ends are equal
+                    i++;
+                    j++;
+                }
             }
         }
 
