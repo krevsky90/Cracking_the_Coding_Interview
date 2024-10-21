@@ -1,5 +1,7 @@
 package solving_techniques.p2_TwoPointers;
 
+import java.util.Deque;
+import java.util.LinkedList;
 /**
  * 125. Valid Palindrome (easy)
  * https://leetcode.com/problems/valid-palindrome
@@ -38,6 +40,15 @@ public class ValidPalindrome {
         boolean isPalindrome = isPalindrome(s);
 
         System.out.println(isPalindrome);
+
+        Deque<Integer> q = new LinkedList<>();
+        q.offer(1);
+        q.offerLast(2);
+        q.offer(3);
+        q.offerLast(4);
+        q.offer(5);
+
+        System.out.println("");
     }
 
     /**

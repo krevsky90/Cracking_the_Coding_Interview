@@ -94,3 +94,4 @@ List of problems from leetcode: https://leetcode.com/tag/depth-first-search/
 19) https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii (medium) - done
 20) https://leetcode.com/problems/largest-bst-subtree (medium) - done
 21) https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree (hard) - done
+22) https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree (medium) - done
