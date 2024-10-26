@@ -101,14 +101,11 @@ public class FindDistanceInBT {
 
     private void dfsTree(TreeNode root, Map<Integer, List<Integer>> adjLists) {
         if (root != null) {
-            if (!adjLists.containsKey(root.val)) {
-                adjLists.put(root.val, new ArrayList<>());
-            }
+            adjLists.putIfAbsent(root.val, new ArrayList<>());
 
             if (root.left != null) {
-                if (!adjLists.containsKey(root.left.val)) {
-                    adjLists.put(root.left.val, new ArrayList<>());
-                }
+                adjLists.putIfAbsent(root.left.val, new ArrayList<>());
+
                 adjLists.get(root.val).add(root.left.val);
                 adjLists.get(root.left.val).add(root.val);  //undirected graph
 
@@ -116,13 +113,45 @@ public class FindDistanceInBT {
             }
 
             if (root.right != null) {
-                if (!adjLists.containsKey(root.right.val)) {
-                    adjLists.put(root.right.val, new ArrayList<>());
-                }
+                adjLists.putIfAbsent(root.right.val, new ArrayList<>());
+
                 adjLists.get(root.val).add(root.right.val);
                 adjLists.get(root.right.val).add(root.val);  //undirected graph
 
                 dfsTree(root.right, adjLists);
+            }
+        }
+    }
+
+    //OR use
+    private void bfsTree(TreeNode root, Map<Integer, List<Integer>> adjLists) {
+        if (root != null) {
+            adjLists.putIfAbsent(root.val, new ArrayList<>());
+
+            Queue<TreeNode> q = new LinkedList<>();
+            q.add(root);
+            while (!q.isEmpty()) {
+                TreeNode node = q.poll();
+
+                TreeNode leftNode = node.left;
+                if (leftNode != null) {
+                    adjLists.putIfAbsent(leftNode.val, new ArrayList<>());
+
+                    adjLists.get(node.val).add(leftNode.val);
+                    adjLists.get(leftNode.val).add(node.val);
+
+                    q.add(leftNode);
+                }
+
+                TreeNode rightNode = node.right;
+                if (rightNode != null) {
+                    adjLists.putIfAbsent(rightNode.val, new ArrayList<>());
+
+                    adjLists.get(node.val).add(rightNode.val);
+                    adjLists.get(rightNode.val).add(node.val);
+
+                    q.add(rightNode);
+                }
             }
         }
     }
