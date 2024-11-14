@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 451. Sort Characters By Frequency
  * https://leetcode.com/problems/sort-characters-by-frequency (medium)
- * #Company: Apple
+ * #Company: Apple Amazon Bloomberg Expedia Facebook Google LinkedIn Uber Yahoo
  * <p>
  * Given a string s, sort it in decreasing order based on the frequency of the characters.
  * The frequency of a character is the number of times it appears in the string.

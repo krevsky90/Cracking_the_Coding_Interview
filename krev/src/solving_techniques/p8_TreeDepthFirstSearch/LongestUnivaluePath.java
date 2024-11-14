@@ -3,8 +3,10 @@ package solving_techniques.p8_TreeDepthFirstSearch;
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 /**
- * 687. Longest Univalue Path
+ * 687. Longest Univalue Path (medium)
  * https://leetcode.com/problems/longest-univalue-path/
+ *
+ * #Company: Amazon Apple Google Meta
  *
  * Given the root of a binary tree, return the length of the longest path,
  * where each node in the path has the same value. This path may or may not pass through the root.
@@ -78,5 +80,34 @@ public class LongestUnivaluePath {
         //update pathMax:
         arr[0] = Math.max(arr[0], leftResult + rightResult);
         return Math.max(leftResult, rightResult);
+    }
+
+    /**
+     * KREVSKY SOLUTION #2
+     * time to solve ~ 20 mins
+     */
+    public int result = 0;
+
+    public int longestUnivaluePath2(TreeNode root) {
+        if (root == null) return 0;
+
+        longestUnivaluePath2(root, null);
+
+        return result;
+    }
+
+    private int longestUnivaluePath2(TreeNode node, TreeNode parent) {
+        if (node == null) return 0;
+
+        int left = longestUnivaluePath2(node.left, node);
+        int right = longestUnivaluePath2(node.right, node);
+
+        result = Math.max(result, left + right);
+
+        if (parent == null || node.val == parent.val) {
+            return 1 + Math.max(left, right);
+        } else {
+            return 0;
+        }
     }
 }
