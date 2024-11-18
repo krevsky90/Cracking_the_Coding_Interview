@@ -10,8 +10,10 @@ import java.util.List;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6399d8d20d7254be596610f4
  * OR
- * 129. Sum Root to Leaf Numbers
+ * 129. Sum Root to Leaf Numbers (medium)
  * https://leetcode.com/problems/sum-root-to-leaf-numbers/
+ *
+ * #Company: Amazon Bloomberg Meta Google Microsoft
  * <p>
  * You are given the root of a binary tree containing digits from 0 to 9 only.
  * Each root-to-leaf path in the tree represents a number.
@@ -40,6 +42,31 @@ public class SumOfPathNumbers {
     // p = 2 - 1 = 1
     // nums = [12, 13]
 
+    /**
+     * KREVSKY 18.11.2024:
+     * https://leetcode.com/problems/sum-root-to-leaf-numbers/solutions/4157694/java-100-beats-easy-o-n-solution/
+     * The idea:
+     * it is not necessary to store the path! and all sums!
+     * it is just sufficient to add current root node to result sum in case if root is leaf node
+     */
+    private int sum = 0;
+
+    public int sumNumbers2(TreeNode root) {
+        dfs(root, 0);
+        return sum;
+    }
+
+    private void dfs(TreeNode root, int num) {
+        if (root == null) return;
+
+        int val = 10*num + root.val;
+        if (root.left == null && root.right == null) {
+            sum += val;
+        } else {
+            dfs(root.left, val);
+            dfs(root.right, val);
+        }
+    }
 
     /**
      * KREVSKY:
@@ -84,31 +111,5 @@ public class SumOfPathNumbers {
         sumNumbers(root.right, nums, tempPath);
 
         tempPath.pollLast();    //remove the last element (i.e. root) from path/stack
-    }
-
-    /**
-     * SOLUTION #2:
-     * https://leetcode.com/problems/sum-root-to-leaf-numbers/solutions/4157694/java-100-beats-easy-o-n-solution/
-     * The idea:
-     * it is not necessary to store the path! and all sums!
-     * it is just sufficient to add current root node to result sum in case if root is leaf node
-     */
-    int result = 0;
-
-    public int sumNumbers2(TreeNode root) {
-        sum2(root, 0);
-        return result;
-    }
-
-    public void sum2(TreeNode root, int num) {
-        if (root == null) return;
-        num = root.val + 10 * num;
-
-        if (root.left == null && root.right == null) {
-            result += num;
-        }
-
-        sum2(root.left, num);
-        sum2(root.right, num);
     }
 }
