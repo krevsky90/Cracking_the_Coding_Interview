@@ -1,15 +1,14 @@
 package solving_techniques.p9_TwoHeaps;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639c8fe6165a22967d308303
  * OR
- * 480. Sliding Window Median
+ * 480. Sliding Window Median (hard)
  * https://leetcode.com/problems/sliding-window-median/
+ *
+ * #Company: Amazon Meta Google Oracle Snapchat
  *
  * Given an array of numbers and a number ?k?, find the median of all the ?k? sized sub-arrays (or windows) of the array.
  *
@@ -35,6 +34,101 @@ public class SlidingWindowMedian {
         SlidingWindowMedian obj = new SlidingWindowMedian();
         double[] result = obj.medianSlidingWindow(nums, k);
         System.out.println("");
+    }
+
+    /**
+     * info: https://www.youtube.com/watch?v=oKwmSnmEFpY&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=119
+     * info: https://leetcode.com/problems/sliding-window-median/solutions/4656535/java-two-heaps-hashmap/
+     * idea:
+     * 1) use 2 heaps
+     * 2) use mapToRemove instead of real and instant deletion
+     * 2.1) remove (really) element from heaps only if it is top of the heap => takes O(1), not O(logN)
+     * 3) use balance variable to estimate if we need to rebalance the heaps or not
+     *
+     * time to implement ~ 40 mins
+     * time ~ O(N*logK)
+     * space ~ O(K)
+     *
+     * BEATS ~ 77%
+     */
+    public double[] medianSlidingWindow2(int[] nums, int k) {
+        double[] result = new double[nums.length - k + 1];
+        PriorityQueue<Integer> maxLeftHeap = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> minRightHeap = new PriorityQueue<>();
+
+        //1. fill heaps
+        for (int i = 0; i < k; i++) {
+            maxLeftHeap.add(nums[i]);
+        }
+
+        //move the biggest half of elements from to minRightHeap
+        //(this is quite faster than add and rebalance each time)
+        for (int i = 0; i < k/2; i++) {
+            minRightHeap.add(maxLeftHeap.poll());
+        }
+
+        Map<Integer, Integer> mapToRemove = new HashMap<>();
+
+        //2. main part. NOTE: we go until <= nums.length, BUT stop once we stored the latest median value to prevent out of bounds exception
+        for (int i = k; i <= nums.length; i++) {
+            double median = 0.0;
+            if (k % 2 == 1) {
+                median = maxLeftHeap.peek();
+            } else {
+                median = ((double)maxLeftHeap.peek() + (double)minRightHeap.peek())/2.0;
+            }
+            result[i - k] = median;
+
+            if (i == nums.length) break;
+
+            mapToRemove.put(nums[i - k], mapToRemove.getOrDefault(nums[i - k], 0) + 1);
+
+            int balance = 0;
+            //to find the heap that contains nums[i - k]
+            if (nums[i - k] <= median) {
+                //remove (logically, not phycisally) it from maxLeftHeap
+                balance = -1;
+            } else {
+                //remove it from minRightHeap
+                balance = 1;
+            }
+
+            //to find the heap where to insert nums[i] element
+            if (nums[i] <= median) {
+                //insert to maxLeftHeap
+                balance++;
+                maxLeftHeap.add(nums[i]);
+            } else {
+                balance--;
+                minRightHeap.add(nums[i]);
+            }
+
+            //if balance = 0, it means that we the heaps are still in balanced state.
+            //for example, if we (logically) removed element from minHeap, but we also add nums[i] to the same heap => its size stays intact
+
+            if (balance < 0) {
+                maxLeftHeap.add(minRightHeap.poll());
+            } else if (balance > 0) {
+                minRightHeap.add(maxLeftHeap.poll());
+            }
+
+            //remove the elements mentioned in mapToRemove if it is possible to do in O(1) (btw, we don't know which heap contains these elements)
+            //NOTE: if heap contains element that needs to be remove, BUT this element is NOT on the top,
+            //then it does NOT influence of the result (since only top element affects the calculations)
+            // => we can keep so called 'removed' element in Queue until it becomes top element
+            //Then it can affect us, but we can remove it O(1) so we do this
+            while (!maxLeftHeap.isEmpty() && mapToRemove.getOrDefault(maxLeftHeap.peek(), 0) > 0) {
+                mapToRemove.put(maxLeftHeap.peek(), mapToRemove.get(maxLeftHeap.peek()) - 1);
+                maxLeftHeap.poll();
+            }
+
+            while (!minRightHeap.isEmpty() && mapToRemove.getOrDefault(minRightHeap.peek(), 0) > 0) {
+                mapToRemove.put(minRightHeap.peek(), mapToRemove.get(minRightHeap.peek()) - 1);
+                minRightHeap.poll();
+            }
+        }
+
+        return result;
     }
 
     /**
