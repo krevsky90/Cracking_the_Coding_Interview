@@ -54,6 +54,15 @@ We primarily represent graphs using two ways:
     theory https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
     theory https://www.youtube.com/watch?v=K_1urzWrzLs (starting from ~ 12 min)
     implementation: src/solving_techniques/p29_Graphs/theory/PrimAlgorithm.java
+6) Eulerian Path/Circuit algorithm (Hierholzer's algorithm):
+    theory https://www.youtube.com/watch?v=8MpoO2zA2l4
+    NOTE:
+        - Eulerian Path exists if there is node which (count_outcoming_edges - count_incoming_edges == 1) and node (count_incoming_edges - count_outcoming_edges == 1)
+            OR all nodes have count_outcoming_edges = count_incoming_edges
+        - start with node which count_outcoming_edges - count_incoming_edges == 1 (or count_outcoming_edges = count_incoming_edges otherwise)
+        - use DFS. if node does not have unvisited outcoming edges, then it is added in the beginning of the path
+
+    implementation: src/solving_techniques/p29_Graphs/ReconstructItinerary.java
 
 Common ideas:
 0) if we use adjacent matrix, then set matrix[u][v] = INFINITY if u and v are not connected directly

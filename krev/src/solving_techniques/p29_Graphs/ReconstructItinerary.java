@@ -42,8 +42,11 @@ public class ReconstructItinerary {
      * <p>
      * idea: Hierholzer's algorithm to find Eulerian path
      * В теории графов эйлерова тропа — это тропа в конечном графе, которая посещает каждое ребро ровно один раз
+     *
+     * theory: https://www.youtube.com/watch?v=8MpoO2zA2l4
+     *
      * <p>
-     * 1) create AdjMap
+     * 1) create AdjMap (of unvisited 'edges')
      * 2) sort list in each value of map in REVERSE lexicographical order
      * 3) use dfs:
      * - pop the latest (i.e. the smallest element from adjList of current point)
@@ -60,7 +63,7 @@ public class ReconstructItinerary {
         Map<String, List<String>> adjMap = new HashMap<>();
 
         for (List<String> ticket : tickets) {
-            adjMap.putIfAbsent(ticket.get(0), new ArrayList<String>());
+            adjMap.putIfAbsent(ticket.get(0), new ArrayList<>());
             adjMap.get(ticket.get(0)).add(ticket.get(1));
         }
 
