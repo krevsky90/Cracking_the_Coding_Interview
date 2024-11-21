@@ -1,8 +1,10 @@
 package solving_techniques.p25_UniquePaths;
 
 /**
- * 62. Unique Paths
+ * 62. Unique Paths (medium)
  * https://leetcode.com/problems/unique-paths
+ *
+ * #Company: Adobe Alibaba Amazon Apple Bloomberg Meta Goldman Sachs Google Mathworks Microsoft Oracle Snapchat Uber VMware Walmart Labs
  * <p>
  * There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]).
  * The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]).
