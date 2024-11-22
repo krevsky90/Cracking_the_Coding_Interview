@@ -5,8 +5,10 @@ import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639b62040dbaa5118a4b5e96
  * OR
- * 543. Diameter of Binary Tree
- * https://leetcode.com/problems/diameter-of-binary-tree/description/
+ * 543. Diameter of Binary Tree (easy)
+ * https://leetcode.com/problems/diameter-of-binary-tree
+ *
+ * #Company: Adobe Amazon Apple Atlassian Baidu Bloomberg ByteDance Meta Google Intel Microsoft Oracle Qualtrics VMware
  * <p>
  * Given the root of a binary tree, return the length of the diameter of the tree.
  * The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
