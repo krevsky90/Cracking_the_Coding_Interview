@@ -21,6 +21,9 @@ while (low <= high) {
     }
 }
 
+NOTE: as I can notice, if while contains <= then high = mid - 1 and low = mid + 1. i.e. we must do +1 or -1, since <= contains =,
+so it can lead to infinite loop
+
 Sequence of problems:
 1) Order-agnostic Binary Search (easy) - done
 2) Ceiling of a Number (medium) - done
