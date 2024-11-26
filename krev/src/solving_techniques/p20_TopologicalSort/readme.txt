@@ -12,7 +12,7 @@ Given a directed graph, find the topological ordering of its vertices.
 
 Approach 1:
 Topological Sort + DFS:
-https://www.youtube.com/watch?v=5lZ0iJMrUMk
+https://www.youtube.com/watch?v=Akt3glAwyfY
 
 Approach 2:
 Topological Sort + BFS:
@@ -53,7 +53,7 @@ Sequence of problems:
 2) Tasks Scheduling (similar to https://leetcode.com/problems/course-schedule) - done
 3) Tasks Scheduling Order (similar to https://leetcode.com/problems/course-schedule-ii/) - done
 4) All Tasks Scheduling Orders (hard) - done
-5) Alien Dictionary (hard) - todo
+5) Alien Dictionary (hard) - done
 6) Problem Challenge 1: Reconstructing a Sequence (hard) - todo
 7) Problem Challenge 2: Minimum Height Trees (hard) - done
 

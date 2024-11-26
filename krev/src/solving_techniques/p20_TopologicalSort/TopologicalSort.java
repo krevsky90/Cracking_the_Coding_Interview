@@ -40,26 +40,33 @@ import java.util.*;
  */
 public class TopologicalSort {
     public static void main(String[] args) {
-        System.out.println("Input: Vertices=4, Edges=[3, 2], [3, 0], [2, 0], [2, 1]");
-        int vertices1 = 4;
-        int [][] edges1 = {{3,2},{3,0},{2,0},{2,1}};
+//        System.out.println("Input: Vertices=4, Edges=[3, 2], [3, 0], [2, 0], [2, 1]");
+//        int vertices1 = 4;
+//        int [][] edges1 = {{3,2},{3,0},{2,0},{2,1}};
+//
+//        System.out.println("result 1 DFS");
+//        int[] result1dfs = topologicalSortDFS(vertices1, edges1);
+//        Arrays.stream(result1dfs).forEach(x -> System.out.print(x + " "));
+//        System.out.println("\nresult 1 BFS");
+//        int[] result1bfs = topologicalSortBFS(vertices1, edges1);
+//        Arrays.stream(result1bfs).forEach(x -> System.out.print(x + " "));
+//
+//        System.out.println("\n\nInput: Vertices=7, Edges=[6, 4], [6, 2], [5, 3], [5, 4], [3, 0], [3, 1], [3, 2], [4, 1]");
+//        int vertices3 = 7;
+//        int [][] edges3 = {{6,4},{6,2},{5,3},{5,4},{3,0},{3,1},{3,2},{4,1}};
+//        System.out.println("result 3 DFS");
+//        int[] result3dfs = topologicalSortDFS(vertices3, edges3);
+//        Arrays.stream(result3dfs).forEach(x -> System.out.print(x + " "));
+//        System.out.println("\nresult 3 BFS");
+//        int[] result3bfs = topologicalSortBFS(vertices3, edges3);
+//        Arrays.stream(result3bfs).forEach(x -> System.out.print(x + " "));
 
-        System.out.println("result 1 DFS");
-        int[] result1dfs = topologicalSortDFS(vertices1, edges1);
-        Arrays.stream(result1dfs).forEach(x -> System.out.print(x + " "));
-        System.out.println("\nresult 1 BFS");
-        int[] result1bfs = topologicalSortBFS(vertices1, edges1);
-        Arrays.stream(result1bfs).forEach(x -> System.out.print(x + " "));
+        System.out.println("Input: Vertices=3, Edges=[1, 2], [2, 1], [0, 1]");
+        int vertices4 = 3;
+        int[][] edges4 = {{1,2},{2,1},{0,1}};
 
-        System.out.println("\n\nInput: Vertices=7, Edges=[6, 4], [6, 2], [5, 3], [5, 4], [3, 0], [3, 1], [3, 2], [4, 1]");
-        int vertices3 = 7;
-        int [][] edges3 = {{6,4},{6,2},{5,3},{5,4},{3,0},{3,1},{3,2},{4,1}};
-        System.out.println("result 3 DFS");
-        int[] result3dfs = topologicalSortDFS(vertices3, edges3);
-        Arrays.stream(result3dfs).forEach(x -> System.out.print(x + " "));
-        System.out.println("\nresult 3 BFS");
-        int[] result3bfs = topologicalSortBFS(vertices3, edges3);
-        Arrays.stream(result3bfs).forEach(x -> System.out.print(x + " "));
+        int[] result4dfs = topologicalSortDfsNeetcode(vertices4, edges4);
+        System.out.println("");
     }
 
     /**
@@ -124,53 +131,61 @@ public class TopologicalSort {
     }
 
     /**
-     * KREVSKY SOLUTION
-     * based on DFS approach (#1)
-     * time to solve ~ 22 mins
-     * 2 attempts
+     * Topological Sort DFS
+     * info: https://www.youtube.com/watch?v=Akt3glAwyfY
+     * (similar to https://www.youtube.com/watch?v=6vaSka3rwDQ)
+     *
+     * time ~ O(E + V)
+     * space ~ O(E)
      */
-    public static int[] topologicalSortDFS(int vertices, int [][] edges) {
-        boolean[] visited = new boolean[vertices];
-
-        Stack<Integer> stack = new Stack<>();
-
-        //foe each node (vertex)
+    public static int[] topologicalSortDfsNeetcode(int vertices, int [][] edges) {
+        //1. build graph (adjLists)
+        List<List<Integer>> adjLists = new ArrayList<>();
         for (int i = 0; i < vertices; i++) {
-            if (!visited[i]) {
-                dfs(visited, edges, i, stack);
+            adjLists.add(new ArrayList<>());
+        }
+
+        for (int[] edge : edges) {
+            adjLists.get(edge[0]).add(edge[1]);
+        }
+
+        List<Integer> result = new ArrayList<>();
+        Set<Integer> visited = new HashSet<>();
+        Set<Integer> cycle = new HashSet<>();
+
+        //2. use DFS for each not visited vertex
+        for (int i = 0; i < vertices; i++) {
+            if (!visited.contains(i)) {
+                if (!dfsNeetcode(adjLists, result, visited, cycle, i)) {
+                    return new int[0];  //return empty arr if the graph has cycle
+                }
             }
         }
 
-        //move nodes from stack to the result
-        int[] result = new int[vertices];
-        for (int i = 0; i < vertices; i++) {
-            //additional validation (todo: will it defend from cyclic graph?)
-            if (!stack.isEmpty()) {
-                result[i] = stack.pop();
-            }
+        int[] resArr = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            resArr[i] = result.get(i);
         }
 
-         return result;
+        return resArr;
     }
 
-    private static void dfs(boolean[] visited, int [][] edges, int vertex, Stack<Integer> stack) {
-        //mark node as visited
-        visited[vertex] = true;
+    private static boolean dfsNeetcode(List<List<Integer>> adjLists, List<Integer> result, Set<Integer> visited, Set<Integer> cycle, int v) {
+        if (cycle.contains(v)) return false;    //we've found cycle
 
-        //find list of nodes which are destination point for edges that have the 'node' as source point
-        List<Integer> children = new ArrayList<>();
-        for (int[] edge : edges) {
-            if (edge[0] == vertex) {
-                children.add(edge[1]);
+        if (visited.contains(v)) return true;
+
+        cycle.add(v);
+        List<Integer> children = adjLists.get(v);
+        for (int child : children) {
+            if (!dfsNeetcode(adjLists, result, visited, cycle, child)) {
+                return false;   //we've found cycle
             }
         }
 
-        for (Integer child : children) {
-            if (!visited[child]) {
-                dfs(visited, edges, child, stack);
-            }
-        }
-
-        stack.push(vertex);
+        cycle.remove(v);    //like backtracking
+        visited.add(v);
+        result.add(v);
+        return true;    //since we did not find a cycle
     }
 }
