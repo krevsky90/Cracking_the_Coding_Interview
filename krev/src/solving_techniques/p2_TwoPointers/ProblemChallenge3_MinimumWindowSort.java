@@ -7,6 +7,14 @@ package solving_techniques.p2_TwoPointers;
  * https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted
  */
 public class ProblemChallenge3_MinimumWindowSort {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,10,4,2,3,5};
+
+        ProblemChallenge3_MinimumWindowSort obj = new ProblemChallenge3_MinimumWindowSort();
+        int result = obj.findLengthOfShortestSubarray(arr);
+
+        System.out.println(result);
+    }
     /**
      * PROBLEM from designgurus
      * todo
@@ -46,6 +54,10 @@ public class ProblemChallenge3_MinimumWindowSort {
 
         //case 3: subarray in the middle
         //todo: draw to understand!
+        //Input: arr = [1,2,3,10,4,2,3,5]
+        //start = 3
+        //end = 5
+        //finally: start = 2, i = 6 => minLength = min(min(8 - 3 - 1, 5), 6 - 2 - 1) = min(min(4, 5), 3) = 3
         while (start >= 0) {
             for (int i = end; i < arr.length; i++) {
                 if (arr[start] > arr[i]) {
@@ -61,3 +73,4 @@ public class ProblemChallenge3_MinimumWindowSort {
         return minLength;
     }
 }
+

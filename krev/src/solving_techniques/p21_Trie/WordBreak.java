@@ -3,8 +3,10 @@ package solving_techniques.p21_Trie;
 import java.util.*;
 
 /**
- * 139. Word Break
+ * 139. Word Break (medium)
  * https://leetcode.com/problems/word-break
+ *
+ * #Company: Adobe Amazon Apple Audible Bloomberg Coupang Facebook Google HBO Hulu Lyft Microsoft Oracle Pinterest Pocket Gems Qualtrics Salesforce Snapchat Square TripAdvisor Twilio Uber VMware Walmart Labs Yahoo Yelp
  * <p>
  * Given a string s and a dictionary of strings wordDict,
  * return true if s can be segmented into a space-separated sequence of one or more dictionary words.
@@ -291,5 +293,34 @@ public class WordBreak {
         }
 
         return dp[s.length() - 1];
+    }
+
+    /**
+     * KREVSKY 26.11.2024
+     *
+     * BEATS ~ 90%
+     */
+    public boolean wordBreak26112024(String s, List<String> wordDict) {
+        Map<String, Boolean> memo = new HashMap<>();
+
+        return wordBreak26112024(s, wordDict, memo);
+    }
+
+    public boolean wordBreak26112024(String s, List<String> wordDict, Map<String, Boolean> memo) {
+        if (s == null || s.length() == 0) return true;
+
+        if (memo.containsKey(s)) return memo.get(s);
+
+        for (String w : wordDict) {
+            if (s.startsWith(w)) {
+                if (wordBreak26112024(s.substring(w.length()), wordDict, memo)) {
+                    memo.put(s, true);
+                    return true;
+                }
+            }
+        }
+
+        memo.put(s, false);
+        return false;
     }
 }

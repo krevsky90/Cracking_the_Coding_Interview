@@ -31,6 +31,12 @@ import java.util.Arrays;
  * -5 * 10^4 <= starti < endi <= 5 * 10^4
  */
 public class NonOverlappingIntervals {
+    public static void main(String[] args) {
+        int[][] intervals = {{1,100},{11,22},{1,11},{2,12}};
+
+        NonOverlappingIntervals obj = new NonOverlappingIntervals();
+        System.out.println(obj.eraseOverlapIntervals(intervals));
+    }
     /**
      * NOT SOLVED by myself
      * idea #1: sort by end
@@ -48,6 +54,7 @@ public class NonOverlappingIntervals {
         int prevNum = -1;
         for (int i = 0; i < intervals.length; i++) {
             if (prevNum < 0 || intervals[prevNum][1] <= intervals[i][0]) {
+                //since even if prev-th interval overlaps i+1-th interval, then i-th interval also overlaps i+1-th
                 prevNum = i;
             } else {
                 result++;
