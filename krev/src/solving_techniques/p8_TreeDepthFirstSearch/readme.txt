@@ -95,3 +95,4 @@ List of problems from leetcode: https://leetcode.com/tag/depth-first-search/
 20) https://leetcode.com/problems/largest-bst-subtree (medium) - done
 21) https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree (hard) - done
 22) https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree (medium) - done
+23) https://www.tryexponent.com/practice/prepare/largest-smaller-bst-key - done

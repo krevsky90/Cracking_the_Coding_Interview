@@ -37,6 +37,37 @@ public class SimplifyPath {
         System.out.println(new SimplifyPath().simplifyPath(s1));    // expected /a/b/c
     }
 
+    /**
+     * KREVSKY #2:
+     * from 12.10.2024
+     *
+     */
+    public String simplifyPath_12102024(String path) {
+        Stack<String> stack = new Stack<>();
+
+        char[] arr = path.toCharArray();
+        String[] split = path.split("/");
+
+        for (String s : split) {
+            if (s.isEmpty() || ".".equals(s)) {
+                continue;
+            } else if ("..".equals(s)) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else {
+                stack.add(s);
+            }
+        }
+
+        String result = "";
+        while (!stack.isEmpty()) {
+            result = "/" + stack.pop() + result;
+        }
+
+        return result.length() == 0 ? "/" : result;
+    }
+
     public String simplifyPath(String path) {
         StringBuilder sb = new StringBuilder(); //to store the name of current directory to bring it to stack later
         Stack<String> stack = new Stack<>();    //to store directories
