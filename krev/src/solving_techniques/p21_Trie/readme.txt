@@ -40,3 +40,6 @@ Sequence of problems:
 additional problems see here: https://leetcode.com/tag/trie
 6) https://leetcode.com/problems/word-break - done
 7) https://leetcode.com/problems/add-bold-tag-in-string (medium) - done
+
+
+8) https://leetcode.com/problems/remove-sub-folders-from-the-filesystem (medium) - done
