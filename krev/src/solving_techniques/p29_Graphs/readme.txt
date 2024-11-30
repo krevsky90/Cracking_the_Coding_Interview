@@ -90,3 +90,4 @@ todo: take problems from here https://neetcode.io/roadmap
 14) https://leetcode.com/problems/shortest-distance-from-all-buildings (hard) - done
 15) https://leetcode.com/problems/jump-game-v/ (hard) - done
 16) https://leetcode.com/problems/reconstruct-itinerary (hard) - done
+17) https://leetcode.com/problems/shortest-distance-after-road-addition-queries-i (medium) - done
