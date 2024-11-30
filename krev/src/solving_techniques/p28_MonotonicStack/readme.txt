@@ -6,12 +6,21 @@ This is achieved by enforcing specific push and pop rules
 
 1. Monotonically Increasing Stack
 A Monotonically Increasing Stack is a stack where elements are arranged in an ascending order from the bottom to the top.
+
+    top
+     3
+     2
+     1
+    bottom
+
 Here, every new element that's pushed onto the stack is greater than or equal to the element below it.
 If a new element is smaller, we pop the elements from the top of the stack
     until we find an element smaller than or equal to the new element, or the stack is empty.
 This way, the stack always maintains an increasing order.
 
 2. Monotonically Decreasing Stack - vise versa
+
+NOTE: to next GREATER element we must use monotonically DECREASING stack. And vice versa
 
 === Identifying Problems Suitable for Monotonic Stack ===
 Problem Characteristics:

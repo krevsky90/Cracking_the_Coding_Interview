@@ -91,4 +91,44 @@ public class NextGreaterElement1 {
 
         return result;
     }
+
+    /**
+     * KREVSKY SOLUTION #2: 29.11.2024
+     * time to solve ~ 20 mins
+     *
+     * BEATS ~ 42%
+     */
+    public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        int[] nge = new int[nums2.length];
+        Stack<Integer> stack = new Stack<>();   //should be decreasing (from bottom to top)
+        for (int i = nums2.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() < nums2[i]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                nge[i] = -1;
+            } else {
+                nge[i] = stack.peek();
+            }
+
+            stack.add(nums2[i]);
+        }
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums1.length; i++) {
+            map.put(nums1[i], i);
+        }
+
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums2.length; i++) {
+            if (map.containsKey(nums2[i])) {
+                int index = map.get(nums2[i]);
+                int ngeVal = nge[i];
+                result[index] = ngeVal;
+            }
+        }
+
+        return result;
+    }
 }
