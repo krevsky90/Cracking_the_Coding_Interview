@@ -9,7 +9,7 @@ import java.util.List;
  * 438. Find All Anagrams in a String (medium)
  * https://leetcode.com/problems/find-all-anagrams-in-a-string
  *
- * #Company: Yandex
+ * #Company: Yandex Amazon Bloomberg Facebook Goldman Sachs Google Microsoft Oracle Robinhood Uber
  *
  * Given two strings s and p, return an array of all the start indices of p's anagrams in s.
  * You may return the answer in any order.
@@ -38,7 +38,44 @@ import java.util.List;
  */
 public class ProblemChallenge2_StringAnagrams {
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #2 from 05.12.2024:
+     * more classical Sliding window: i.e. increment, cut if necessary, compare arrs and save the results
+     *
+     * BEATS ~ 68%
+     */
+    public List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (p.length() > s.length()) return result;
+
+        int[] arrP = new int[26];
+        for (int i = 0; i < p.length(); i++) {
+            arrP[p.charAt(i) - 'a']++;
+        }
+
+        int[] arrS = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+            arrS[s.charAt(i) - 'a']++;
+
+            //not necessary since in this case arrS != arrP 100%
+            // if (i < p.length() - 1) {
+            //     continue;
+            // }
+
+            if (i >= p.length()) {
+                arrS[s.charAt(i - p.length()) - 'a']--;
+            }
+
+            if (compareArrs(arrP, arrS)) {
+                result.add(i - p.length() + 1);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * KREVSKY SOLUTION #1:
      * idea: is the same as for ProblemChallenge1_PermutationInString # checkInclusionOptimized(..)
      *
      * time to solve ~ 25 mins
@@ -49,6 +86,8 @@ public class ProblemChallenge2_StringAnagrams {
      * 3 attempts:
      * - forget "if (compareArrs(arrP, arrS))" after the for-loop
      * - forget "if (p.length() > s.length()) return result;"
+     *
+     * BEATS ~ 57%
      */
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
@@ -79,6 +118,7 @@ public class ProblemChallenge2_StringAnagrams {
 
         return result;
     }
+
 
     private boolean compareArrs(int[] data1, int[] data2) {
         for (int i = 0; i < data1.length; i++) {
