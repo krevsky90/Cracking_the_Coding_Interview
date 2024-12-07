@@ -44,3 +44,4 @@ Sequence of problems:
 6) https://leetcode.com/problems/swap-nodes-in-pairs (medium) - done
 7) https://leetcode.com/problems/reverse-nodes-in-even-length-groups (medium) - done
 8) https://leetcode.com/problems/odd-even-linked-list (medium) - done
+9) https://leetcode.com/problems/all-oone-data-structure (hard) - done
