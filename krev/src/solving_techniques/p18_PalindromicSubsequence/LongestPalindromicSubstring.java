@@ -3,8 +3,11 @@ package solving_techniques.p18_PalindromicSubsequence;
 /**
  * https://www.designgurus.io/course-play/grokking-dynamic-programming/doc/637f54e6a842de869cd5f13f
  * OR
- * 5. Longest Palindromic Substring
+ * 5. Longest Palindromic Substring (medium)
  * https://leetcode.com/problems/longest-palindromic-substring
+ *
+ * #Company: 0 - 3 months Google 21 Amazon 18 Cisco  14 Microsoft 11 Meta 8 TikTok 7 Bloomberg 3 Huawei 3 IBM 2 Goldman Sachs 2 0 - 6 months Zoho 11 Oracle 6 Accenture 5 Infosys 2 tcs 2 Apple 2 Wix 2 Pure Storage 2 Yandex 2 Nielsen 2 6 months ago Adobe 36 Yahoo 23 Uber 19 J.P. Morgan 10 Walmart Labs 7  Tinkoff 5 Wayfair 5
+ * LinkedIn 4 EPAM Systems 4 CEDCOSS 4
  * <p>
  * Given a string s, return the longest palindromic substring in s.
  * <p>
