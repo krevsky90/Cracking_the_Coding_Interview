@@ -39,7 +39,7 @@ public class DijkstrasShortestPathAlgorithm {
         dist[src] = 0;
 
         // sptSet[i] will true if vertex i is included in the shortest path tree
-        // or shortest distance from src to i is finalized
+        // in other words, the shortest distance from src to i is finalized
         boolean sptSet[] = new boolean[V];  //initialized by false by default
 
         // as I understand, it is better to use V (rather than V-1).

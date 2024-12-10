@@ -37,7 +37,7 @@ We primarily represent graphs using two ways:
 3) write examples of transforming matrix picture to Adjacency list
 3) Dikstra'a algorithm:
     conditions: algorithm works with directed weighted (only allow non-negative weights) graph
-    target: to find shortest lowest cost path from starting vertex to destination vertex
+    target: to find shortest/lowest cost path from starting vertex to destination vertex
 
     theory (from vertex to neighbours): https://www.youtube.com/watch?v=K_1urzWrzLs
     theory (from the nearest vertex) + implementation O(V^2): https://www.geeksforgeeks.org/java-program-for-dijkstras-shortest-path-algorithm-greedy-algo-7/
@@ -92,3 +92,4 @@ todo: take problems from here https://neetcode.io/roadmap
 16) https://leetcode.com/problems/reconstruct-itinerary (hard) - done
 17) https://leetcode.com/problems/shortest-distance-after-road-addition-queries-i (medium) - done
 18) https://leetcode.com/problems/find-champion-ii (medium) - done
+19) https://leetcode.com/problems/path-with-maximum-probability (medium) - done
