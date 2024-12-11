@@ -21,9 +21,14 @@ public class DijkstrasShortestPathAlgorithm {
                 {0, 0, 2, 0, 0, 0, 6, 7, 0}};
 
         DijkstrasShortestPathAlgorithm t = new DijkstrasShortestPathAlgorithm();
-        t.dijkstra1(graph, 0);
+//        t.dijkstra1(graph, 0);
         t.dijkstra2(graph, 0);
     }
+
+    /**
+     * THE BEST implementation:
+     * PathWithMaximumProbability # maxProbability3
+     */
 
     /**
      * info:

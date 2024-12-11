@@ -44,7 +44,8 @@ We primarily represent graphs using two ways:
     theory (from the nearest vertex) + implementation O(V + E*logV): https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-in-java-using-priorityqueue/
     implementation: src/solving_techniques/p29_Graphs/theory/DijkstrasShortestPathAlgorithm.java
 
-    practice: src/solving_techniques/p29_Graphs/NetworkDelayTime.java - see https://www.youtube.com/watch?v=EaphyqKU4PQ
+    THE BEST practice: https://www.youtube.com/watch?v=XEb7_z5dG3c
+    THE BEST practice: PathWithMaximumProbability # maxProbability3
 4) Kruskal algorithm:
     theory https://www.youtube.com/watch?v=qOv8K-AJ7o0
     theory https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2
@@ -93,3 +94,4 @@ todo: take problems from here https://neetcode.io/roadmap
 17) https://leetcode.com/problems/shortest-distance-after-road-addition-queries-i (medium) - done
 18) https://leetcode.com/problems/find-champion-ii (medium) - done
 19) https://leetcode.com/problems/path-with-maximum-probability (medium) - done
+20) https://leetcode.com/problems/cheapest-flights-within-k-stops (medium) - done

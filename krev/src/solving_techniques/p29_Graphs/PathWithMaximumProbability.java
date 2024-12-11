@@ -45,14 +45,14 @@ public class PathWithMaximumProbability {
         PathWithMaximumProbability obj = new PathWithMaximumProbability();
 
         int n = 3;
-//        int[][] edges = {{0,1},{1,2},{0,2}};
-//        double[] succProb = {0.5,0.5,0.2};
+        int[][] edges = {{0,1},{1,2},{0,2}};
+        double[] succProb = {0.5,0.5,0.2};
         int start = 0;
         int end = 2;
         //
-        int[][] edges = {{0, 1}};
-        double[] succProb = {0.5};
-        double result = obj.maxProbability(n, edges, succProb, start, end);
+//        int[][] edges = {{0, 1}};
+//        double[] succProb = {0.5};
+        double result = obj.maxProbability3(n, edges, succProb, start, end);
         System.out.println(result);
     }
 
@@ -149,6 +149,57 @@ public class PathWithMaximumProbability {
         }
 
         return dist[end_node];
+    }
+
+    /**
+     * based on https://www.youtube.com/watch?v=XEb7_z5dG3c
+     *
+     * ВНИМАНИЕ:
+     * 1) нет смысла хранить visited ноды!
+     * лучше хранить МАПУ dist: вершина -> дистанция.
+     * т.к. мы в нее записываем только ЛУЧШУЮ дистанцию до этой ноды,
+     * то либо мы туда еще пока ничего не записали
+     * либо уже записали лучшее значение => if (distMap.containsKey(v)) => continue, т.е. скипаем!
+     *
+     * 2) в pq добавляем ВСЕ adjacent ноды! если у них неоптимальная дистанция, они буду валяться в pq,
+     * а потом скипнуться из-за условия if (distMap.containsKey(v)) => continue
+     *
+     * 2.1) если не скипнулись, то тогда мы засеттим их в distMap в момент рассмотрения
+     */
+    public double maxProbability3(int n, int[][] edges, double[] succProb, int start_node, int end_node) {
+        List<List<Pair>> adjLists = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adjLists.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edges.length; i++) {
+            adjLists.get(edges[i][0]).add(new Pair(edges[i][1], succProb[i]));
+            adjLists.get(edges[i][1]).add(new Pair(edges[i][0], succProb[i]));
+        }
+
+        Map<Integer, Double> distMap = new HashMap<>();  //default prob = 0 is ok, since we will find max prob
+
+        PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> b.dist - a.dist < 0 ? -1 : 1);   //max heap
+        pq.add(new Pair(start_node, 1.0));  //max prob = 1
+
+        while (!pq.isEmpty()) {
+            Pair v = pq.poll();
+
+            if (distMap.containsKey(v.node)) continue;
+
+            distMap.put(v.node, v.dist);
+
+            List<Pair> adj = adjLists.get(v.node);
+            for (Pair u : adj) {
+                //this validation is necessary (in common case, not in this problem) since the graph is undirected
+                // => we can infinitely go 0 - 1 - 0 - 1 - ...
+                if (!distMap.containsKey(u.node)) {
+                    pq.add(new Pair(u.node, v.dist * u.dist));
+                }
+            }
+        }
+
+        return distMap.getOrDefault(end_node, 0.0);
     }
 
 
