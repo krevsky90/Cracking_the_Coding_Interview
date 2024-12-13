@@ -68,6 +68,9 @@ public class FindDistanceInBT {
      * 2) use BFS traversal for the graph
      *  time to implement ~ 17 mins
      *
+     *  time ~ O(n) - to build graph. O(n) - to BFS graph => O(n)
+     *  space ~ O(n) - for  built graph. O(n) - for BFS queue => O(2*n) = O(n)
+     *
      * 2 attempts:
      * - did not use level in queue's elements
      */
