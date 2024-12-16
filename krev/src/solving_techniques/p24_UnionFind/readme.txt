@@ -50,3 +50,4 @@ Sequence of problems:
 3) Is Graph Bipartite? (medium) - done
 4) Path With Minimum Effort (medium) - done
 5) https://leetcode.com/problems/find-the-safest-path-in-a-grid (medium) - todo
+6) https://leetcode.com/problems/number-of-islands-ii (hard) - done
