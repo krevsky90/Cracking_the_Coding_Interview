@@ -97,3 +97,4 @@ todo: take problems from here https://neetcode.io/roadmap
 20) https://leetcode.com/problems/cheapest-flights-within-k-stops (medium) - done
 21) https://leetcode.com/problems/bus-routes (hard) - done
 22) https://leetcode.com/problems/evaluate-division (medium) - done
+23) https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i (medium) - done
