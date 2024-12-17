@@ -1,5 +1,6 @@
 package solving_techniques.p31_OrderedSet.theory;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -16,6 +17,7 @@ public class OrderedSetExamples {
         //NOTE: each operation takes O(logN)
         System.out.println(treeMap.lowerEntry(7));  //4
         System.out.println(treeMap.lowerKey(7));    //4
+        System.out.println(treeMap.floorKey(6));    //4
         System.out.println(treeMap.higherEntry(7)); //9
         System.out.println(treeMap.higherKey(7));   //9
         System.out.println(treeMap.ceilingKey(6));  //7 - return this key or (if not exist) - the closest key that is greater
@@ -30,7 +32,18 @@ public class OrderedSetExamples {
         treeMap.tailMap(4); //4(Four) 7(Seven) 9(Nine) - part of map: from given key to the end
         treeMap.tailMap(4, false); // 7(Seven) 9(Nine) - part of map: from given key to the end, can exclude given key
 
-        TreeSet<Integer> ts = new TreeSet<>();
+        System.out.println("========================");
+        TreeSet<int[]> ts = new TreeSet<>((a,b) -> b[0] - a[0]);
+        ts.add(new int[]{3, 5});
+        ts.add(new int[]{33, 45});
+        Iterator<int[]> it = ts.iterator();
+
+        while (it.hasNext()) {
+            int[] arr = it.next();
+            System.out.println(arr[0] + ", " + arr[1]);
+        }
+
+
         //NOTE: the same methods as for TreeMap
     }
 }
