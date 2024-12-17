@@ -63,7 +63,9 @@ public class FindMinimumTimeToReachLastRoom1 {
      * it is about graphs!
      * <p>
      * idea:
-     * 1) find the shortest path in the graph using PriorityQueue
+     * 1) find the shortest path in the graph using PriorityQueue (min heap based on time field of element)
+     * - keep set of visited cells using their idx = r * m + c
+     * - each element of queue = r, c, time to reach this cell
      * 2) NOTE: grid[0][0] = 0 independently on moveTime[0][0] value!
      * 3) optimization: we set element only in case if we can improve the time
      * <p>
