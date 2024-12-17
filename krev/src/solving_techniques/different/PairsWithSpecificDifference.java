@@ -37,6 +37,9 @@ public class PairsWithSpecificDifference {
      * 1) need to fast check if pair exists => store all arr elements to Set
      * 2) since pairs should be ordered by y-th position, we will consider y = arr[i], since i is index when we traverse through arr
      * 2.2) then x = y + k => we check if set contains x
+     *
+     * time ~ O(arr.length)
+     * space ~ O(arr.length)
      */
     static int[][] findPairsWithGivenDifference(int[] arr, int k) {
         // your code goes here
