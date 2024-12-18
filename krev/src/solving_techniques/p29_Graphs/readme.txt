@@ -99,3 +99,4 @@ todo: take problems from here https://neetcode.io/roadmap
 22) https://leetcode.com/problems/evaluate-division (medium) - done
 23) https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i (medium) - done
 24) https://leetcode.com/problems/find-minimum-time-to-reach-last-room-ii (medium) - done
+25) https://leetcode.com/problems/shortest-bridge (medium) - done
