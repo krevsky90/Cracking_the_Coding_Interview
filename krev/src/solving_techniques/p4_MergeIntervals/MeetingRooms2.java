@@ -8,7 +8,7 @@ import java.util.Arrays;
  * OR
  * https://leetcode.ca/all/253.html
  *
- * #Company: Yandex
+ * #Company: 0 - 3 months Amazon 16 Google 14 Meta 13 Bloomberg 10 Microsoft 7 TikTok 6 Netflix 5 Oracle 3 Uber 3 0 - 6 months Apple 3 Splunk 3 Adobe 2 Snap 2 Salesforce 2 Capital One 2 6 months ago IBM 15 Turo 5 Yandex 4 eBay 4 Pinterest 3 ServiceNow 3 Yahoo 3 Miro 3 Goldman Sachs 2 Tesla 2
  *
  * Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
  * find the minimum number of conference rooms required.
