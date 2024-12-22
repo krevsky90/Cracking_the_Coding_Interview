@@ -19,6 +19,7 @@ Sequence of problems:
 4) Longest Continuous Subarray (medium) - ?? https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit ?? - todo
 5) https://leetcode.com/problems/block-placement-queries (hard) - done. but TLE
 6) https://leetcode.com/problems/design-memory-allocator (medium) - done
+7) https://leetcode.com/problems/the-skyline-problem (hard) - done
 
 more problems are here:
 https://leetcode.com/tag/ordered-set
