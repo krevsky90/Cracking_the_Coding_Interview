@@ -34,3 +34,4 @@ Sequence of problems:
 19) https://leetcode.com/problems/trapping-rain-water/ (hard) - done
 20) https://leetcode.com/problems/median-of-two-sorted-arrays (hard) - done
 21) https://leetcode.com/problems/valid-palindrome-iii (blocked) (hard) - done
+22) https://leetcode.com/problems/meeting-scheduler/ (medium) - done
