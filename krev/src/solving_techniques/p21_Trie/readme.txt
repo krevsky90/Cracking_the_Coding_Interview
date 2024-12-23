@@ -44,3 +44,4 @@ additional problems see here: https://leetcode.com/tag/trie
 
 8) https://leetcode.com/problems/remove-sub-folders-from-the-filesystem (medium) - done
 9) https://leetcode.com/problems/design-in-memory-file-system (hard) - done
+10) https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/ (medium) - done
