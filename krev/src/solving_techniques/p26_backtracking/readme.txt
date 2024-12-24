@@ -49,5 +49,6 @@ Sequence of problems:
 11) https://leetcode.com/problems/expression-add-operators (hard) - done
 12) https://leetcode.com/problems/word-search-ii (hard) - done
 13) https://leetcode.com/problems/optimal-account-balancing (hard) - done
+14) https://leetcode.com/problems/word-break-ii (hard) - done
 
 Common list of problems is here: https://leetcode.com/tag/backtracking
