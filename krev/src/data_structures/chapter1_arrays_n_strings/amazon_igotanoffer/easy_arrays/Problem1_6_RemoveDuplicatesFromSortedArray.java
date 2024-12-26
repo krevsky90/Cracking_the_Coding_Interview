@@ -1,8 +1,11 @@
 package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy_arrays;
 
 /**
+ * 26. Remove Duplicates from Sorted Array (easy)
  * https://igotanoffer.com/blogs/tech/array-interview-questions
- * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description
+ *
+ * #Company: 26.12.2024 0 - 3 months Google 19 Meta 8 Amazon 7 Microsoft 5 Bloomberg 4 0 - 6 months Apple 3 Zoho 2  Accenture 2 Qualcomm 2
  * <p>
  * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
  * The relative order of the elements should be kept the same.
@@ -32,6 +35,23 @@ package data_structures.chapter1_arrays_n_strings.amazon_igotanoffer.easy_arrays
  * nums is sorted in non-decreasing order.
  */
 public class Problem1_6_RemoveDuplicatesFromSortedArray {
+    /**
+     * KREVSKY SOLUTION 26.12.2024
+     */
+    public int removeDuplicates2(int[] nums) {
+        int placeToPaste = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i-1]) {
+                //do nothing
+            } else {
+                nums[placeToPaste] = nums[i];
+                placeToPaste++;
+            }
+        }
+
+        return placeToPaste;
+    }
+
     /**
      * KREVSKY SOLUTION
      * 1 attempt, optimal, 17 mins

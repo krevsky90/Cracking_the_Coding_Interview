@@ -5,8 +5,9 @@ import java.util.*;
 /**
  * 127. Word Ladder (hard)
  * https://leetcode.com/problems/word-ladder
+ * OR similar to https://www.tryexponent.com/practice/prepare/shortest-word-edit-path
  * <p>
- * #Company: Affirm Airbnb Amazon Apple Audible Bloomberg Cohesity Expedia Facebook Google LinkedIn Lyft Microsoft Oracle Qualtrics Salesforce Samsung Snapchat Square Tesla Uber Walmart Labs Yelp Zillow
+ * #Company: 26.12.2024 0 - 3 months Amazon 18 Meta 10 Google 5 LinkedIn 4 Bloomberg 3 Apple 3 TikTok 3 eBay 3 Reddit 3 0 - 6 months Microsoft 4 Uber 2 Samsung 2 Snap 2 Yelp 2 6 months ago PayPay 4 Adobe 3 PhonePe 3 Box 3 Citadel 2 Agoda 2 Salesforce 2 Cruise 2 Nutanix 2 Yahoo 2
  * <p>
  * A transformation sequence from word beginWord to word endWord
  * using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
@@ -48,11 +49,13 @@ public class WordLadder {
      * <p>
      * time ~ O(wordList.size() * wordList.size() * N, where N - the length of the longest word
      * space ~ O(wordList.size() * wordList.size()) * N)
-     *
+     * <p>
      * 4 attempts:
      * - 2 typos
      * - initially I did not get the problem correctly and returned the number of transitions, but not the number of word
-     *      so... fixed it as "q.add(new int[]{beginIdx, 1});" but not "q.add(new int[]{beginIdx, 0});"
+     * so... fixed it as "q.add(new int[]{beginIdx, 1});" but not "q.add(new int[]{beginIdx, 0});"
+     *
+     * BEATS ~ 14%
      */
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         int endIdx = -1;
@@ -120,6 +123,65 @@ public class WordLadder {
                 } else {
                     diff++;
                 }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * SOLUTION #2: from 26.12.2024
+     * the same idea, but without adjLists
+     *
+     * BEATS ~ 14%
+     */
+    public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
+        return bfs(beginWord, endWord, wordList.toArray(new String[0]));
+    }
+
+    //O(n*n*k), n = words.length, k = source.length()
+    //O(n*k + n*k) ~ O(n*k)
+    public int bfs(String src, String target, String[] words) {
+        Queue<Pair> q = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        q.add(new Pair(src, 1));
+        visited.add(src);
+
+        while (!q.isEmpty()) {
+            Pair node = q.poll();
+            if (node.s.equals(target)) {
+                return node.depth;
+            }
+
+            for (String s : words) {
+                if (!visited.contains(s) && diffOne(node.s, s)) {
+                    visited.add(s);
+                    q.add(new Pair(s, node.depth + 1));
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    class Pair {
+        String s;
+        int depth;
+
+        Pair(String s, int i) {
+            this.s = s;
+            this.depth = i;
+        }
+    }
+
+    private boolean diffOne(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+
+        int count = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                count++;
+                if (count > 1) return false;
             }
         }
 
