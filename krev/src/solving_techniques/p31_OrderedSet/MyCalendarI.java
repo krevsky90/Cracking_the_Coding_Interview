@@ -54,7 +54,7 @@ public class MyCalendarI {
     private TreeMap<Integer, Integer> map;
 
     public MyCalendarI() {
-        map = new TreeMap<Integer, Integer>();
+        map = new TreeMap<Integer, Integer>();  //map start -> end
     }
 
     public boolean book(int start, int end) {

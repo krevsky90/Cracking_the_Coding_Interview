@@ -1,9 +1,6 @@
 package solving_techniques.p28_MonotonicStack;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -12,7 +9,7 @@ import java.util.stream.Collectors;
  * OR
  * https://leetcode.ca/all/1762.html
  *
- * #Company: Facebook Microsoft Amazon
+ * #Company (25.01.2025): 0 - 3 months Meta 46 6 months ago Amazon 4 Microsoft 2 TikTok 2
  *
  * There are n buildings in a line.
  * You are given an integer array heights of size n that represents the heights of the buildings in the line.
@@ -55,15 +52,15 @@ public class BuildingsWithOceanView {
         int[] arr4 = {2,2,2,2};
 
         BuildingsWithOceanView obj = new BuildingsWithOceanView();
-        System.out.println(obj.buildingsWithOceanView(arr1).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView(arr2).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView(arr3).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView(arr4).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings(arr1)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings(arr2)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings(arr3)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings(arr4)).stream().map(String::valueOf).collect(Collectors.joining(",")));
 
-        System.out.println(obj.buildingsWithOceanView2(arr1).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView2(arr2).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView2(arr3).stream().map(String::valueOf).collect(Collectors.joining(",")));
-        System.out.println(obj.buildingsWithOceanView2(arr4).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings2(arr1)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings2(arr2)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings2(arr3)).stream().map(String::valueOf).collect(Collectors.joining(",")));
+        System.out.println(Arrays.asList(obj.findBuildings2(arr4)).stream().map(String::valueOf).collect(Collectors.joining(",")));
     }
 
     /**
@@ -77,12 +74,14 @@ public class BuildingsWithOceanView {
      * space ~ O(n)
      *
      * 1 attempt
+     *
+     * BEATS ~ 10%
      */
-    public List<Integer> buildingsWithOceanView(int[] arr) {
+    public int[] findBuildings(int[] heights) {
         Stack<Integer> stack = new Stack<>();
         List<Integer> resList = new ArrayList<>();
-        for (int i = arr.length - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && stack.peek() < arr[i]) {
+        for (int i = heights.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() < heights[i]) {
                 stack.pop();
             }
 
@@ -90,11 +89,16 @@ public class BuildingsWithOceanView {
                 resList.add(i);
             }
 
-            stack.add(arr[i]);
+            stack.add(heights[i]);
         }
 
         Collections.reverse(resList);
-        return resList;
+        int[] result = new int[resList.size()];
+        for (int i = 0; i < resList.size(); i++) {
+            result[i] = resList.get(i);
+        }
+
+        return result;
     }
 
     /**
@@ -106,19 +110,26 @@ public class BuildingsWithOceanView {
      * 2) if current h > maxH => add index to the result
      * time ~ O(n)
      * space ~ O(n) - since resList
+     *
+     * BEATS ~ 66%
      */
-    public List<Integer> buildingsWithOceanView2(int[] arr) {
-        int maxH = -1;
+    public int[] findBuildings2(int[] heights) {
+        int maxHeight = -1;
         List<Integer> resList = new ArrayList<>();
-        for (int i = arr.length - 1; i >= 0; i--) {
-            if (arr[i] > maxH) {
+        for (int i = heights.length - 1; i >= 0; i--) {
+            if (heights[i] > maxHeight) {
+                maxHeight = heights[i];
                 resList.add(i);
-                maxH = arr[i];
             }
         }
 
         Collections.reverse(resList);
-        return resList;
+        int[] result = new int[resList.size()];
+        for (int i = 0; i < resList.size(); i++) {
+            result[i] = resList.get(i);
+        }
+
+        return result;
     }
 
 }
