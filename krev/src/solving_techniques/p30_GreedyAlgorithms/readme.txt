@@ -27,3 +27,4 @@ Sequence of problems:
 11) https://leetcode.com/problems/maximum-subarray (medium) - done
 12) https://leetcode.com/problems/merge-triplets-to-form-target-triplet (medium) - done
 13) https://leetcode.com/problems/maximum-subarray (medium) - done
+14) https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves (medium) - done

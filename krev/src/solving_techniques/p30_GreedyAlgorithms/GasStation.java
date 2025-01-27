@@ -101,6 +101,36 @@ public class GasStation {
     }
 
     /**
+     * SOLUTION #3:
+     * info: https://www.youtube.com/watch?v=kDQXbP2tYbY&list=PLUPSMCjQ-7oeenUxyrJFDFqd40PokIqdO&index=18
+     */
+    public int canCompleteCircuit3(int[] gas, int[] cost) {
+        int n = gas.length;
+
+        int[] delta = new int[n];
+        for (int i = 0; i < n; i++) {
+            delta[i] = gas[i] - cost[i];
+        }
+
+        int tempSum = 0;
+        int totalDelta = 0;
+        int startIdx = 0;
+        for (int i = 0; i < n; i++) {
+            tempSum += delta[i];
+            totalDelta += delta[i];
+            if (tempSum < 0) {
+                tempSum = 0;
+                startIdx = i + 1;
+            }
+        }
+
+        //if totalDelta >= 0 => solution exists
+        //since we are told that is solution exists => it is the only 1 => we return startIdx which does not contradict with if (tempSum < 0)  above
+
+        return totalDelta >= 0 ? startIdx : -1;
+    }
+
+    /**
      * https://leetcode.com/problems/gas-station/solutions/5024094/beats-98-99-user-easiest-solution-java/
      * or
      * https://www.youtube.com/watch?v=lJwbPZGo05A
