@@ -1,7 +1,7 @@
 package solving_techniques.different;
 
 /**
- * 557. Reverse Words in a String III (easy(
+ * 557. Reverse Words in a String III (easy)
  * https://leetcode.com/problems/reverse-words-in-a-string-iii
  * <p>
  * #Company: Amazon Apple Bloomberg Microsoft Paypal Snapchat Yahoo Zappos Yandex

@@ -84,7 +84,7 @@ public class BusiestTimeInTheMall {
         for (int i = 0; i < data.length; i++) {
             sum += data[i][2] == 1 ? data[i][1] : -data[i][1];
 
-            if (i == data.length - 1 || (i < data.length - 1 && data[i][0] != data[i + 1][0])) {
+            if (i == data.length - 1 || data[i][0] != data[i + 1][0]) {
                 if (max < sum) {
                     max = sum;
                     timeRes = data[i][0];    //since it is the last record with current timestamp
