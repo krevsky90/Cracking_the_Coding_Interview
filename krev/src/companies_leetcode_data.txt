@@ -1,0 +1,33 @@
+0 - 3 months
+Google
+8
+Amazon
+3
+0 - 6 months
+Meta
+4
+Microsoft
+4
+Bloomberg
+2
+Uber
+2
+6 months ago
+Salesforce
+12
+PhonePe
+7
+Adobe
+6
+Apple
+6
+TikTok
+3
+DE Shaw
+2
+Atlassian
+2
+MathWorks
+2
+Baidu
+2
