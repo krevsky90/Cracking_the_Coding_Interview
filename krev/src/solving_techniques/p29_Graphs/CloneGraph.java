@@ -132,12 +132,13 @@ public class CloneGraph {
      * 2) put orig 'node' and cloned node to map 'oldToNewMap'
      * 3) create Queue and put orig node to it
      * 4) use BFS:
-     *      poll current nod, for its neighbours:
+     *      poll current node, for its neighbours:
      *          if the neighbour is cloned (=> it exists in the map) - do nothing
      *          else
-     *          a) clone it
-     *          b) put them to map
-     *          c) put cloned neighbour to adjList of cloned current
+     *              a) clone it
+     *              b) put them to map
+     *
+     *          BUT ANYWAY put cloned neighbour to adjList of cloned current
      *          NOTE: when we poll neighbour from the queue, if append current node to adjList of this neighbour => will get undirected graph!
      *
      * BEATS ~ 93%
