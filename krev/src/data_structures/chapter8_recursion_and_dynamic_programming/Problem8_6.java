@@ -1,7 +1,5 @@
 package data_structures.chapter8_recursion_and_dynamic_programming;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.Collections;
 import java.util.Stack;
 
@@ -75,7 +73,7 @@ public class Problem8_6 {
     }
 
     public static <T> void move(int n, MyStack<T> src, MyStack<T> dest, MyStack<T> buf, int level) {
-        String shift = StringUtils.join(Collections.nCopies(level, " "), "");
+        String shift = " ".repeat(level);
         System.out.println(shift + "move(" + n + ", " + src.toString() + ", " + dest.toString() + ", " + buf.toString() + ")");
         if (src == null || n <= 0 || src.size() < n) {
             return;

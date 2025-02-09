@@ -75,7 +75,7 @@ public class ValidateIPAddressTryExponent {
             for (char ch : x.toCharArray()) {
                 if (!Character.isDigit(ch)) return false;
             }
-            int n = new Integer(x);
+            int n = Integer.valueOf(x);
             if (n < 0 || n > 255) return false;
         }
 

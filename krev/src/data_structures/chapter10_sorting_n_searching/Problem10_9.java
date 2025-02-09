@@ -1,7 +1,5 @@
 package data_structures.chapter10_sorting_n_searching;
 
-import javafx.util.Pair;
-
 /**
  * p.163
  * 10.9 Sorted Matrix Search:
@@ -27,7 +25,7 @@ public class Problem10_9 {
     /**
      * KREVSKY SOLUTION - START
      */
-    public static Pair<Integer, Integer> search(int[][] arr, int z) {
+    public static int[] search(int[][] arr, int z) {
         if (arr == null) return null;
         int ymax = arr.length;
         if (ymax > 0) {
@@ -42,10 +40,10 @@ public class Problem10_9 {
                 return null;
             } else {
                 System.out.println("Number " + z + " is found in the matrix on the position (" + potentialRowIndex + ", " + columnIndex + ")");
-                return new Pair<>(potentialRowIndex, columnIndex);
+                return new int[]{potentialRowIndex, columnIndex};
             }
         } else {
-            return null;
+            return new int[0];
         }
     }
 

@@ -1,7 +1,6 @@
 package solving_techniques.p10_SubsetsAndPermutations;
 
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
-import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -129,5 +128,15 @@ public class ProblemChallenge2_StructurallyUniqueBSTs {
         }
         memo.put(new Pair<>(left, right), result);
         return result;
+    }
+
+    class Pair<T, K> {
+        T a;
+        K b;
+
+        Pair(T a, K b) {
+            this.a = a;
+            this.b = b;
+        }
     }
 }

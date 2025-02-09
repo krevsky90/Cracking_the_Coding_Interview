@@ -55,7 +55,7 @@ public class SumOfDistances {
             if (valueToSumOfIndicesMap.containsKey(nums[i])) {
                 valueToSumOfIndicesMap.put(nums[i], valueToSumOfIndicesMap.get(nums[i]) + i);
             } else {
-                valueToSumOfIndicesMap.put(nums[i], new Long(i));
+                valueToSumOfIndicesMap.put(nums[i], Long.valueOf(i));
             }
 
             if (valueToCountOfOccurencesMap.containsKey(nums[i])) {
@@ -77,7 +77,7 @@ public class SumOfDistances {
             if (valueToSumOfIndicesMap.containsKey(nums[i])) {
                 valueToSumOfIndicesMap.put(nums[i], valueToSumOfIndicesMap.get(nums[i]) + i);
             } else {
-                valueToSumOfIndicesMap.put(nums[i], new Long(i));
+                valueToSumOfIndicesMap.put(nums[i], Long.valueOf(i));
             }
 
             if (valueToCountOfOccurencesMap.containsKey(nums[i])) {

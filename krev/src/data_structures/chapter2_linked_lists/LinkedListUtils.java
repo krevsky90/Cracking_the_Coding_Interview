@@ -1,7 +1,5 @@
 package data_structures.chapter2_linked_lists;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +16,14 @@ public class LinkedListUtils {
 //    }
 
     public static String linkedListToString(LinkedListNode head) {
-        List<String> sb = new ArrayList<>();
-        sb.add("(" + head.value + ")");
+        StringBuilder sb = new StringBuilder();
+        sb.append("(" + head.value + ")");
         LinkedListNode tempNode = head.next;
         while (tempNode != null) {
-            sb.add("(" + tempNode.value + ")");
+            sb.append(" -> ").append("(" + tempNode.value + ")");
             tempNode = tempNode.next;
         }
-        return StringUtils.join(sb, " -> ");
+        return sb.toString();
     }
 
     public static void printLinkedList(LinkedListNode head) {
