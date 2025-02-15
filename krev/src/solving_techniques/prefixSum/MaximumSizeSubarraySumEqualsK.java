@@ -64,4 +64,34 @@ public class MaximumSizeSubarraySumEqualsK {
 
         return result;
     }
+
+    /**
+     * similar (15.02.2025)
+     * BEATS ~ 72%
+     */
+    public int maxSubArrayLen2(int[] nums, int k) {
+        long prefixSum = 0;
+
+        int res = 0;
+
+        Map<Long, Integer> sumToMinIndex = new HashMap<>();
+        sumToMinIndex.put(0L, -1);
+        for (int i = 0; i < nums.length; i++) {
+            prefixSum += nums[i];
+            sumToMinIndex.putIfAbsent(prefixSum, i);
+
+            // if (prefixSum == k) {
+            //     res = i + 1;
+            // } else {
+            //     if (sumToMinIndex.containsKey(prefixSum - k)) {
+            //         res = Math.max(res, i - sumToMinIndex.get(prefixSum - k));
+            //     }
+            // }
+            if (sumToMinIndex.containsKey(prefixSum - k)) {
+                res = Math.max(res, i - sumToMinIndex.get(prefixSum - k));
+            }
+        }
+
+        return res;
+    }
 }
