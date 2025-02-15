@@ -1,3 +1,6 @@
+info:
+https://www.youtube.com/watch?v=10R_2-2HIX0&list=PLqj7-hRTFl_oDMBjI_EstsFcDAwt-Arhs&index=65
+
 Nested classes:
     1) static
         оч похож на внешний, но нах-ся внутри другого класса (для него так же действуют access modifiers)
