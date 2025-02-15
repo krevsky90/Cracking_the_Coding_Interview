@@ -2,7 +2,7 @@ package streams;
 
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
     private int id;
     private String name;
     private int age;
@@ -64,5 +64,12 @@ public class Employee {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+//      return name.compareTo(o.getName()); - just as example when we use compareTo method of String class which implements Comparable interface
+        return this.id - o.id;
+
     }
 }
