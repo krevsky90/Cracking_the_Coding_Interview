@@ -6,6 +6,7 @@ import java.util.Set;
 /**
  * 1650. Lowest Common Ancestor of a Binary Tree III (medium) (locked)
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii
+ * #Company (15.02.2025): 0 - 3 months Meta 84 Amazon 8 LinkedIn 2 0 - 6 months Google 2 Apple 2 6 months ago Microsoft 5
  * OR
  * https://leetcode.ca/all/1650.html
  * <p>

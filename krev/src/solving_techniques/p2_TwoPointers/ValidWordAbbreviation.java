@@ -1,12 +1,12 @@
 package solving_techniques.p2_TwoPointers;
 
 /**
- * 408 - Valid Word Abbreviation (easy??) (locked)
+ * 408 - Valid Word Abbreviation (easy) (locked)
  * https://leetcode.com/problems/valid-word-abbreviation
  * OR
  * https://leetcode.ca/all/408.html
  * <p>
- * #Company: Facebook Google
+ * #Company (18.02.2025): 0 - 3 months Meta 102 Google 2 0 - 6 months Datadog 5 Amazon 3 TikTok 2 6 months ago Apple 4 Disney 2
  * <p>
  * A string can be abbreviated by replacing any number of non-adjacent,
  * non-empty substrings with their lengths. The lengths should not have leading zeros.
@@ -66,6 +66,59 @@ public class ValidWordAbbreviation {
         System.out.println(obj.validWordAbbreviation(word, notAbbr1));
         System.out.println(obj.validWordAbbreviation(word, notAbbr2));
         System.out.println(obj.validWordAbbreviation(word, notAbbr3));
+    }
+
+    /**
+     * info:
+     * https://leetcode.com/problems/valid-word-abbreviation/solutions/1491062/java-tc-o-abbr-sc-o-1-clean-concise-solution-using-two-pointers/?envType=company&envId=facebook&favoriteSlug=facebook-thirty-days
+     */
+    public boolean validWordAbbreviation2(String word, String abbr) {
+        if (word == null || abbr == null) {
+            throw new IllegalArgumentException("Input is null");
+        }
+
+        int wLen = word.length();
+        int aLen = abbr.length();
+
+        // length of abbreviation cannot be greater than word's length
+        if (aLen > wLen) {
+            return false;
+        }
+
+        if (wLen == 0) {
+            return true;
+        }
+
+        int i = 0;
+        int j = 0;
+
+        while (i < wLen && j < aLen) {
+            // It current characters in both word and abbr is same continue checking.
+            if (word.charAt(i) == abbr.charAt(j)) {
+                i++;
+                j++;
+                continue;
+            }
+
+            // Now current characters in word and abbr do not match. Thus current character
+            // in abbr should be a valid starting digit 0 < x <= 9.
+            if (abbr.charAt(j) == '0' || !Character.isDigit(abbr.charAt(j))) {
+                return false;
+            }
+
+            // The num value
+            int num = 0;
+            while (j < aLen && Character.isDigit(abbr.charAt(j))) {
+                num = 10 * num + (abbr.charAt(j) - '0');
+                j++;
+            }
+
+            // Increment word pinter by num.
+            i += num;
+        }
+
+        // If both i and j pointers are at end, then we have a valid word abbreviation
+        return i == wLen && j == aLen;
     }
 
     /**
