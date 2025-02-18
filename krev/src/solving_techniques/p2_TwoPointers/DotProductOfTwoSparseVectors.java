@@ -11,7 +11,7 @@ import java.util.Map;
  * OR
  * https://leetcode.ca/2020-03-18-1570-Dot-Product-of-Two-Sparse-Vectors/
  * <p>
- * #Company: Facebook
+ * #Company (18.02.2025: 0 - 3 months Meta 55 Bloomberg 2 Nvidia 2 0 - 6 months Amazon 2 6 months ago Apple 3 Google 2 Microsoft 2 TikTok 2
  * <p>
  * Given two sparse vectors, compute their dot product.
  * <p>
@@ -54,9 +54,56 @@ public class DotProductOfTwoSparseVectors {
     public void test() {
         int[] nums1 = {1, 0, 0, 2, 3};
         int[] nums2 = {0, 3, 0, 4, 0};
-        SparseVector2 s21 = new SparseVector2(nums1);
-        SparseVector2 s22 = new SparseVector2(nums2);
+        SparseVector2followUp s21 = new SparseVector2followUp(nums1);
+        SparseVector2followUp s22 = new SparseVector2followUp(nums2);
         System.out.println(s21.dotProduct(s22));    //expected 8
+    }
+
+    /**
+     * SOLUTION #2:
+     * ATTENTION! this solution is accepted in Meta! whereas solution based on HashMap is NOT accepted!
+     * WHAT if hash-function causes collision???
+     * <p>
+     * info:
+     * https://www.youtube.com/watch?v=sQNN4xKC1mA&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=36
+     * idea #3: use array of Pair<index, value> instead of using HashMap
+     * idea #4: use two-pointers to calculate 'dotProduct' in time ~ O(n), where n = max length of lists from SparseVector2's
+     * <p>
+     * time ~ O(n1 + n2), when n1 - length of nums1, n2 - .. nums2
+     * space ~ O(n1 + n2) - when vector is not sparse vector
+     * worst case - when both vectors are no sparse
+     */
+    class SparseVector2 {
+        public List<int[]> list;
+
+        SparseVector2(int[] nums) {
+            list = new ArrayList<>();
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != 0) {
+                    list.add(new int[]{i, nums[i]});
+                }
+            }
+        }
+
+        // Return the dotProduct of two sparse vectors
+        public int dotProduct(SparseVector2 vec) {
+            int product = 0;
+            int i = 0;
+            int j = 0;
+            while (i < list.size() && j < vec.list.size()) {
+                if (list.get(i)[0] == vec.list.get(j)[0]) {
+                    product += list.get(i)[1] * vec.list.get(j)[1];
+                    i++;
+                    j++;
+                } else if (list.get(i)[0] > vec.list.get(j)[0]) {
+                    j++;
+                } else {
+                    i++;
+                }
+            }
+
+            return product;
+        }
     }
 
     /**
@@ -64,8 +111,61 @@ public class DotProductOfTwoSparseVectors {
      * if some vector is not sparse => we will get long list from it
      * so we will have short list of pairs <index -> value> and long list
      * then we will traverse through short list and for each index (obtained from pair) we can find corresponding index in long list using BINARY SEARCH!
-     * time O(n + logm), where n - length of short list, m - ... long list
+     * time O(n * logm), where n - length of short list, m - ... long list
+     *
+     * BEATS ~ 79%
      */
+    class SparseVector2followUp {
+        public List<int[]> list;
+
+        SparseVector2followUp(int[] nums) {
+            list = new ArrayList<>();
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != 0) {
+                    list.add(new int[]{i, nums[i]});
+                }
+            }
+        }
+
+        // Return the dotProduct of two sparse vectors
+        public int dotProduct(SparseVector2followUp vec) {
+            int product = 0;
+            List<int[]> longList = list;
+            List<int[]> shortList = vec.list;
+            if (longList.size() < shortList.size()) {
+                List temp = longList;
+                longList = shortList;
+                shortList = temp;
+            }
+
+            //ONLY if shortLst.size() << longList.size()
+            for (int i = 0; i < shortList.size(); i++) {
+                int idx = binarySearch(shortList.get(i)[0], longList);
+                if (idx != -1) {
+                    product += shortList.get(i)[1] * longList.get(idx)[1];
+                }
+            }
+
+            return product;
+        }
+
+        private int binarySearch(int i, List<int[]> longList) {
+            int low = 0;
+            int high = longList.size() - 1;
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                if (longList.get(mid)[0] == i) {
+                    return mid;
+                } else if (longList.get(mid)[0] > i) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+
+            return -1;
+        }
+    }
 
     /**
      * SOLUTION #1: = KREVSKY SOLUTION
@@ -73,10 +173,10 @@ public class DotProductOfTwoSparseVectors {
      * https://leetcode.ca/2020-03-18-1570-Dot-Product-of-Two-Sparse-Vectors/
      * idea #1: store nums into map: index -> value
      * idea #2: need to traverse through keySet() of the Map which has minimum length
-     *
+     * <p>
      * time ~ O(n1 + n2), when n1 - length of nums1, n2 - .. nums2
      * space ~ O(n1 + n2) - when vector is not sparse vector
-     *      worst case - when both vectors are no sparse
+     * worst case - when both vectors are no sparse
      */
     class SparseVector1 {
         public Map<Integer, Integer> d = new HashMap<>();
@@ -106,64 +206,6 @@ public class DotProductOfTwoSparseVectors {
             for (Map.Entry<Integer, Integer> e : a.entrySet()) {
                 int i = e.getKey(), v = e.getValue();
                 ans += v * b.getOrDefault(i, 0);
-            }
-
-            return ans;
-        }
-    }
-
-    /**
-     * SOLUTION #2:
-     * WHAT if hash-function causes collision???
-     * <p>
-     * info:
-     * https://www.youtube.com/watch?v=sQNN4xKC1mA&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=36
-     * idea #3: use array of Pair<index, value> instead of using HashMap
-     * idea #4: use two-pointers to calculate 'dotProduct' in time ~ O(n), where n = max length of lists from SparseVector2's
-     *
-     * time ~ O(n1 + n2), when n1 - length of nums1, n2 - .. nums2
-     * space ~ O(n1 + n2) - when vector is not sparse vector
-     *      worst case - when both vectors are no sparse
-     */
-    class SparseVector2 {
-        public List<int[]> list = new ArrayList<>();
-
-        public SparseVector2(int[] nums) {
-            // idea #3:
-            for (int i = 0; i < nums.length; ++i) {
-                if (nums[i] != 0) {
-                    list.add(new int[]{i, nums[i]});
-                }
-            }
-        }
-
-        // Return the dotProduct of two sparse vectors
-
-        public int dotProduct(SparseVector2 vec) {
-            List<int[]> a = list;
-            List<int[]> b = vec.list;
-
-            // idea #2
-            if (b.size() < a.size()) {
-                List<int[]> t = a;
-                a = b;
-                b = t;
-            }
-
-            int ans = 0;
-            // idea #4:
-            int i = 0;
-            int j = 0;
-            while (i < a.size() && j < b.size()) {
-                if (a.get(i)[0] == b.get(j)[0]) {
-                    ans += a.get(i)[1] * b.get(j)[1];
-                    i++;
-                    j++;
-                } else if (a.get(i)[0] < b.get(j)[0]) {
-                    i++;
-                } else {
-                    j++;
-                }
             }
 
             return ans;

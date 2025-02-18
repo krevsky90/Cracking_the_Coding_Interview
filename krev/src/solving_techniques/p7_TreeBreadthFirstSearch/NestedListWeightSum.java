@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 339 Nested List Weight Sum (easy) (locked)
+ * 339 Nested List Weight Sum (medium) (locked)
  * https://leetcode.com/problems/nested-list-weight-sum
+ *
+ * #Company (18.02.2025): 0 - 3 months Meta 76 LinkedIn 3 0 - 6 months Amazon 3 6 months ago Apple 3 eBay 2 Nextdoor 2
  * OR
  * https://leetcode.ca/all/339.html
  * <p>
