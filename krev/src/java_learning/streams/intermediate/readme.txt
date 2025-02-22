@@ -1,5 +1,5 @@
 filter
-map
+map - DO NOT mix with Collectors.toMap!
 mapToInt, mapToDouble etc
 flatMap
 peek

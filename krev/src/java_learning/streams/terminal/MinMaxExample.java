@@ -14,7 +14,7 @@ public class MinMaxExample {
                 new Employee(4, "name4", 40),
                 new Employee(2, "name2", 20));
 
-        Employee eMin = empList.stream().min((a,b) -> a.getAge() - b.getAge()).get();
+        Employee eMin = empList.stream().min((a,b) -> a.getAge() - b.getAge()).orElse(null);
         System.out.println(eMin);
     }
 }

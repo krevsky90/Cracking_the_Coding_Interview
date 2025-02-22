@@ -1,4 +1,4 @@
-package java_learning.streams.intermediate;
+package java_learning.streams.terminal;
 
 import java_learning.streams.Company;
 import java_learning.streams.Initialization;
@@ -18,7 +18,5 @@ public class ToMapExample {
         System.out.println("get map: company name -> total age of emps in the company:");
         Map<String, Integer> companyToTotalAge = companies.stream().collect(Collectors.toMap(c -> c.name, c -> c.emps.stream().mapToInt(e -> e.getAge()).sum()));
         System.out.println(companyToTotalAge);
-
-
     }
 }
