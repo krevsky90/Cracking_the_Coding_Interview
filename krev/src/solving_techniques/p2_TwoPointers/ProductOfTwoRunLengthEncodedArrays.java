@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * 1868 - Product of Two Run-Length Encoded Arrays (medium) (locked)
  * https://leetcode.com/problems/product-of-two-run-length-encoded-arrays
+ * #Company (23.02.2025): 0 - 3 months Meta 2 6 months ago Amazon 2 Yandex 2
  * OR
  * https://leetcode.ca/2021-07-17-1868-Product-of-Two-Run-Length-Encoded-Arrays/
  * <p>
