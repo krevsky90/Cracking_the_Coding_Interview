@@ -3,6 +3,7 @@ package solving_techniques.p7_TreeBreadthFirstSearch;
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 314. Binary Tree Vertical Order Traversal (medium) (locked)
@@ -118,6 +119,8 @@ public class BinaryTreeVerticalOrderTraversal {
      *
      * 1 attempt:
      *
+     * BEATS ~ 98%
+     *
      */
     public List<List<Integer>> verticalOrder(TreeNode root) {
         int[] minmax = {Integer.MAX_VALUE, Integer.MIN_VALUE};
@@ -131,6 +134,14 @@ public class BinaryTreeVerticalOrderTraversal {
         }
 
         return result;
+
+        //OR (without min max)
+
+//        List<Map.Entry<Integer, List<Integer>>> entries = new ArrayList<>(map.entrySet());
+//        Collections.sort(entries, (a,b) -> a.getKey() - b.getKey());
+//
+//        return entries.stream().map(e -> e.getValue()).collect(Collectors.toList());
+
     }
 
     private void bfs(TreeNode root, Map<Integer, List<Integer>> map, int[] minmax) {
