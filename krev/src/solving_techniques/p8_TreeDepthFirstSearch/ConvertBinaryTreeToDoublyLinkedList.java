@@ -2,33 +2,36 @@ package solving_techniques.p8_TreeDepthFirstSearch;
 
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 426. Convert Binary Search Tree to Sorted Doubly Linked List (medium) (locked)
  * https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list
+ * #Company (23.02.2025): 0 - 3 months Meta 20 0 - 6 months TikTok 2 6 months ago Microsoft 4 Amazon 2 Nvidia 2
  * OR
  * https://www.geeksforgeeks.org/convert-binary-tree-to-doubly-linked-list-using-morris-traversal/
- *
+ * <p>
  * #Company: Amazon Bloomberg Databricks Facebook Google Lyft Microsoft Oracle
- *
+ * <p>
  * Convert a BST to a sorted circular doubly-linked list in-place.
  * Think of the left and right pointers as synonymous to the previous and next pointers in a doubly-linked list.
- *
+ * <p>
  * Let's take the following BST as an example, it may help you understand the problem better:
- *
- *
+ * <p>
+ * <p>
  * We want to transform this BST into a circular doubly linked list.
  * Each node in a doubly linked list has a predecessor and successor.
  * For a circular doubly linked list, the predecessor of the first element is the last element,
- *      and the successor of the last element is the first element.
- *
+ * and the successor of the last element is the first element.
+ * <p>
  * The figure below shows the circular doubly linked list for the BST above.
  * The "head" symbol means the node it points to is the smallest element of the linked list.
- *
+ * <p>
  * Specifically, we want to do the transformation in place.
  * After the transformation, the left pointer of the tree node should point to its predecessor,
- *      and the right pointer should point to its successor.
+ * and the right pointer should point to its successor.
  * We should return the pointer to the first element of the linked list.
- *
  */
 public class ConvertBinaryTreeToDoublyLinkedList {
     public static void main(String[] args) {
@@ -71,6 +74,51 @@ public class ConvertBinaryTreeToDoublyLinkedList {
     }
 
     /**
+     * KREVSKY SOLUTION #1 (23.02.2025:
+     * idea: transform subtree recursively and return leftmost and rightmost nodes to link them with top node
+     * <p>
+     * time to solve ~ 11 mins
+     * <p>
+     * time ~ O(n)
+     * space ~ O(n) because of recursion
+     * <p>
+     * 3 attempts:
+     * - forgot about root == null
+     * - mistake in linking right != null case
+     * <p>
+     * BEATS ~ 100%
+     */
+    public TreeNode treeToDoublyList(TreeNode root) {
+        if (root == null) return root;
+
+        List<TreeNode> bounds = helper(root);
+        bounds.get(0).left = bounds.get(1);
+        bounds.get(1).right = bounds.get(0);
+        return bounds.get(0);
+    }
+
+    private List<TreeNode> helper(TreeNode cur) {
+        TreeNode first = cur;
+        TreeNode last = cur;
+
+        if (cur.left != null) {
+            List<TreeNode> bounds = helper(cur.left);
+            cur.left = bounds.get(1);
+            bounds.get(1).right = cur;
+            first = bounds.get(0);
+        }
+
+        if (cur.right != null) {
+            List<TreeNode> bounds = helper(cur.right);
+            cur.right = bounds.get(0);
+            bounds.get(0).left = cur;
+            last = bounds.get(1);
+        }
+
+        return Arrays.asList(first, last);
+    }
+
+    /**
      * KREVSKY SOLUTION #2:
      * idea: simple in-order traversal + store prev node and head node
      * time to solve ~ 10 mins
@@ -108,7 +156,7 @@ public class ConvertBinaryTreeToDoublyLinkedList {
     /**
      * KREVSKY SOLUTION:
      * time to solve + debug ~ 20 + 8 mins
-     *
+     * <p>
      * 2 attempts:
      * - incorrect initialize tempNode
      */
