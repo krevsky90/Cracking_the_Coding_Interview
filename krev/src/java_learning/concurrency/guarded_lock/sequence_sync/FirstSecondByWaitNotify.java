@@ -1,4 +1,4 @@
-package java_learning.concurrency.guarded_lock.order_2_threads;
+package java_learning.concurrency.guarded_lock.sequence_sync;
 
 public class FirstSecondByWaitNotify {
     static Object lock = new Object();
