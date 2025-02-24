@@ -6,21 +6,20 @@ package java_learning.concurrency.guarded_lock.sequence_sync;
  */
 public class FirstSecondThirdByWaitNotify {
     private static Object lock = new Object();
-    private static boolean secondStart = false;
-    private static boolean thirdStart = false;
+    private static int currentActiveThread = 1;
 
     public static void main(String[] args) {
         Thread first = new Thread(() -> {
             synchronized (lock) {
                 System.out.println("First");
-                secondStart = true;
+                currentActiveThread = 2;
                 lock.notify();
             }
         });
 
         Thread second = new Thread(() -> {
             synchronized (lock) {
-                while (!secondStart) {
+                while (currentActiveThread != 2) {
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
@@ -29,14 +28,14 @@ public class FirstSecondThirdByWaitNotify {
                 }
 
                 System.out.println("Second");
-                thirdStart = true;
+                currentActiveThread = 3;
                 lock.notify();
             }
         });
 
         Thread third = new Thread(() -> {
             synchronized (lock) {
-                while (!thirdStart) {
+                while (currentActiveThread != 3) {
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
@@ -45,6 +44,7 @@ public class FirstSecondThirdByWaitNotify {
                 }
 
                 System.out.println("Third");
+                lock.notifyAll(); // Notify all waiting threads (optional here)
             }
         });
 
