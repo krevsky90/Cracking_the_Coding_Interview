@@ -1,4 +1,4 @@
-package java_learning.concurrency.guarded_lock;
+package java_learning.concurrency.guarded_lock.cycle_sender_receiver;
 
 public class Data {
     private String message;
