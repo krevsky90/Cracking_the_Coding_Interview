@@ -12,10 +12,8 @@ public class IntrinsicLock {
             }
         };
 
-        Thread t1 = new Thread(r);
-        t1.setName("t1");
-        Thread t2 = new Thread(r);
-        t2.setName("t2");
+        Thread t1 = new Thread(r, "t1");
+        Thread t2 = new Thread(r, "t2");
 
         long time = System.currentTimeMillis();
 

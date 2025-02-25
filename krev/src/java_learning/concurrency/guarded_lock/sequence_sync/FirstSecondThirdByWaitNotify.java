@@ -48,8 +48,9 @@ public class FirstSecondThirdByWaitNotify {
             }
         });
 
-        first.start();
+        // The threads can be started in any order
         second.start();
+        first.start();
         third.start();
     }
 }
