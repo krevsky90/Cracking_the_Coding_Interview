@@ -6,20 +6,20 @@ package java_learning.concurrency.liveness_problems;
 public class DeadLockBankAccount {
     private static int numberOfTransaction = 0;
 
-    static class Account {
-        double balance;
-        int id;
+    public static class Account {
+        private double balance;
+        final int id;
 
         public Account(int id, double balance) {
             this.balance = balance;
             this.id = id;
         }
 
-        void withdraw(double amount) {
+        public void withdraw(double amount) {
             balance -= amount;
         }
 
-        void deposit(double amount) {
+        public void deposit(double amount) {
             balance += amount;
         }
     }
