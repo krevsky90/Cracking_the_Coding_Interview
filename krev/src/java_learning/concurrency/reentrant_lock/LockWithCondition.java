@@ -28,6 +28,9 @@ public class LockWithCondition {
         Thread t2 = new Thread(() -> {
             lock.lock();
             try {
+                //NOTE: if we remove this loop, there might be the case when
+                //startSecondCondition.signalAll(); will be done before startSecondCondition.await();
+                //in this case signal will be lost! And t2 will never be awakened!
                 while (!startSecond) {
                     startSecondCondition.await();
                 }
