@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch;
+package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
 
 /**
  * https://www.tryexponent.com/practice/prepare/root-of-number
@@ -33,7 +33,7 @@ public class RootOfNumber {
      * 1) determine bounds where we will find the answer
      * 2) use binary search
      * <p>
-     * time ~ O(log x)
+     * time ~ O(n*log x)
      * space ~ O(1)
      */
     static double power(double base, int exponent) {
@@ -45,9 +45,10 @@ public class RootOfNumber {
     }
 
     static double root1(double x, int n) {
-        if (x == 0) {
-            return 0.0;
-        }
+        //not required
+//        if (x == 0) {
+//            return 0.0;
+//        }
 
         double lowerBound = 0.0;
         double upperBound = Math.max(1.0, x);
@@ -70,7 +71,7 @@ public class RootOfNumber {
 
     /**
      * KREVSKY SOLUTION #1
-     * the same idea, but another condition
+     * the same idea, but another condition (which is MORE accurate, but it is NOT what's required in the description! => WRONG!)
      */
     static double rootKrev1(double x, int n) {
         if (x == 0) return 0;
