@@ -8,7 +8,7 @@ import java.util.*;
  * OR
  * https://leetcode.ca/all/269.html
  *
- * #Company: Airbnb Amazon Apple Bloomberg Cohesity Facebook Flipkart Google Microsoft Oracle Pinterest Pocket Gems Snapchat Square Twitter Uber VMware
+ * #Company (4.03.2025): 0 - 3 months Uber 10 Meta 9 Google 4 Amazon 2 0 - 6 months Microsoft 3 TikTok 3 6 months ago Airbnb 8 Bloomberg 4 Snap 3 Oracle 2 Flipkart 2 Wix 2 Citadel 2 X 2 Tencent 2 PhonePe 2
  *
  * Byte by Byte: How to Solve Ordering Problems Using Topological Sort
  * <p>
@@ -131,6 +131,91 @@ public class AlienDictionary {
 
         for (Character temp : adjMap.getOrDefault(c, new HashSet<>())) {
             if (!topologicalSortDfs(adjMap, temp, visited, cycle, sb)) {
+                return false;
+            }
+        }
+
+        cycle.remove(c);
+        visited.add(c);
+        sb.append(c);
+
+        return true;
+    }
+
+    /**
+     * KREVSKY 4.03.2025 (similar to the solution above, BUT w/o hasSamePrefix variable
+     */
+    public String alienOrder2(String[] words) {
+        //t -> f
+        //w -> e
+        //r -> t
+        //e -> r
+        Map<Character, Set<Character>> adjMap = new HashMap<>();
+
+        for (int i = 0; i < words.length - 1; i++) {
+            int k1 = 0;
+            int k2 = 0;
+            while (k1 < words[i].length() && k2 < words[i+1].length()) {
+                if (words[i].charAt(k1) != words[i+1].charAt(k2)) {
+                    adjMap.putIfAbsent(words[i].charAt(k1), new HashSet<>());
+                    adjMap.get(words[i].charAt(k1)).add(words[i+1].charAt(k2));
+                    break;
+                }
+                k1++;
+                k2++;
+            }
+
+            if (k1 < words[i].length() && k2 == words[i+1].length()) {
+                //incorrect order of given words:
+                // www
+                // ww
+                return "";
+            }
+
+            //www and wwwe - gives us nothing
+            //www and www -  gives us nothing
+        }
+
+        //use topological sort for adjMap
+        StringBuilder sb = new StringBuilder();
+
+        Set<Character> visited = new HashSet<>();
+        Set<Character> cycle = new HashSet<>();
+
+        //traverse the list of letters, NOT adjMap.keySet() !
+        //since there is the case: "z" and "z" => adjMap is empty, but the answer is "z"
+        Set<Character> letters = new HashSet<>();
+        for (String w : words) {
+            for (char c : w.toCharArray()) {
+                letters.add(c);
+            }
+        }
+
+        for (Character c : letters) {
+            if (!visited.contains(c)) {
+                if (!traversal(c, visited, cycle, adjMap, sb)) {
+                    return "";
+                }
+            }
+        }
+
+        return sb.reverse().toString();
+    }
+
+
+    private boolean traversal(Character c, Set<Character> visited, Set<Character> cycle, Map<Character, Set<Character>> adjMap, StringBuilder sb) {
+        if (visited.contains(c)) {
+            return true;
+        }
+
+        if (cycle.contains(c)) {
+            return false;
+        }
+
+        cycle.add(c);
+
+        for (Character neighbour : adjMap.getOrDefault(c, new HashSet<>())) {
+            if (!traversal(neighbour, visited, cycle, adjMap, sb)) {
                 return false;
             }
         }
