@@ -8,7 +8,7 @@ import java.util.Stack;
  * 536. Construct Binary Tree from String (medium) (blocked)
  * https://leetcode.ca/all/536.html#google_vignette
  *
- * #Company: Amazon Meta
+ * #Company (15.03.2025): 0 - 3 months Meta 10 6 months ago Amazon 3
  *
  * You need to construct a binary tree from a string consisting of parenthesis and integers.
  *
@@ -98,6 +98,55 @@ public class ConstructBinaryTreeFromString {
             } else {
                 i++;
             }
+        }
+
+        return stack.pop();
+    }
+
+    /**
+     * my implementation from 15.03.2025
+     *
+     * BEATS ~ 25%
+     *
+     * 2 attempts:
+     * - missed edge case: tree is the only one node (root)
+     */
+    public TreeNode str2treeKREV(String s) {
+        if (s == null || s.isEmpty()) return null;
+
+        Stack<TreeNode> stack = new Stack<>();
+        char[] arr = s.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char c : arr) {
+            if (Character.isDigit(c) || c == '-') {
+                sb.append(c);
+            } else if (c == '(') {
+                if (!sb.isEmpty()) {
+                    TreeNode node = new TreeNode(Integer.valueOf(sb.toString()));
+                    sb.setLength(0);
+                    stack.push(node);
+                }
+            } else if (c == ')') {
+                if (!sb.isEmpty()) {
+                    TreeNode node = new TreeNode(Integer.valueOf(sb.toString()));
+                    sb.setLength(0);
+                    stack.push(node);
+                }
+                TreeNode cur = stack.pop();
+                TreeNode parent = stack.peek();
+                if (parent.left == null) {
+                    parent.left = cur;
+                } else {
+                    parent.right = cur;
+                }
+            } else {
+                //error
+            }
+        }
+
+        //if no brackets, i.e. the only one node => create it and return
+        if (!sb.isEmpty()) {
+            return new TreeNode(Integer.valueOf(sb.toString()));
         }
 
         return stack.pop();
