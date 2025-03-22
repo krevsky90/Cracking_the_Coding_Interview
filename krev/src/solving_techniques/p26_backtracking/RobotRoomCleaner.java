@@ -11,7 +11,7 @@ import java.util.Set;
  * OR
  * https://leetcode.ca/2017-04-02-489-Robot-Room-Cleaner/
  *
- * #Company: Amazon Facebook Google Microsoft
+ * #Company (22.03.2025): 0 - 3 months Meta 14 LinkedIn 4 0 - 6 months Google 2 6 months ago Microsoft 4 Amazon 4 Citadel 4 TikTok 2 Cruise 2 DRW 2
  * <p>
  * You are controlling a robot that is located somewhere in a room.
  * The room is modeled as an m x n binary grid where 0 represents a wall and 1 represents an empty slot.
@@ -93,8 +93,10 @@ public class RobotRoomCleaner {
      * https://www.youtube.com/watch?v=OyaHANapsh0&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=52
      * idea:
      * 1) set directions array with strict sequence of elements: we can 'move' from one current direction to the next one by turnRight operation
+     * 1.2) since the initial direction is UP => 0th element in the array is {-1,0}
      * 2) despite we don't know the real initial position, we can track visited Set of pairs (x,y), considering that we are in (0,0)
-     * 3) use DFS to visit all available cells AND backtracking to back to the previous state, change direction and move to this direction
+     * 3) go forward until you face obstacle/visited cell. then - turn right and go forward again
+     * use DFS to visit all available cells AND backtracking to back to the previous state, change direction and move to this direction
      * 3.2) to use backtracking approach we need special sequence of the actions to do 'undo' for move() action
      * 4) calculate tempDirection based on current direction + desired direction
      * <p>
@@ -131,6 +133,7 @@ public class RobotRoomCleaner {
             int tempDirection = (direction + k) % 4;
             int newI = i + dirs[tempDirection][0];
             int newJ = j + dirs[tempDirection][1];
+            //NOTE: if we turned 2 times, move() will return true, BUT visited will not allow us to move
             if (!visited.contains(Arrays.asList(newI, newJ)) && robot.move()) {
                 cleanDfs(newI, newJ, tempDirection);
                 //revert the movement (i.e. backtrack)
@@ -141,6 +144,9 @@ public class RobotRoomCleaner {
             //this is necessary since we need to change the direction by special method, we can't just move, even if we calculate newI and newJ
             //since our 'dirs' array has property: next element/direction = current direction + turnRight, then we need to call turnRight()
             robot.turnRight();
+            //NOTE: if there is no direction to move forward, we turn 4 time and get the same state as we had when we entered cleanDfs-method
+            // => when we return from this method the state will be the same as we had before calling this method
+            // i.e. we can call goBack() and be sure that it will be applied to known state (position + direction)
         }
     }
 
