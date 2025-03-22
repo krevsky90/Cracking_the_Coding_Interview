@@ -38,8 +38,8 @@ public class ValidPalindrome3 {
      * KREVSKY SOLUTION:
      * similar to https://www.youtube.com/watch?v=cJBT7Q106hg&list=PLUPSMCjQ-7od5IVz8ug6D-apxFLkDTsoy&index=114
      * but simpler.
-     * Since the problem is locked on leetcode, can't test it properly,
-     * but manual testing shows success
+     *
+     * gives TLE!!!!
      *
      * idea:
      * 1) use 2 pointers and standard while (left < right)
@@ -51,8 +51,8 @@ public class ValidPalindrome3 {
      *
      * time to solve ~ 20 mins
      *
-     * time ~ O((N-1)^2) ~ O(N^2) - due to res1 and res2 which might be calced each time if s = abcde, for example
-     * space ~ O(N^2), since we need to store all possible combinations of (left, right)
+     * time ~ O(k*(N-1)^2) ~ O(k*N^2) - due to res1 and res2 which might be calced each time if s = abcde, for example
+     * space ~ O(k*N^2), since we need to store all possible combinations of (left, right)
      *
      * 2 attempts:
      * - forgot memo
@@ -88,5 +88,30 @@ public class ValidPalindrome3 {
 
         mapMemo.put(key, true);
         return mapMemo.get(key);
+    }
+
+    /**
+     * Optimized to time O(N^2)
+     * idea:
+     * keep memo as (i,j) -> min k
+     * so isPalindrome will return integer that we can compare to k and return the result of comparison
+     */
+    public boolean isValidPalindrome(String s, int k) {
+        Integer[][] memo = new Integer[s.length()][s.length()];
+        return isValidPalindrome(s, 0, s.length() - 1, memo) <= k;
+    }
+
+    private int isValidPalindrome(String s, int p, int q, Integer[][] memo) {
+        if (p > q) return 0;
+
+        if (memo[p][q] != null) {
+            return memo[p][q];
+        }
+
+        if (s.charAt(p) == s.charAt(q)) {
+            return memo[p][q] = isValidPalindrome(s, p + 1, q - 1, memo);
+        }
+
+        return memo[p][q] = 1 + Math.min(isValidPalindrome(s, p + 1, q, memo), isValidPalindrome(s, p, q - 1, memo));
     }
 }
