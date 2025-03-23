@@ -104,6 +104,15 @@ public class DijkstrasShortestPathAlgorithm {
      * Time Complexity: O(V + E*logV), BUT if we use adjacent list, not matrix! (since we traverse through all edges instead of "for (int u = 0; u < n; u++)")
      * Space Complexity: O(V + E)
      *
+     * to build Dijkstra algorithm takes ~ O(E*logV), because
+     *      *          a) max amount vertices that can be added to PQ - is E => push/pop operations take ~ O(logE). Since E ~ V^2 => O(logV^2) ~ O(logV)
+     *      *          b) since we will traverse through all adjMap => we will handle all edges once
+     *      *      that's why Dijkstra takes ~ O(E*logV)
+     *      * space ~ O(V+E),
+     *      *      to store dist array ~ O(V)
+     *      *      to build adjMap takes O(E), Priority Queue ~ O(V*(V-1)), because each node can be added to queue V-1 times.
+     *      *      BUT since V*V ~ E => space ~ O(V + V*(V-1)) ~ O(V + E)
+     *
      */
     public void dijkstra2(int[][] graph, int src) {
         int n = graph.length;

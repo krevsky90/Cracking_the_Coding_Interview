@@ -3,8 +3,10 @@ package solving_techniques.p29_Graphs;
 import java.util.*;
 
 /**
- * 743. Network Delay Time
+ * 743. Network Delay Time (medium)
  * https://leetcode.com/problems/network-delay-time
+ * <p>
+ * #Company (22.03.2025): 0 - 3 months Amazon 2 Netflix 2 0 - 6 months Google 3 6 months ago Adobe 3 TikTok 3 Yahoo 3 Bloomberg 2 Apple 2 Akuna Capital 2
  * <p>
  * You are given a network of n nodes, labeled from 1 to n.
  * You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi),
@@ -48,6 +50,71 @@ public class NetworkDelayTime {
         int k2 = 2;
         new NetworkDelayTime().networkDelayTime2(times2, n2, k2);
         new NetworkDelayTime().networkDelayTime3(times2, n2, k2);
+    }
+
+    /**
+     * KREVSKY SOLUTION (the BEST!) (22.03.2025) #3: Dijkstra based on Priority Queue
+     * time to solve ~ 30 mins
+     * <p>
+     * time ~ O(N+ElogN)
+     * to find min element in dist array takes ~ O(N)
+     * to build Dijkstra algorithm takes ~ O(E*logN), because
+     * a) max amount vertices that can be added to PQ - is E => push/pop operations take ~ O(logE). Since E ~ N^2 => O(logN^2) ~ O(logN)
+     * b) since we will traverse through all adjMap => we will handle all edges once
+     * that's why Dijkstra takes ~ O(E*logN)
+     * space ~ O(N+E),
+     * to store dist array ~ O(N)
+     * to build adjMap takes O(E), Priority Queue ~ O(N*(N-1 )), because each node can be added to queue N-1 times.
+     * BUT since N*N ~ E => space ~ O(N + N*(N-1)) ~ O(N + E)
+     * <p>
+     * BEATS ~ 86%
+     */
+    public int networkDelayTime(int[][] times, int n, int k) {
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[0] = 0;    //stub for non existing node
+
+        Map<Integer, List<int[]>> adjMap = new HashMap<>();
+        for (int i = 0; i <= n; i++) {
+            adjMap.put(i, new ArrayList<>());
+        }
+
+        for (int[] t : times) {
+            adjMap.get(t[0]).add(new int[]{t[1], t[2]});
+        }
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((p, q) -> p[1] - q[1]);    //min heap. [0] - number of node, [1] - distance to this node
+        //update queue and dist
+        pq.add(new int[]{k, 0});
+        dist[k] = 0;
+
+        while (!pq.isEmpty()) {
+            int[] el = pq.poll();
+            int node = el[0];
+            int d = el[1];
+            if (dist[node] < d) {
+                //do nothing with this non-optimal entry of the queue
+                continue;
+            }
+
+            List<int[]> adjList = adjMap.get(node);
+            for (int[] neighbour : adjList) {
+                int newD = neighbour[1] + d;
+                if (dist[neighbour[0]] > newD) {
+                    //update queue and dist
+                    pq.add(new int[]{neighbour[0], newD});
+                    dist[neighbour[0]] = newD;
+                }
+            }
+        }
+
+        //find max element in dist array:
+        int result = -1;
+        for (int d : dist) {
+            if (d > result) result = d;
+        }
+
+        return result == Integer.MAX_VALUE ? -1 : result;
     }
 
     /**
@@ -100,8 +167,6 @@ public class NetworkDelayTime {
         }
         return result;
     }
-
-    //use adjacent matrix
 
     /**
      * KREVSKY SOLUTION #2: use adjacent matrix
@@ -251,5 +316,100 @@ public class NetworkDelayTime {
             result = Math.max(result, dist[i]);
         }
         return result;
+    }
+
+    /**
+     * Official leetcode solution (not the best)
+     * Simple (not-optimal) BFS solution:
+     * use Queue = Linked List
+     * <p>
+     * <p>
+     * Here N is the number of nodes and E is the number of total edges in the given network.
+     * <p>
+     * Time complexity: O(N⋅E)
+     * <p>
+     * Each of the N nodes can be added to the queue for all the edges connected to it, hence in a complete graph,
+     * the total number of operations would be O(NE). Also, finding the minimum time required in signalReceivedAt takes O(N).
+     * <p>
+     * Space complexity: O(N⋅E)
+     * <p>
+     * Building the adjacency list will take O(E) space and the queue for BFS will use O(N⋅E)
+     * space as there can be this much number of nodes in the queue.
+     */
+    // Adjacency list
+    Map<Integer, List<Pair<Integer, Integer>>> adj = new HashMap<>();
+
+    class Pair<N, M> {
+        N key;
+        M value;
+
+        Pair(N key, M value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        N getKey() {
+            return key;
+        }
+
+        M getValue() {
+            return value;
+        }
+    }
+
+    private void BFS(int[] signalReceivedAt, int sourceNode) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(sourceNode);
+
+        // Time for starting node is 0
+        signalReceivedAt[sourceNode] = 0;
+
+        while (!q.isEmpty()) {
+            int currNode = q.remove();
+
+            if (!adj.containsKey(currNode)) {
+                continue;
+            }
+
+            // Broadcast the signal to adjacent nodes
+            for (Pair<Integer, Integer> edge : adj.get(currNode)) {
+                int time = edge.getKey();
+                int neighborNode = edge.getValue();
+
+                // Fastest signal time for neighborNode so far
+                // signalReceivedAt[currNode] + time :
+                // time when signal reaches neighborNode
+                int arrivalTime = signalReceivedAt[currNode] + time;
+                if (signalReceivedAt[neighborNode] > arrivalTime) {
+                    signalReceivedAt[neighborNode] = arrivalTime;
+                    q.add(neighborNode);
+                }
+            }
+        }
+    }
+
+    public int networkDelayTimeBFS(int[][] times, int n, int k) {
+        // Build the adjacency list
+        for (int[] time : times) {
+            int source = time[0];
+            int dest = time[1];
+            int travelTime = time[2];
+
+            adj.putIfAbsent(source, new ArrayList<>());
+            adj.get(source).add(new Pair(travelTime, dest));
+        }
+
+        int[] signalReceivedAt = new int[n + 1];
+        Arrays.fill(signalReceivedAt, Integer.MAX_VALUE);
+
+        BFS(signalReceivedAt, k);
+
+        int answer = Integer.MIN_VALUE;
+        for (int i = 1; i <= n; i++) {
+            answer = Math.max(answer, signalReceivedAt[i]);
+        }
+
+        // INT_MAX signifies atleat one node is unreachable
+        return answer == Integer.MAX_VALUE ? -1 : answer;
     }
 }
