@@ -24,6 +24,33 @@ package solving_techniques.different;
  */
 public class BracketMatch {
     /**
+     * Official solution
+     */
+    public static int bracketMatchOfficial(String text) {
+        int balance = 0; // Tracks the net balance of '(' and ')'
+        int additions = 0; // Tracks the total number of brackets to add
+
+        for (char ch : text.toCharArray()) {
+            if (ch == '(') {
+                balance++; // Increment balance for an opening bracket
+            } else if (ch == ')') {
+                balance--; // Decrement balance for a closing bracket
+
+                // If balance goes negative, we need to add an opening bracket
+                if (balance < 0) {
+                    additions++;
+                    balance = 0; // Reset balance after adding a bracket
+                }
+            }
+        }
+
+        // Any remaining positive balance indicates unmatched opening brackets
+        additions += balance;
+
+        return additions;
+    }
+
+    /**
      * KREVSKY SOLUTION:
      * time to solve ~ 10 mins
      *
