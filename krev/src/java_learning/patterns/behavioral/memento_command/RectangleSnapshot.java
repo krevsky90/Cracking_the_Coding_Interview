@@ -15,7 +15,7 @@ public class RectangleSnapshot {
         snapshotName = width + "_" + height + "_" + color + "_" + System.currentTimeMillis();
     }
 
-    //to restore snapshot
+    //to restore snapshot according to approach 'self_restored_snapshot'
     public void restore() {
         originator.setWidth(width);
         originator.setHeight(height);

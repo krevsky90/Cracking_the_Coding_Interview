@@ -8,10 +8,14 @@ idea:
         для этого снепшот должен
     либо сам снепшот (имея ссылку на объект, к-ый надо восстановить). это лучше
 
-1) inner
-2) outer
-3) self_restored_snapshot
-4) self_restored_snapshot_multiple
+1) inner - все в одном классе => состояние снепшота недоступно снаружи
+2) outer - плохо, т.к. состояние снепшота доступно через get методы. Обращение к снепшоту через интерфейс - костыль в целом
+3) self_restored_snapshot - реально полезная идея:
+    Snapshot имеет метод restore
+    Data имеет метод save(): new Snapshot(this)
+
+4) self_restored_snapshot_multiple - идея из п.3 масштабируется, вынося методы save и restore в интерфейсы
+
 5) memento_command (separate folder at 1 level above!)
 
 

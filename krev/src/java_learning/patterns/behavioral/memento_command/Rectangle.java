@@ -46,7 +46,7 @@ public class Rectangle {
                 '}';
     }
 
-    //to create snapshot
+    //to create snapshot according to approach 'self_restored_snapshot'
     public RectangleSnapshot save() {
         return new RectangleSnapshot(this);
     }

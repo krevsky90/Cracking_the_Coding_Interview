@@ -2,7 +2,7 @@ Refactor command example using memento pattern
 
 i.e. each command will not backup only part of the object That will be changed by this command)
 BUT each command will create full snapshot of the object, using memento pattern.
-In this case, we case store reference to snapshot in AbstractCommand class
+In this case, we can store reference to snapshot in AbstractCommand class, but not different fields in different command classes (that affected these fields)
 
 NOTE: if we are sure that all commands use the same receiver (which = originator), we can move it to AbstractCommand
 => write saveBackup method in AbstractCommand class
