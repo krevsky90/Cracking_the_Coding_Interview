@@ -3,7 +3,7 @@ package solving_techniques.p27_Stacks;
 import java.util.Stack;
 
 /**
- * 716. Max Stack(easy) (blocked)
+ * 716. Max Stack(easy -> hard) (blocked)
  * https://leetcode.com/problems/max-stack/
  * OR
  * https://leetcode.ca/all/716.html
@@ -49,6 +49,11 @@ public class MaxStack {
         System.out.println("===");
     }
     /**
+     * NOTE: previously it was EASY level and required time complexity was ~ O(n). BUT later it became hard => time shoule be O(logN)  - see
+     *      solving_techniques\heap\MaxStack.java
+     *      OR
+     *      solving_techniques\p31_OrderedSet\MaxStack.java
+     *
      * KREVSKY SOLUTION:
      * the same as https://github.com/awangdev/leet-code/blob/master/Java/716.%20Max%20Stack.java
      * idea:
