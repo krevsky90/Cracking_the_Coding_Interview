@@ -18,6 +18,8 @@ Writer
 	OutputStreamWriter
 		FileWriter - writes 1 char => useful to work with text files
 
+Scanner - reads from stream (System.in or file), has methods for tokenization (default delimiter = " ") and convertation to primitive datatypes. Has buffer = 1Kb
+
 NOTE: BufferedOutputStream
     When you call the write method of BufferedOutputStream, the data is first written to an internal byte array (buffer) in memory.
     The size of this buffer is determined by the buffer size specified during the creation of the BufferedOutputStream (default is typically 8 KB).
