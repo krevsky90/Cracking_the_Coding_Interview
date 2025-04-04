@@ -1,0 +1,3 @@
+BufferedWriter: test write text1
+BufferedWriter: test write text2
+BufferedWriter: test write text3
