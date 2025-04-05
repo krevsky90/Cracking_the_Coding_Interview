@@ -1,0 +1,18 @@
+Q1:
+Given an input string: "UK:US:FedEx:4,UK:FR:Jet1:2,US:UK:RyanAir:8,CA:UK:CanadaAir:8"
+Which represents flights between destinations in the format: "Source:Destination:Airline:Cost,..."
+Write a function which will take a Source and Destination and output the cost.
+
+NOTE!! I'M SURE THIS FOLLOW-UP CAN BE SKIPPED AND WE CAN JUST IMPLEMENT BFS SKIPPING DFS!
+Follow-up 1:
+Write a function which will take an Input String, Source and Destination that have no direct connecting flight,
+and output a route that you can take to reach the destination.
+The output should be in the format: return {'route': 'US -> UK -> FR', 'method': 'RyanAir -> Jet1', 'cost': 10}
+
+My Follow-up 2:
+Write a function which will take an Input String, Source and Destination that have no direct connecting flight,
+and output the shortest (amount of flights) route that you can take to reach the destination.
+
+My Follow-up 3:
+Write a function which will take an Input String, Source and Destination that have no direct connecting flight,
+and output the cheapest (total cost of flights) route that you can take to reach the destination.

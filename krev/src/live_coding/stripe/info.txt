@@ -1,0 +1,32 @@
+https://www.glassdoor.com/Interview/Stripe-Software-Engineer-Interview-Questions-EI_IE671932.0,6_KO7,24.htm
+
++ Comment 1 - see flights
+    Question 1
+    Given an input string: "UK:US:FedEx:4,UK:FR:Jet1:2,US:UK:RyanAir:8,CA:UK:CanadaAir:8" Which represents flights between destinations in the format: "Source:Destination:Airline:Cost,..." Write a function which will take a Source and Destination and output the cost.
+
+    Question 2
+    (Building from the first question) Write a function which will take an Input String, Source and Destination that have no direct connecting flight, and output a route that you can take to reach the destination. The output should be in the format: return {'route': 'US -> UK -> FR', 'method': 'RyanAir -> Jet1', 'cost': 10}
+
++ Comment 2  - see flights
+    First round: Non leetcode question that is 4 levels. Straightforward parsing and sorting of inputs for the first 3 levels. Last level requires dijstra's algorithm
+
+Comment 3:
+I was given an array of products and a pricing map and then first part was to calculate total price for the products then second part was a change in the pricing map that the price depends on the quantities
+
+Comment 4:
+Technical screening, Asked 2 questions based on CSV input and where the columns named transaction type, currency, date, amount and you need to sum up all the amount for a given date and transaction type
+
+Comment 5:
+Implement an anti-fraud system with language of choice
+
+Comment 6:
+to code a payment tracking system based on an arbitrary specification.
+
+Comment 7:
+Given a string that has currency "USD:CAD:074,AUD:CAD" as a data,
+then I was told to write a function would take two input currency string and a number(value in first currency)
+ and then determine the value of number in the second currency
+ The follow up questions was Given same data above, write a function that would take two currency string, and a number and the fine (???) the value of that number
+
+Comment 8:
+design API rate limiter and scale
