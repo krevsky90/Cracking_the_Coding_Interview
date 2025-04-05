@@ -1,9 +1,14 @@
 package solving_techniques.p3_FastAndSlowPointers;
 
 import data_structures.chapter2_linked_lists.LinkedListNode;
+import data_structures.chapter2_linked_lists.amazon_igotanoffer.ListNode;
 
 /**
  * 1721. Swapping Nodes in a Linked List
+ * https://leetcode.com/problems/swapping-nodes-in-a-linked-list
+ * <p>
+ * #Company (5.04.2025): 0 - 3 months Google 2 Amazon 2 6 months ago Meta 8 Adobe 3 Oracle 2 Uber 2 Nvidia 2 Snowflake 2
+ * <p>
  * You are given the head of a linked list, and an integer k.
  * Return the head of the linked list after swapping the values of the kth node from the beginning
  * and the kth node from the end (the list is 1-indexed).
@@ -57,5 +62,55 @@ public class SwappingNodesInLinkedList {
         node2.value = tempVal;
 
         return head;
+    }
+
+    /**
+     * IF it is NOT ALLOWED to change the values of ListNodes, the problem became harder
+     */
+    public ListNode swapNodes(ListNode head, int k) {
+        ListNode fakeHead = new ListNode();
+        fakeHead.next = head;
+
+        int cnt = 1;
+        ListNode cur1 = head;
+        ListNode prev1 = fakeHead;
+
+        while (cnt < k) {
+            prev1 = cur1;
+            cur1 = cur1.next;
+            cnt++;
+        }
+
+        ListNode prev2 = fakeHead;
+        ListNode cur2 = head;
+        ListNode fast2 = cur1;
+
+        while (fast2.next != null) {
+            prev2 = cur2;
+            cur2 = cur2.next;
+            fast2 = fast2.next;
+        }
+
+        ListNode next1 = cur1.next;
+        ListNode next2 = cur2.next;
+
+        //need to handle 2 corner cases when cur1 -> cur2 OR cur2 -> cur1
+        //else - regular case
+        if (next1 == cur2) {
+            prev1.next = cur2;
+            cur2.next = cur1;
+            cur1.next = next2;
+        } else if (next2 == cur1) {
+            prev2.next = cur1;
+            cur1.next = cur2;
+            cur2.next = next1;
+        } else {
+            prev1.next = cur2;
+            cur2.next = next1;
+            prev2.next = cur1;
+            cur1.next = next2;
+        }
+
+        return fakeHead.next;
     }
 }
