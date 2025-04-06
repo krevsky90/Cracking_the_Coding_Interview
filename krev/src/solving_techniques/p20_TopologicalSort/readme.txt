@@ -15,7 +15,7 @@ Topological Sort + DFS:
 https://www.youtube.com/watch?v=Akt3glAwyfY
 
 Approach 2:
-Topological Sort + BFS:
+Topological Sort + BFS = Kahn's Algorithm
 https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews/blob/main/%E2%9C%85%20Pattern%2016%3A%20%F0%9F%94%8E%20Topological%20Sort%20(Graph).md
 
 Here are a few fundamental concepts related to topological sort:

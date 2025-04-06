@@ -6,8 +6,10 @@ import java.util.*;
  *
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a5c4a4fd87e19ef8c4df64
  * OR SIMILAR TO
- * 207. Course Schedule
+ * 207. Course Schedule (medium)
  * https://leetcode.com/problems/course-schedule/
+ *
+ * #Company (6.04.2025): 0 - 3 months Amazon 37 Meta 22 Google 11 TikTok 6 Microsoft 4 Oracle 2 Snowflake 2 PayPal 2 Swiggy 2 Cruise 2 0 - 6 months Bloomberg 5 Apple 5 Anduril 3 Coupang 3 ByteDance 2 LiveRamp 2 6 months ago Uber 11 Adobe 9 Flipkart 5 Karat 5 Snap 4 Yahoo 4 Walmart Labs 3 Visa 3 eBay 3 VMware 3
  *
  * will solve the problem from leetcode:
  * There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1.
@@ -38,18 +40,18 @@ import java.util.*;
  */
 public class TasksScheduling {
     /**
-     * KREVSKY SOLUTION:
+     * KREVSKY SOLUTION #1:
+     * use BFS topological sort - Kahn's Algorithm
+     *
      * the idea and even code are the same as for src/solving_techniques/p20_TopologicalSort/TopologicalSort.java
      * BUT we add one validation and return its value:
      * return result.length == amount of vertices;
-     *
      */
-
-    public static boolean canFinish(int numCourses, int[][] prerequisites) {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
         return topologicalSortBFS(numCourses, prerequisites);
     }
 
-    public static boolean topologicalSortBFS(int vertices, int [][] edges) {
+    public boolean topologicalSortBFS(int vertices, int [][] edges) {
         List<Integer> result = new ArrayList<>();
 
         // 1. Initialization
@@ -94,5 +96,69 @@ public class TasksScheduling {
         }
 
         return result.size() == vertices;
+    }
+
+    /**
+     * SOLUTION #2:
+     * use DFS Topological sort for graph that can have cycles
+     */
+    public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
+        return topologicalSortDFS(numCourses, prerequisites);
+    }
+
+    /**
+     * NOTE:
+     * result list is NOT necessary, but we leave it for flexibility
+     * (in case if we need to return not only true/false, but also the collection of elements if required)
+     */
+    public boolean topologicalSortDFS(int vertices, int [][] edges) {
+        List<Integer> result = new ArrayList<>();
+
+        // 1. Initialization
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int i = 0; i < vertices; i++) {
+            //it is more simple to put empty list rather then struggle with NPE for nodes that don't have outgoing edges
+            graph.put(i, new ArrayList<>());
+        }
+
+        // 2. Build the graph and find in-degrees of all vertices
+        for (int[] edge : edges) {
+            graph.get(edge[0]).add(edge[1]);
+        }
+
+        // use DFS approach
+        Set<Integer> visited = new HashSet<>();
+        Set<Integer> cycle = new HashSet<>();
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited.contains(i)) {
+                if (!dfs(i, graph, visited, cycle, result)) {
+                    return false;
+                }
+            }
+        }
+
+        // return result.size() == vertices;	//or just return true if we did not return false previously
+        return true;
+    }
+
+    private boolean dfs(int node, Map<Integer, List<Integer>> graph, Set<Integer> visited, Set<Integer> cycle, List<Integer> result) {
+        if (cycle.contains(node)) return false;
+
+        if (visited.contains(node)) return true;
+
+        cycle.add(node);
+
+        for (int child : graph.getOrDefault(node, new ArrayList<>())) {
+            if (!dfs(child, graph, visited, cycle, result)) {
+                return false;
+            }
+        }
+
+        cycle.remove(node);
+        visited.add(node);
+        // result.add(node);
+
+        return true;
     }
 }
