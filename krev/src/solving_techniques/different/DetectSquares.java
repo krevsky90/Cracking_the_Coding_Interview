@@ -48,6 +48,18 @@ import java.util.*;
  * At most 3000 calls in total will be made to add and count.
  */
 public class DetectSquares {
+    /**
+     * Follow-up:
+     * in Google this problem does not have condition like 'axis-aligned'
+     * so we can use Math to calculate coordinates of 3 and 4 points
+     * in cae is we consider that we have coordinates of 2 diagonal points (x1, y1) and (x2, y2),
+     * then we can find middle point. then - vector from middle to, say, (x2, y2)
+     * then rotate this vector, since rotated (a, b) is (-b, a)
+     * then calculate
+     * (x3, y3) = ((x1 + x2)/2 + (y1 - y2)/2, (y1 + y2)/2 + (x2 - x1)/2)
+     * (x4, y4) = ((x1 + x2)/2 - (y1 - y2)/2, (y1 + y2)/2 - (x2 - x1)/2)
+     *
+     */
     public static void main(String[] args) {
         KrevskySolution detectSquares = new KrevskySolution();
         //[3,10]],[[11,2]],[[3,2]],[[11,10]],[[14,8]],[[11,2]],[[11,10]]]
