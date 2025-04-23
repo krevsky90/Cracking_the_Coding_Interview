@@ -66,4 +66,30 @@ public class BSTSuccessorSearch {
             return cur.parent;
         }
     }
+
+    Node findInOrderSuccessorWithoutParentLink(Node inputNode) {
+        if (root == null) return null;
+
+        if (inputNode.right != null) {
+            Node cur = inputNode.right;
+            while (cur.left != null) {
+                cur = cur.left;
+            }
+            return cur;
+        } else {
+            //use usual search in BST, but also save parent if we go to the left
+            Node cur = root;
+            Node result = null;
+            while (cur != inputNode) {
+                if (inputNode.key < cur.key) {
+                    result = cur;
+                    cur = cur.left;
+                } else {
+                    cur = cur.right;
+                }
+            }
+
+            return result;
+        }
+    }
 }
