@@ -2,6 +2,9 @@ package solving_techniques.p8_TreeDepthFirstSearch;
 
 /**
  * https://www.tryexponent.com/practice/prepare/bst-successor-search
+ * OR
+ * 510. Inorder Successor in BST II (medium) (locked)
+ * https://leetcode.com/problems/inorder-successor-in-bst-ii
  * <p>
  * In a Binary Search Tree (BST), an Inorder Successor of a node is defined as the node with the smallest key greater than the key of the input node (see examples below). Given a node inputNode in a BST, you’re asked to write a function findInOrderSuccessor that returns the Inorder Successor of inputNode. If inputNode has no Inorder Successor, return null.
  * <p>
@@ -61,8 +64,6 @@ public class BSTSuccessorSearch {
                 cur = cur.parent;
             }
 
-            if (cur.parent == null) return null;
-            //otherwise we finished while-loop since cur.parent.right != cur. then return parent
             return cur.parent;
         }
     }
