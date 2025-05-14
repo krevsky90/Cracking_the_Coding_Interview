@@ -52,4 +52,23 @@ public class CeilingOfNumber {
 
         return l;
     }
+
+    /**
+     * 2025/05/14
+     * based on Mavrin https://www.youtube.com/watch?v=Kn2DtmsN8f8
+     */
+    public int searchInsertMavrin(int[] arr, int key) {
+        int l = -1;
+        int r = arr.length;
+        while (r - l > 1) {
+            int mid = l + (r - l)/2;
+            if (arr[mid] >= key) {
+                r = mid;
+            } else {
+                l = mid;
+            }
+        }
+
+        return r;
+    }
 }

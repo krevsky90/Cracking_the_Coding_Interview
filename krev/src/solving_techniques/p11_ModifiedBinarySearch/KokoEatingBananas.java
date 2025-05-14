@@ -95,6 +95,35 @@ public class KokoEatingBananas {
 
         return left;
     }
+
+    /**
+     * 2025/05/14
+     * based on Mavrin https://www.youtube.com/watch?v=Kn2DtmsN8f8
+     */
+    public int minEatingSpeedMavrin(int[] piles, int h) {
+        int maxPile = -1;
+        for (int pile : piles) {
+            maxPile = Math.max(maxPile, pile);
+        }
+
+        int left = 0;
+        int right = maxPile + 1;
+
+        //if iterate k from left to right => will take O(right - left) => O(n)
+        //idea: use binary search to improve the solution to O(logn)
+        //to avoid infinite loop (since we write right = mid), we need to use <, but not <=
+        while (right - left > 1) {
+            int mid = left + (right - left)/2;
+            int sumHours = countHours(piles, mid);
+            if (sumHours <= h) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+
+        return right;
+    }
 // [30,11,23,4,20], h = 6
 // left = 23
 // right = 25

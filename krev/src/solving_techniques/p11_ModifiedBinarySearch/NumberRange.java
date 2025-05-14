@@ -31,8 +31,55 @@ package solving_techniques.p11_ModifiedBinarySearch;
  */
 public class NumberRange {
     /**
+     * 2025/05/14
+     * based on Mavrin https://www.youtube.com/watch?v=Kn2DtmsN8f8
+     */
+    public int[] searchRangeMavrin(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return new int[]{-1,-1};
+
+        int left = -1;
+        int right = nums.length;
+
+        //left most pos
+        while (right - left > 1) {
+            int mid = left + (right - left)/2;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+
+        //NOTE: need to do this validation since right might be equals to nums.length!
+        int ans1 = -1;
+        if (right < nums.length && nums[right] == target) {
+            ans1 = right;
+        }
+
+        //right most pos
+        left = -1;
+        right = nums.length;
+        while (right - left > 1) {
+            int mid = left + (right - left)/2;
+            if (nums[mid] <= target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+
+        //NOTE: need to do this validation since right might be equals to -1!
+        int ans2 = -1;
+        if (left >= 0 && nums[left] == target) {
+            ans2 = left;
+        }
+
+        return new int[]{ans1, ans2};
+    }
+
+    /**
      * KREVSKY SOLUTION:
-     * time to solve = 11 (to think + 42 = 53 mins
+     * time to solve = 11 (to think + 42) = 53 mins
      * <p>
      * 3 attempts:
      * - incorrect syntax: new int[2]{-1, -1}; instead of new int[]{-1, -1};
