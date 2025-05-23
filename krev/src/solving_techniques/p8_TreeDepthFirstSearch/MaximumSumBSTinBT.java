@@ -42,9 +42,9 @@ public class MaximumSumBSTinBT {
      * <p>
      * idea: for each node we need to keep:
      * isBST - is this node is root of BST sub-tree
-     * sum - sum if its sub-tree (we can calculate it even if paret of its sub-tree is not BST
-     * minValue - min node is sub-tree
-     * maxValue
+     * sum - sum if its sub-tree (we can calculate it even if parent of its sub-tree is not BST
+     * minValue - min node in sub-tree
+     * maxValue - max node in sub-tree
      * <p>
      * criterion of BST subtree is:
      * left subTree is BST & right subtree isBST && maxValue of left subtree < node.val < minValue of right subtree
@@ -115,7 +115,7 @@ public class MaximumSumBSTinBT {
     }
 
     public int[] helper(TreeNode root) {
-        if (root == null) return new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE, 0}; // {min, max, sum},
+        if (root == null) return new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE, 0}; // {min, max, sum}, return values that won't bound parent's node
         int[] left = helper(root.left);
         int[] right = helper(root.right);
 
@@ -126,6 +126,10 @@ public class MaximumSumBSTinBT {
             int max = Math.max(root.val, right[1]);
             return new int[]{min, max, sum};
         }
+
+        // since current subtree is NOT BST => any higher subtree can't be BST
+        // that's why we return values that bound parent's node in such way,
+        // that the condition "if (left[1] < root.val && root.val < right[0])" will NEVER give true
         return new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, 0};
     }
 }
