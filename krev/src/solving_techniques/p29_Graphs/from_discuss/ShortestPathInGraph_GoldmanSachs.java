@@ -17,13 +17,20 @@ public class ShortestPathInGraph_GoldmanSachs {
             adj.computeIfAbsent(v, k -> new ArrayList<>()).add(u); // Undirected
         }
 
-        // BFS to find shortest path from source to destination
+        /**
+         * idea:
+         * 1) use BFS to find shortest path from source to destination
+         * 2) use Map<String, String> map to track the path once we find dest
+         * 3) reverse tracked path
+         *
+         */
         public List<String> shortestPath(String src, String dest) {
             if (!adj.containsKey(src) || !adj.containsKey(dest)) {
                 return Collections.emptyList();
             }
 
             Queue<String> queue = new LinkedList<>();
+
             Map<String, String> parent = new HashMap<>();
             Set<String> visited = new HashSet<>();
 

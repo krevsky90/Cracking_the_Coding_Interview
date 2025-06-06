@@ -9,10 +9,6 @@ Dynamic Programming patterns:
 https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns - todo!
 
     DP (distinct ways) https://leetcode.com/list/55ajm50i/
-        6. Target Sum
-        7. Out of Boundary Paths
-        8. Number of Longest Increasing Subsequence
-        9. Knight Probability in Chessboard
         10. Domino and Tromino Tiling
         11. Minimum Swaps To Make Sequences Increasing
         12. Soup Servings
@@ -23,16 +19,13 @@ https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patte
         17. Number of Ways to Stay in the Same Place After Some Steps
 
     DP(merging intervals) https://leetcode.com/list/55aj8s16/
-        1. Unique Binary Search Trees
-        2. Burst Balloons
-        3. Guess Number Higher or Lower II
+        2. Burst Balloons (hard)
         4. Remove Boxes
         5. Minimum Cost to Merge Stones
         6. Minimum Score Triangulation of Polygon
         7. Minimum Cost Tree From Leaf Values
 
     DP on strings https://leetcode.com/list/55afh7m7/
-        3. Distinct Subsequences
 
     DP (decision making) https://leetcode.com/list/55af7bu7/
         1. Best Time to Buy and Sell Stock
