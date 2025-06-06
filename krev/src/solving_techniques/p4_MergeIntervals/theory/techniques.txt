@@ -1,0 +1,26 @@
+
+
+Approach 1 (from IntervalsThatDontOverlapOthers)
+1) sort (by start or end) - depends on the problem
+2) keep prev interval to check if i-th and prev intervals overlap
+!!! if overlap occurs, set prev as interval with larger end (i.e. intervals[i] or prev interval)
+
+IF we consider that (1,2) and (2,3) does not overlap => use condition intervals[i][0] < prev[1]
+IF we consider that (1,2) and (2,3) overlaps => use condition intervals[i][0] <= prev[1]
+
+
+
+
+Approach 2: sweep line
+see NonOverlappingIntervalsSweepLine
+
+1) create map: key is start or end point of intervals
+value - object (say, Event)
+    class Event {
+            int time;
+            int index;       // Index of the interval in original list
+            boolean isStart;
+
+2) sort events by time, then - isStart
+
+3) traverse through events and count amount of overlaps, for example

@@ -4,6 +4,9 @@ import java.util.*;
 
 /**
  * https://leetcode.com/discuss/post/6802632/goldman-sachs-interview-experience-salt-yuaug/
+ *
+ * #real_question
+ * #Goldman_Sachs
  * <p>
  * A popular online retailer allows vendors to specify different prices in advance
  * for the same item throughout the day. We now need to design an algorithm that

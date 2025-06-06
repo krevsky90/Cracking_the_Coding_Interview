@@ -6,6 +6,9 @@ import java.util.Arrays;
  * 435. Non-overlapping Intervals
  * https://leetcode.com/problems/non-overlapping-intervals
  *
+ * #real_question
+ * #Goldman_Sachs
+ *
  * Given an array of intervals where intervals[i] = [starti, endi],
  * return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
  *
@@ -57,9 +60,40 @@ public class NonOverlappingIntervals {
                 //since even if prev-th interval overlaps i+1-th interval, then i-th interval also overlaps i+1-th
                 prevNum = i;
             } else {
+                //so... we just 'remove' all intervals that have [0] < prev[1] < [1]
                 result++;
             }
         }
         return result;
+    }
+
+    /**
+     * SOLUTION from 6.06.2025
+     * info: https://www.youtube.com/watch?v=2NN6N-tNyag
+     * sorted by start!
+     */
+    public int eraseOverlapIntervals2(int[][] intervals) {
+        int n = intervals.length;
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0]);   //sort by start
+
+        int cnt = 0;
+        int[] prev = intervals[0];  //we will compare current interval with prev (sinc ewe can't remove interval from array)
+        for (int i = 1; i < n; i++) {
+            if (intervals[i][0] < prev[1]) {
+                cnt++;
+                //remove interval with larger end
+                if (intervals[i][1] > prev[1]) {
+                    //remove intervals[i], i.e. set prev remains the same, and we will compare i+1-th interval with the same prev, ignoring current i-th interval
+                    //so, we do nothing
+                } else {
+                    //remove prev, i.e. reset it to intervals[i]
+                    prev = intervals[i];
+                }
+            } else {
+                prev = intervals[i];
+            }
+        }
+
+        return cnt;
     }
 }
