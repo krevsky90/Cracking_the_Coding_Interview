@@ -70,6 +70,10 @@ Common ideas:
 1) convert input data to appropriate data structure (adj matrix, adj list, or ATTENTION !! some map: vertex -> list of pairs "vertex -> length_of_edge")
 2) apply the algorithm
 
+To find the shortest path
+    for UNweighted graph - use BFS (see ShortestPathInGraph_GoldmanSachs)
+    for weighted graph - use Dijkstra (BFS) (see SwimInRisingWater, for example)
+
 Sequence of problems:
 1) Problem 1: Find if Path Exists in Graph (easy) - done
 2) Problem 2: Number of Provinces (medium) - todo
