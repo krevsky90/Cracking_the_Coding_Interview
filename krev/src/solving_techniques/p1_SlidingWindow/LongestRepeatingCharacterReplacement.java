@@ -1,7 +1,7 @@
 package solving_techniques.p1_SlidingWindow;
 
 /**
- * 424. Longest Repeating Character Replacement
+ * 424. Longest Repeating Character Replacement (medium)
  * https://leetcode.com/problems/longest-repeating-character-replacement
  * <p>
  * You are given a string s and an integer k.
@@ -58,11 +58,12 @@ public class LongestRepeatingCharacterReplacement {
                 arr[s.charAt(start) - 'A']--;
                 start++;
                 //update maxChar ~ O(26) ~ O(1)
-                int tempMax = 0;
-                for (int v : arr) {
-                    tempMax = Math.max(tempMax, v);
-                }
-                maxAmount = tempMax;
+                //not sure 100% why we should not recalc maxAmount
+//                int tempMax = 0;
+//                for (int v : arr) {
+//                    tempMax = Math.max(tempMax, v);
+//                }
+//                maxAmount = tempMax;
             }
 
             result = Math.max(result, end - start + 1);
