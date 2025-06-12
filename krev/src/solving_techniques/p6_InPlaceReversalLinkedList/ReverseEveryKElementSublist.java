@@ -80,7 +80,7 @@ public class ReverseEveryKElementSublist {
             //NOTE: if we want to reverse the rest part of list even if its size < k
             // (as it is required here https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/6394dfe0a05eca17327534ff),
             // then add this code
-//        } else {
+//         else {
 //            LinkedListNode reversedList = reverse(startSubList);
 //            prev.next = reversedList;
 //        }

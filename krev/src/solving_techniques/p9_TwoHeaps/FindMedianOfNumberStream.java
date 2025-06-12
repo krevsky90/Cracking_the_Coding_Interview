@@ -133,13 +133,9 @@ public class FindMedianOfNumberStream {
      * set s = total/2
      * traverse through frequency part and s -= temp frequency
      * if (after subtraction of i-th frequency) s == 0 then the answer is (numbers[i] + number[i+1])/2.0
-     * if s < 0 then the answer = numbers[i] (see example #2)
-     * Example #2:
-     * 11155339992
-     *
-     * 12359
-     * 21223
-     * answer is 3
+     *      example: 11233 55999
+     * if s < 0 then the answer = numbers[i]
+     *      example: 112355 999
      *
      * finally time ~ O(100) ~ O(1)
      */
@@ -148,7 +144,15 @@ public class FindMedianOfNumberStream {
      * Follow-up #2:  If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?
      *
      * In this case, we need an integer array of length 100 and a hashmap for these numbers that are not in [0,100].
-     * todo: не понял
+     * AS I understand:
+     * we store number -> freq in the same way (i.e. in array) if 0 <= value <= 10
+     * if numbers > 100, then put it top MAP: number -> freq (just to avoid too long array)
+     *
+     * do the sa,e as above:
+     * set s = total/2
+     * traverse through frequency part and s -= temp frequency
+     * in theory we might end our array and still s > 0
+     * then we will go through sorted keySet() of MAP
      *
      */
 

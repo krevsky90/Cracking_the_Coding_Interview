@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/639dc70fef27e08651fb4a59
  * OR
- * https://leetcode.com/problems/generalized-abbreviation (hard) (locked)
+ * https://leetcode.com/problems/generalized-abbreviation (medium) (locked)
  * <p>
  * Given a word, write a function to generate all of its unique generalized abbreviations.
  * <p>

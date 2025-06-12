@@ -62,6 +62,8 @@ public class FirstMissingPositive {
     public int firstMissingPositive(int[] nums) {
         int start = 0;
         while (start < nums.length) {
+            //NOTE: we do this to set 1 at 0-th position. if we set 0 to 0-th position, then 0,1,2 will return ans = 3,
+            // but we find missed positive (rather than not negative) value => trying to set 1 at 0-th pos
             int correctIdx = nums[start] - 1;
             if (correctIdx < 0 || correctIdx >= nums.length || nums[start] == nums[correctIdx]) {
                 start++;

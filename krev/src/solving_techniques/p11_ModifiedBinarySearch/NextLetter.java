@@ -56,7 +56,29 @@ public class NextLetter {
             }
         }
 
+        //finally low > high!
         return arr[low % arr.length];
+    }
+
+    /**
+     * 12.06.2025
+     */
+    public char nextGreatestLetter(char[] arr, char key) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low < high) {
+            int mid = (low + high)/2;
+            //remember that each lowercase letter is number in ASCII
+            if (arr[mid] > key) {
+                high = mid;
+            } else {
+                low = mid + 1;  //even if arr[mid] = key, mid can't be the anser => move low = mid + 1
+            }
+        }
+
+        if (arr[low] <= key) return arr[(low + 1) % arr.length];
+        return arr[low];
     }
 
     /**
