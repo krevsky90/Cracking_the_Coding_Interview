@@ -3,11 +3,10 @@ package solving_techniques.p20_TopologicalSort;
 import java.util.*;
 
 /**
- *
- * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a5c4a4fd87e19ef8c4df64
- * OR SIMILAR TO
  * 207. Course Schedule (medium)
  * https://leetcode.com/problems/course-schedule/
+ * OR  SIMILAR TO
+ * https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63a5c4a4fd87e19ef8c4df64
  *
  * #Company (6.04.2025): 0 - 3 months Amazon 37 Meta 22 Google 11 TikTok 6 Microsoft 4 Oracle 2 Snowflake 2 PayPal 2 Swiggy 2 Cruise 2 0 - 6 months Bloomberg 5 Apple 5 Anduril 3 Coupang 3 ByteDance 2 LiveRamp 2 6 months ago Uber 11 Adobe 9 Flipkart 5 Karat 5 Snap 4 Yahoo 4 Walmart Labs 3 Visa 3 eBay 3 VMware 3
  *
@@ -38,7 +37,7 @@ import java.util.*;
  * 0 <= ai, bi < numCourses
  * All the pairs prerequisites[i] are unique.
  */
-public class TasksScheduling {
+public class CourseSchedule {
     /**
      * KREVSKY SOLUTION #1:
      * use BFS topological sort - Kahn's Algorithm
@@ -157,7 +156,6 @@ public class TasksScheduling {
 
         cycle.remove(node);
         visited.add(node);
-        // result.add(node);
 
         return true;
     }
