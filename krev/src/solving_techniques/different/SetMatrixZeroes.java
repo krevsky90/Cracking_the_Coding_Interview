@@ -1,8 +1,9 @@
 package solving_techniques.different;
 
 /**
- * 73. Set Matrix Zeroes
+ * 73. Set Matrix Zeroes (medium)
  * https://leetcode.com/problems/set-matrix-zeroes
+ * <p>
  * #Company: Apple
  * <p>
  * Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
@@ -79,13 +80,62 @@ public class SetMatrixZeroes {
     }
 
     /**
+     * Optimal solution:
+     * time ~ O(n*m)
+     * space ~ O(1)
+     */
+    public void setZeroesOptimal(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        boolean zeroRow = false;
+        boolean zeroCol = false;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == 0) {
+                    //idea #1:
+                    //set 0-th element of i-th row to 0 (as marker). NOTE: we will never fave it again during this traversal => it won't affect us
+                    //set 0-th element of j-th columns to 0 (as marker). NOTE: we will never fave it again during this traversal => it won't affect us
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                    //idea #1.2: if i=0 => later we will fill 0-th row by 0s
+                    //the same - for 0-th column
+                    if (i == 0) zeroRow = true;
+                    if (j == 0) zeroCol = true;
+                }
+            }
+        }
+
+        //idea #2: set 0s to submatrix starting from i=1, j=1 (since this submatrix and 0-th row and column does not intersect)
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        //3. fill 0-th row and columns if flags are true
+        if (zeroRow) {
+            for (int c = 0; c < m; c++) {
+                matrix[0][c] = 0;
+            }
+        }
+
+        if (zeroCol) {
+            for (int r = 0; r < n; r++) {
+                matrix[r][0] = 0;
+            }
+        }
+    }
+
+    /**
      * info:
      * https://leetcode.com/problems/set-matrix-zeroes/solutions/5241541/super-easy-approach/
      * idea: store the info if i-th row should have 0s in separate array 'rows'
      * the same - for 'columns'
      * time ~ O(n*m)
      * space ~ O(n + m)
-     *
+     * <p>
      * BEATS = 77%
      */
     public void setZeroes(int[][] matrix) {
