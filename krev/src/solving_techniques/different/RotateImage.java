@@ -37,7 +37,7 @@ public class RotateImage {
      * <p>
      * 1 attempt
      */
-    public void rotate(int[][] matrix) {
+    public void rotateKrev1(int[][] matrix) {
         int n = matrix.length;
         int cache1 = 0;
         int cache2 = 0;
@@ -54,6 +54,34 @@ public class RotateImage {
 
                 matrix[i][j] = cache1;
             }
+        }
+    }
+
+    /**
+     * KREVSKY SOLUTION (21.06.2025)
+     * time to solve ~ 20 mins
+     * looks more simple than solution Krev1
+     * <p>
+     * 2 attempts:
+     * - incorrect condition (equals part): i <= high - low
+     */
+    public void rotateKrev2(int[][] matrix) {
+        if (matrix == null || matrix.length <= 1) return;
+
+        int n = matrix.length;
+        int low = 0;
+        int high = n - 1;
+        int cached = 0;
+        while (low < high) {
+            for (int i = 0; i < high - low; i++) {
+                cached = matrix[low][low + i];
+                matrix[low][low + i] = matrix[high - i][low];
+                matrix[high - i][low] = matrix[high][high - i];
+                matrix[high][high - i] = matrix[low + i][high];
+                matrix[low + i][high] = cached;
+            }
+            low++;
+            high--;
         }
     }
 
