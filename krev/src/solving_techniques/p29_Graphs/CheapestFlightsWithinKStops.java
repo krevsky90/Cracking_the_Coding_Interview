@@ -80,7 +80,7 @@ public class CheapestFlightsWithinKStops {
      *  time ~ O(E + V*logV)
      *  space ~ O(E + V)
      *
-     * BEATS ~ 38%
+     * BEATS ~ 47%
      *
      * many attempts:
      * - tried to use visited set
@@ -97,16 +97,18 @@ public class CheapestFlightsWithinKStops {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);    //min heap, where int[] - stores vertex, cheapest price, amount of stops
         pq.add(new int[]{src, 0, -1});
 
-        int[] stops = new int[n];
+        int[] stops = new int[n];   //store number of stops that require to reach i-th vertex
         Arrays.fill(stops, Integer.MAX_VALUE);
 
         while (!pq.isEmpty()) {
             int[] el = pq.poll();
 
-            // We have already encountered a path with a lower cost and fewer stops => skip current element
             // NOTE: this optimization helps to avoid TLE
-            // OR if the path is longer than k => skip this path
-            if (el[2] > k || stops[el[0]] < el[2]) continue;
+            // 1) if the path is longer than k => skip this path
+            // 2) if we have already handled this vertex => its price was < then el[1].
+            // What may be the reason to consider el? only if it contains < stops than we faced/stored before for this vertex.
+            //      Otherwise, it has worse price and worse or same amount of stops
+            if (el[2] > k || stops[el[0]] <= el[2]) continue;
 
             stops[el[0]] = el[2];
 
