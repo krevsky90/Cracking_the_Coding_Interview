@@ -213,4 +213,82 @@ public class AccountsMerge {
 
         return result;
     }
+
+    /**
+     * KREVSKY SOLUTION #3 (24.06.2025): Union find
+     * time ~ 29 mins
+     * BEATS ~ 9%
+     *
+     * 2 attempts:
+     * - typo like List instead of Set
+     */
+    public List<List<String>> accountsMergeUnionFind(List<List<String>> accounts) {
+        Map<String, Set<String>> adjMap = new HashMap<>();
+        Map<String, String> emailToNameMap = new HashMap<>();
+
+        for (List<String> account : accounts) {
+            String name = account.get(0);
+            String email1 = account.get(1);
+            adjMap.put(email1, new HashSet<>());
+            emailToNameMap.put(email1, name);
+
+            for (int i = 2; i < account.size(); i++) {
+                adjMap.putIfAbsent(account.get(i), new HashSet<>());
+                adjMap.get(account.get(i)).add(email1);
+                adjMap.get(email1).add(account.get(i));
+                emailToNameMap.put(account.get(i), name);
+            }
+        }
+
+        Map<String, String> parents = new HashMap<>();
+        for (String email : adjMap.keySet()) {
+            parents.put(email, email);
+        }
+
+        // Set<String> visited = new HashSet<>();
+        for (String key : adjMap.keySet()) {
+            // if (visited)
+            Set<String> list = adjMap.get(key);
+            for (String e : list) {
+                union(key, e, parents);
+            }
+        }
+
+        //group by parents
+        Map<String, List<String>> groups = new HashMap<>();
+        for (String key : adjMap.keySet()) {
+            String parent = findParent(key, parents);
+            groups.putIfAbsent(parent, new ArrayList<>());
+            groups.get(parent).add(key);
+        }
+
+        List<List<String>> result = new ArrayList<>();
+        for (String parent : groups.keySet()) {
+            List<String> subResult = groups.get(parent);
+            Collections.sort(subResult);
+            String name = emailToNameMap.get(subResult.get(0));
+            subResult.add(0, name);
+            result.add(subResult);
+        }
+
+        return result;
+    }
+
+    private String findParent(String email, Map<String, String> map) {
+        if (email.equals(map.get(email))) {
+            return email;
+        } else {
+            String parent = findParent(map.get(email), map);
+            map.put(email, parent);
+            return parent;
+        }
+    }
+
+    private void union(String e1, String e2, Map<String, String> map) {
+        String parent1 = findParent(e1, map);
+        String parent2 = findParent(e2, map);
+        if (parent1.equals(parent2)) return;
+
+        map.put(parent1, parent2);
+    }
 }
