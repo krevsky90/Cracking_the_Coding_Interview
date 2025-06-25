@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
+package solving_techniques.p11_BinarySearch;
 
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 

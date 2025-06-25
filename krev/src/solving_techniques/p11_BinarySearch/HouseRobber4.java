@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
+package solving_techniques.p11_BinarySearch;
 
 /**
  * 2560. House Robber IV (medium)

@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
+package solving_techniques.p11_BinarySearch;
 
 /**
  * 1060. Missing Element in Sorted Array (medium) (locked)

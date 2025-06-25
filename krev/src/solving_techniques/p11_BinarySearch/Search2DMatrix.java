@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
+package solving_techniques.p11_BinarySearch;
 
 /**
  * 74. Search a 2D Matrix (medium)

@@ -1,4 +1,4 @@
-package solving_techniques.p11_ModifiedBinarySearch.binarySearch;
+package solving_techniques.p11_BinarySearch;
 
 public class TestBinarySearch {
     public static void main(String[] args) {
