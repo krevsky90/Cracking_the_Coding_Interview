@@ -65,25 +65,8 @@ public class CarPooling {
     }
 
     /**
-     * Approach #2 - see Editorial - Bucket Sort (since 'from' and 'to' <= 1000)
-     * time ~ O(max(1001, N))
-     * space ~ O(1001) ~ O(1)
+     * Approach #2 - see Editorial - Bucket Sort - see separate file
      */
-    public boolean carPooling2(int[][] trips, int capacity) {
-        int[] timestamp = new int[1001];
-        for (int[] trip : trips) {
-            timestamp[trip[1]] += trip[0];
-            timestamp[trip[2]] -= trip[0];
-        }
-        int usedCapacity = 0;
-        for (int number : timestamp) {
-            usedCapacity += number;
-            if (usedCapacity > capacity) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     /**
      * SOLUTION #3:

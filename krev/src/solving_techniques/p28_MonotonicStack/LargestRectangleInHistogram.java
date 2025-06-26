@@ -75,4 +75,33 @@ public class LargestRectangleInHistogram {
 
         return maxArea;
     }
+
+    public static void main(String[] args) {
+        int[] heights = {6, 7, 5};
+        LargestRectangleInHistogram obj = new LargestRectangleInHistogram();
+        obj.largestRectangleArea2(heights);
+    }
+
+    /**
+     * SOLUTION #2
+     * info: https://vladisov.notion.site/Largest-Histogram-a63adc25a64b44938a679b6983e05714
+     */
+    public int largestRectangleArea2(int[] heights) {
+        int maxArea = 0;
+        Stack<Integer> stack = new Stack<>();
+        //NOTE: i++ is NOT in for-loop
+        for(int i = 0; i <= heights.length;) {
+            int height = i == heights.length ? 0 : heights[i];
+            if (stack.isEmpty() || height >= heights[stack.peek()]) {
+                stack.push(i++);
+            } else {
+                int currHeight = heights[stack.pop()];
+                int right = i - 1;
+                int left = stack.isEmpty() ? 0 : stack.peek() + 1;
+                int width = right - left + 1;
+                maxArea = Math.max(maxArea, currHeight * width);
+            }
+        }
+        return maxArea;
+    }
 }

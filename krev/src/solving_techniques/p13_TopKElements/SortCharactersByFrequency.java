@@ -1,4 +1,4 @@
-package solving_techniques.different;
+package solving_techniques.p13_TopKElements;
 
 import java.util.*;
 
@@ -73,49 +73,6 @@ public class SortCharactersByFrequency {
     }
 
     /**
-     * SOLUTION #2: O(n)
-     * info: https://www.youtube.com/watch?v=OWPXweP5B0Q&list=PLUPSMCjQ-7oeyhZZ7xjXPQmWEn1EQUiME&index=18
-     * idea: use Bucket sort
-     * 1) create map c -> freq and track max_freq
-     * 2) create 2D array (size = max_freq), where i-th row has chars with freq = i + 1
-     * 3) just traverse through 2D array from end to start and build the string
-     * <p>
-     * time ~ O(n)
-     * space ~ O(n)
-     * <p>
-     * 1 attempt
-     * <p>
-     * BEATS time = 56%
-     * BEATS memory = 5%
+     * Approach 2 - bucket sort - see separate file
      */
-    public String frequencySort2(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        int maxFreq = -1;
-        for (char c : s.toCharArray()) {
-            int tempFreq = map.getOrDefault(c, 0) + 1;
-            maxFreq = Math.max(maxFreq, tempFreq);
-            map.put(c, tempFreq);
-        }
-
-        List<List<Character>> buckets = new ArrayList<>(maxFreq + 1);
-        for (int i = 0; i < maxFreq + 1; i++) {
-            buckets.add(new ArrayList<>());
-        }
-
-        for (Character c : map.keySet()) {
-            buckets.get(map.get(c)).add(c);
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = buckets.size() - 1; i > 0; i--) {
-            List<Character> tempList = buckets.get(i);
-            for (int j = 0; j < tempList.size(); j++) {
-                for (int c = 0; c < i; c++) {
-                    sb.append(tempList.get(j));
-                }
-            }
-        }
-
-        return sb.toString();
-    }
 }
