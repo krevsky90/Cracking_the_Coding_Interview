@@ -339,7 +339,7 @@ public class NetworkDelayTime {
     // Adjacency list
     Map<Integer, List<Pair<Integer, Integer>>> adj = new HashMap<>();
 
-    class Pair<N, M> {
+    public static class Pair<N, M> {
         N key;
         M value;
 
