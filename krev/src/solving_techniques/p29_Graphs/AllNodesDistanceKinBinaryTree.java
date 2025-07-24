@@ -2,10 +2,7 @@ package solving_techniques.p29_Graphs;
 
 import data_structures.chapter4_trees_n_graphs.amazon_igotanoffer.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 863. All Nodes Distance K in Binary Tree (medium)
@@ -35,6 +32,80 @@ import java.util.Queue;
  * 0 <= k <= 1000
  */
 public class AllNodesDistanceKinBinaryTree {
+    /**
+     * KREVSKY SOLUTION (23.07.2025)
+     *
+     */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
+
+    public List<Integer> distanceKrev2(TreeNode root, TreeNode target, int k) {
+        Map<TreeNode, List<TreeNode>> adjMap = new HashMap<>();
+
+        dfs(root, null, adjMap);
+
+        //use bfs for target node using level by level approach
+        return bfsGraph(target, adjMap, k);
+    }
+
+    private void dfs(TreeNode root, TreeNode parent, Map<TreeNode, List<TreeNode>> adjMap) {
+        if (root != null) {
+            // adjMap.putIfAbsent(root, new ArrayList<>());
+            if (parent != null) {
+                //NOTE: this computeIfAbsent speeds up from 18% to 66%!
+                adjMap.computeIfAbsent(root, k -> new ArrayList<>()).add(parent);
+                adjMap.computeIfAbsent(parent, k -> new ArrayList<>()).add(root);
+                // adjMap.get(parent).add(root);
+                // adjMap.get(root).add(parent);
+            }
+
+            dfs(root.left, root, adjMap);
+            dfs(root.right, root, adjMap);
+        }
+    }
+
+    private List<Integer> bfsGraph(TreeNode target, Map<TreeNode, List<TreeNode>> adjMap, int k) {
+        int level = 0;
+        Queue<TreeNode> q = new LinkedList<>();
+        Set<TreeNode> visited = new HashSet<>();
+        q.add(target);
+        visited.add(target);
+
+        while (!q.isEmpty()) {
+            if (level == k) {
+                //break, transform all nodes from q to list of integers and return
+                break;
+            }
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = q.poll();
+
+                List<TreeNode> adjNodes = adjMap.getOrDefault(node, Collections.emptyList());
+                for (TreeNode adj : adjNodes) {
+                    if (!visited.contains(adj)) {
+                        q.add(adj);
+                        visited.add(adj);
+                    }
+                }
+            }
+            level++;
+        }
+
+        List<Integer> result = new ArrayList<>(q.size());
+        while (!q.isEmpty()) {
+            result.add(q.poll().val);
+        }
+
+        return result;
+    }
+
     /**
      * KREVSKY SOLUTION:
      * idea:
