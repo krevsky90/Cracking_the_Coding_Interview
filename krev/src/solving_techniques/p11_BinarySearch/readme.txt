@@ -70,3 +70,44 @@ ATTENTION!!!
 NOTE: be careful in case if we need to return element, but not index!
     see https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
     here we need to check if left and right is not out of bound
+
+3) naive and understandable implementation:
+3.1) find the left most element = target:
+    private int findLeft(int[] arr, int c) {
+            int low = 0;
+            int high = arr.length - 1;
+            int res = -1;
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                if (arr[mid] < c) {
+                    low = mid + 1;
+                } else if (arr[mid] > c) {
+                    high = mid - 1;
+                } else {
+                    res = mid;
+                    high = mid - 1;
+                }
+            }
+
+            return res;
+        }
+3.2) find the right most element = target:
+    private int findRight(int[] arr, int c) {
+        int low = 0;
+        int high = arr.length - 1;
+        int res = -1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] < c) {
+                low = mid + 1;
+            } else if (arr[mid] > c) {
+                high = mid - 1;
+            } else {
+                res = mid;
+                low = mid + 1;
+            }
+        }
+
+        return res;
+    }
+
